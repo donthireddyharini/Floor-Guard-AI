@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_clean_floor_0133.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/safe_0133.jpg",
+  "sha256": "7ca2a1fa8708b27b21af99a21ba807087fa667bcf862388d28efe87e40a21a92",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "clean_floor",
+  "description": "Unobstructed clean dry floor aisle between warehouse shelving",
+  "boxes_count": 0,
+  "review_status": "reviewed"
+}

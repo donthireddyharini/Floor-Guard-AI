@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_obstacle_0181.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/obstacle/obstacle_0181.jpg",
+  "sha256": "9b969e70c7671960236eb4534db524e3514e501844e96ac921988b582c5befb9",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "obstacle",
+  "description": "Cardboard boxes fallen from shelving scattered on aisle floor",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

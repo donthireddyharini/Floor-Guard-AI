@@ -1,0 +1,18 @@
+{
+  "id": "p43_clean_floor_0009",
+  "category": "clean_floor",
+  "image_file": "data/benchmark_expanded/images/p43_clean_floor_0009.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_clean_floor_0009.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/safe/safe_0009.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "c192864f5527af2b4e97a8fc4313bd0f24846d883404a67f918413aa3852d00e",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "dry concrete walkway with yellow boundary markings",
+  "description": "Wide warehouse walkway flanked by shelving, dry concrete, yellow hazard lines",
+  "bounding_boxes_count": 0,
+  "bounding_boxes": []
+}

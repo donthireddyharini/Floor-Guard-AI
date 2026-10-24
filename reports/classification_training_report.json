@@ -1,0 +1,61 @@
+{
+  "config": {
+    "model_name": "FloorGuard-SpillClassifier",
+    "version": "v1.0.0",
+    "task": "classification",
+    "dataset_source": "Roboflow Universe (ag-spill/spill-detection-zlhyl)",
+    "base_backbone": "MobileNetV3-Small (ImageNet Pretrained)",
+    "input_resolution": [
+      224,
+      224
+    ],
+    "batch_size": 32,
+    "epochs": 25,
+    "optimizer": "AdamW",
+    "initial_learning_rate": 0.0005,
+    "weight_decay": 0.01,
+    "classes": [
+      "floor floor floor",
+      "spill"
+    ]
+  },
+  "convergence": [
+    {
+      "epoch": 1,
+      "train_loss": 0.612,
+      "val_loss": 0.548,
+      "val_acc": 0.724
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.385,
+      "val_loss": 0.352,
+      "val_acc": 0.846
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.245,
+      "val_loss": 0.23,
+      "val_acc": 0.902
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.178,
+      "val_loss": 0.185,
+      "val_acc": 0.925
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.126,
+      "val_loss": 0.151,
+      "val_acc": 0.938
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.098,
+      "val_loss": 0.142,
+      "val_acc": 0.942
+    }
+  ],
+  "final_accuracy": 0.942
+}

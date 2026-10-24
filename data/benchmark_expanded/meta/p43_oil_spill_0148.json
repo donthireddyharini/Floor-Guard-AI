@@ -1,0 +1,26 @@
+{
+  "id": "p43_oil_spill_0148",
+  "category": "oil_spill",
+  "image_file": "data/benchmark_expanded/images/p43_oil_spill_0148.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_oil_spill_0148.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/spill/spill_0148.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "30d1fed16ca263324e2f5ef208b4b10c227faa73f5f8bc3071d1a1362c90e6e2",
+  "resolution": [
+    1024,
+    576
+  ],
+  "floor_surface": "concrete aisle floor with tire mark impressions",
+  "description": "Large dark amber oil puddle with wheel marks across concrete walkway",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      1,
+      0.495,
+      0.65,
+      0.4,
+      0.29
+    ]
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "p43_obstacle_0073",
+  "category": "obstacle",
+  "image_file": "data/benchmark_expanded/images/p43_obstacle_0073.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_obstacle_0073.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/obstacle/obstacle_0073.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "38dfd9c90cb750a06c05f000f1b83efdada68c70f20bcd9d53d49081207b492b",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "warehouse floor walkway",
+  "description": "Fallen cardboard boxes, packing debris, and pallet jack blocking walking aisle",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      3,
+      0.51,
+      0.68,
+      0.42,
+      0.34
+    ]
+  ]
+}

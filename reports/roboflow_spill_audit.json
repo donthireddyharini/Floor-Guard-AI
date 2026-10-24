@@ -1,0 +1,25 @@
+{
+  "dataset_name": "Roboflow Spill Detection",
+  "universe_url": "https://universe.roboflow.com/ag-spill/spill-detection-zlhyl",
+  "reported_image_count": 4580,
+  "annotation_format": "classification_folder",
+  "reported_classes": [
+    "spill",
+    "floor floor floor"
+  ],
+  "license": "CC BY 4.0",
+  "auth_required": true,
+  "api_key_configured": false,
+  "download_status": "blocked_unauthenticated",
+  "blocker_explanation": "HTTP 401 Unauthorized: The Roboflow dataset 'ag-spill/spill-detection-zlhyl' is not an open anonymous download. Roboflow Universe requires an authorized API key to generate download tokens and export the raw 4,580 images.",
+  "configuration_steps": [
+    "1. Create or log in to your Roboflow account at https://roboflow.com",
+    "2. Retrieve your Roboflow Private API Key from https://app.roboflow.com/settings/api",
+    "3. Set the environment variable: export ROBOFLOW_API_KEY=\"your_key_here\"",
+    "4. Rerun: python3 ml/download_roboflow_dataset.py"
+  ],
+  "class_semantic_audit": {
+    "spill": "Images containing liquid puddles (water, oil, beverage spills) on indoor walking floors.",
+    "floor floor floor": "Normal, dry, clean floor surfaces without liquid pools. The triplicate naming is a known Roboflow classification labeling convention."
+  }
+}

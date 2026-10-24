@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_clean_floor_0152.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/safe_0152.jpg",
+  "sha256": "77c0ab46b3666d910816d426a417e6a2073fd768969646a1a7da890bc2e1f600",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "clean_floor",
+  "class_id": -1,
+  "boxes_count": 0,
+  "description": "Clean dry floor aisle with strong yellow safety floor line paint and glare",
+  "review_status": "manually_verified"
+}

@@ -1,0 +1,16 @@
+{
+  "image_filename": "phele_glass_train_516.jpg",
+  "source_dataset": "PHELE: Elderly Living Environment Hazards (DOI: 10.17632/yzsxcvc8dp.4)",
+  "source_author": "Peng Gao, Chuzhou University",
+  "source_license": "CC BY 4.0",
+  "original_path_in_archive": "PHELE/train/images/train_516.jpg",
+  "sha256": "53faa2aca50bac227a9a21a10b83809bb08bc9122d937cfed1aa98c7acc38914",
+  "dimensions": {
+    "width": 1280,
+    "height": 1707
+  },
+  "boxes_count": 8,
+  "mapped_class": "broken_glass (id: 2)",
+  "source_class_id": 14,
+  "review_status": "reviewed"
+}

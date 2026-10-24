@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_obstacle_0029.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/obstacle/obstacle_0029.jpg",
+  "sha256": "b5ec8a4d16d7e1b1b2119b37f3e614678f4857bd86df2340cabdf9b8157ab4e2",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "obstacle",
+  "description": "Pallet jack surrounded by scattered debris and crushed cardboard",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

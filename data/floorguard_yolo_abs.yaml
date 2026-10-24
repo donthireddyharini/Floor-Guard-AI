@@ -1,0 +1,9 @@
+names:
+  0: water_spill
+  1: oil_spill
+  2: broken_glass
+  3: obstacle
+path: C:\Users\donth_\Downloads\harry_client\floor-guard-ai
+test: data/splits/test.txt
+train: data/splits/train.txt
+val: data/splits/val.txt

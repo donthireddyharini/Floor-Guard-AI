@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0110.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0110.jpg",
+  "sha256": "e02d4bc88aa5d47d1acf517d615b4e330cbe4d44bc7ad1632fcfa11841c34684",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Clear water puddle on concrete floor with visible floor grain through liquid",
+  "review_status": "manually_verified"
+}

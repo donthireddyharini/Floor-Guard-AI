@@ -1,0 +1,6 @@
+{
+  "image_filename": "thumb_obstacle.jpg",
+  "review_status": "rejected",
+  "rejection_reason": "Resolution (42x26) below 100x100 minimum threshold. Cropped UI preview icon.",
+  "boxes_count": 0
+}

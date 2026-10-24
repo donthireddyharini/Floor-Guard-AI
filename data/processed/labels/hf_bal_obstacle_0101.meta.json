@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_obstacle_0101.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/obstacle/obstacle_0101.jpg",
+  "sha256": "58f9c0d95b2097d564f3cb6fb1ca49b73f19adb15b2c89aa35a60df2cb0c6647",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "obstacle",
+  "description": "Overturned blue storage containers and scattered small parts",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

@@ -1,0 +1,4 @@
+data/processed/images/thumb_oil_spill.jpg
+data/processed/images/hf_pilot_clean_floor_0017.jpg
+data/processed/images/hf_pilot_water_spill_0018.jpg
+data/processed/images/thumb_broken_glass.jpg

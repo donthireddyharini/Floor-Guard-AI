@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_oil_spill_0117.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0117.jpg",
+  "sha256": "22319ff70c29f61c48a2cdd58b0722c69bc62ec4b1e987a3f86bea6bf358b34f",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "oil_spill",
+  "class_id": 1,
+  "boxes_count": 1,
+  "description": "Opaque beige/amber industrial lubricant puddle on aisle floor",
+  "review_status": "manually_verified"
+}

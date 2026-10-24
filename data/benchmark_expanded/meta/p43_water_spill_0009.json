@@ -1,0 +1,26 @@
+{
+  "id": "p43_water_spill_0009",
+  "category": "water_spill",
+  "image_file": "data/benchmark_expanded/images/p43_water_spill_0009.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_water_spill_0009.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "train/spill/spill_0009.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "7b796818d24802aea5665ae9aa4b18e873285583004a43684664f3c8c142f5dd",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "smooth concrete floor with overhead light reflections",
+  "description": "Large clear water puddle reflecting overhead bay lights on walkway floor",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      0,
+      0.535,
+      0.675,
+      0.41,
+      0.29
+    ]
+  ]
+}

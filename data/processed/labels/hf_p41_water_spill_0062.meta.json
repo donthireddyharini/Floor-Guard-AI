@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0062.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0062.jpg",
+  "sha256": "2326421c2ac4919d0c6ffda4f78cfd1e5ca36113821d59f693d0a50075ef3b93",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Multiple wet spots and small clear puddles trailing down aisle center on smooth concrete",
+  "review_status": "manually_verified"
+}

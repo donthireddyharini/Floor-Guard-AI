@@ -1,0 +1,8 @@
+{
+  "image_file": "sample_water_spill.jpg",
+  "label_file": "sample_water_spill.txt",
+  "annotator": "human_reviewer",
+  "verified_human_review": true,
+  "is_negative_sample": false,
+  "updated_at": "2026-10-24T08:24:54.327121+00:00"
+}

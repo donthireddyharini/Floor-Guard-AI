@@ -1,0 +1,102 @@
+{
+  "manifest_version": "2.1-phase3a",
+  "audit_phase": "Phase 3A Dataset Acquisition & Annotation Preparation",
+  "updated_at": "2026-10-24T15:05:00Z",
+  "local_verified_inventory": {
+    "total_image_files_in_workspace": 62,
+    "unique_physical_images": 29,
+    "processed_pool_images": 27,
+    "processed_pool_labels": 6,
+    "bounding_boxes_verified": 1,
+    "negative_clean_floor_samples": 5,
+    "unannotated_hazard_images": 21,
+    "corrupted_images": 0,
+    "split_leakage": false
+  },
+  "target_detection_classes": [
+    "water_spill",
+    "oil_spill",
+    "broken_glass",
+    "obstacle"
+  ],
+  "background_negative_condition": "clean_floor",
+  "pilot_acquisition": {
+    "manifest_file": "data/pilot_manifest.json",
+    "acquired_batch_count": 13,
+    "source_repo": "Jsohal174/warehouse-safety-hazard-dataset",
+    "license": "CC BY 4.0",
+    "classes_acquired": {
+      "water_spill": 4,
+      "oil_spill": 1,
+      "obstacle": 4,
+      "clean_floor": 4
+    }
+  },
+  "remote_catalog_sources": [
+    {
+      "id": "ds_01",
+      "name": "SynSpill: Improved Spill Detection with Synthetic Data",
+      "version": "v1.0 (arXiv:2508.10171)",
+      "url": "https://huggingface.co/datasets/sochastic/SynSpill",
+      "license": "Apache 2.0",
+      "type": "photorealistic_synthetic_industrial_spills",
+      "catalog_images": 2000,
+      "format": "paired_png_segmentation_masks",
+      "access_status": "gated (Hugging Face HF_TOKEN authentication required)",
+      "classes": ["water_spill", "oil_spill"],
+      "local_files_present": 2
+    },
+    {
+      "id": "ds_02",
+      "name": "Warehouse Safety Hazard Dataset",
+      "version": "v2.0",
+      "url": "https://huggingface.co/datasets/Jsohal174/warehouse-safety-hazard-dataset",
+      "license": "CC BY 4.0",
+      "type": "drone_overhead_and_ground_warehouse",
+      "catalog_images": 913,
+      "format": "jpeg_images_with_vlm_metadata_jsonl",
+      "access_status": "open_download (no authentication required)",
+      "classes": ["water_spill", "oil_spill", "obstacle", "clean_floor"],
+      "local_files_present": 20
+    },
+    {
+      "id": "ds_03",
+      "name": "Roboflow Spill Detection (ag-spill)",
+      "version": "v1.0",
+      "url": "https://universe.roboflow.com/ag-spill/spill-detection-zlhyl",
+      "license": "CC BY 4.0",
+      "type": "indoor_commercial_puddles",
+      "catalog_images": 4580,
+      "format": "folder_classification (spill vs floor floor floor)",
+      "access_status": "authentication_required (ROBOFLOW_API_KEY required)",
+      "classes": ["spill", "floor floor floor"],
+      "local_files_present": 0
+    },
+    {
+      "id": "ds_04",
+      "name": "PHELE: Physical Hazards of the Elderly Living Environment",
+      "version": "v4 (DOI: 10.17632/yzsxcvc8dp.4)",
+      "url": "https://data.mendeley.com/datasets/yzsxcvc8dp/4",
+      "license": "CC BY 4.0",
+      "type": "indoor_elderly_safety_hazards",
+      "catalog_images": 112,
+      "format": "pascal_voc_xml (PHELE.zip, 2.52 GB)",
+      "access_status": "open_mendeley_direct_download",
+      "classes": ["broken_glass", "water_spill", "obstacle"],
+      "local_files_present": 1
+    },
+    {
+      "id": "ds_05",
+      "name": "FloorGuard Clean Dry Floor Benchmark",
+      "version": "v1.0",
+      "url": "local://data/processed/clean_floors",
+      "license": "Academic / Non-Commercial",
+      "type": "indoor_clean_floors_negative_control",
+      "catalog_images": 1108,
+      "format": "yolo_negative_empty_label_files",
+      "access_status": "curated_locally",
+      "classes": ["clean_floor"],
+      "local_files_present": 5
+    }
+  ]
+}

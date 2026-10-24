@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_clean_floor_0198.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/forklift_0198.jpg",
+  "sha256": "a5c725d4f980bf800e0354b42c57485ddb16d5da44c0d720acbc8555f03cf661",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "clean_floor",
+  "description": "Wide dry warehouse floor free of obstacles and liquid spills",
+  "boxes_count": 0,
+  "review_status": "reviewed"
+}

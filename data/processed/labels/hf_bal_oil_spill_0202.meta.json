@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_oil_spill_0202.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0202.jpg",
+  "sha256": "7b88ccc50192dfbf5dc9314937fae24f2ef5eb905096730c2aca8e73ce40cf09",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "oil_spill",
+  "description": "Dark viscous fluid puddle with scattered droplet splatter",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

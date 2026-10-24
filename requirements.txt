@@ -1,0 +1,15 @@
+# Floor Guard AI - Python Requirements
+torch>=2.2.0
+torchvision>=0.17.0
+ultralytics>=8.2.0
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.6.0
+sqlalchemy>=2.0.28
+pandas>=2.2.0
+numpy>=1.26.0
+pillow>=10.2.0
+opencv-python-headless>=4.9.0.80
+huggingface-hub>=0.21.0
+roboflow>=1.1.27
+pytest>=8.0.0

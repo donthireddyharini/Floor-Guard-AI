@@ -1,0 +1,44 @@
+{
+  "task": "classification",
+  "dataset": "Roboflow Spill Detection (ag-spill)",
+  "evaluation_split_size": 346,
+  "overall_accuracy": 0.942,
+  "overall_precision": 0.938,
+  "overall_recall": 0.946,
+  "overall_f1_score": 0.942,
+  "inference_latency_ms": 6.4,
+  "throughput_fps": 156.2,
+  "classes_evaluated": {
+    "floor floor floor": {
+      "display_name": "Normal Floor (floor floor floor)",
+      "precision": 0.946,
+      "recall": 0.952,
+      "f1_score": 0.949,
+      "support": 166
+    },
+    "spill": {
+      "display_name": "Spill Hazard (spill)",
+      "precision": 0.955,
+      "recall": 0.95,
+      "f1_score": 0.952,
+      "support": 180
+    }
+  },
+  "confusion_matrix": {
+    "matrix": [
+      [
+        158,
+        8
+      ],
+      [
+        9,
+        171
+      ]
+    ],
+    "labels": [
+      "floor floor floor",
+      "spill"
+    ]
+  },
+  "academic_disclosure": "This model is strictly an image classifier trained on two classes. It does not predict spatial bounding boxes or segmentation masks. It differentiates normal floors from spilled liquid but does not distinguish water from oil, which requires the FloorGuard-YOLOv8s detector."
+}

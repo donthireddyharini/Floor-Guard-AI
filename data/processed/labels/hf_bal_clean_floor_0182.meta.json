@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_clean_floor_0182.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/forklift_0182.jpg",
+  "sha256": "500b1b113e742ef9105377e863b2fa6da122d47de5db289906144977517ab76f",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "clean_floor",
+  "description": "Clean dry floor walkway with clear yellow pedestrian stripes",
+  "boxes_count": 0,
+  "review_status": "reviewed"
+}

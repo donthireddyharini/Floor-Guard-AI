@@ -1,0 +1,26 @@
+{
+  "id": "p43_water_spill_0012",
+  "category": "water_spill",
+  "image_file": "data/benchmark_expanded/images/p43_water_spill_0012.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_water_spill_0012.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "train/spill/spill_0012.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "189e22fc88ef3959bf5dcae7babf9d7ec192ab0f2772612fd60e74522d8a1521",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "polished warehouse walkway floor",
+  "description": "Wide standing water area on walkway floor with sharp light reflection",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      0,
+      0.495,
+      0.655,
+      0.43,
+      0.31
+    ]
+  ]
+}

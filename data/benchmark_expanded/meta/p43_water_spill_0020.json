@@ -1,0 +1,26 @@
+{
+  "id": "p43_water_spill_0020",
+  "category": "water_spill",
+  "image_file": "data/benchmark_expanded/images/p43_water_spill_0020.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_water_spill_0020.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "train/spill/spill_0020.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "616db5fdf83a378145bd3270a9fce710cc6fc4a09b4a6f7599a6050e00df185d",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "concrete floor between shelving rows",
+  "description": "Multiple clear water spots and droplet splatter on walkway floor",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      0,
+      0.51,
+      0.68,
+      0.34,
+      0.25
+    ]
+  ]
+}

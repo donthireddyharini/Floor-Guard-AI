@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0140.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0140.jpg",
+  "sha256": "be6f80b7cc93c60bbcd33dab8bce3ff0f495115a1af9ec353a0fdfe1c726c628",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Clear water puddle in aisle center with overhead illumination reflections",
+  "review_status": "manually_verified"
+}

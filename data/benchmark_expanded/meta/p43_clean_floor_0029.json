@@ -1,0 +1,18 @@
+{
+  "id": "p43_clean_floor_0029",
+  "category": "clean_floor",
+  "image_file": "data/benchmark_expanded/images/p43_clean_floor_0029.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_clean_floor_0029.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/safe/safe_0029.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "ed5ea15236715531034e834d8324ea1b51274f41ee810c4f54742859a41ef1c1",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "concrete aisle intersection with painted walkway border lines",
+  "description": "Aisle intersection with floor painted borders, clean and dry",
+  "bounding_boxes_count": 0,
+  "bounding_boxes": []
+}

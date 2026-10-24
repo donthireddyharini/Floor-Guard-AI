@@ -1,0 +1,26 @@
+{
+  "id": "p43_water_spill_0007",
+  "category": "water_spill",
+  "image_file": "data/benchmark_expanded/images/p43_water_spill_0007.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_water_spill_0007.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "train/spill/spill_0007.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "02dafa447b105451c763139b40f858d4ab5e300414b1d2741a6658412b022de7",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "grey concrete forklift aisle floor",
+  "description": "Clear transparent water spill on forklift aisle floor blending with floor surface",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      0,
+      0.505,
+      0.645,
+      0.36,
+      0.28
+    ]
+  ]
+}

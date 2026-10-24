@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_clean_floor_0064.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/safe_0064.jpg",
+  "sha256": "5539dda39a19eff436a8c5164eab21a34e9b9953a41b49dd533bd3f09e279bfd",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "clean_floor",
+  "class_id": -1,
+  "boxes_count": 0,
+  "description": "Dry warehouse floor aisle with overhead light reflections on polished concrete",
+  "review_status": "manually_verified"
+}

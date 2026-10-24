@@ -1,0 +1,66 @@
+{
+  "classes": [
+    {
+      "id": 0,
+      "name": "water_spill",
+      "display_name": "Water Spill",
+      "type": "detection_and_segmentation",
+      "color": "#f59e0b",
+      "severity": "High",
+      "description": "Clear or translucent liquid puddle posing immediate pedestrian slip-and-fall risk."
+    },
+    {
+      "id": 1,
+      "name": "oil_spill",
+      "display_name": "Oil Spill",
+      "type": "detection_and_segmentation",
+      "color": "#ef4444",
+      "severity": "High",
+      "description": "Viscous, dark, or greasy hydrocarbon liquid on walking surface posing severe slip hazard."
+    },
+    {
+      "id": 2,
+      "name": "broken_glass",
+      "display_name": "Broken Glass",
+      "type": "detection_and_segmentation",
+      "color": "#a855f7",
+      "severity": "Medium",
+      "description": "Shattered glass shards, fragments, or sharp transparent debris on floor."
+    },
+    {
+      "id": 3,
+      "name": "obstacle",
+      "display_name": "Obstacles / Debris",
+      "type": "detection_and_segmentation",
+      "color": "#3b82f6",
+      "severity": "Medium",
+      "description": "Loose objects, boxes, pallets, cables, or dropped materials causing tripping hazards."
+    }
+  ],
+  "background_condition": {
+    "name": "clean_floor",
+    "display_name": "Clean Dry Floor",
+    "representation": "negative_sample",
+    "label_file_format": "empty_0_byte_txt",
+    "description": "Verified dry, clean walking surface with no hazard bounding boxes to train false-positive suppression."
+  },
+  "source_mappings": {
+    "SynSpill": {
+      "liquid_puddle": "water_spill",
+      "oil_puddle": "oil_spill"
+    },
+    "Warehouse Safety Hazard": {
+      "spill": "water_spill",
+      "obstacle": "obstacle",
+      "box_hazard": "obstacle",
+      "pallet_hazard": "obstacle"
+    },
+    "Roboflow Spill Detection": {
+      "spill": "water_spill"
+    },
+    "PHELE": {
+      "broken_glass": "broken_glass",
+      "trip_hazard": "obstacle"
+    }
+  }
+}

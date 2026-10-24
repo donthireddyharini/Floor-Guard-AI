@@ -1,0 +1,26 @@
+{
+  "preprocessing_date": "2026-05-18T18:00:00Z",
+  "splits": {
+    "train": {
+      "images": 1615,
+      "percentage": 70.0,
+      "annotations": 1743
+    },
+    "val": {
+      "images": 346,
+      "percentage": 15.0,
+      "annotations": 373
+    },
+    "test": {
+      "images": 346,
+      "percentage": 15.0,
+      "annotations": 374
+    }
+  },
+  "augmentations_applied_train_only": [
+    "RandomHorizontalFlip(p=0.5)",
+    "ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1)",
+    "RandomAffine(degrees=5, translate=(0.05, 0.05), scale=(0.95, 1.05))"
+  ],
+  "banned_augmentations_notice": "Reflective distortion and extreme hue shifts were rejected to preserve liquid refractive properties and oil sheen color fidelity."
+}

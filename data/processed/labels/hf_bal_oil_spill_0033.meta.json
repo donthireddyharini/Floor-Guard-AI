@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_oil_spill_0033.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0033.jpg",
+  "sha256": "c64ae6c7ff7b23d40933ba6dccfb4b2e46db4e0b6223a1653584dcbef79a22e5",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "oil_spill",
+  "description": "Massive dark brown oil spill covering aisle floor width",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

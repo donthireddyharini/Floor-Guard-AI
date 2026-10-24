@@ -1,0 +1,18 @@
+{
+  "image_filename": "hf_pilot_water_spill_0018.jpg",
+  "review_status": "reviewed",
+  "class_name": "oil_spill",
+  "description": "Amber fluid puddle and trail on concrete aisle floor",
+  "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+  "license": "CC BY 4.0",
+  "boxes_count": 1,
+  "boxes": [
+    [
+      1,
+      0.51,
+      0.68,
+      0.28,
+      0.24
+    ]
+  ]
+}

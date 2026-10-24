@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0098.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0098.jpg",
+  "sha256": "efaa5e58d9440f1d3fb5f219551b5a14173be2fcab46e7bb06ce17f07b94b8b2",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Small clear puddle with clean specular boundary on smooth warehouse floor",
+  "review_status": "manually_verified"
+}

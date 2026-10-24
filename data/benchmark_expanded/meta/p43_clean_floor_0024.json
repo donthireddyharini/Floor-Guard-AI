@@ -1,0 +1,18 @@
+{
+  "id": "p43_clean_floor_0024",
+  "category": "clean_floor",
+  "image_file": "data/benchmark_expanded/images/p43_clean_floor_0024.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_clean_floor_0024.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/safe/safe_0024.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "ad7af40147e32fdf411b2aac4ce6e9acea0e655aacae19b804553977ab169e90",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "concrete floor with linear expansion joints",
+  "description": "Clean dry floor with visible expansion joints and specular illumination sheen",
+  "bounding_boxes_count": 0,
+  "bounding_boxes": []
+}

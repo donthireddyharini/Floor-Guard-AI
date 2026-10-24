@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_clean_floor_0057.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/safe/safe_0057.jpg",
+  "sha256": "d8fae6ce925df86d538fa2ac85818c23ed8d7a18f7e0a8887f45261a237cffe3",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "clean_floor",
+  "description": "Elevated view of clean dry warehouse concrete floor with yellow markings",
+  "boxes_count": 0,
+  "review_status": "reviewed"
+}

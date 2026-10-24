@@ -1,0 +1,26 @@
+{
+  "id": "p43_broken_glass_0534",
+  "category": "broken_glass",
+  "image_file": "data/benchmark_expanded/images/p43_broken_glass_0534.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_broken_glass_0534.txt",
+  "source_dataset": "phele_mendeley",
+  "remote_provenance": "PHELE/train/images/train_534.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "0f8081dddcbf925e185737c39b35512f4715c9b3d0cb561ce48a0b499001caf4",
+  "resolution": [
+    451,
+    800
+  ],
+  "floor_surface": "hard walkway floor surface",
+  "description": "Angular sharp glass shard on walking path",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      2,
+      0.056541,
+      0.30375,
+      0.108647,
+      0.1775
+    ]
+  ]
+}

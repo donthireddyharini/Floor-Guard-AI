@@ -1,0 +1,11 @@
+data/processed/images/hf_bal_obstacle_0043.jpg
+data/processed/images/hf_pilot_oil_spill_0014.jpg
+data/processed/images/phele_glass_train_512.jpg
+data/processed/images/hf_bal_clean_floor_0133.jpg
+data/processed/images/hf_warehouse_spill_0005.jpg
+data/processed/images/hf_pilot_obstacle_0008.jpg
+data/processed/images/hf_bal_oil_spill_0035.jpg
+data/processed/images/hf_pilot_water_spill_0013.jpg
+data/processed/images/phele_glass_train_508.jpg
+data/processed/images/hf_bal_clean_floor_0057.jpg
+data/processed/images/hf_pilot_obstacle_0018.jpg

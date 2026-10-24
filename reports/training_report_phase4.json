@@ -1,0 +1,84 @@
+{
+  "training_id": "floorguard-yolov8s-phase4-cpu",
+  "completed_at": "2026-10-24T10:26:08Z",
+  "base_checkpoint": "models/pretrained/yolov8s.pt (COCO Pretrained)",
+  "target_classes": {
+    "0": "water_spill",
+    "1": "oil_spill",
+    "2": "broken_glass",
+    "3": "obstacle"
+  },
+  "training_config": {
+    "data": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\data\\floorguard_yolo.yaml",
+    "epochs": 15,
+    "patience": 8,
+    "imgsz": 512,
+    "batch": 8,
+    "freeze": 12,
+    "device": "cpu",
+    "workers": 0,
+    "seed": 777,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "lrf": 0.01,
+    "mosaic": 0.5,
+    "mixup": 0.0,
+    "project": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\runs\\train",
+    "name": "floorguard_yolov8s_phase4",
+    "exist_ok": true,
+    "verbose": true
+  },
+  "training_duration_seconds": 363.44,
+  "audit_results": {
+    "train": {
+      "total_samples": 53,
+      "missing_images": 0,
+      "missing_labels": 0,
+      "corrupt_images": 0,
+      "clean_floor_negatives": 5,
+      "hazard_images": 48,
+      "total_boxes": 150,
+      "boxes_by_class": {
+        "water_spill": 12,
+        "oil_spill": 11,
+        "broken_glass": 115,
+        "obstacle": 12
+      }
+    },
+    "val": {
+      "total_samples": 11,
+      "missing_images": 0,
+      "missing_labels": 0,
+      "corrupt_images": 0,
+      "clean_floor_negatives": 4,
+      "hazard_images": 7,
+      "total_boxes": 24,
+      "boxes_by_class": {
+        "water_spill": 3,
+        "oil_spill": 1,
+        "broken_glass": 17,
+        "obstacle": 3
+      }
+    },
+    "test": {
+      "total_samples": 11,
+      "missing_images": 0,
+      "missing_labels": 0,
+      "corrupt_images": 0,
+      "clean_floor_negatives": 2,
+      "hazard_images": 9,
+      "total_boxes": 22,
+      "boxes_by_class": {
+        "water_spill": 1,
+        "oil_spill": 3,
+        "broken_glass": 15,
+        "obstacle": 3
+      }
+    }
+  },
+  "saved_artifacts": {
+    "best_weights": "models\\detection\\floorguard_yolov8s_best.pt",
+    "last_weights": "models\\detection\\floorguard_yolov8s_last.pt",
+    "run_directory": "runs\\train\\floorguard_yolov8s_phase4"
+  }
+}

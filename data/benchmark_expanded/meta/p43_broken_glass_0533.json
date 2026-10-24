@@ -1,0 +1,26 @@
+{
+  "id": "p43_broken_glass_0533",
+  "category": "broken_glass",
+  "image_file": "data/benchmark_expanded/images/p43_broken_glass_0533.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_broken_glass_0533.txt",
+  "source_dataset": "phele_mendeley",
+  "remote_provenance": "PHELE/train/images/train_533.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "8c62e3d547a95b076359a757183acc9908c440bd66c19ab5d338b4c8236f1b7e",
+  "resolution": [
+    451,
+    800
+  ],
+  "floor_surface": "pavement surface with light reflection",
+  "description": "Prominent broken glass fragment shard on walkway",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      2,
+      0.364745,
+      0.363125,
+      0.281596,
+      0.25375
+    ]
+  ]
+}

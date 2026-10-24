@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_oil_spill_0055.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0055.jpg",
+  "sha256": "06f9f449d6d6d3ddfd9cf69ca86f500ced4f3bd612813fa59780234b01e68ffd",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "oil_spill",
+  "class_id": 1,
+  "boxes_count": 2,
+  "description": "Dark black viscous motor oil puddle spreading from tipped container",
+  "review_status": "manually_verified"
+}

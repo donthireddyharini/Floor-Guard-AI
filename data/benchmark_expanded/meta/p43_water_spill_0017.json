@@ -1,0 +1,26 @@
+{
+  "id": "p43_water_spill_0017",
+  "category": "water_spill",
+  "image_file": "data/benchmark_expanded/images/p43_water_spill_0017.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_water_spill_0017.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "train/spill/spill_0017.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "d8b70de6395fa7e87c99036b68267f7d07f0a1781f9dda24b0fc98f6d80f9ac3",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "concrete aisle walkway floor",
+  "description": "Extensive reflective water flood covering walking path floor",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      0,
+      0.5,
+      0.62,
+      0.48,
+      0.35
+    ]
+  ]
+}

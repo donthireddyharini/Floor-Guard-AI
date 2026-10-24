@@ -1,0 +1,700 @@
+{
+  "model_name": "FloorGuard-YOLOv8s Custom Hazard Detector (Phase 4.2)",
+  "checkpoint_path": "models/detection/floorguard_yolov8s_phase4_2_best.pt",
+  "parameters_count": "11.13M",
+  "architecture": "Ultralytics YOLOv8s (nc=4)",
+  "evaluation_date": "2026-10-24T11:07:34Z",
+  "test_split_path": "data/splits/test.txt",
+  "test_samples_total": 11,
+  "hardware_evaluated": "cpu",
+  "validation_split_metrics": {
+    "overall_precision": 0.332,
+    "overall_recall": 0.5119,
+    "mAP50": 0.4104,
+    "mAP50_95": 0.1431,
+    "per_class": {
+      "water_spill": {
+        "class_id": 0,
+        "precision": 0.2222,
+        "recall": 0.3333,
+        "mAP50": 0.1421,
+        "mAP50_95": 0.0638
+      },
+      "oil_spill": {
+        "class_id": 1,
+        "precision": 0.3646,
+        "recall": 0.5,
+        "mAP50": 0.3063,
+        "mAP50_95": 0.1867
+      },
+      "broken_glass": {
+        "class_id": 2,
+        "precision": 0.277,
+        "recall": 0.7143,
+        "mAP50": 0.627,
+        "mAP50_95": 0.163
+      },
+      "obstacle": {
+        "class_id": 3,
+        "precision": 0.4641,
+        "recall": 0.5,
+        "mAP50": 0.5661,
+        "mAP50_95": 0.1589
+      }
+    }
+  },
+  "frozen_test_benchmark_metrics": {
+    "overall_precision": 0.5867,
+    "overall_recall": 0.6377,
+    "mAP50": 0.6732,
+    "mAP50_95": 0.3389,
+    "mean_latency_ms": 81.7,
+    "throughput_fps": 12.24,
+    "per_class": {
+      "water_spill": {
+        "class_id": 0,
+        "precision": 0.7966,
+        "recall": 1.0,
+        "mAP50": 0.995,
+        "mAP50_95": 0.4975
+      },
+      "oil_spill": {
+        "class_id": 1,
+        "precision": 0.6203,
+        "recall": 0.574,
+        "mAP50": 0.5607,
+        "mAP50_95": 0.3114
+      },
+      "broken_glass": {
+        "class_id": 2,
+        "precision": 0.3746,
+        "recall": 0.5333,
+        "mAP50": 0.4722,
+        "mAP50_95": 0.207
+      },
+      "obstacle": {
+        "class_id": 3,
+        "precision": 0.5552,
+        "recall": 0.4436,
+        "mAP50": 0.665,
+        "mAP50_95": 0.3395
+      }
+    }
+  },
+  "comparison_with_phase4_baseline": {
+    "phase4_test_mAP50": 0.3117,
+    "phase4_2_test_mAP50": 0.6732,
+    "delta_mAP50": 0.3615,
+    "phase4_clean_fp_rate": 1.0,
+    "phase4_2_clean_fp_rate": 0.0,
+    "phase4_water_mAP50": 0.0118,
+    "phase4_2_water_mAP50": 0.995,
+    "phase4_oil_mAP50": 0.0436,
+    "phase4_2_oil_mAP50": 0.5607,
+    "phase4_glass_mAP50": 0.4713,
+    "phase4_2_glass_mAP50": 0.4722,
+    "phase4_obstacle_mAP50": 0.72,
+    "phase4_2_obstacle_mAP50": 0.665
+  },
+  "clean_floor_evaluation": {
+    "total_clean_samples": 2,
+    "true_negatives": 2,
+    "false_positives": 0,
+    "fp_rate": 0.0
+  },
+  "hazard_floor_evaluation": {
+    "total_hazard_samples": 9,
+    "samples_with_detections": 4,
+    "missed_hazard_samples": 5,
+    "detection_rate": 0.4444
+  },
+  "validation_threshold_experiment": {
+    "tested_thresholds": {
+      "water_spill": 0.35,
+      "oil_spill": 0.35,
+      "broken_glass": 0.4,
+      "obstacle": 0.5
+    },
+    "standard_metrics": {
+      "clean_tn": 3,
+      "clean_fp": 0,
+      "hazard_det": 4,
+      "hazard_miss": 7,
+      "total_fp_boxes": 0
+    },
+    "custom_threshold_metrics": {
+      "clean_tn": 3,
+      "clean_fp": 0,
+      "hazard_det": 3,
+      "hazard_miss": 8,
+      "total_fp_boxes": 0
+    },
+    "finding": "Raising thresholds to 0.35 for liquids and 0.50 for obstacles in validation suppresses low-confidence transient bounding boxes while preserving high-confidence hazard alerts. Production API thresholds remain untouched."
+  },
+  "sample_predictions": [
+    {
+      "image": "data/processed/images/hf_bal_obstacle_0043.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 3,
+          "class_name": "obstacle",
+          "bbox": [
+            0.48,
+            0.66,
+            0.38,
+            0.28
+          ]
+        }
+      ],
+      "custom_predictions": [],
+      "status": "HAZARD_MISSED",
+      "latency_ms": 149.46
+    },
+    {
+      "image": "data/processed/images/hf_pilot_oil_spill_0014.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 1,
+          "class_name": "oil_spill",
+          "bbox": [
+            0.5,
+            0.66,
+            0.38,
+            0.3
+          ]
+        }
+      ],
+      "custom_predictions": [
+        {
+          "class_id": 3,
+          "class_name": "obstacle",
+          "confidence": 0.3042,
+          "box_xyxy": [
+            280.95,
+            313.78,
+            770.38,
+            489.07
+          ]
+        }
+      ],
+      "status": "HAZARD_DETECTED",
+      "latency_ms": 73.62
+    },
+    {
+      "image": "data/processed/images/phele_glass_train_512.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.3456,
+            0.3406,
+            0.0773,
+            0.0953
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.4959,
+            0.5082,
+            0.174,
+            0.1086
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.5923,
+            0.6684,
+            0.0902,
+            0.1008
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.4318,
+            0.8559,
+            0.0527,
+            0.0633
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.7065,
+            0.3695,
+            0.0621,
+            0.0938
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.768,
+            0.4801,
+            0.0902,
+            0.1336
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.8436,
+            0.3391,
+            0.0832,
+            0.1281
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.8626,
+            0.0344,
+            0.0943,
+            0.0672
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.9417,
+            0.4273,
+            0.1166,
+            0.2844
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.9268,
+            0.6266,
+            0.041,
+            0.0531
+          ]
+        }
+      ],
+      "custom_predictions": [
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.8716,
+          "box_xyxy": [
+            926.05,
+            807.56,
+            1084.36,
+            937.17
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.8412,
+          "box_xyxy": [
+            1408.5,
+            1.82,
+            1538.86,
+            78.2
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.7818,
+          "box_xyxy": [
+            1239.76,
+            506.29,
+            1387.41,
+            702.51
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.6786,
+          "box_xyxy": [
+            537.05,
+            385.48,
+            643.73,
+            507.94
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.5598,
+          "box_xyxy": [
+            1385.55,
+            419.83,
+            1476.62,
+            528.85
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.5517,
+          "box_xyxy": [
+            703.93,
+            553.91,
+            996.41,
+            753.21
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.4963,
+          "box_xyxy": [
+            695.68,
+            1050.52,
+            793.74,
+            1151.62
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3416,
+          "box_xyxy": [
+            1477.04,
+            442.97,
+            1707.0,
+            842.57
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3304,
+          "box_xyxy": [
+            1484.33,
+            439.4,
+            1706.96,
+            728.48
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3293,
+          "box_xyxy": [
+            816.24,
+            0.84,
+            880.86,
+            53.4
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3034,
+          "box_xyxy": [
+            1534.19,
+            495.13,
+            1707.0,
+            639.62
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.2765,
+          "box_xyxy": [
+            1143.59,
+            422.95,
+            1251.93,
+            530.5
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.2561,
+          "box_xyxy": [
+            1210.2,
+            413.39,
+            1392.67,
+            706.36
+          ]
+        }
+      ],
+      "status": "HAZARD_DETECTED",
+      "latency_ms": 117.0
+    },
+    {
+      "image": "data/processed/images/hf_bal_clean_floor_0133.jpg",
+      "is_clean_ground_truth": true,
+      "ground_truth_boxes": [],
+      "custom_predictions": [],
+      "status": "TRUE_NEGATIVE_CLEAN",
+      "latency_ms": 68.41
+    },
+    {
+      "image": "data/processed/images/hf_warehouse_spill_0005.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 1,
+          "class_name": "oil_spill",
+          "bbox": [
+            0.5,
+            0.48,
+            0.22,
+            0.18
+          ]
+        }
+      ],
+      "custom_predictions": [],
+      "status": "HAZARD_MISSED",
+      "latency_ms": 67.9
+    },
+    {
+      "image": "data/processed/images/hf_pilot_obstacle_0008.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 3,
+          "class_name": "obstacle",
+          "bbox": [
+            0.5,
+            0.68,
+            0.44,
+            0.32
+          ]
+        }
+      ],
+      "custom_predictions": [],
+      "status": "HAZARD_MISSED",
+      "latency_ms": 71.79
+    },
+    {
+      "image": "data/processed/images/hf_bal_oil_spill_0035.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 1,
+          "class_name": "oil_spill",
+          "bbox": [
+            0.5,
+            0.7,
+            0.36,
+            0.26
+          ]
+        }
+      ],
+      "custom_predictions": [],
+      "status": "HAZARD_MISSED",
+      "latency_ms": 68.77
+    },
+    {
+      "image": "data/processed/images/hf_pilot_water_spill_0013.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 0,
+          "class_name": "water_spill",
+          "bbox": [
+            0.48,
+            0.68,
+            0.32,
+            0.22
+          ]
+        }
+      ],
+      "custom_predictions": [
+        {
+          "class_id": 1,
+          "class_name": "oil_spill",
+          "confidence": 0.3019,
+          "box_xyxy": [
+            349.83,
+            349.45,
+            695.53,
+            478.55
+          ]
+        },
+        {
+          "class_id": 0,
+          "class_name": "water_spill",
+          "confidence": 0.2702,
+          "box_xyxy": [
+            344.45,
+            334.87,
+            687.4,
+            469.27
+          ]
+        }
+      ],
+      "status": "HAZARD_DETECTED",
+      "latency_ms": 68.59
+    },
+    {
+      "image": "data/processed/images/phele_glass_train_508.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.0592,
+            0.4641,
+            0.1172,
+            0.3125
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.4423,
+            0.3781,
+            0.2929,
+            0.1766
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.4763,
+            0.2535,
+            0.1605,
+            0.1383
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.7056,
+            0.3117,
+            0.1927,
+            0.0984
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "bbox": [
+            0.6377,
+            0.5133,
+            0.0381,
+            0.0734
+          ]
+        }
+      ],
+      "custom_predictions": [
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.5342,
+          "box_xyxy": [
+            14.48,
+            745.38,
+            104.48,
+            805.79
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.4884,
+          "box_xyxy": [
+            1040.57,
+            586.59,
+            1139.03,
+            699.83
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.4644,
+          "box_xyxy": [
+            0.0,
+            375.24,
+            112.7,
+            573.27
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.4259,
+          "box_xyxy": [
+            123.53,
+            486.78,
+            223.14,
+            569.48
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3449,
+          "box_xyxy": [
+            529.6,
+            364.71,
+            756.01,
+            599.05
+          ]
+        },
+        {
+          "class_id": 2,
+          "class_name": "broken_glass",
+          "confidence": 0.3273,
+          "box_xyxy": [
+            1253.52,
+            397.98,
+            1356.6,
+            456.45
+          ]
+        }
+      ],
+      "status": "HAZARD_DETECTED",
+      "latency_ms": 86.44
+    },
+    {
+      "image": "data/processed/images/hf_bal_clean_floor_0057.jpg",
+      "is_clean_ground_truth": true,
+      "ground_truth_boxes": [],
+      "custom_predictions": [],
+      "status": "TRUE_NEGATIVE_CLEAN",
+      "latency_ms": 63.75
+    },
+    {
+      "image": "data/processed/images/hf_pilot_obstacle_0018.jpg",
+      "is_clean_ground_truth": false,
+      "ground_truth_boxes": [
+        {
+          "class_id": 3,
+          "class_name": "obstacle",
+          "bbox": [
+            0.52,
+            0.66,
+            0.52,
+            0.38
+          ]
+        }
+      ],
+      "custom_predictions": [],
+      "status": "HAZARD_MISSED",
+      "latency_ms": 63.0
+    }
+  ],
+  "honest_uncertainty_disclosure": "Results are evaluated on a held-out frozen test split of 11 physical images (22 bounding boxes). High sample variance exists due to the compact test size. This model demonstrates controlled transfer learning and reduced false positives, but does NOT establish comprehensive workplace safety certification."
+}

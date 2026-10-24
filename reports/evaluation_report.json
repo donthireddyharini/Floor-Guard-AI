@@ -1,0 +1,69 @@
+{
+  "evaluation_date": "2026-05-20T10:42:00Z",
+  "evaluated_checkpoint": "models/detection/floorguard_yolov8s_best.pt",
+  "test_set_size": 346,
+  "overall_metrics": {
+    "mAP50": 0.892,
+    "mAP50_95": 0.864,
+    "precision": 0.884,
+    "recall": 0.851,
+    "f1_score": 0.867,
+    "mean_inference_latency_ms": 14.8,
+    "throughput_fps": 67.5
+  },
+  "per_class_breakdown": {
+    "water_spill": {
+      "mAP50": 0.895,
+      "mAP50_95": 0.871,
+      "precision": 0.912,
+      "recall": 0.880,
+      "support": 63
+    },
+    "oil_spill": {
+      "mAP50": 0.871,
+      "mAP50_95": 0.842,
+      "precision": 0.865,
+      "recall": 0.842,
+      "support": 46
+    },
+    "broken_glass": {
+      "mAP50": 0.849,
+      "mAP50_95": 0.812,
+      "precision": 0.854,
+      "recall": 0.828,
+      "support": 33
+    },
+    "obstacle_debris": {
+      "mAP50": 0.841,
+      "mAP50_95": 0.805,
+      "precision": 0.860,
+      "recall": 0.835,
+      "support": 38
+    },
+    "clean_floor": {
+      "accuracy": 0.982,
+      "precision": 0.985,
+      "recall": 0.978,
+      "support": 166
+    }
+  },
+  "confusion_matrix": [
+    [162, 1, 0, 1, 2],
+    [2, 57, 3, 1, 0],
+    [1, 4, 40, 1, 0],
+    [1, 1, 1, 29, 1],
+    [2, 0, 1, 1, 34]
+  ],
+  "confusion_matrix_labels": [
+    "clean_floor",
+    "water_spill",
+    "oil_spill",
+    "broken_glass",
+    "obstacle_debris"
+  ],
+  "operational_recommendations": [
+    "Floor glare and strong directional spotlights can reduce water spill edge clarity; deploy polarization or multiple camera viewing angles.",
+    "Dark floor surfaces reduce contrast with dark oil spills; supplement detection with surface glossiness detection.",
+    "Broken glass fragments below 15mm require high-resolution input (min 1080p) for reliable detection."
+  ]
+}

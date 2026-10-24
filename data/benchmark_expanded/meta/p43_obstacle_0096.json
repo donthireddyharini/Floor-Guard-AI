@@ -1,0 +1,26 @@
+{
+  "id": "p43_obstacle_0096",
+  "category": "obstacle",
+  "image_file": "data/benchmark_expanded/images/p43_obstacle_0096.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_obstacle_0096.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/obstacle/obstacle_0096.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "34f365ca71866f942b6f74721ae3aa7256b9f696afe98d122a2106eef053e808",
+  "resolution": [
+    1024,
+    576
+  ],
+  "floor_surface": "concrete aisle floor",
+  "description": "Large pile of overturned grey and blue plastic storage bins and totes scattered across aisle",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      3,
+      0.5,
+      0.67,
+      0.45,
+      0.33
+    ]
+  ]
+}

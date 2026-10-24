@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0200.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0200.jpg",
+  "sha256": "bb900ea6e5b2db68b24aac5ac9ef966e24d542ab052783f87ca53a0ce5ee0208",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Water trail with wet streak marks leading into corridor",
+  "review_status": "manually_verified"
+}

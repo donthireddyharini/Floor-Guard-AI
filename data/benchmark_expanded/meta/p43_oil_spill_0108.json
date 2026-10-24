@@ -1,0 +1,26 @@
+{
+  "id": "p43_oil_spill_0108",
+  "category": "oil_spill",
+  "image_file": "data/benchmark_expanded/images/p43_oil_spill_0108.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_oil_spill_0108.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/spill/spill_0108.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "006d024ae18061ef1dde2c948d893fd347b14af741ada809c0ab5eff882728b1",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "smooth industrial concrete walkway",
+  "description": "Deep dark oil pool with mirror reflection on concrete aisle",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      1,
+      0.51,
+      0.64,
+      0.38,
+      0.27
+    ]
+  ]
+}

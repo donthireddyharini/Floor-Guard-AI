@@ -1,0 +1,7 @@
+data/processed/images/hf_warehouse_obstacle_0006.jpg
+data/processed/images/hf_pilot_water_spill_0021.jpg
+data/processed/images/hf_pilot_obstacle_0008.jpg
+data/processed/images/phele_glass_test_77.jpg
+data/processed/images/phele_glass_test_78.jpg
+data/processed/images/phele_glass_train_505.jpg
+data/processed/images/phele_glass_train_516.jpg

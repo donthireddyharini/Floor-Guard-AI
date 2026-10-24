@@ -1,0 +1,15 @@
+# Floor Guard AI — YOLOv8 Dataset Configuration (Phase 2 Verified)
+path: data
+train: splits/train.txt
+val: splits/val.txt
+test: splits/test.txt
+
+# 4 Genuine Object Detection Hazard Classes
+# Architectural Note: Clean dry floors are represented as background negative samples
+# with empty (0-byte) label files to train spatial background suppression without
+# forcing artificial bounding boxes over empty tiles.
+names:
+  0: water_spill
+  1: oil_spill
+  2: broken_glass
+  3: obstacle

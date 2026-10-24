@@ -1,0 +1,18 @@
+{
+  "image_filename": "water_spill_main.jpg",
+  "review_status": "reviewed",
+  "class_name": "water_spill",
+  "description": "Large clear water spill puddle on indoor commercial tile flooring",
+  "source": "FloorGuard Real Commercial Floor Collection",
+  "license": "CC BY 4.0",
+  "boxes_count": 1,
+  "boxes": [
+    [
+      0,
+      0.5,
+      0.58,
+      0.62,
+      0.46
+    ]
+  ]
+}

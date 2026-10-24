@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0084.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0084.jpg",
+  "sha256": "4232b1aa619f9f995d7aeb3194668c4c68de9d908e072db5474a2d0d33b0d2d0",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Clear watery liquid pool toward bottom left of corridor",
+  "review_status": "manually_verified"
+}

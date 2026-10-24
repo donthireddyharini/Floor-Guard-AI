@@ -1,0 +1,72 @@
+{
+  "repo_id": "Jsohal174/warehouse-safety-hazard-dataset",
+  "repo_url": "https://huggingface.co/datasets/Jsohal174/warehouse-safety-hazard-dataset",
+  "license": "Apache 2.0",
+  "download_timestamp": "2026-10-23T20:45:00Z",
+  "total_downloaded": 7,
+  "files": [
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/spill/spill_0005.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/spill_0005.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_spill_0005.jpg",
+      "url": "/data/images/hf_warehouse_spill_0005.jpg",
+      "class": "Water Spill",
+      "size_bytes": 129770
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/spill/spill_0006.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/spill_0006.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_spill_0006.jpg",
+      "url": "/data/images/hf_warehouse_spill_0006.jpg",
+      "class": "Water Spill",
+      "size_bytes": 132268
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/spill/spill_0008.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/spill_0008.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_spill_0008.jpg",
+      "url": "/data/images/hf_warehouse_spill_0008.jpg",
+      "class": "Water Spill",
+      "size_bytes": 143041
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/spill/spill_0011.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/spill_0011.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_spill_0011.jpg",
+      "url": "/data/images/hf_warehouse_spill_0011.jpg",
+      "class": "Water Spill",
+      "size_bytes": 140216
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/obstacle/obstacle_0002.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/obstacle_0002.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_obstacle_0002.jpg",
+      "url": "/data/images/hf_warehouse_obstacle_0002.jpg",
+      "class": "Obstacle",
+      "size_bytes": 161494
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/obstacle/obstacle_0006.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/obstacle_0006.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_obstacle_0006.jpg",
+      "url": "/data/images/hf_warehouse_obstacle_0006.jpg",
+      "class": "Obstacle",
+      "size_bytes": 138550
+    },
+    {
+      "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "remote_path": "test/obstacle/obstacle_0007.jpg",
+      "raw_path": "data/raw/huggingface_warehouse/obstacle_0007.jpg",
+      "processed_path": "data/processed/images/hf_warehouse_obstacle_0007.jpg",
+      "url": "/data/images/hf_warehouse_obstacle_0007.jpg",
+      "class": "Obstacle",
+      "size_bytes": 140906
+    }
+  ]
+}

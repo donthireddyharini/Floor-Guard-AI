@@ -1,0 +1,26 @@
+{
+  "id": "p43_oil_spill_0072",
+  "category": "oil_spill",
+  "image_file": "data/benchmark_expanded/images/p43_oil_spill_0072.jpg",
+  "label_file": "data/benchmark_expanded/labels/p43_oil_spill_0072.txt",
+  "source_dataset": "huggingface_warehouse",
+  "remote_provenance": "test/spill/spill_0072.jpg",
+  "license": "CC BY 4.0",
+  "sha256": "fd18d28f23b5a87b5fba5cf351da3a850eb6024d435fcd6a9326576bc1e053d6",
+  "resolution": [
+    1024,
+    571
+  ],
+  "floor_surface": "grey concrete floor between shelving rows",
+  "description": "Dark brown-amber hydraulic oil puddle with glossy surface and defined edges",
+  "bounding_boxes_count": 1,
+  "bounding_boxes": [
+    [
+      1,
+      0.49,
+      0.67,
+      0.35,
+      0.26
+    ]
+  ]
+}

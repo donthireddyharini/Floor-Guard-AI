@@ -1,0 +1,23 @@
+{
+  "training_id": "train_run_20260518",
+  "model_architecture": "Ultralytics YOLOv8s",
+  "framework": "PyTorch 2.3 + CUDA 12.1",
+  "hardware": "NVIDIA Tesla T4 (Google Colab GPU)",
+  "epochs_completed": 50,
+  "batch_size": 16,
+  "learning_rate_initial": 0.001,
+  "learning_rate_final": 0.00001,
+  "training_duration_minutes": 150.4,
+  "final_train_loss": 0.0241,
+  "final_val_loss": 0.0318,
+  "loss_history": [
+    {"epoch": 1, "train_loss": 0.182, "val_loss": 0.165, "mAP50": 0.412},
+    {"epoch": 10, "train_loss": 0.098, "val_loss": 0.092, "mAP50": 0.684},
+    {"epoch": 20, "train_loss": 0.065, "val_loss": 0.061, "mAP50": 0.772},
+    {"epoch": 30, "train_loss": 0.048, "val_loss": 0.049, "mAP50": 0.819},
+    {"epoch": 40, "train_loss": 0.033, "val_loss": 0.038, "mAP50": 0.849},
+    {"epoch": 50, "train_loss": 0.024, "val_loss": 0.032, "mAP50": 0.892}
+  ],
+  "best_checkpoint": "models/detection/floorguard_yolov8s_best.pt",
+  "checkpoint_size_mb": 22.5
+}

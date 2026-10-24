@@ -1,0 +1,15 @@
+{
+  "image_filename": "hf_p41_water_spill_0178.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0178.jpg",
+  "sha256": "84d68fbb53aa1ceb6b03b61ae4958c5644f06594ea3634c5bf51e575364a415e",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "description": "Translucent cleaning/diluted fluid spill spreading on aisle concrete",
+  "review_status": "manually_verified"
+}

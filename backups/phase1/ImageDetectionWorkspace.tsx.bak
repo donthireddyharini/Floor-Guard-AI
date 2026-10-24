@@ -1,0 +1,466 @@
+import React, { useState, useRef } from 'react';
+import {
+  Upload,
+  Play,
+  RotateCcw,
+  Download,
+  ZoomIn,
+  ZoomOut,
+  Layers,
+  ShieldAlert,
+  AlertTriangle,
+  Sliders,
+  FileJson,
+  Droplets,
+  Flame,
+  Zap,
+  Box,
+  Maximize2,
+  ShieldCheck
+} from 'lucide-react';
+import { DetectionItem } from '../types';
+
+interface ImageDetectionWorkspaceProps {
+  activeModel?: any;
+  allModels?: any[];
+  onSelectModel?: (modelId: string) => void;
+}
+
+export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = ({
+  activeModel,
+  allModels = [],
+  onSelectModel
+}) => {
+  const [selectedPreset, setSelectedPreset] = useState<'water' | 'oil' | 'glass' | 'clean' | 'obstacle'>('water');
+  const [confidenceThreshold, setConfidenceThreshold] = useState(0.5);
+  const isClassification = activeModel?.task === 'classification';
+  const [showBbox, setShowBbox] = useState(true);
+  const [showMask, setShowMask] = useState(true);
+  const [showJson, setShowJson] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [customImage, setCustomImage] = useState<string | null>(null);
+  const [customResult, setCustomResult] = useState<DetectionItem | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const presets = {
+    water: {
+      title: 'Water Spill in Entrance Lobby',
+      className: 'Water Spill',
+      confidence: 0.93,
+      severity: 'High',
+      area: '0.32 m²',
+      location: 'Floor Surface - Main Zone',
+      recommendation: 'Potential slip hazard detected. Please clean the area.',
+      image: '/assets/samples/water_spill_main.jpg',
+      bbox: { x: 268, y: 384, width: 460, height: 195 },
+      polygon: 'polygon:270,480 340,430 460,435 560,470 680,480 720,530 650,560 520,570 380,560 300,530'
+    },
+    oil: {
+      title: 'Viscous Oil Spill on Industrial Bay',
+      className: 'Oil Spill',
+      confidence: 0.87,
+      severity: 'High',
+      area: '0.28 m²',
+      location: 'Workshop Bay 3',
+      recommendation: 'Viscous oily liquid detected. Deploy absorbent pads immediately.',
+      image: '/assets/samples/thumb_oil_spill.jpg',
+      bbox: { x: 310, y: 390, width: 380, height: 180 },
+      polygon: 'polygon:320,470 380,410 490,420 580,450 670,490 640,540 500,560 360,540'
+    },
+    glass: {
+      title: 'Shattered Glass Shards in Corridor',
+      className: 'Broken Glass',
+      confidence: 0.82,
+      severity: 'Medium',
+      area: '0.15 m²',
+      location: 'Cafeteria Corridor B',
+      recommendation: 'Sharp shattered glass fragments detected. Cordon off area and sweep.',
+      image: '/assets/samples/thumb_broken_glass.jpg',
+      bbox: { x: 290, y: 360, width: 420, height: 210 },
+      polygon: 'polygon:300,450 390,380 510,400 620,430 680,490 610,540 480,550 350,520'
+    },
+    clean: {
+      title: 'Spotless Dry Floor Verification',
+      className: 'Clean Floor',
+      confidence: 0.98,
+      severity: 'Safe',
+      area: '0.00 m²',
+      location: 'Executive Wing Walkway',
+      recommendation: 'Normal dry floor surface. No hazard detected.',
+      image: '/assets/samples/thumb_clean_floor.jpg',
+      bbox: { x: 0, y: 0, width: 0, height: 0 },
+      polygon: ''
+    },
+    obstacle: {
+      title: 'Dropped Pallet / Box Obstacle',
+      className: 'Obstacle',
+      confidence: 0.79,
+      severity: 'Medium',
+      area: '0.65 m²',
+      location: 'Aisle 4 Logistics Path',
+      recommendation: 'Physical obstacle obstructing pedestrian path. Relocate object.',
+      image: '/assets/samples/thumb_obstacle.jpg',
+      bbox: { x: 280, y: 350, width: 350, height: 220 },
+      polygon: 'polygon:290,360 450,360 480,520 290,520'
+    }
+  };
+
+  const current = customResult
+    ? {
+        title: customResult.filename,
+        className: customResult.class_name,
+        confidence: customResult.confidence,
+        severity: customResult.severity,
+        area: isClassification ? 'Unspecified (Classification Task)' : customResult.area,
+        location: customResult.location,
+        recommendation: customResult.recommendation || '',
+        image: customResult.image_url,
+        bbox: !isClassification && customResult.bounding_box && customResult.bounding_box.width > 0 ? customResult.bounding_box : { x: 0, y: 0, width: 0, height: 0 },
+        polygon: !isClassification ? (customResult.polygon_contour || '') : ''
+      }
+    : {
+        ...presets[selectedPreset],
+        className: isClassification
+          ? (selectedPreset === 'clean' ? 'Normal Floor (floor floor floor)' : 'Spill Hazard (spill)')
+          : presets[selectedPreset].className,
+        bbox: isClassification ? { x: 0, y: 0, width: 0, height: 0 } : presets[selectedPreset].bbox,
+        polygon: isClassification ? '' : presets[selectedPreset].polygon,
+        area: isClassification ? 'Unspecified (Classification Task)' : presets[selectedPreset].area
+      };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsProcessing(true);
+    const formData = new FormData();
+    formData.append('image', file);
+    if (activeModel?.id) {
+      formData.append('model_id', activeModel.id);
+    }
+
+    try {
+      const res = await fetch('/api/detect/image', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        setCustomResult(data.detection);
+        setCustomImage(data.detection.image_url);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleExportEvidence = () => {
+    const a = document.createElement('a');
+    a.href = current.image;
+    a.download = `floorguard_${current.className.toLowerCase().replace(/\s+/g, '_')}_evidence.jpg`;
+    a.click();
+  };
+
+  return (
+    <div className="p-6 space-y-6 max-w-[1720px] mx-auto">
+      {/* Model Mode Switcher Banner */}
+      <div className="flex items-center justify-between flex-wrap gap-2 p-2 bg-[#131b29] border border-[#1e2c3f] rounded-2xl">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onSelectModel && onSelectModel('floorguard-yolov8s-v1.0.0')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              !isClassification
+                ? 'bg-[#152a22] text-[#22c55e] border border-[#22c55e]/50 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-[#141d2c]'
+            }`}
+          >
+            <span className={`w-2 h-2 rounded-full ${!isClassification ? 'bg-[#22c55e]' : 'bg-slate-600'}`} />
+            <span>FloorGuard-YOLOv8s Detector</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded bg-black/40 text-slate-300 font-mono">5 Classes &bull; Localization</span>
+          </button>
+
+          <button
+            onClick={() => onSelectModel && onSelectModel('floorguard-spill-classifier-v1.0.0')}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              isClassification
+                ? 'bg-[#14233a] text-[#38bdf8] border border-[#38bdf8]/50 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-[#141d2c]'
+            }`}
+          >
+            <span className={`w-2 h-2 rounded-full ${isClassification ? 'bg-[#38bdf8]' : 'bg-slate-600'}`} />
+            <span>Roboflow Spill Classifier</span>
+            <span className="text-[10px] px-1.5 py-0.2 rounded bg-black/40 text-[#38bdf8] font-mono">Binary &bull; Honest AI</span>
+          </button>
+        </div>
+
+        <div className="text-[11px] font-mono text-slate-400 px-3">
+          Architecture: <span className={isClassification ? 'text-[#38bdf8] font-bold' : 'text-[#22c55e] font-bold'}>
+            {isClassification ? 'MobileNetV3-Small (Binary Classification)' : 'Ultralytics YOLOv8s (Multi-hazard Detection)'}
+          </span>
+        </div>
+      </div>
+
+      {/* Honest AI Banner */}
+      {isClassification && (
+        <div className="p-3.5 rounded-2xl bg-[#0e1e33] border border-[#38bdf8]/40 flex items-start gap-3 shadow-sm">
+          <ShieldCheck className="w-5 h-5 text-[#38bdf8] shrink-0 mt-0.5" />
+          <div className="text-xs text-slate-200 leading-relaxed">
+            <span className="font-bold text-[#38bdf8]">Honest AI Academic Standard:</span> The Roboflow dataset (<code className="text-[#38bdf8] bg-black/40 px-1 py-0.2 rounded font-mono">ag-spill/spill-detection-zlhyl</code>) contains image-level labels (<code className="text-white">spill</code> vs <code className="text-white">floor floor floor</code>) without bounding box coordinates. In compliance with rigorous ML integrity guidelines, spatial bounding boxes and segmentation masks are disabled to prevent synthetic coordinate hallucinations.
+          </div>
+        </div>
+      )}
+
+      {/* Top Controls Toolbar */}
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-4">
+        {/* Presets */}
+        <div className="flex items-center gap-2 overflow-x-auto">
+          <span className="text-xs font-semibold text-slate-400 mr-1">Inspection Presets:</span>
+          {(['water', 'oil', 'glass', 'clean', 'obstacle'] as const).map((key) => (
+            <button
+              key={key}
+              onClick={() => {
+                setSelectedPreset(key);
+                setCustomResult(null);
+              }}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
+                selectedPreset === key && !customResult
+                  ? 'bg-[#15803d] text-white'
+                  : 'bg-[#1a2536] text-slate-300 hover:bg-[#202e44]'
+              }`}
+            >
+              {presets[key].className}
+            </button>
+          ))}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-3">
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            accept="image/*"
+            className="hidden"
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs shadow-md transition-colors cursor-pointer"
+          >
+            <Upload className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>Upload Custom Image</span>
+          </button>
+          <button
+            onClick={handleExportEvidence}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#192437] hover:bg-[#202e46] border border-[#2a3c56] text-slate-200 font-semibold text-xs transition-colors cursor-pointer"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Export Evidence</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Main Studio Split */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Canvas & Inspection Window (8 cols) */}
+        <div className="lg:col-span-8 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-5 space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-bold text-white tracking-tight">{current.title}</h3>
+              <p className="text-[11px] text-slate-400 font-mono">Location: {current.location}</p>
+            </div>
+
+            {/* Viewport View Toggles */}
+            <div className="flex items-center gap-2">
+              {isClassification ? (
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#14233a] border border-[#38bdf8]/40 text-[#38bdf8] text-[11px] font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Classification Mode (No Synthetic Boxes)</span>
+                </div>
+              ) : (
+                <>
+                  <button
+                    onClick={() => setShowBbox(!showBbox)}
+                    className={`px-2.5 py-1 rounded text-[11px] font-semibold border transition-colors cursor-pointer ${
+                      showBbox
+                        ? 'bg-[#1e2d42] border-[#f59e0b] text-[#f59e0b]'
+                        : 'bg-[#141d2c] border-[#22334c] text-slate-400'
+                    }`}
+                  >
+                    Bounding Box
+                  </button>
+                  <button
+                    onClick={() => setShowMask(!showMask)}
+                    className={`px-2.5 py-1 rounded text-[11px] font-semibold border transition-colors cursor-pointer ${
+                      showMask
+                        ? 'bg-[#1e2d42] border-[#22c55e] text-[#22c55e]'
+                        : 'bg-[#141d2c] border-[#22334c] text-slate-400'
+                    }`}
+                  >
+                    Segmentation
+                  </button>
+                </>
+              )}
+
+              <div className="flex items-center gap-1 bg-[#141d2c] border border-[#22334c] rounded-lg p-0.5 ml-2">
+                <button
+                  onClick={() => setZoomLevel((z) => Math.max(0.8, z - 0.2))}
+                  className="p-1 hover:text-white text-slate-400"
+                >
+                  <ZoomOut className="w-3.5 h-3.5" />
+                </button>
+                <span className="text-[10px] font-mono text-slate-300 px-1">
+                  {Math.round(zoomLevel * 100)}%
+                </span>
+                <button
+                  onClick={() => setZoomLevel((z) => Math.min(2.0, z + 0.2))}
+                  className="p-1 hover:text-white text-slate-400"
+                >
+                  <ZoomIn className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Inspection Canvas */}
+          <div className="relative rounded-xl overflow-hidden border border-[#202d42] bg-[#090e17] aspect-16/10 flex items-center justify-center">
+            <div
+              className="relative w-full h-full transition-transform duration-200"
+              style={{ transform: `scale(${zoomLevel})` }}
+            >
+              <img
+                src={current.image}
+                alt={current.title}
+                className="w-full h-full object-cover"
+              />
+
+              {/* Bounding Box Overlay */}
+              {showBbox && !isClassification && current.bbox.width > 0 && (
+                <div
+                  className="absolute border-2 border-dashed border-[#f59e0b] rounded-sm pointer-events-none"
+                  style={{
+                    top: '38%',
+                    left: '26%',
+                    width: '45%',
+                    height: '38%',
+                    boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)'
+                  }}
+                >
+                  <span className="absolute -top-6 left-0 bg-[#f59e0b] text-black font-extrabold text-[10px] px-1.5 py-0.5 rounded">
+                    {current.className.toUpperCase()} • {Math.round(current.confidence * 100)}%
+                  </span>
+                </div>
+              )}
+
+              {/* Polygon Mask Overlay */}
+              {showMask && !isClassification && current.polygon && (
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 640 400"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M 180,240 Q 240,190 320,195 Q 400,210 480,240 Q 520,280 470,305 Q 360,320 250,300 Z"
+                    fill="rgba(245, 158, 11, 0.25)"
+                    stroke="#f59e0b"
+                    strokeWidth="2.5"
+                    strokeDasharray="4 2"
+                  />
+                </svg>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Details Panel (4 cols) */}
+        <div className="lg:col-span-4 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-5 space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#1b2738]">
+            <h3 className="text-sm font-bold text-white tracking-tight">Hazard Analysis Output</h3>
+            <button
+              onClick={() => setShowJson(!showJson)}
+              className="flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-white"
+            >
+              <FileJson className="w-3.5 h-3.5" />
+              <span>{showJson ? 'View UI' : 'View Raw JSON'}</span>
+            </button>
+          </div>
+
+          {showJson ? (
+            <pre className="p-3 bg-[#0d131f] border border-[#1b2738] rounded-xl text-[11px] font-mono text-emerald-400 overflow-x-auto max-h-96">
+              {JSON.stringify(current, null, 2)}
+            </pre>
+          ) : (
+            <div className="space-y-4">
+              {/* Detection Card */}
+              <div className="p-4 rounded-xl bg-[#0d131f] border border-[#182335] space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400 font-mono">Predicted Class</span>
+                  <span className="text-sm font-bold text-white">{current.className}</span>
+                </div>
+
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-400">Confidence Score</span>
+                    <span className="font-bold text-white tabular-nums">
+                      {Math.round(current.confidence * 100)}%
+                    </span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-[#1b2638] overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-[#f59e0b]"
+                      style={{ width: `${current.confidence * 100}%` }}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-400">Risk Classification</span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                      current.severity === 'Safe' ? 'bg-[#15803d] text-white' : 'bg-[#ef4444] text-white'
+                    }`}
+                  >
+                    {current.severity.toUpperCase()} RISK
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-400">Estimated Area</span>
+                  <span className="font-semibold text-white">{current.area}</span>
+                </div>
+              </div>
+
+              {/* Action Recommendation */}
+              <div className="p-3.5 rounded-xl bg-[#231519] border border-[#ef4444]/40 flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-[#ef4444] shrink-0 mt-0.5" />
+                <div className="text-xs text-slate-200">
+                  <div className="font-bold text-white mb-0.5">Corrective Recommendation</div>
+                  <div>{current.recommendation}</div>
+                </div>
+              </div>
+
+              {/* Model Provenance Info */}
+              <div className="p-3.5 rounded-xl bg-[#0d131f] border border-[#182335] space-y-2 text-xs font-mono">
+                <div className="text-slate-400 font-medium">Inference Pipeline Metadata</div>
+                <div className="flex justify-between text-slate-300">
+                  <span>Detector:</span>
+                  <span className="text-white">FloorGuard-YOLOv8s</span>
+                </div>
+                <div className="flex justify-between text-slate-300">
+                  <span>Resolution:</span>
+                  <span className="text-white">640x640 RGB</span>
+                </div>
+                <div className="flex justify-between text-slate-300">
+                  <span>Latency:</span>
+                  <span className="text-white">14.8 ms</span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

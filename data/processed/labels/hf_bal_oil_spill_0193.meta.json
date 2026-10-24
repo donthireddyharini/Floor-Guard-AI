@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_oil_spill_0193.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/spill/spill_0193.jpg",
+  "sha256": "19de6d3f2e7c26ab5ec99d38ddfaed3ff4d05e9ad31df6c30d7349f8d8c0a7f8",
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "class_name": "oil_spill",
+  "description": "Dark fluid spill with displaced cardboard boxes",
+  "boxes_count": 2,
+  "review_status": "reviewed"
+}

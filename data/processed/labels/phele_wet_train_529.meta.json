@@ -1,0 +1,15 @@
+{
+  "image_filename": "phele_wet_train_529.jpg",
+  "source": "PHELE: Elderly Living Environment Hazards (CC BY 4.0)",
+  "author": "Peng Gao, Chuzhou University",
+  "original_path": "PHELE/train/images/train_529.jpg",
+  "sha256": "162369514a17e515281507f890222ec0cdfb6ee353c33170dfdab91a605ba76b",
+  "dimensions": {
+    "width": 1279,
+    "height": 1706
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

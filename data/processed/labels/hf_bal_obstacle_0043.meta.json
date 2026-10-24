@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_obstacle_0043.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/obstacle/obstacle_0043.jpg",
+  "sha256": "1d30f98cf5c918b62dad0430b2d89deed35688931e09f6ee97418a03c565fa3c",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "obstacle",
+  "description": "Fallen boxes and crumpled packaging material in walkway",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

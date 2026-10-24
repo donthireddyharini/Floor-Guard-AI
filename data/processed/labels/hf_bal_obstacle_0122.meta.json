@@ -1,0 +1,14 @@
+{
+  "image_filename": "hf_bal_obstacle_0122.jpg",
+  "source": "Warehouse Safety Hazard Dataset (CC BY 4.0)",
+  "remote_path": "test/obstacle/forklift_0122.jpg",
+  "sha256": "7a908097379ba317a0f76d27baec14efa434494e1134586982007d09cc06f8b8",
+  "dimensions": {
+    "width": 1024,
+    "height": 571
+  },
+  "class_name": "obstacle",
+  "description": "Dropped equipment box in walking aisleway",
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

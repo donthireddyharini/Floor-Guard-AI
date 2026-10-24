@@ -1,0 +1,15 @@
+{
+  "image_filename": "phele_wet_test_75.jpg",
+  "source": "PHELE: Elderly Living Environment Hazards (CC BY 4.0)",
+  "author": "Peng Gao, Chuzhou University",
+  "original_path": "PHELE/test/images/test_75.jpg",
+  "sha256": "33991bcf4273415647108b8b20d4d4b327424f2622cb1f2613a13972ce4bef32",
+  "dimensions": {
+    "width": 4032,
+    "height": 3024
+  },
+  "class_name": "water_spill",
+  "class_id": 0,
+  "boxes_count": 1,
+  "review_status": "reviewed"
+}

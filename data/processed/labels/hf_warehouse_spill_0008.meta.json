@@ -1,0 +1,18 @@
+{
+  "image_filename": "hf_warehouse_spill_0008.jpg",
+  "review_status": "reviewed",
+  "class_name": "oil_spill",
+  "description": "Dark viscous oil/chemical spill near shelf base",
+  "source": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+  "license": "CC BY 4.0",
+  "boxes_count": 1,
+  "boxes": [
+    [
+      1,
+      0.36,
+      0.68,
+      0.32,
+      0.28
+    ]
+  ]
+}
