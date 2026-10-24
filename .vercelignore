@@ -1,0 +1,12 @@
+runs/
+backups/
+node_modules/
+.git
+database/
+tests/
+docs/
+ml/
+requirements.txt
+*.pt
+*.sqlite
+temp_remote_repo/
