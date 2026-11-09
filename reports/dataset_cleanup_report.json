@@ -1,0 +1,15 @@
+{
+  "report_title": "Floor Guard AI Dataset Deduplication & Hygiene Audit",
+  "audit_timestamp": "2026-11-07T01:14:00Z",
+  "total_scanned_images": 1110,
+  "exact_duplicates_removed": 445,
+  "near_duplicates_isolated": 435,
+  "retained_pristine_unique": 230,
+  "deduplication_efficiency_percent": 79.28,
+  "directories": {
+    "raw_unmodified": "data/raw/",
+    "processed_unique": "data/processed/unique/",
+    "processed_duplicates": "data/processed/duplicates/",
+    "processed_needs_review": "data/processed/needs_review/"
+  }
+}

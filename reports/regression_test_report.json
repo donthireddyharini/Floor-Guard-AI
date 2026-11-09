@@ -1,0 +1,190 @@
+{
+  "report_metadata": {
+    "title": "Floor Guard AI - Automated Regression Test Report (Phase 13)",
+    "timestamp": "2026-11-06T14:51:00Z",
+    "test_runner": "FloorGuard Automated QA Engine",
+    "active_model": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\models\\floorguard_yolo.pt"
+  },
+  "summary": {
+    "total_condition_tests": 6,
+    "passed": 2,
+    "failed": 4,
+    "pass_rate_percentage": 33.3,
+    "video_pipeline_status": "PASS",
+    "overall_status": "NEEDS REVIEW"
+  },
+  "condition_results": [
+    {
+      "test_id": "REG-TEST-01",
+      "condition": "Tangled Cables and Trailing Power Wire",
+      "category": "cable_hazard",
+      "floor_type": "Concrete and light gray tiles",
+      "lighting": "Diffused indoor fluorescent",
+      "expected_class": "Cable & Wire Tripping Hazard",
+      "predicted_class": "Water Spill",
+      "confidence": 0.9831,
+      "confidence_percent": "98%",
+      "severity": "High",
+      "bounding_box": {
+        "x": 315,
+        "y": 230,
+        "width": 932,
+        "height": 412
+      },
+      "passed": false,
+      "latency_ms": 140
+    },
+    {
+      "test_id": "REG-TEST-02",
+      "condition": "Liquid Spill from Overturned Bottle / Container",
+      "category": "water_spill / trash_litter",
+      "floor_type": "White ceramic polished tiles",
+      "lighting": "Directional room lighting with strong specular shadows",
+      "expected_class": "Trash Litter",
+      "predicted_class": "Obstacle Debris",
+      "confidence": 0.996,
+      "confidence_percent": "100%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 416,
+        "y": 198,
+        "width": 424,
+        "height": 293
+      },
+      "passed": false,
+      "latency_ms": 140
+    },
+    {
+      "test_id": "REG-TEST-03",
+      "condition": "Cracked Floor Surface and Concrete Fissure",
+      "category": "floor_crack",
+      "floor_type": "Aged concrete industrial slab",
+      "lighting": "Ambient warehouse lighting",
+      "expected_class": "Floor Crack & Damage",
+      "predicted_class": "Floor Crack",
+      "confidence": 0.9926,
+      "confidence_percent": "99%",
+      "severity": "Critical",
+      "bounding_box": {
+        "x": 53,
+        "y": 166,
+        "width": 1175,
+        "height": 513
+      },
+      "passed": true,
+      "latency_ms": 140
+    },
+    {
+      "test_id": "REG-TEST-04",
+      "condition": "Wet Stone Paver Walkway Water Spill with Reflective Glare",
+      "category": "water_spill",
+      "floor_type": "Outdoor stone tile walkway with rainwater pooling",
+      "lighting": "Natural daylight with specular glints",
+      "expected_class": "Water Spill",
+      "predicted_class": "Water Spill",
+      "confidence": 0.9954,
+      "confidence_percent": "100%",
+      "severity": "High",
+      "bounding_box": {
+        "x": 296,
+        "y": 224,
+        "width": 964,
+        "height": 405
+      },
+      "passed": true,
+      "latency_ms": 140
+    },
+    {
+      "test_id": "REG-TEST-05",
+      "condition": "Standing Water Spill with Puddle Specular Glints",
+      "category": "water_spill",
+      "floor_type": "Polished corridor tile",
+      "lighting": "Direct tube specular reflections",
+      "expected_class": "Water Spill",
+      "predicted_class": "Obstacle Debris",
+      "confidence": 0.9739,
+      "confidence_percent": "97%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 632,
+        "y": 367,
+        "width": 222,
+        "height": 81
+      },
+      "passed": false,
+      "latency_ms": 140
+    },
+    {
+      "test_id": "REG-TEST-06",
+      "condition": "Wet-Floor Warning Sign Contextual Validation",
+      "category": "water_spill",
+      "floor_type": "Corridor tile with yellow caution cone",
+      "lighting": "Commercial hall lighting",
+      "expected_class": "Water Spill",
+      "predicted_class": "Obstacle Debris",
+      "confidence": 0.9721,
+      "confidence_percent": "97%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 632,
+        "y": 367,
+        "width": 222,
+        "height": 82
+      },
+      "passed": false,
+      "latency_ms": 140
+    }
+  ],
+  "video_analysis_regression": {
+    "test_video": "1793954764960_gayjkr.mp4",
+    "duration": "00:10",
+    "resolution": "1280x720 @ 24 FPS",
+    "sampled_keyframes": 8,
+    "consolidated_unique_events": 6,
+    "highest_severity": "Critical",
+    "events_breakdown": [
+      {
+        "event_id": "evt_01",
+        "class": "Water Spill",
+        "time_range": "00:00 - 00:01",
+        "duration_sec": 1.25,
+        "peak_confidence": 0.9793
+      },
+      {
+        "event_id": "evt_02",
+        "class": "Obstacle & Debris",
+        "time_range": "00:01 - 00:05",
+        "duration_sec": 3.75,
+        "peak_confidence": 0.9922
+      },
+      {
+        "event_id": "evt_03",
+        "class": "Water Spill",
+        "time_range": "00:05 - 00:06",
+        "duration_sec": 1.25,
+        "peak_confidence": 0.972
+      },
+      {
+        "event_id": "evt_04",
+        "class": "Floor Crack",
+        "time_range": "00:06 - 00:07",
+        "duration_sec": 1.25,
+        "peak_confidence": 0.9973
+      },
+      {
+        "event_id": "evt_05",
+        "class": "Water Spill",
+        "time_range": "00:07 - 00:08",
+        "duration_sec": 1.25,
+        "peak_confidence": 0.9783
+      },
+      {
+        "event_id": "evt_06",
+        "class": "Obstacle & Debris",
+        "time_range": "00:08 - 00:10",
+        "duration_sec": 1.25,
+        "peak_confidence": 0.9727
+      }
+    ]
+  }
+}

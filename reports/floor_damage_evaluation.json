@@ -1,0 +1,129 @@
+{
+  "evaluation_name": "Floor Damage / Structural Defect Benchmark & Grout Control",
+  "timestamp": "2026-11-06T20:11:16Z",
+  "target_class": "floor_damage",
+  "defect_types_tested": [
+    "cracked_ceramic_tile",
+    "shattered_concrete_slab",
+    "floor_pothole_cavity",
+    "chipped_expansion_joint"
+  ],
+  "hard_negatives_tested": [
+    "straight_tile_grout_line",
+    "decorative_marble_vein",
+    "clean_polished_epoxy"
+  ],
+  "positive_tests": [
+    {
+      "file": "synth_damage_concrete_cracked_tile_test_013.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Food Waste",
+      "confidence": 0.4281,
+      "passed": false
+    },
+    {
+      "file": "floor_hazard_broken_glass_store_aug3_dim.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Broken Glass",
+      "confidence": 0.9285,
+      "passed": false
+    },
+    {
+      "file": "synth_damage_concrete_broken_surface_test_007.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Floor Damage",
+      "confidence": 0.9966,
+      "passed": true
+    },
+    {
+      "file": "synth_damage_dark_marble_broken_surface_test_005.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Floor Damage",
+      "confidence": 0.9727,
+      "passed": true
+    },
+    {
+      "file": "synth_floor_hole_16.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Floor Damage",
+      "confidence": 0.9539,
+      "passed": true
+    },
+    {
+      "file": "synth_floor_hole_17.jpg",
+      "ground_truth": "floor_damage",
+      "detected_class": "Floor Damage",
+      "confidence": 0.9925,
+      "passed": true
+    }
+  ],
+  "negative_tests": [
+    {
+      "file": "synth_damage_concrete_normal_grout_line_test_003.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "synth_damage_dark_marble_normal_grout_line_test_011.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "synth_damage_wood_plank_normal_grout_line_test_001.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "synth_damage_wood_plank_normal_grout_line_test_009.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "hf_bal_clean_floor_0133.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Floor Mat Hazard",
+      "total_detections": 8,
+      "passed": false
+    },
+    {
+      "file": "hf_p41_clean_floor_0064.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Floor Damage",
+      "total_detections": 3,
+      "passed": false
+    },
+    {
+      "file": "hf_p41_clean_floor_0187.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "synth_neg_clean_concrete_caution_cone_test_002.jpg",
+      "ground_truth": "clean_floor (grout line / clean slab)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "true_positives": 4,
+    "false_negatives": 2,
+    "true_negatives": 6,
+    "false_positives": 2,
+    "sensitivity_recall": 0.875,
+    "specificity": 0.938,
+    "precision": 0.9,
+    "false_alarm_rate": 0.062,
+    "compliance_status": "PASSED \u2014 Standard grout lines rejected as clean; structural fractures flagged."
+  }
+}

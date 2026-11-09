@@ -1,0 +1,68 @@
+test_id,image_name,ground_truth,predicted_class,confidence_percent,boxes_detected,latency_ms,status,notes
+Test_A_BoxNotCable,floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg,Obstacle / Debris,Mud Dirt,21.5%,2,18898.4,FAIL,"Expected Obstacle / Debris, got Mud Dirt"
+Test_B_BottleNotSpill,coca_bottle_full_bright.jpg,Trash / Litter,Trash Litter,46.4%,1,280.3,PASS,OK
+Test_C_BrokenGlassNotDebris,phele_glass_test_79.jpg,Broken Glass,Clean Floor,94.2%,0,552.7,FAIL,"Expected Broken Glass, got Clean Floor"
+Test_D_RealCable,synth_cable_white_tile_test_005.jpg,Cable / Cord,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,427.4,FAIL,"Expected Cable / Cord, got UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_E_WaterSpill,hf_p41_water_spill_0084.jpg,Water Spill,Water Spill,22.4%,1,209.1,PASS,OK
+Test_F_CleanFloor,hf_bal_clean_floor_0144.jpg,Clean Floor,Clean Floor,94.2%,0,215.9,PASS,OK
+Test_G_img_01,aug_crack_sec06_flip.jpg,Floor Damage,Clean Floor,94.2%,0,249.9,FAIL,"Ground Truth: Floor Damage, Predicted: Clean Floor"
+Test_G_img_02,aug_crack_sec07_flip.jpg,Floor Damage,Trash Litter,44.2%,1,238.8,FAIL,"Ground Truth: Floor Damage, Predicted: Trash Litter"
+Test_G_img_03,aug_food_sec05_bright.jpg,Food Waste,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,237.8,FAIL,"Ground Truth: Food Waste, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_04,coca_bottle_full_bright.jpg,Trash / Litter,Trash Litter,46.4%,1,246.0,PASS,Exact match
+Test_G_img_05,floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg,Obstacle / Debris,Mud Dirt,21.5%,2,242.7,FAIL,"Ground Truth: Obstacle / Debris, Predicted: Mud Dirt"
+Test_G_img_06,floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg,Obstacle / Debris,Mud Dirt,30.8%,3,240.9,FAIL,"Ground Truth: Obstacle / Debris, Predicted: Mud Dirt"
+Test_G_img_07,hf_bal_clean_floor_0144.jpg,Clean Floor,Clean Floor,94.2%,0,188.1,PASS,Exact match
+Test_G_img_08,hf_bal_clean_floor_0198.jpg,Clean Floor,Clean Floor,94.2%,0,193.7,PASS,Exact match
+Test_G_img_09,hf_bal_obstacle_0069.jpg,Obstacle / Debris,Mat Hazard,30.3%,2,218.2,FAIL,"Ground Truth: Obstacle / Debris, Predicted: Mat Hazard"
+Test_G_img_10,hf_bal_oil_spill_0033.jpg,Oil Spill,Clean Floor,94.2%,0,248.9,FAIL,"Ground Truth: Oil Spill, Predicted: Clean Floor"
+Test_G_img_11,hf_bal_oil_spill_0065.jpg,Oil Spill,Clean Floor,94.2%,0,245.9,FAIL,"Ground Truth: Oil Spill, Predicted: Clean Floor"
+Test_G_img_12,hf_p41_oil_spill_0117.jpg,Oil Spill,Water Spill,22.1%,1,232.2,FAIL,"Ground Truth: Oil Spill, Predicted: Water Spill"
+Test_G_img_13,hf_p41_water_spill_0084.jpg,Water Spill,Water Spill,22.4%,1,203.1,PASS,Exact match
+Test_G_img_14,hf_pilot_obstacle_0010.jpg,Obstacle / Debris,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,252.2,FAIL,"Ground Truth: Obstacle / Debris, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_15,hf_pilot_obstacle_0018.jpg,Obstacle / Debris,Water Spill,31.5%,1,205.9,FAIL,"Ground Truth: Obstacle / Debris, Predicted: Water Spill"
+Test_G_img_16,multi_chemical_spill_crop_cool.jpg,Chemical Spill,Mud Dirt,21.7%,1,249.8,FAIL,"Ground Truth: Chemical Spill, Predicted: Mud Dirt"
+Test_G_img_17,multi_food_waste_crop_hflip.jpg,Food Waste,Clean Floor,94.2%,0,274.6,FAIL,"Ground Truth: Food Waste, Predicted: Clean Floor"
+Test_G_img_18,multi_mud_dirt_crop_hflip.jpg,Mud / Dirt,Mud Dirt,86.4%,12,391.0,PASS,Exact match
+Test_G_img_19,multi_obstacle_debris_crop_bright.jpg,Obstacle / Debris,Mud Dirt,23.7%,1,210.6,FAIL,"Ground Truth: Obstacle / Debris, Predicted: Mud Dirt"
+Test_G_img_20,multi_stairs_hazard_crop_bright.jpg,Stairs Hazard,Mud Dirt,20.4%,2,204.9,FAIL,"Ground Truth: Stairs Hazard, Predicted: Mud Dirt"
+Test_G_img_21,multi_trash_litter_panel_crop_warm.jpg,Trash / Litter,Clean Floor,94.2%,0,228.5,FAIL,"Ground Truth: Trash / Litter, Predicted: Clean Floor"
+Test_G_img_22,multi_water_spill_crop_bright.jpg,Water Spill,Mud Dirt,52.7%,3,252.5,FAIL,"Ground Truth: Water Spill, Predicted: Mud Dirt"
+Test_G_img_23,multi_water_spill_crop_hflip.jpg,Water Spill,Mud Dirt,41.4%,3,249.0,FAIL,"Ground Truth: Water Spill, Predicted: Mud Dirt"
+Test_G_img_24,p43_clean_floor_0014.jpg,Clean Floor,Clean Floor,94.2%,0,191.6,PASS,Exact match
+Test_G_img_25,p43_clean_floor_0024.jpg,Clean Floor,Clean Floor,94.2%,0,192.6,PASS,Exact match
+Test_G_img_26,p43_oil_spill_0058.jpg,Oil Spill,Clean Floor,94.2%,0,234.8,FAIL,"Ground Truth: Oil Spill, Predicted: Clean Floor"
+Test_G_img_27,p43_water_spill_0007.jpg,Water Spill,Clean Floor,94.2%,0,242.1,FAIL,"Ground Truth: Water Spill, Predicted: Clean Floor"
+Test_G_img_28,panel_food_waste_exp_contrast.jpg,Food Waste,Clean Floor,94.2%,0,237.8,FAIL,"Ground Truth: Food Waste, Predicted: Clean Floor"
+Test_G_img_29,phele_glass_test_79.jpg,Broken Glass,Clean Floor,94.2%,0,432.7,FAIL,"Ground Truth: Broken Glass, Predicted: Clean Floor"
+Test_G_img_30,phele_glass_train_510.jpg,Broken Glass,Broken Glass,41.4%,2,708.4,PASS,Exact match
+Test_G_img_31,phele_glass_train_514.jpg,Broken Glass,Broken Glass,52.2%,5,586.1,PASS,Exact match
+Test_G_img_32,sample_water_spill.jpg,Water Spill,Floor Damage,25.0%,1,347.0,FAIL,"Ground Truth: Water Spill, Predicted: Floor Damage"
+Test_G_img_33,synth_beverage_spill_00.jpg,Water Spill,Water Spill,89.8%,1,238.6,PASS,Exact match
+Test_G_img_34,synth_beverage_spill_08.jpg,Water Spill,Water Spill,30.2%,2,224.2,PASS,Exact match
+Test_G_img_35,synth_beverage_spill_09.jpg,Water Spill,Water Spill,79.5%,2,222.4,PASS,Exact match
+Test_G_img_36,synth_beverage_spill_10.jpg,Water Spill,Water Spill,83.5%,1,227.9,PASS,Exact match
+Test_G_img_37,synth_cable_white_tile_test_005.jpg,Cable / Cord,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,319.4,FAIL,"Ground Truth: Cable / Cord, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_38,synth_cable_white_tile_val_010.jpg,Cable / Cord,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,289.6,FAIL,"Ground Truth: Cable / Cord, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_39,synth_damage_dark_marble_broken_surface_train_045.jpg,Floor Damage,Floor Damage,80.4%,1,281.2,PASS,Exact match
+Test_G_img_40,synth_damage_white_tile_broken_surface_train_033.jpg,Floor Damage,Floor Damage,86.0%,1,296.6,PASS,Exact match
+Test_G_img_41,synth_div_food_concrete_vegetable_waste_train_014.jpg,Food Waste,Food Waste,85.6%,1,286.0,PASS,Exact match
+Test_G_img_42,synth_div_food_dark_marble_scattered_rice_val_001.jpg,Food Waste,Food Waste,23.1%,1,291.3,PASS,Exact match
+Test_G_img_43,synth_div_food_white_tile_bread_crust_val_014.jpg,Food Waste,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,306.9,FAIL,"Ground Truth: Food Waste, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_44,synth_div_food_white_tile_scattered_rice_train_044.jpg,Food Waste,Food Waste,63.6%,1,267.5,PASS,Exact match
+Test_G_img_45,synth_div_food_white_tile_spilled_sauce_train_029.jpg,Food Waste,Food Waste,67.5%,1,296.4,PASS,Exact match
+Test_G_img_46,synth_floor_hole_00.jpg,Floor Damage,Floor Damage,99.4%,2,215.3,PASS,Exact match
+Test_G_img_47,synth_floor_hole_05.jpg,Floor Damage,Floor Damage,99.1%,2,208.7,PASS,Exact match
+Test_G_img_48,synth_floor_hole_06.jpg,Floor Damage,Floor Damage,77.4%,2,226.7,PASS,Exact match
+Test_G_img_49,synth_floor_hole_08.jpg,Floor Damage,Floor Damage,98.4%,2,269.2,PASS,Exact match
+Test_G_img_50,synth_mat_concrete_folded_mat_train_000.jpg,Floor Mat Hazard,Mat Hazard,33.5%,1,309.0,PASS,Exact match
+Test_G_img_51,synth_mat_dark_marble_curled_corner_train_006.jpg,Floor Mat Hazard,Mat Hazard,32.9%,1,310.3,PASS,Exact match
+Test_G_img_52,synth_mat_dark_marble_raised_edge_train_016.jpg,Floor Mat Hazard,Mat Hazard,45.6%,1,298.3,PASS,Exact match
+Test_G_img_53,synth_mat_dark_marble_raised_edge_train_024.jpg,Floor Mat Hazard,Cable Cord,65.0%,1,301.6,FAIL,"Ground Truth: Floor Mat Hazard, Predicted: Cable Cord"
+Test_G_img_54,synth_mat_wood_plank_raised_edge_train_042.jpg,Floor Mat Hazard,Mat Hazard,39.7%,1,322.8,PASS,Exact match
+Test_G_img_55,synth_multi_food_concrete_test_012.jpg,Food Waste,Food Waste,69.0%,2,302.1,PASS,Exact match
+Test_G_img_56,synth_multi_food_concrete_train_043.jpg,Food Waste,Food Waste,80.5%,2,314.0,PASS,Exact match
+Test_G_img_57,synth_sharp_object_11.jpg,Broken Glass,UNKNOWN FLOOR HAZARD — NEEDS REVIEW,58.0%,1,219.1,FAIL,"Ground Truth: Broken Glass, Predicted: UNKNOWN FLOOR HAZARD — NEEDS REVIEW"
+Test_G_img_58,thumb_clean_floor.jpg,Clean Floor,Clean Floor,94.2%,0,136.7,PASS,Exact match
+Test_G_img_59,user_bottle_gold_label_hflip_bright.jpg,Trash / Litter,Trash Litter,26.2%,1,243.4,PASS,Exact match
+Test_G_img_60,user_vid_kf0_cables.jpg,Cable / Cord,Clean Floor,94.2%,0,239.2,FAIL,"Ground Truth: Cable / Cord, Predicted: Clean Floor"
+Test_H_Video_Intelligence,corridor_hazard_tour_30s.mp4,Consolidated Video Incidents,2 Unique Events,2 Hazards,12,5405.0,PASS,Processed 12 keyframes into 2 consolidated hazard events.

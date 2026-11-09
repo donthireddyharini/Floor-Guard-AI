@@ -1,0 +1,23 @@
+{
+  "report_title": "Floor Guard AI 12-Class Hazard Balance Analysis",
+  "total_boxes_audited": 685,
+  "class_counts": {
+    "water_spill": 98,
+    "oil_spill": 39,
+    "chemical_spill": 18,
+    "broken_glass": 150,
+    "cable_cord": 31,
+    "obstacle_debris": 113,
+    "trash_litter": 8,
+    "food_waste": 108,
+    "mud_dirt": 19,
+    "stairs_hazard": 18,
+    "floor_mat_hazard": 34,
+    "floor_damage": 49
+  },
+  "newly_integrated_classes": {
+    "floor_mat_hazard": 34,
+    "floor_damage": 49
+  },
+  "sampling_strategy": "Class-aware loss weighting applied during training to counter minor frequency variances."
+}

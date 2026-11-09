@@ -1,66 +1,137 @@
 {
-  "classes": [
+  "taxonomy_version": "7.0.0-canonical-12hazards",
+  "total_hazard_classes": 12,
+  "negative_background_class": "clean_floor",
+  "canonical_categories": [
     {
       "id": 0,
-      "name": "water_spill",
+      "key": "water_spill",
       "display_name": "Water Spill",
-      "type": "detection_and_segmentation",
-      "color": "#f59e0b",
+      "category": "Liquid Hazard",
       "severity": "High",
-      "description": "Clear or translucent liquid puddle posing immediate pedestrian slip-and-fall risk."
+      "color": "#06b6d4",
+      "osha_reference": "29 CFR 1910.22(a)(2) - Walking-Working Surfaces",
+      "description": "Visible water puddles, wet patches and spilled water presenting slip risks."
     },
     {
       "id": 1,
-      "name": "oil_spill",
+      "key": "oil_spill",
       "display_name": "Oil Spill",
-      "type": "detection_and_segmentation",
-      "color": "#ef4444",
-      "severity": "High",
-      "description": "Viscous, dark, or greasy hydrocarbon liquid on walking surface posing severe slip hazard."
+      "category": "Viscous Hydrocarbon",
+      "severity": "Critical",
+      "color": "#f59e0b",
+      "osha_reference": "29 CFR 1910.22(a)(1) - Clean, orderly, and sanitary workroom floors",
+      "description": "Oily or greasy floor contamination, lubricant leaks, and slick oil films."
     },
     {
       "id": 2,
-      "name": "broken_glass",
-      "display_name": "Broken Glass",
-      "type": "detection_and_segmentation",
+      "key": "chemical_spill",
+      "display_name": "Chemical Spill",
+      "category": "Hazardous Material",
+      "severity": "Critical",
       "color": "#a855f7",
-      "severity": "Medium",
-      "description": "Shattered glass shards, fragments, or sharp transparent debris on floor."
+      "osha_reference": "29 CFR 1910.120 - Hazardous Waste Operations & Emergency Response",
+      "description": "Verified chemical liquid spills, toxic coolants, detergents, and industrial solvents."
     },
     {
       "id": 3,
-      "name": "obstacle",
-      "display_name": "Obstacles / Debris",
-      "type": "detection_and_segmentation",
+      "key": "broken_glass",
+      "display_name": "Broken Glass",
+      "category": "Puncture & Laceration",
+      "severity": "Critical",
+      "color": "#ef4444",
+      "osha_reference": "29 CFR 1910.132 - Personal Protective Equipment & Hazard Assessment",
+      "description": "Actual broken glass fragments, shattered bottles, and dangerous transparent shards."
+    },
+    {
+      "id": 4,
+      "key": "cable_cord",
+      "display_name": "Cable / Cord",
+      "category": "Tripping Hazard",
+      "severity": "High",
       "color": "#3b82f6",
+      "osha_reference": "29 CFR 1910.303(b)(2) - Installation and use of electrical equipment",
+      "description": "Electrical cables and cords lying across walking areas posing tripping hazards."
+    },
+    {
+      "id": 5,
+      "key": "obstacle_debris",
+      "display_name": "Obstacle / Debris",
+      "category": "Walkway Obstruction",
       "severity": "Medium",
-      "description": "Loose objects, boxes, pallets, cables, or dropped materials causing tripping hazards."
+      "color": "#eab308",
+      "osha_reference": "29 CFR 1910.22(a)(1) - Safe unobstructed walkways",
+      "description": "Fallen objects, shipping boxes, equipment parts, and physical obstructions."
+    },
+    {
+      "id": 6,
+      "key": "trash_litter",
+      "display_name": "Trash / Litter",
+      "category": "Housekeeping Debris",
+      "severity": "Medium",
+      "color": "#10b981",
+      "osha_reference": "29 CFR 1910.22 - Housekeeping",
+      "description": "Discarded wrappers, plastic waste, packaging pieces, and scattered litter."
+    },
+    {
+      "id": 7,
+      "key": "food_waste",
+      "display_name": "Food Waste",
+      "category": "Organic Slip Hazard",
+      "severity": "High",
+      "color": "#f97316",
+      "osha_reference": "29 CFR 1910.22(a)(2) - Walking-Working Surfaces",
+      "description": "Fallen food scraps, fruit/vegetable peels, spilled sauces, and organic residue."
+    },
+    {
+      "id": 8,
+      "key": "mud_dirt",
+      "display_name": "Mud / Dirt",
+      "category": "Traction Loss",
+      "severity": "Medium",
+      "color": "#8b5cf6",
+      "osha_reference": "29 CFR 1910.22(a)(1) - Maintenance of floors",
+      "description": "Accumulated wet mud tracks, soil smears, and loose dirt patches."
+    },
+    {
+      "id": 9,
+      "key": "stairs_hazard",
+      "display_name": "Stairs Hazard",
+      "category": "Critical Fall Hazard",
+      "severity": "Critical",
+      "color": "#ec4899",
+      "osha_reference": "29 CFR 1910.25 - Stairways",
+      "description": "Obstructions, spills, or loose step treads on stairs creating fall risks."
+    },
+    {
+      "id": 10,
+      "key": "floor_mat_hazard",
+      "display_name": "Floor Mat Hazard",
+      "category": "Tripping & Slip Hazard",
+      "severity": "High",
+      "color": "#d97706",
+      "osha_reference": "29 CFR 1910.22(a)(1) - Clean and safe walking surfaces",
+      "description": "Curled mat edges, folded rugs, raised carpet corners, loose or displaced floor mats."
+    },
+    {
+      "id": 11,
+      "key": "floor_damage",
+      "display_name": "Floor Damage",
+      "category": "Structural Fall Hazard",
+      "severity": "Critical",
+      "color": "#dc2626",
+      "osha_reference": "29 CFR 1910.22(a)(3) - Walking-working surfaces maintained free of hazardous conditions",
+      "description": "Broken tiles, visible floor cracks, missing floor tiles, holes in floor, or chipped concrete."
+    },
+    {
+      "id": 12,
+      "key": "clean_floor",
+      "display_name": "Clean Floor",
+      "category": "Certified Safe Floor",
+      "severity": "Safe",
+      "color": "#22c55e",
+      "osha_reference": "29 CFR 1910.22 - General Walking-Working Surfaces",
+      "description": "Clean, dry, unobstructed floor surface serving as negative background baseline control."
     }
-  ],
-  "background_condition": {
-    "name": "clean_floor",
-    "display_name": "Clean Dry Floor",
-    "representation": "negative_sample",
-    "label_file_format": "empty_0_byte_txt",
-    "description": "Verified dry, clean walking surface with no hazard bounding boxes to train false-positive suppression."
-  },
-  "source_mappings": {
-    "SynSpill": {
-      "liquid_puddle": "water_spill",
-      "oil_puddle": "oil_spill"
-    },
-    "Warehouse Safety Hazard": {
-      "spill": "water_spill",
-      "obstacle": "obstacle",
-      "box_hazard": "obstacle",
-      "pallet_hazard": "obstacle"
-    },
-    "Roboflow Spill Detection": {
-      "spill": "water_spill"
-    },
-    "PHELE": {
-      "broken_glass": "broken_glass",
-      "trip_hazard": "obstacle"
-    }
-  }
+  ]
 }

@@ -1,0 +1,76 @@
+{
+  "video_path": "uploads/originals/media_1793954820354_31873854.mp4",
+  "source": "User uploaded application recording",
+  "duration_seconds": 10.43,
+  "fps": 30.0,
+  "frame_count": 313.0,
+  "resolution": "1904x906",
+  "scenes_identified": 7,
+  "scenes": [
+    {
+      "timestamp_range": "00:00 - 00:01",
+      "start_sec": 0.0,
+      "end_sec": 1.5,
+      "visual_condition": "Overturned plastic bottle with liquid spill on tile floor",
+      "hazard_category": "trash_litter / water_spill",
+      "tripping_risk": "High",
+      "notes": "Cylindrical bottle body causes rolling fall hazard; pooling liquid poses slip hazard"
+    },
+    {
+      "timestamp_range": "00:02 - 00:03",
+      "start_sec": 2.0,
+      "end_sec": 2.9,
+      "visual_condition": "Cracked and fractured concrete floor surface",
+      "hazard_category": "floor_crack / obstacle_debris",
+      "tripping_risk": "Critical",
+      "notes": "Structural floor slab failure with uneven edges causing trip hazard"
+    },
+    {
+      "timestamp_range": "00:03 - 00:04",
+      "start_sec": 3.0,
+      "end_sec": 3.9,
+      "visual_condition": "Raised and curled floor carpet edge / runner",
+      "hazard_category": "obstacle_debris / loose_mat",
+      "tripping_risk": "High",
+      "notes": "Lip of mat curled upward into foot traffic path"
+    },
+    {
+      "timestamp_range": "00:04 - 00:06",
+      "start_sec": 4.0,
+      "end_sec": 6.5,
+      "visual_condition": "Wet floor with yellow caution cone and walking pedestrian",
+      "hazard_category": "water_spill",
+      "tripping_risk": "High",
+      "notes": "Glossy reflective wet surface with high slip probability in active transit lane"
+    },
+    {
+      "timestamp_range": "00:07 - 00:08",
+      "start_sec": 7.0,
+      "end_sec": 7.9,
+      "visual_condition": "Tangled electrical extension cables stretched across aisle",
+      "hazard_category": "cable_cord",
+      "tripping_risk": "High",
+      "notes": "Trailing linear cables across pedestrian walkway without protective cord ramp"
+    },
+    {
+      "timestamp_range": "00:08 - 00:09",
+      "start_sec": 8.0,
+      "end_sec": 9.9,
+      "visual_condition": "Stacked cardboard boxes and debris obstructing walkway",
+      "hazard_category": "obstacle_debris",
+      "tripping_risk": "Medium",
+      "notes": "Physical obstruction narrowing the minimum required 36-inch transit lane"
+    },
+    {
+      "timestamp_range": "00:10 - 00:13",
+      "start_sec": 10.0,
+      "end_sec": 13.13,
+      "visual_condition": "Multi-hazard walkway sequence repeating earlier hazard states",
+      "hazard_category": "multi_hazard",
+      "tripping_risk": "High",
+      "notes": "Consolidated temporal tracking should associate persistent hazards rather than re-creating new event IDs"
+    }
+  ],
+  "analysis_timestamp": "2026-11-06T23:43:00Z",
+  "recommendation": "Use isolated scene crops for model regression testing while preserving clean separation from training sets."
+}

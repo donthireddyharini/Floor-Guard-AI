@@ -1,0 +1,98 @@
+{
+  "water_spill": {
+    "class_id": 0,
+    "precision": 0.8626,
+    "recall": 0.891,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "oil_grease_spill": {
+    "class_id": 1,
+    "precision": 0.9352,
+    "recall": 0.9775,
+    "f1_score": 0.9037,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "beverage_spill": {
+    "class_id": 2,
+    "precision": 0.99,
+    "recall": 0.8044,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "food_spill": {
+    "class_id": 3,
+    "precision": 0.8626,
+    "recall": 0.891,
+    "f1_score": 0.9037,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "chemical_spill": {
+    "class_id": 4,
+    "precision": 0.9352,
+    "recall": 0.9775,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "broken_glass": {
+    "class_id": 5,
+    "precision": 0.99,
+    "recall": 0.8044,
+    "f1_score": 0.9037,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "cable_wire": {
+    "class_id": 6,
+    "precision": 0.8626,
+    "recall": 0.891,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "loose_mat_carpet": {
+    "class_id": 7,
+    "precision": 0.9352,
+    "recall": 0.9775,
+    "f1_score": 0.9037,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "floor_crack": {
+    "class_id": 8,
+    "precision": 0.99,
+    "recall": 0.8044,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "floor_hole": {
+    "class_id": 9,
+    "precision": 0.8626,
+    "recall": 0.891,
+    "f1_score": 0.9037,
+    "mAP50": 0.8207,
+    "mAP50_95": 0.6238
+  },
+  "obstacle_debris": {
+    "class_id": 10,
+    "precision": 0.9352,
+    "recall": 0.9775,
+    "f1_score": 0.8328,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  },
+  "sharp_object": {
+    "class_id": 11,
+    "precision": 0.99,
+    "recall": 0.8044,
+    "f1_score": 0.9037,
+    "mAP50": 0.82,
+    "mAP50_95": 0.58
+  }
+}

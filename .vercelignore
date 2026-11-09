@@ -10,3 +10,13 @@ requirements.txt
 *.pt
 *.sqlite
 temp_remote_repo/
+data/
+dataset/
+models/
+reports/
+uploads/
+training_results/
+corrected_dataset/
+*.csv
+*.mp4
+*.py

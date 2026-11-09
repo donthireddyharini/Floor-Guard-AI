@@ -2,21 +2,14 @@ export type NavSection =
   | 'overview'
   | 'image_detection'
   | 'video_analysis'
+  | 'dataset_training'
   | 'hazard_history'
   | 'analytics'
-  | 'ai_model_lab'
   | 'settings';
 
 export type HazardSeverity = 'Safe' | 'Low' | 'Medium' | 'High' | 'Critical';
 
 export interface BoundingBox {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}
-
-export interface NormalizedBoundingBox {
   x: number;
   y: number;
   width: number;
@@ -48,20 +41,6 @@ export interface ModelItem {
   classes: string[];
   description: string;
   active?: boolean;
-  unsupported_classes?: string[];
-}
-
-export interface DetectionSubItem {
-  class_id: number;
-  class_name: string;
-  raw_class_name?: string;
-  confidence: number;
-  confidence_percent: string;
-  severity: HazardSeverity;
-  is_tripping_hazard_candidate?: boolean;
-  estimated_area_m2?: number;
-  bounding_box: BoundingBox;
-  normalized_bbox: NormalizedBoundingBox;
 }
 
 export interface DetectionItem {
@@ -75,75 +54,15 @@ export interface DetectionItem {
   location: string;
   recommendation?: string;
   bounding_box: BoundingBox;
-  normalized_bbox?: NormalizedBoundingBox;
+  normalized_bbox?: any;
   polygon_contour?: string;
   image_url: string;
-  annotated_image_url?: string;
   filename: string;
   created_at: string;
   task?: 'detection' | 'classification';
   academic_notice?: string;
   model_version?: string;
   architecture?: string;
-  inference_duration_ms?: number;
-  detections?: DetectionSubItem[];
-  total_detections?: number;
-  supported_classes?: string[];
-  unsupported_classes?: string[];
-}
-
-export interface VideoKeyframe {
-  id: number;
-  frame: number;
-  timestamp: string;
-  timestamp_seconds: number;
-  detected_class: string;
-  confidence: number;
-  severity: HazardSeverity;
-  detections_count: number;
-  detections: DetectionSubItem[];
-  thumb: string;
-  note?: string;
-}
-
-export interface VideoAnalysisResult {
-  run_id: string;
-  filename: string;
-  video_url: string;
-  is_demo_simulation: boolean;
-  model_id: string;
-  model_name: string;
-  is_custom_trained: boolean;
-  duration: string;
-  duration_seconds: number;
-  fps: number;
-  total_frames: number;
-  total_frames_analyzed: number;
-  sampling_interval_seconds: number;
-  hazards_count: number;
-  clean_frames_count: number;
-  processing_duration_seconds: number;
-  average_frame_latency_ms: number;
-  throughput_fps: number;
-  keyframes: VideoKeyframe[];
-  summary: string;
-  academic_notice: string;
-}
-
-export interface HistoryRunRow {
-  id: string;
-  source_type: 'image' | 'video';
-  original_filename: string;
-  original_image_url: string;
-  annotated_image_url: string;
-  thumb_url: string;
-  created_at: string;
-  status: string;
-  processing_duration_ms: number;
-  model_version: string;
-  total_detections: number;
-  summary: string;
-  detections?: any[];
 }
 
 export interface KpiData {
@@ -189,6 +108,73 @@ export interface RecentDetectionRow {
   created_at: string;
   original_filename: string;
   estimated_area?: number;
+  location?: string;
+}
+
+export interface DatasetSplitData {
+  train: number;
+  val: number;
+  test: number;
+  train_pct: string;
+  val_pct: string;
+  test_pct: string;
+}
+
+export interface DatasetSummary {
+  total_curated_images: number;
+  total_annotations: number;
+  roboflow_reported_images: number;
+  splits: DatasetSplitData;
+  class_distribution: Record<string, number>;
+  roboflow_class_distribution: {
+    spill: number;
+    normal_floor: number;
+  };
+  sources: any[];
+  huggingface_downloaded: number;
+  huggingface_samples: any[];
+}
+
+export interface TrainingTelemetry {
+  active_model_id: string;
+  yolo_detection: {
+    model_name: string;
+    architecture: string;
+    epochs: number;
+    batch_size: number;
+    initial_lr: number;
+    hardware: string;
+    duration_minutes: number;
+    final_train_loss: number;
+    final_val_loss: number;
+    loss_history: { epoch: number; train_loss: number; val_loss: number; mAP50: number }[];
+    mAP50: number;
+    mAP50_95: number;
+    precision: number;
+    recall: number;
+    latency_ms: number;
+    fps: number;
+    per_class: Record<string, any>;
+  };
+  roboflow_classification: {
+    model_name: string;
+    architecture: string;
+    dataset_source: string;
+    reported_images: number;
+    epochs: number;
+    batch_size: number;
+    optimizer: string;
+    classes: string[];
+    convergence: { epoch: number; train_loss: number; val_loss: number; val_acc: number }[];
+    accuracy: number;
+    precision: number;
+    recall: number;
+    f1_score: number;
+    latency_ms: number;
+    fps: number;
+    per_class: Record<string, any>;
+    academic_disclosure: string;
+  };
 }
 
 export interface AnalyticsSummary {
@@ -200,6 +186,6 @@ export interface AnalyticsSummary {
   detection_trend: DetectionTrendPoint[];
   heatmap: HeatmapData;
   recent_detections: RecentDetectionRow[];
-  dataset_summary?: any;
-  training_telemetry?: any;
+  dataset_summary?: DatasetSummary;
+  training_telemetry?: TrainingTelemetry;
 }

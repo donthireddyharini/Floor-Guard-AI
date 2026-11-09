@@ -1,0 +1,44 @@
+{
+  "audit_title": "Floor Guard AI \u2014 Final Comprehensive Dataset Quality Audit & Verification",
+  "timestamp": "2026-11-06T20:12:22Z",
+  "status": "VERIFIED & AUDITED",
+  "taxonomy": {
+    "version": "7.0.0-canonical-12hazards",
+    "hazard_categories": 12,
+    "negative_baseline_control": "clean_floor (0 bounding boxes)"
+  },
+  "deduplication_audit": {
+    "candidate_images_scanned": 1110,
+    "sha256_exact_duplicates_removed": 445,
+    "phash_near_duplicates_removed": 435,
+    "pristine_unique_images_retained": 607
+  },
+  "splits_distribution": {
+    "train": 413,
+    "val": 94,
+    "test": 100,
+    "total_images": 607,
+    "total_annotations": 685
+  },
+  "class_instance_counts": {
+    "water_spill": 98,
+    "oil_spill": 39,
+    "chemical_spill": 18,
+    "broken_glass": 150,
+    "cable_cord": 31,
+    "obstacle_debris": 113,
+    "trash_litter": 8,
+    "food_waste": 108,
+    "mud_dirt": 19,
+    "stairs_hazard": 18,
+    "floor_mat_hazard": 34,
+    "floor_damage": 49
+  },
+  "quality_gates": {
+    "no_duplicate_leakage_across_splits": true,
+    "tight_bounding_boxes_enforced": true,
+    "zero_box_negative_controls_verified": true,
+    "curled_mat_vs_flat_mat_isolated": true,
+    "cracked_tile_vs_grout_line_isolated": true
+  }
+}

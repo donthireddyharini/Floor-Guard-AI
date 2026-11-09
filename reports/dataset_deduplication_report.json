@@ -1,0 +1,18 @@
+{
+  "report_title": "Floor Guard AI \u2014 Comprehensive Dataset Deduplication & Hygiene Summary",
+  "timestamp": "2026-11-06T20:32:58Z",
+  "raw_candidate_images": 1110,
+  "exact_duplicates_removed": 445,
+  "near_duplicates_removed": 435,
+  "total_redundancy_rate": "79.28%",
+  "clean_unique_images_retained": 607,
+  "hazard_images": 541,
+  "clean_negative_controls": 66,
+  "verified_bounding_boxes": 685,
+  "storage_structure": {
+    "raw_archive": "dataset/raw_archive/",
+    "processed_unique": "data/processed/unique/",
+    "processed_duplicates": "data/processed/duplicates/",
+    "processed_needs_review": "data/processed/needs_review/"
+  }
+}

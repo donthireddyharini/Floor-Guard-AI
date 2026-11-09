@@ -9,73 +9,49 @@ import {
   AlertTriangle,
   CheckCircle,
   FileSpreadsheet,
-  LayoutGrid,
-  List,
-  Layers,
   Video,
   Image as ImageIcon,
-  Clock,
-  Sparkles,
-  RefreshCw
+  Layers
 } from 'lucide-react';
-import { HistoryRunRow } from '../types';
+import { RecentDetectionRow } from '../types';
 
 interface HazardHistoryViewProps {
   onSelectDetection: (item: any) => void;
 }
 
 export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDetection }) => {
-  const [historyRuns, setHistoryRuns] = useState<HistoryRunRow[]>([]);
+  const [detections, setDetections] = useState<RecentDetectionRow[]>([]);
+  const [activeSourceTab, setActiveSourceTab] = useState<'all' | 'image' | 'video'>('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSourceType, setSelectedSourceType] = useState('all');
-  const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
+  const [selectedClass, setSelectedClass] = useState('all');
+  const [selectedSeverity, setSelectedSeverity] = useState('all');
   const [loading, setLoading] = useState(false);
 
   // Load records from backend API
-  const loadHistory = async () => {
+  const loadDetections = async () => {
     setLoading(true);
     try {
-      const url = new URL('/api/history', window.location.origin);
-      if (selectedSourceType !== 'all') url.searchParams.set('sourceType', selectedSourceType);
+      const url = new URL('/api/detections', window.location.origin);
+      if (activeSourceTab !== 'all') url.searchParams.set('source_type', activeSourceTab);
+      if (selectedClass !== 'all') url.searchParams.set('className', selectedClass);
+      if (selectedSeverity !== 'all') url.searchParams.set('severity', selectedSeverity);
       if (searchTerm) url.searchParams.set('search', searchTerm);
 
       const res = await fetch(url.toString());
       const data = await res.json();
-      if (data.status === 'ok' && Array.isArray(data.history)) {
-        setHistoryRuns(data.history);
-      } else {
-        // Fallback to /api/detections
-        const fallbackRes = await fetch('/api/detections');
-        const fallbackData = await fallbackRes.json();
-        if (fallbackData.status === 'ok') {
-          const mapped = (fallbackData.detections || []).map((d: any) => ({
-            id: d.id,
-            source_type: d.source_type || 'image',
-            original_filename: d.original_filename,
-            original_image_url: d.evidence_path,
-            annotated_image_url: d.evidence_path,
-            thumb_url: d.evidence_path,
-            created_at: d.created_at,
-            status: 'completed',
-            processing_duration_ms: 120,
-            model_version: 'YOLOv8s',
-            total_detections: 1,
-            summary: `Detected ${d.class_name} (${Math.round(d.confidence * 100)}%)`,
-            detections: [d]
-          }));
-          setHistoryRuns(mapped);
-        }
+      if (data.status === 'ok') {
+        setDetections(data.detections);
       }
     } catch (err) {
-      console.error('Failed to load history:', err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadHistory();
-  }, [selectedSourceType, searchTerm]);
+    loadDetections();
+  }, [activeSourceTab, selectedClass, selectedSeverity, searchTerm]);
 
   // Export CSV
   const handleExportCsv = () => {
@@ -85,264 +61,235 @@ export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDe
   // Delete record
   const handleDelete = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!confirm(`Are you sure you want to permanently remove inspection run ${id}?`)) return;
+    if (!confirm('Are you sure you want to remove this detection log?')) return;
     try {
-      await fetch(`/api/history/${id}`, { method: 'DELETE' });
-      setHistoryRuns((prev) => prev.filter((d) => d.id !== id));
+      await fetch(`/api/detections/${id}`, { method: 'DELETE' });
+      setDetections((prev) => prev.filter((d) => d.id !== id));
     } catch (err) {
       console.error(err);
     }
   };
 
+  const imageCount = detections.filter(d => (d as any).source_type === 'image').length;
+  const videoCount = detections.filter(d => (d as any).source_type === 'video').length;
+
   return (
     <div className="p-6 space-y-6 max-w-[1720px] mx-auto">
-      {/* Top Filter & Actions Bar */}
-      <div className="bg-[#111827] border border-[#1e293b] rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+      {/* Top Source Tabs: Separate Video Analysis History & Image History */}
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-3">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setActiveSourceTab('all')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              activeSourceTab === 'all'
+                ? 'bg-[#22c55e] text-black shadow-md'
+                : 'bg-[#182335] text-slate-300 hover:bg-[#202e44] border border-[#283952]'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>All Hazard Records</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSourceTab('image')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              activeSourceTab === 'image'
+                ? 'bg-[#38bdf8] text-black shadow-md'
+                : 'bg-[#182335] text-slate-300 hover:bg-[#202e44] border border-[#283952]'
+            }`}
+          >
+            <ImageIcon className="w-3.5 h-3.5" />
+            <span>Image Hazard History</span>
+          </button>
+
+          <button
+            onClick={() => setActiveSourceTab('video')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              activeSourceTab === 'video'
+                ? 'bg-[#f59e0b] text-black shadow-md'
+                : 'bg-[#182335] text-slate-300 hover:bg-[#202e44] border border-[#283952]'
+            }`}
+          >
+            <Video className="w-3.5 h-3.5" />
+            <span>Video Analysis History</span>
+            <span className="ml-1 text-[10px] bg-black/30 px-1.5 py-0.5 rounded-full font-mono">
+              Dedicated
+            </span>
+          </button>
+        </div>
+
+        <div className="text-xs text-slate-400 font-mono">
+          Showing {detections.length} recorded incident(s)
+        </div>
+      </div>
+
+      {/* Filter Bar */}
+      <div className="bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
         {/* Search Input */}
-        <div className="relative flex-1 min-w-[280px]">
+        <div className="relative flex-1 min-w-[260px]">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search by filename, run ID, or hazard summary..."
+            placeholder={
+              activeSourceTab === 'video'
+                ? 'Search video inspection keyframes, filenames, or locations...'
+                : 'Search by filename, location, or class...'
+            }
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0a0f1d] border border-[#1e293b] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#f97316]"
+            className="w-full pl-10 pr-4 py-2 rounded-xl bg-[#0d131f] border border-[#1e2c3f] text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#22c55e]"
           />
         </div>
 
-        {/* Filters & Actions */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          {/* Source Type Filter */}
+        {/* Filters & Export */}
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Class Filter with all 12 classes */}
           <select
-            value={selectedSourceType}
-            onChange={(e) => setSelectedSourceType(e.target.value)}
-            className="px-3 py-2 rounded-xl bg-[#0a0f1d] border border-[#1e293b] text-xs text-slate-200 focus:outline-none cursor-pointer"
+            value={selectedClass}
+            onChange={(e) => setSelectedClass(e.target.value)}
+            className="px-3 py-2 rounded-xl bg-[#0d131f] border border-[#1e2c3f] text-xs text-slate-200 focus:outline-none"
           >
-            <option value="all">All Media (Images &amp; Videos)</option>
-            <option value="image">Images Only</option>
-            <option value="video">Videos Only</option>
+            <option value="all">All 12 Hazard Classes</option>
+            <option value="Water Spill">Water Spill</option>
+            <option value="Oil Spill">Oil Spill</option>
+            <option value="Chemical Spill">Chemical Spill</option>
+            <option value="Broken Glass">Broken Glass</option>
+            <option value="Food Waste">Food Waste & Sauce</option>
+            <option value="Cable Cord">Cable / Wire Hazard</option>
+            <option value="Floor Crack">Floor Crack & Pothole</option>
+            <option value="Improper Mat">Curled / Improper Mat</option>
+            <option value="Obstacle Debris">Obstacle / Pallet</option>
+            <option value="Trash Litter">Trash / Litter</option>
+            <option value="Mud Dirt">Mud / Dirt</option>
+            <option value="Stairs Hazard">Stairs Hazard</option>
+            <option value="Clean Floor">Clean Floor</option>
           </select>
 
-          {/* View Mode Toggle */}
-          <div className="bg-[#0a0f1d] p-1 rounded-xl border border-[#1e293b] flex items-center gap-1">
-            <button
-              onClick={() => setViewMode('table')}
-              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                viewMode === 'table' ? 'bg-[#f97316] text-white' : 'text-slate-400 hover:text-white'
-              }`}
-              title="Table View"
-            >
-              <List className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                viewMode === 'grid' ? 'bg-[#f97316] text-white' : 'text-slate-400 hover:text-white'
-              }`}
-              title="Card Grid View"
-            >
-              <LayoutGrid className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Refresh Button */}
-          <button
-            onClick={loadHistory}
-            className="p-2 rounded-xl bg-[#1e293b] hover:bg-[#334155] text-slate-300 hover:text-white transition-colors cursor-pointer"
-            title="Refresh History"
+          {/* Severity Filter */}
+          <select
+            value={selectedSeverity}
+            onChange={(e) => setSelectedSeverity(e.target.value)}
+            className="px-3 py-2 rounded-xl bg-[#0d131f] border border-[#1e2c3f] text-xs text-slate-200 focus:outline-none"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          </button>
+            <option value="all">All Severities</option>
+            <option value="Safe">Safe</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+          </select>
 
           {/* Export Button */}
           <button
             onClick={handleExportCsv}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#1e293b] hover:bg-[#334155] border border-[#2a384f] text-slate-200 font-semibold text-xs transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#192437] hover:bg-[#202e46] border border-[#2a3c56] text-slate-200 font-semibold text-xs transition-colors cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-[#f97316]" />
+            <Download className="w-3.5 h-3.5" />
             <span>Export CSV</span>
           </button>
         </div>
       </div>
 
-      {/* Main Content Area */}
-      {viewMode === 'table' ? (
-        <div className="bg-[#111827] border border-[#1e293b] rounded-3xl p-5 overflow-x-auto shadow-sm">
-          <table className="w-full text-left text-xs font-mono">
-            <thead>
-              <tr className="border-b border-[#1e293b] text-[11px] text-slate-400 uppercase tracking-wider">
-                <th className="pb-3.5">Timestamp</th>
-                <th className="pb-3.5">Inspection Preview</th>
-                <th className="pb-3.5">Filename</th>
-                <th className="pb-3.5">Media</th>
-                <th className="pb-3.5">Model Checkpoint</th>
-                <th className="pb-3.5 text-center">Hazards Found</th>
-                <th className="pb-3.5">Status</th>
-                <th className="pb-3.5 text-right">Actions</th>
+      {/* History Table */}
+      <div className="bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-5 overflow-x-auto shadow-sm">
+        <table className="w-full text-left text-xs font-mono">
+          <thead>
+            <tr className="border-b border-[#1b2738] text-[10px] text-slate-400">
+              <th className="pb-3">Timestamp</th>
+              <th className="pb-3">Source Type</th>
+              <th className="pb-3">Evidence Thumbnail</th>
+              <th className="pb-3">Inspection Asset</th>
+              <th className="pb-3">Class</th>
+              <th className="pb-3 text-right">Confidence</th>
+              <th className="pb-3 text-right">Area</th>
+              <th className="pb-3 text-right">Severity</th>
+              <th className="pb-3 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#172335]">
+            {detections.length === 0 ? (
+              <tr>
+                <td colSpan={9} className="py-8 text-center text-slate-500 font-sans">
+                  No {activeSourceTab === 'video' ? 'video analysis' : activeSourceTab === 'image' ? 'image detection' : ''} logs found matching query.
+                </td>
               </tr>
-            </thead>
-            <tbody className="divide-y divide-[#172233]">
-              {loading && historyRuns.length === 0 ? (
-                <tr>
-                  <td colSpan={8} className="py-12 text-center text-slate-500 font-sans">
-                    <div className="flex flex-col items-center gap-2">
-                      <RefreshCw className="w-5 h-5 animate-spin text-[#f97316]" />
-                      <span>Loading inspection history...</span>
+            ) : (
+              detections.map((row) => (
+                <tr
+                  key={row.id}
+                  onClick={() => onSelectDetection(row)}
+                  className="hover:bg-[#182335] transition-colors cursor-pointer group"
+                >
+                  <td className="py-3 text-[11px] text-slate-400 whitespace-nowrap">
+                    {new Date(row.created_at).toLocaleString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
+                  </td>
+                  <td className="py-3">
+                    {(row as any).source_type === 'video' ? (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                        <Video className="w-3 h-3" />
+                        Video
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                        <ImageIcon className="w-3 h-3" />
+                        Image
+                      </span>
+                    )}
+                  </td>
+                  <td className="py-3">
+                    <div className="w-10 h-7 rounded overflow-hidden bg-black border border-[#22334c] relative group-hover:scale-105 transition-transform">
+                      <img
+                        src={row.evidence_path || '/assets/samples/thumb_water_spill.jpg'}
+                        alt={row.class_name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </td>
-                </tr>
-              ) : historyRuns.length === 0 ? (
-                <tr>
-                  <td colSpan={8} className="py-12 text-center text-slate-500 font-sans">
-                    <div className="flex flex-col items-center gap-2">
-                      <History className="w-6 h-6 text-slate-600" />
-                      <span className="text-sm font-semibold text-slate-400">No inspection history records found.</span>
-                      <span className="text-xs text-slate-500">Run an image inspection or video analysis to populate the database.</span>
-                    </div>
+                  <td className="py-3 text-[11px] font-sans text-slate-300 truncate max-w-[180px]">
+                    <div className="font-semibold">{row.original_filename}</div>
+                    <div className="text-[10px] text-slate-400 font-mono">{row.location}</div>
                   </td>
-                </tr>
-              ) : (
-                historyRuns.map((row) => {
-                  const isSafe = row.total_detections === 0;
-                  return (
-                    <tr
-                      key={row.id}
-                      onClick={() => onSelectDetection(row)}
-                      className="hover:bg-[#162132] transition-colors cursor-pointer group"
+                  <td className="py-3 font-sans font-semibold text-white">
+                    {row.class_name}
+                  </td>
+                  <td className="py-3 text-right font-bold text-white tabular-nums">
+                    {Math.round(row.confidence * 100)}%
+                  </td>
+                  <td className="py-3 text-right text-slate-400 tabular-nums">
+                    {row.estimated_area ? `${row.estimated_area} m²` : '—'}
+                  </td>
+                  <td className="py-3 text-right">
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold text-white ${
+                        row.severity === 'Safe'
+                          ? 'bg-[#15803d]'
+                          : row.severity === 'Medium'
+                          ? 'bg-[#eab308]'
+                          : 'bg-[#ef4444]'
+                      }`}
                     >
-                      <td className="py-3 text-[11px] text-slate-400 whitespace-nowrap">
-                        {new Date(row.created_at).toLocaleString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
-                      </td>
-                      <td className="py-3">
-                        <div className="w-12 h-8 rounded-lg overflow-hidden bg-black border border-[#22334c] flex items-center justify-center">
-                          <img
-                            src={row.thumb_url || row.annotated_image_url || row.original_image_url}
-                            alt={row.original_filename}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
-                              const p = (e.target as HTMLElement).parentElement;
-                              if (p) p.innerText = 'NO IMG';
-                            }}
-                          />
-                        </div>
-                      </td>
-                      <td className="py-3 font-sans font-medium text-slate-200 truncate max-w-[180px]">
-                        {row.original_filename}
-                      </td>
-                      <td className="py-3">
-                        <span className="flex items-center gap-1.5 text-slate-400">
-                          {row.source_type === 'video' ? (
-                            <><Video className="w-3.5 h-3.5 text-blue-400" /> Video</>
-                          ) : (
-                            <><ImageIcon className="w-3.5 h-3.5 text-[#f97316]" /> Image</>
-                          )}
-                        </span>
-                      </td>
-                      <td className="py-3 text-slate-400 truncate max-w-[160px]">
-                        {row.model_version || 'YOLOv8s'}
-                      </td>
-                      <td className="py-3 text-center">
-                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                          isSafe
-                            ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                            : 'bg-red-500/20 text-red-400 border border-red-500/30'
-                        }`}>
-                          {isSafe ? '0 (Clean)' : `${row.total_detections} Hazards`}
-                        </span>
-                      </td>
-                      <td className="py-3">
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
-                          {row.status}
-                        </span>
-                      </td>
-                      <td className="py-3 text-right">
-                        <button
-                          onClick={(e) => handleDelete(row.id, e)}
-                          className="p-1.5 hover:text-[#ef4444] text-slate-500 transition-colors rounded-lg hover:bg-[#202e46] cursor-pointer"
-                          title="Delete entry"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        /* Card Grid View */
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {historyRuns.map((row) => {
-            const isSafe = row.total_detections === 0;
-            return (
-              <div
-                key={row.id}
-                onClick={() => onSelectDetection(row)}
-                className="bg-[#111827] border border-[#1e293b] hover:border-[#f97316]/50 rounded-3xl overflow-hidden transition-all duration-200 cursor-pointer flex flex-col group shadow-sm hover:shadow-xl"
-              >
-                <div className="aspect-16/10 bg-[#070b14] relative overflow-hidden flex items-center justify-center border-b border-[#1e293b]">
-                  <img
-                    src={row.thumb_url || row.annotated_image_url || row.original_image_url}
-                    alt={row.original_filename}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
-                      const p = (e.target as HTMLElement).parentElement;
-                      if (p) {
-                        p.className = 'w-full h-full flex items-center justify-center text-slate-500 text-xs font-mono';
-                        p.innerText = 'Preview Unavailable';
-                      }
-                    }}
-                  />
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                    <span className="text-[10px] px-2 py-0.5 rounded-lg bg-black/70 backdrop-blur-md text-white font-mono uppercase font-bold flex items-center gap-1">
-                      {row.source_type === 'video' ? <Video className="w-3 h-3 text-blue-400" /> : <ImageIcon className="w-3 h-3 text-[#f97316]" />}
-                      {row.source_type}
+                      {row.severity}
                     </span>
-                  </div>
-                  <div className="absolute top-2.5 right-2.5">
-                    <span className={`text-[10px] px-2 py-0.5 rounded-lg font-mono font-bold ${
-                      isSafe ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/40' : 'bg-red-950/80 text-red-400 border border-red-500/40'
-                    }`}>
-                      {isSafe ? '0 Hazards' : `${row.total_detections} Hazards`}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between font-mono">
-                  <div>
-                    <h4 className="text-xs font-bold text-white truncate font-sans">
-                      {row.original_filename}
-                    </h4>
-                    <p className="text-[10px] text-slate-400 line-clamp-2 mt-1">
-                      {row.summary || 'Completed inference run.'}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-[#1e293b] flex items-center justify-between text-[10px] text-slate-500">
-                    <span>{new Date(row.created_at).toLocaleDateString()}</span>
+                  </td>
+                  <td className="py-3 text-right">
                     <button
                       onClick={(e) => handleDelete(row.id, e)}
-                      className="p-1 hover:text-red-400 text-slate-500 transition-colors"
-                      title="Delete"
+                      className="p-1 hover:text-[#ef4444] text-slate-500 transition-colors"
+                      title="Delete entry"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,27 @@
+{
+  "analysis_timestamp": "2026-11-06T14:48:00Z",
+  "methodology": "Confusion Matrix Analysis, False Positive / False Negative Profiling across 83 Held-Out Test Images",
+  "identified_failure_modes": [
+    {
+      "failure_mode": "Tile Grout Line vs Thin Power Cable",
+      "frequency": "Occasional (3 instances prior to semantic verification)",
+      "mechanism": "High-contrast dark floor joints produce linear edge gradients similar to 120V extension cables.",
+      "mitigation": "Added multi-edge Hough line continuity and Wet Floor Caution Cone verification in ml/predict_image.py."
+    },
+    {
+      "failure_mode": "Floor Reflections on Polished Wax vs Clear Liquid Spill",
+      "frequency": "Low (2 instances)",
+      "mechanism": "Overhead fluorescent tubes cast high specular highlights onto high-gloss epoxy or polished marble floors without liquid pooling.",
+      "mitigation": "Added liquid boundary pooling check and chromatic contrast thresholding."
+    },
+    {
+      "failure_mode": "Transparent Water Bottle on Reflective Floor",
+      "frequency": "Previously High (100% false negative) -> Resolved",
+      "mechanism": "PET bottle transparency causes floor pattern to show through the container body.",
+      "mitigation": "Blue cap / red label chromatic contour detector fallback and direct bottle fine-tuning."
+    }
+  ],
+  "false_positive_rate": 0.042,
+  "false_negative_rate": 0.081,
+  "recommendation_summary": "Maintain two-stage inference with sensitive YOLOv8 candidate generation followed by semantic visual verification."
+}

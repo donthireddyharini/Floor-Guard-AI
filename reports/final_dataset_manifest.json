@@ -1,0 +1,41 @@
+{
+  "manifest_version": "7.0.0-canonical-12hazards",
+  "taxonomy": "Floor Guard AI 12-Hazard + Clean Floor Baseline",
+  "total_images": 607,
+  "total_bounding_boxes": 685,
+  "clean_floor_negative_controls": 66,
+  "classes": [
+    "water_spill",
+    "oil_spill",
+    "chemical_spill",
+    "broken_glass",
+    "cable_cord",
+    "obstacle_debris",
+    "trash_litter",
+    "food_waste",
+    "mud_dirt",
+    "stairs_hazard",
+    "floor_mat_hazard",
+    "floor_damage"
+  ],
+  "splits_summary": {
+    "train": {
+      "image_count": 413,
+      "clean_negatives": 41,
+      "bounding_boxes": 472,
+      "ratio_percent": 68.0
+    },
+    "val": {
+      "image_count": 94,
+      "clean_negatives": 13,
+      "bounding_boxes": 109,
+      "ratio_percent": 15.5
+    },
+    "test": {
+      "image_count": 100,
+      "clean_negatives": 12,
+      "bounding_boxes": 104,
+      "ratio_percent": 16.5
+    }
+  }
+}

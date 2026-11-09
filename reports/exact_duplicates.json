@@ -1,0 +1,3364 @@
+{
+  "total_images_analyzed": 1110,
+  "exact_duplicate_groups": 416,
+  "total_exact_duplicate_files": 445,
+  "groups": [
+    {
+      "sha256": "d968af475fe8383d6747c54a4e1b016215546cb3e6f294b5974e000020948088",
+      "primary_image": "aug_boxes_sec03_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec03_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "784ac674c49f962875f23b7cca0f7ce1ecb8e37313a9c461140c9de1e0a82c1c",
+      "primary_image": "aug_boxes_sec03_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec03_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "d29790f7a2a637ebcb92b49c457590018016a527a4cd75267d6adab9fdfd991c",
+      "primary_image": "aug_boxes_sec04_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec04_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "1710382a91538f010788dab6dbbf5437cefd34342ed6ed2fb61c2d0ed327253b",
+      "primary_image": "aug_boxes_sec04_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec04_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "fdc69c7f3d513e97f45040093a48cddd9f6012a2c19430f26bae108cf55486b4",
+      "primary_image": "aug_cables_sec01_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec01_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "83515fc382f0d2c2e23bbc10cd59c4fa6a0eb226a722daf5d3cd81f58a472902",
+      "primary_image": "aug_cables_sec01_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec01_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "6a50676b4fe90aa8c17dca0d08cdd25720b5680587d7874effa2d6210cb12845",
+      "primary_image": "aug_crack_sec06_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "val_cls8_01.jpg",
+        "aug_crack_sec06_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "7292f331ca9d766fde5eb57f980402d370d6505eb9415aa83c6591fe8cf14268",
+      "primary_image": "aug_crack_sec06_flip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "test_cls8_01.jpg",
+        "aug_crack_sec06_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "de98b1ec1ebd4cabbf27163858934ba8588e238a968a1aee6d6cc51651f706d0",
+      "primary_image": "aug_crack_sec07_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_crack_sec07_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "27495aa94dafdb0407e13788affc68f39d5ff96ed7f957505949aaa6f0a5837f",
+      "primary_image": "aug_crack_sec07_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_crack_sec07_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "573898a15a267df05266c8748bff0d060ac35141d785afbd582fa49e77a5485f",
+      "primary_image": "aug_food_sec05_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_food_sec05_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "eabdc74d2bf6fdb738242244251072c2c6fce05a676ac0f8a9d766782f479693",
+      "primary_image": "aug_food_sec05_flip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "aug_food_sec05_flip.jpg",
+        "user_vid_sauce_food_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "09db5959d1b4942a7d4be97dfb174a3bcb0d9785c898fb698849d45860273bfb",
+      "primary_image": "aug_mat_sec08_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "val_cls7_01.jpg",
+        "aug_mat_sec08_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "77efb63225d8f3a4d47b085d9bef9d7a4eecc68ed7d16ef0b2ef4d89d401adad",
+      "primary_image": "aug_mat_sec08_dim.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "test_cls7_01.jpg",
+        "aug_mat_sec08_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "9e3f476645736ef1debd95f57812a24970c1203967e8c8136545c86498c7714c",
+      "primary_image": "aug_mat_sec08_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_mat_sec08_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "5448ffb19164f9e4b4e9cea0d290f7185a91b88a5e84ad0a7d5b0c11d95481b9",
+      "primary_image": "aug_mat_sec09_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_mat_sec09_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "b2e029200177a8bda08f92d110921b09a15ab2e81714a03a23131737792edd23",
+      "primary_image": "aug_mat_sec09_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_mat_sec09_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "d123dae56bf49f8cb0c0d434fd55eb88832daa22f748d487118ba2180f6bd0d7",
+      "primary_image": "clear_bottle_amber_bottle_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_amber_bottle_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "183c14fd25ef5da6e3006441bad78563e2a626f6227d9df60c477506dbeaa6ad",
+      "primary_image": "clear_bottle_amber_bottle_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_amber_bottle_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "76e36ae0ce8e65a701d1c09d94a5a75c4ab12d8dfa97eec702b2fe2bee730f72",
+      "primary_image": "clear_bottle_amber_bottle_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_amber_bottle_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "ba47f64beed704cacaf0f47f64a70614f26010e8af3945b56d142b0c3b998511",
+      "primary_image": "clear_bottle_amber_bottle_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_amber_bottle_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "9991db502f51f378611ac0c95fea01498f2a7a82d94cbf6e30883303ea3b72cf",
+      "primary_image": "clear_bottle_cap_angle_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "0f2fe23bd4a54ddb0bb2d0452071a782003db1a5b8187ca593b9cd9ed0e2fee6",
+      "primary_image": "clear_bottle_cyan_plastic_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cyan_plastic_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "83022c545d0eb929bb34db3beadc80f80009c112f81f4ec0bc040be8f1512cd7",
+      "primary_image": "clear_bottle_cyan_plastic_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cyan_plastic_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "eecc049da1aa464e235d28abfc1b38cf408c2aa6cf8ba2302f0651a86766e147",
+      "primary_image": "clear_bottle_cyan_plastic_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cyan_plastic_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "d0dc6db1e983262438386dba470e684bf7f357d7a8417d2a9536b9056ba43ad3",
+      "primary_image": "clear_bottle_cyan_plastic_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cyan_plastic_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "fcd02bfca154dc7758297c691b15a2790006fed23e008650ee717a9b33f35874",
+      "primary_image": "clear_bottle_green_plastic_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_green_plastic_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "786e964ac225725a436b53cbfa070201cf23e6f358e31bb735dff9616c111603",
+      "primary_image": "clear_water_bottle_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "0ef4901f99aa8279cec56f5cf36ee489768503dded537aa7bd3fe1a6c23f0ea4",
+      "primary_image": "clear_water_bottle_crop_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "1f74c071b69d4aadd7b08e710f84f60234878932a727d69f1b292a9f9a39078b",
+      "primary_image": "clear_water_bottle_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "e899f292bffe8523fa45ca4f863ebd44c7157e94865eecdc898a385fb53e983d",
+      "primary_image": "clear_water_bottle_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "73e9a705d3b52149f84bc9c9f22674f8d2cc1d7106f5a7d71d74a0fd8ff16226",
+      "primary_image": "clear_water_bottle_crop_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "312cc4812b318a6bf931e98df900e550ad1e3e23fdb0c8a2e3242a675556ce8d",
+      "primary_image": "clear_water_bottle_full_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_full_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "c7c97221803e20c7f0e3a4de8190ebcd4dce4ef186f672b8373a6b2040cdf52b",
+      "primary_image": "clear_water_bottle_full_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_full_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "bf9ff365941e1c0b0f7cb50e5a4b1a2d369fa42d5225711aa4236077817f0091",
+      "primary_image": "clear_water_bottle_full_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_full_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "4e3b733afabdcd1d6d2ee358f08591565c416009d89fcbf957dbc981e21d9259",
+      "primary_image": "clear_water_bottle_full_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_full_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "6b1b81f2b987c4c4cef50977d5e94718be99df25a23be2d56be8aa18458cc57b",
+      "primary_image": "coca_bottle_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "coca_bottle_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "3795b7bd7cd19638407db8815c43a7b996c76cf67748c48d4973acfa852b0792",
+      "primary_image": "coca_bottle_full_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "coca_bottle_full_bright.jpg",
+        "user_coca_bottle_full_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "22a19344d653986e69d39f751aeda503937feeec2d49ccaacc6ca11f9b062e32",
+      "primary_image": "coca_bottle_full_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "coca_bottle_full_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "3edbbe9a7a19fb1d674dce3404aef021d391f7aef37381258f1c0fa21de9b7d4",
+      "primary_image": "coca_bottle_full_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "coca_bottle_full_hflip.jpg",
+        "user_coca_bottle_full_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "6fe4db04ffcc94eaa316ee91c3ae81b0849c66fdffb8c39b682e171acd7ab4e4",
+      "primary_image": "floor_hazard_broken_glass_store_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "27c4a018151309186069731ed8a04b8cf643f709c7896d149e8819d8474ccfcf",
+      "primary_image": "floor_hazard_broken_glass_store_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "612ede7c5b0ac0b154fd363d95b6e2fa40d4ef46f5af2dee5c95bfab5864e014",
+      "primary_image": "floor_hazard_broken_glass_store_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "410bc01ad588cacd2fdc6b36ac5455ad6f2eeb81f0772dd00e3e3ed0d8ed4b93",
+      "primary_image": "floor_hazard_broken_glass_store_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "d0c2e55e2b34474f75237c42ccbc1a4f5c4ad5710ec31660c753082e8c042a68",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "508d53b179df914249a9098ddfe2006850d8507292832391b00bb8157935020f",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "aac0d6b1b52806ef32be14baa33ff8c73a6ffd9e9648df09fd118ab913dedd26",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "986867e0adeaa8ab16ab3d9a9052e4282170e7afe6c35c6de38d0a592278375e",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "55deea26a35b23f363f41c6eeec3f9630dd483ae69e8ec3e7bc1d914cfdefe7c",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "98972a735bc4dc0d65a2a41f46b49fb0f9299a26cd16c2c21411e921660efdfb",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "5c0bbc4a5d865835c59781e354c49225505e42b06a604b69d3e83f5c28fb7632",
+      "primary_image": "floor_hazard_food_waste_peel_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "e4a23adcb44a835d35809c8e566f2d97b4b5f1119cd9088b1b49b456d796bcc6",
+      "primary_image": "floor_hazard_food_waste_peel_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "59ca0e529cb4d81d64a5aabf6703238acc7cb1cdebf62c4724ae776ae6a1e62f",
+      "primary_image": "floor_hazard_food_waste_peel_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "f897937017a1e215d4b78a031772d1d1b7272266577a1cb2325c62f812d33f03",
+      "primary_image": "floor_hazard_food_waste_peel_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "0f3f9522976e080f966ad620143addf67f1a72e8f7ce9053cb117528f9ff4e5a",
+      "primary_image": "floor_hazard_food_waste_peel_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "2dc78bbed6b6bbd21be4e06b01811848f6ae095a347239363a8756e0088669ed",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "c934a679ea8a6a076e61b0253358982f6b159e466330558d50d1a9559bcf2923",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "3a1fdc1765d71c9070789307143d63860c731e7dea46f672122a48027e5548f6",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "907680de3b1d92a6eb09cf48ec9439dbd0fd5cf9de50d4cc979ee8b5ff684c16",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "6d89849e49397e7b79c711e06be2bbebe6f9d046c2d36da2d37c5cf2f03229d1",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "8c4559b8b48c9e17cbd7be03ebbd5004c893d0da70dac21e56730d25327ae944",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "96ad09578ae1d0602b160d6c8e939b69371fee8a35276e0c7507207c66159440",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "8fbf302bec2c9122ce30e6f40c5d57ad910d90200e57ecba36f2d04a233ef85d",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "59489dffa97b38a0b4e733d6a8e0e2764f13463ea2c18d517d543a41526ddfef",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "37179dddf5f33d9d817e9bcd83abf5a9ad5c9d9ca156c2320b7c7d73ddaeaec0",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "de8bcf36fdea5ce4f624f891ce6c8b989329b16a701b5776b2609cd820938036",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "43cbaec25a034c8c5647ba20298b99a4fb3f976cb92d044e7d10bb2f6b9adf96",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "1c3f7875ee70dc955d29a76f461d6ec7655ccc430cee7ac75e4d49223298f395",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "63cdca05b49344670d9421c9dff5b47a47af8b22d0016f0ca5094691ba85dec2",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "79f38128bc9629bef70e00b6bb6f40950a07cd9ea199c68d6970cef1518adf2b",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "8e11cee755d852f9b46bc00fcd9509de2d1329db56854f63dc9a970a41f197e9",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "5f6c252b43ac7e3234412d2f6857c7370067e04efc4ae6427f6d804e2547aa40",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "7d1be79446690e45a13a8fb50c7d6b4e6de027846557faf1db59e1d92b685725",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "c947ee89a3a835dc77e5f71e30db376940837e277b1dc1b85eb7b78371474d82",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "dd77fd432cd3e007a90d099b81a78b9bf124f42a74c8366cb4ac984e482c202e",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "641fb0e71f03e634479d821c6b2d5d191f3731bb69a18fbe6362d5ed84adc7fe",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "460bccc7a2f0447fc5724a49bafd620731ba7a18adde0821ccb9f94729d073d5",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "752085b15954368d629e8db196d8d3daffc18010c37e16f80f2edc69b1c47357",
+      "primary_image": "floor_hazard_plastic_bottle_rolling_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_plastic_bottle_rolling_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "59f3ae67647caa7dd1603ca314bad70f802dec08c5d495321935b69f75ef5e81",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "3321667e5029a29329c512282e02ff2df805dc6e7a52b297a24dd0b0dae5377c",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "49d3438a67393b8bd360fd4d63fa5fe6f1e610ae068a7d6cee390587b1a23baa",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "ec3d8125cf32efb75039532e595eb43022fe1a750196f7fdf3142ad69eca95d4",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "6d429176af8baf768a7b086b50aaf941bd8d986f0f90ec2614d43732d94c05ce",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "dcf0df258dfd9231737aeea29bd7a28c90093e79825d51aed4b5f02cdb74edb1",
+      "primary_image": "floor_hazard_water_spill_marble_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "68e565ed18eefa36158b87cad08be6853a8122d22fabd324e580aabdfa9133ea",
+      "primary_image": "floor_hazard_water_spill_marble_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "01baedfe92e7e4b88d462d6eb86f9b1a0a373f85d326c7d14a7927481069bda8",
+      "primary_image": "floor_hazard_water_spill_marble_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "8408ea68e4d099290e198bbaa96b6eaf16bc1c993473781d94d5f78c741f0cf4",
+      "primary_image": "floor_hazard_water_spill_marble_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "68c7b2aa93243c1b48820a503db3376d271d282f4381de5e27e5ffe5aec3e7ac",
+      "primary_image": "floor_hazard_water_spill_marble_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "ef9df7363a1589031aef22a3eb3ee0f108316df35817d6aef54801f20ac74b47",
+      "primary_image": "floor_hazard_wet_surface_patio_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "d8fae6ce925df86d538fa2ac85818c23ed8d7a18f7e0a8887f45261a237cffe3",
+      "primary_image": "hf_bal_clean_floor_0057.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0057.jpg"
+      ]
+    },
+    {
+      "sha256": "dd2028280e3169f6055d3e68c58ea0a61bf92e9273d24aaab89d70725bc2a984",
+      "primary_image": "hf_bal_clean_floor_0144.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0144.jpg"
+      ]
+    },
+    {
+      "sha256": "a5c725d4f980bf800e0354b42c57485ddb16d5da44c0d720acbc8555f03cf661",
+      "primary_image": "hf_bal_clean_floor_0198.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0198.jpg"
+      ]
+    },
+    {
+      "sha256": "e27ce43c8f1161874883b1bf361afe4caa5e7e142ee6f21fa5198d281716b237",
+      "primary_image": "hf_bal_obstacle_0031.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0031.jpg"
+      ]
+    },
+    {
+      "sha256": "1d30f98cf5c918b62dad0430b2d89deed35688931e09f6ee97418a03c565fa3c",
+      "primary_image": "hf_bal_obstacle_0043.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0043.jpg"
+      ]
+    },
+    {
+      "sha256": "75ae48ab50653f7adaca78df28d2bab04bc8e5a45b090dbd34a7a2ec59b1fa20",
+      "primary_image": "hf_bal_obstacle_0069.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0069.jpg"
+      ]
+    },
+    {
+      "sha256": "049e19d2f72e3edccdf35ccfc4caab63238cc15b9df3da8c34598e926e0a45ec",
+      "primary_image": "hf_bal_obstacle_0098.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0098.jpg"
+      ]
+    },
+    {
+      "sha256": "58f9c0d95b2097d564f3cb6fb1ca49b73f19adb15b2c89aa35a60df2cb0c6647",
+      "primary_image": "hf_bal_obstacle_0101.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0101.jpg"
+      ]
+    },
+    {
+      "sha256": "f40c1b4aa30b318c7a2d9e9f080db534bf2a6b088aff0aa039101c01d1a2e6e3",
+      "primary_image": "hf_bal_oil_spill_0030.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0030.jpg"
+      ]
+    },
+    {
+      "sha256": "c64ae6c7ff7b23d40933ba6dccfb4b2e46db4e0b6223a1653584dcbef79a22e5",
+      "primary_image": "hf_bal_oil_spill_0033.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0033.jpg"
+      ]
+    },
+    {
+      "sha256": "b39ba860d7d0030b9c0146dcb97b1c13dedc631a3176998c655e58f8473264ea",
+      "primary_image": "hf_bal_oil_spill_0035.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0035.jpg"
+      ]
+    },
+    {
+      "sha256": "c7959413834e377b03418c1abf66097cd254310632f754f632d001739d8d78e4",
+      "primary_image": "hf_bal_oil_spill_0065.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0065.jpg"
+      ]
+    },
+    {
+      "sha256": "82ece72bf8766275748bfbf136aae31da72c2076ba0dac696811f2ac1f755fe6",
+      "primary_image": "hf_bal_oil_spill_0123.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0123.jpg"
+      ]
+    },
+    {
+      "sha256": "47afb06c9b7b5d6da93359d9712e30c1e3c03db77ffb7ebd752b8f74ed6735d4",
+      "primary_image": "hf_bal_oil_spill_0170.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0170.jpg"
+      ]
+    },
+    {
+      "sha256": "19de6d3f2e7c26ab5ec99d38ddfaed3ff4d05e9ad31df6c30d7349f8d8c0a7f8",
+      "primary_image": "hf_bal_oil_spill_0193.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0193.jpg"
+      ]
+    },
+    {
+      "sha256": "77c0ab46b3666d910816d426a417e6a2073fd768969646a1a7da890bc2e1f600",
+      "primary_image": "hf_p41_clean_floor_0152.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0152.jpg"
+      ]
+    },
+    {
+      "sha256": "06f9f449d6d6d3ddfd9cf69ca86f500ced4f3bd612813fa59780234b01e68ffd",
+      "primary_image": "hf_p41_oil_spill_0055.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_oil_spill_0055.jpg"
+      ]
+    },
+    {
+      "sha256": "22319ff70c29f61c48a2cdd58b0722c69bc62ec4b1e987a3f86bea6bf358b34f",
+      "primary_image": "hf_p41_oil_spill_0117.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_oil_spill_0117.jpg"
+      ]
+    },
+    {
+      "sha256": "225367c75f56e354eb38c760702cfabb630d905e6ab5e2c1f4812da7a1bca227",
+      "primary_image": "hf_p41_oil_spill_0126.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_oil_spill_0126.jpg"
+      ]
+    },
+    {
+      "sha256": "8d1060177d50165cdb2b23b264bb6046c5087c0080f49c2eaaab4b12bf6ddaed",
+      "primary_image": "hf_p41_water_spill_0040.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0040.jpg"
+      ]
+    },
+    {
+      "sha256": "e1356928ff5f27c632ad0016bed7aa3d1768855af29847a672adab1e01aab832",
+      "primary_image": "hf_p41_water_spill_0052.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0052.jpg"
+      ]
+    },
+    {
+      "sha256": "2326421c2ac4919d0c6ffda4f78cfd1e5ca36113821d59f693d0a50075ef3b93",
+      "primary_image": "hf_p41_water_spill_0062.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0062.jpg"
+      ]
+    },
+    {
+      "sha256": "4232b1aa619f9f995d7aeb3194668c4c68de9d908e072db5474a2d0d33b0d2d0",
+      "primary_image": "hf_p41_water_spill_0084.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0084.jpg"
+      ]
+    },
+    {
+      "sha256": "efaa5e58d9440f1d3fb5f219551b5a14173be2fcab46e7bb06ce17f07b94b8b2",
+      "primary_image": "hf_p41_water_spill_0098.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0098.jpg"
+      ]
+    },
+    {
+      "sha256": "e02d4bc88aa5d47d1acf517d615b4e330cbe4d44bc7ad1632fcfa11841c34684",
+      "primary_image": "hf_p41_water_spill_0110.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0110.jpg"
+      ]
+    },
+    {
+      "sha256": "be6f80b7cc93c60bbcd33dab8bce3ff0f495115a1af9ec353a0fdfe1c726c628",
+      "primary_image": "hf_p41_water_spill_0140.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0140.jpg"
+      ]
+    },
+    {
+      "sha256": "84d68fbb53aa1ceb6b03b61ae4958c5644f06594ea3634c5bf51e575364a415e",
+      "primary_image": "hf_p41_water_spill_0178.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0178.jpg"
+      ]
+    },
+    {
+      "sha256": "bb900ea6e5b2db68b24aac5ac9ef966e24d542ab052783f87ca53a0ce5ee0208",
+      "primary_image": "hf_p41_water_spill_0200.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0200.jpg"
+      ]
+    },
+    {
+      "sha256": "e489099bc77487167aaf9cdb594eb0a4442f4ed846b694b3aba3d73575199caf",
+      "primary_image": "hf_pilot_clean_floor_0017.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_clean_floor_0017.jpg"
+      ]
+    },
+    {
+      "sha256": "eaff9ccb0ab17578bc1cc8e3b255c982bf1d880d0add4d812f6fb32e977e8af4",
+      "primary_image": "hf_pilot_clean_floor_0024.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_clean_floor_0024.jpg"
+      ]
+    },
+    {
+      "sha256": "d5da59568c532f77fb291439315019e00965c7b9d69f06807f78a4796bfc9f84",
+      "primary_image": "hf_pilot_clean_floor_0026.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_clean_floor_0026.jpg"
+      ]
+    },
+    {
+      "sha256": "ab9b5bdc3f7265540919e12aa5a76fc0e1065437cb191e19e48bf8a38a8ef18c",
+      "primary_image": "hf_pilot_clean_floor_0072.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_clean_floor_0072.jpg"
+      ]
+    },
+    {
+      "sha256": "aaefbb3f21090f18803efee935cba8a299a88cebb7617bbfa232d933fe5310dd",
+      "primary_image": "hf_pilot_obstacle_0008.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_obstacle_0008.jpg"
+      ]
+    },
+    {
+      "sha256": "f9bf31ea2d6be1b1021e76ef62b05e05cfc7a7b4a4a41abb35ee7ea69cc26cf7",
+      "primary_image": "hf_pilot_obstacle_0018.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_obstacle_0018.jpg"
+      ]
+    },
+    {
+      "sha256": "df38f6c43972568dbbc682c710b4783c2fb9ee7da4d859792c4b70c4f9aa14ab",
+      "primary_image": "hf_pilot_obstacle_0025.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_obstacle_0025.jpg"
+      ]
+    },
+    {
+      "sha256": "5037877a73e16b15346f4df3b9249685a403bc6f189c0fa25105983073cef489",
+      "primary_image": "hf_pilot_oil_spill_0014.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_oil_spill_0014.jpg"
+      ]
+    },
+    {
+      "sha256": "c4022467cd474038e9f586e5b39f5db95df7a5ac9102f3c4d4b107283f0591a9",
+      "primary_image": "hf_pilot_water_spill_0013.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_water_spill_0013.jpg"
+      ]
+    },
+    {
+      "sha256": "aa89fb1a0a5876db47ccb49742862b56d715127cfbccb8621fd6779087464ce8",
+      "primary_image": "hf_pilot_water_spill_0021.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_water_spill_0021.jpg"
+      ]
+    },
+    {
+      "sha256": "d277780622dbfdb4978462b9b827f8d0f29aea932ad8bbc5b08d272b151175b5",
+      "primary_image": "hf_pilot_water_spill_0022.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_water_spill_0022.jpg"
+      ]
+    },
+    {
+      "sha256": "b39153fca56c5af18aba5c63ad27d2cc5b5f46544955024e16f537c0d0bd982e",
+      "primary_image": "hf_warehouse_obstacle_0002.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_obstacle_0002.jpg"
+      ]
+    },
+    {
+      "sha256": "4737cc5975b79350a29c4d332eb674cc2135b2ae82a60509d8e3f3cc8a2dbbe8",
+      "primary_image": "hf_warehouse_obstacle_0006.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_obstacle_0006.jpg"
+      ]
+    },
+    {
+      "sha256": "362d37275a78e7f52a3e2f31c3cea82b6639c7e58f09ce95a333c9192c4af62d",
+      "primary_image": "hf_warehouse_obstacle_0007.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_obstacle_0007.jpg"
+      ]
+    },
+    {
+      "sha256": "f4fcd418e0539d6507ff76836031f36cdf952e92045d06e67888635a8a69d2f3",
+      "primary_image": "hf_warehouse_spill_0006.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_spill_0006.jpg"
+      ]
+    },
+    {
+      "sha256": "cb377efc8ca882be921ecdeb5c43311ba47471b62ce61c27fe3653ec7b6a1a90",
+      "primary_image": "hf_warehouse_spill_0011.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_spill_0011.jpg"
+      ]
+    },
+    {
+      "sha256": "7605c334fcb3bd8d2fe57b94833a8c1cc32835eeb255e159fec45b870050599d",
+      "primary_image": "multi_cable_cord_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "9cec6d44297f783cbc9c0f3844d1d09c942b190f5c0771c75803109a24a2bbca",
+      "primary_image": "multi_cable_cord_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "d2121cb4ff8cd4e0f01c093091ff3c15a17d8781d09d5e2bb619deb8e2da6175",
+      "primary_image": "multi_cable_cord_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "4cce82fe0186b1b2f737dcb0a815737430e9757d76daa6721c40a985e975583f",
+      "primary_image": "multi_cable_cord_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "701165a5897b6d55c02edfbfd2f6ce46ff11b24fd9f3ddc4690e4bb00915884e",
+      "primary_image": "multi_cable_cord_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_cable_cord_hflip.jpg",
+        "panel_cable_cord_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "4ff9136ba34166e27ece481a6f4bcfdc6aeeecc9fa6b498cee2309183687e97a",
+      "primary_image": "multi_chemical_spill_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_chemical_spill_bright.jpg",
+        "panel_chemical_spill_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "30cfedc07c84dbc6233ac5ec0936cdcde3c5fb40b07d6f0ad069587a86a44aaa",
+      "primary_image": "multi_chemical_spill_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "03591b1f5b6d7aa1406d6bb16f0202b60d3c8330628f125a38c765011567ed5c",
+      "primary_image": "multi_chemical_spill_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "40b2135755b752708e5eeab935975028a3008eca42aec616e07ff507d1638a3a",
+      "primary_image": "multi_chemical_spill_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_chemical_spill_hflip.jpg",
+        "panel_chemical_spill_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "9bcfdfac70b94680c472e96b327b540a506cfcf55ca1cd52b21e846f129c1e2e",
+      "primary_image": "multi_chemical_spill_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "311e309c75f834eaadca0f0413571c2ab242cdcdf753db8799b1c11c1c6c40d8",
+      "primary_image": "multi_food_waste_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_food_waste_bright.jpg",
+        "panel_food_waste_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "00d82f496985900f84e6923e871a18d7477fcf6ed285f195eb4f36b09de32116",
+      "primary_image": "multi_food_waste_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "cf40f3fc6ffd19850296f0d597f3d6728e1945b2028109d4f4c487d906feda9b",
+      "primary_image": "multi_food_waste_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "638178f7743ba5f1fe6f3bfd50a6147abb33c475832bf92a7c3252656d3b9a2f",
+      "primary_image": "multi_food_waste_crop_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_crop_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "98c14018fdd60758faaef294c8a7de71d78aee1f5a3d16e17e923c6e9ae0dfea",
+      "primary_image": "multi_food_waste_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "d591fc797eb565d8ba3445a563c5f25bef2e74ff0515e0b77e8fbfb71248baa8",
+      "primary_image": "multi_food_waste_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_food_waste_hflip.jpg",
+        "panel_food_waste_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "5811a8ee19e71ec954583e421a930daf7206f84de7c121e3cef39a76a194f84a",
+      "primary_image": "multi_food_waste_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "2b835fb1f7a73751532b5cba9d4d9ced4aeeaefb77d9ed06b6852fcf18ec725b",
+      "primary_image": "multi_mud_dirt_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_mud_dirt_bright.jpg",
+        "panel_mud_dirt_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "2a56ed6f1f2eb6184b68c3c4c251d9ad833e0cdd27526fccf1f3abbf43df35b8",
+      "primary_image": "multi_mud_dirt_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "0141b7c5c9006dea4329c3db0568ddb3bdc739949f3160c88dddd6f5867dbb1b",
+      "primary_image": "multi_mud_dirt_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "2c15fb0495278674ef7411b4136a91a0498c4f3ffeabf1e38128fb3d50ee4210",
+      "primary_image": "multi_mud_dirt_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_mud_dirt_hflip.jpg",
+        "panel_mud_dirt_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "3e6ab94b58337c84ff0291f4865f735de8523ac642834f433c943ce771cb5b94",
+      "primary_image": "multi_mud_dirt_orig.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_mud_dirt_orig.jpg",
+        "panel_mud_dirt_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "6da48ce8adcc13abd0af8469c2fa90ecebceb84399f017d2576b1434d104819e",
+      "primary_image": "multi_mud_dirt_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "98be2c51619260b7e61a2bf31c2fbd1837bad6537c7dea7d25972001076e0438",
+      "primary_image": "multi_obstacle_debris_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_obstacle_debris_bright.jpg",
+        "panel_obstacle_debris_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "3b25f91ad93ef8a100f4b0bb76c8f2ba1629770bd563d7f4b01babd46a178a1f",
+      "primary_image": "multi_obstacle_debris_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "d07494815797c97b60cd2d6e06947f20609d2162b2e08577b34b4fe89edcb800",
+      "primary_image": "multi_obstacle_debris_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "e11596506d5137001b2826e71ca0f12c00bc46b061936b7423c2a8a50c098417",
+      "primary_image": "multi_obstacle_debris_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "5d2b85076592476d59de05830d35c18e2a09d4437dfdb6f4ae39056078e62129",
+      "primary_image": "multi_obstacle_debris_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "eeb97b62f28f2c4d03b556022c2391c0b925713b8e74f47fdb1e07021c98149c",
+      "primary_image": "multi_obstacle_debris_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "1511da0bb9e633e022dc2dd4e5abaeb0aebb2569406000e6f3d2ae8f7701a09b",
+      "primary_image": "multi_obstacle_debris_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_obstacle_debris_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "a77d3abfea8d37cadd36a66646996265bc8bb6bb27c4839977d74dd08058e967",
+      "primary_image": "multi_oil_spill_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "d05e0a482cb14d122ffffedfcb71dd18b6a976741d6f4617d42e37823d772c49",
+      "primary_image": "multi_oil_spill_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "e728f8bf3d5014de23e31be4440e418766c62ebe023a3d577fba3eb481235de5",
+      "primary_image": "multi_oil_spill_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "9b7089701b73ef9d9d84a011a73345a0b805c9ac7e4e96cb35b09945fda5a718",
+      "primary_image": "multi_oil_spill_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "3a0e69b7d03f537da5fda71dadd0af07e1c540ed88da19bd25ab611d889261a7",
+      "primary_image": "multi_oil_spill_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_oil_spill_hflip.jpg",
+        "panel_oil_spill_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "30cfa12d840f081baedd5daeaded875923a4d6cf9ec538958adc7e1bb9185c1b",
+      "primary_image": "multi_oil_spill_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "7b1fc9e28a8675c9f9ac430c8365c0c99b119ceb3b6e1e3d0b9795b87a03c237",
+      "primary_image": "multi_stairs_hazard_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_stairs_hazard_bright.jpg",
+        "panel_stairs_hazard_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "cc906e7638a3ad580a3364197f54774d65a4422b9aecb611cadbc5beb0192a52",
+      "primary_image": "multi_stairs_hazard_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "c916b7f8908b6db61ef617296c77fe63b1b2414b310399e265bc2eed56ba5ad1",
+      "primary_image": "multi_stairs_hazard_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "d03dec1632d533d0bed1045494f963eb996d69df376c8481d386cddd0093ba04",
+      "primary_image": "multi_stairs_hazard_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "cde5c2eacb361d3590efd43f3d3e1cb58c9b07ca15d5bc402977b4592fb99440",
+      "primary_image": "multi_stairs_hazard_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "096ab9c936f2de0562f4510d8c0c17e5d29ee7dca394df2cc40a83a03e5d0f84",
+      "primary_image": "multi_stairs_hazard_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_stairs_hazard_hflip.jpg",
+        "panel_stairs_hazard_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "c65bdc584a467f6acfe6d2b5679edb39c9766b9e880ce1c0b660a9ed0426c422",
+      "primary_image": "multi_stairs_hazard_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "139c9a50ad77f388501672934984684f98e1b1527ae1441eaee83f7165ab1d60",
+      "primary_image": "multi_trash_litter_panel_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "648ad63e9c36edf41003ce8c849ee3aa9af37ec9004d80f897f79908580effd4",
+      "primary_image": "multi_trash_litter_panel_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "5c626e11817aa28e3b07a940a78636c29e0e02514071c3e4829622526edceb40",
+      "primary_image": "multi_trash_litter_panel_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_trash_litter_panel_hflip.jpg",
+        "panel_plastic_bottle_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "9afd8a7b327fcceb2f852730b17c8d666adacbcd4a35f983055596d3bb452fa5",
+      "primary_image": "multi_trash_litter_panel_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "03be2779c953cf31f6d656f3de4ef57305c6f71ae8da09e5ba62137aa4c46980",
+      "primary_image": "multi_water_spill_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_water_spill_bright.jpg",
+        "panel_water_spill_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "cbdda5d497dc0b3bec950214c9d5bb088841eaf4a126d8cd5b82a2095cb9e070",
+      "primary_image": "multi_water_spill_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "7aa1a6cd469e3ecdce6d6b1952271ea21f96512a9124667119dcf7282a8a404f",
+      "primary_image": "multi_water_spill_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "b1c4289de97c01150e0628172ab8ca5d5e2af9cf962b2e37b2f4ef2d8d5dd846",
+      "primary_image": "multi_water_spill_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "d6b0bfceecfbec54f0bbfc0a768fec580c45073b884309e5dccafcd9b7c9f46f",
+      "primary_image": "multi_water_spill_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "63afc56674a1048a754eae01ad66ebbea25df7024de97f4272c32505eaace7e2",
+      "primary_image": "multi_water_spill_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "b30dd6a7a36c3317c9b1e6676a40a5a3f575bac5012997fa1e82af787da75be6",
+      "primary_image": "multi_water_spill_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "25c397ba0e0cf47df44a0022bd894ac6a0580d839c6f3fcdad5120c3d1077b9d",
+      "primary_image": "multi_water_spill_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_water_spill_hflip.jpg",
+        "panel_water_spill_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "e4e81c85db35aee1776e4bd2feee1beeacf9c46bdfeb08489b8774c608fc2141",
+      "primary_image": "multi_water_spill_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_water_spill_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "3d230925bfea00829cc1f348342dce1f0c95df56c66d1b1322737686e044a9d9",
+      "primary_image": "p43_broken_glass_0524.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_broken_glass_0524.jpg"
+      ]
+    },
+    {
+      "sha256": "c32350b209b126d857d10c73920ca87cef87849066ef5fc9e10a13feca14038e",
+      "primary_image": "p43_broken_glass_0533.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_broken_glass_0533.jpg"
+      ]
+    },
+    {
+      "sha256": "cebf2ca8cc768ed957701da805bdec81cabad421f15fed2c5deafddbf97cff3d",
+      "primary_image": "p43_broken_glass_0534.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_broken_glass_0534.jpg"
+      ]
+    },
+    {
+      "sha256": "31fdbeb315ac326c51c4f6bb9e846c7bdb91023c9e97543eec900c2cec4c3e8f",
+      "primary_image": "p43_broken_glass_0552.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_broken_glass_0552.jpg"
+      ]
+    },
+    {
+      "sha256": "c192864f5527af2b4e97a8fc4313bd0f24846d883404a67f918413aa3852d00e",
+      "primary_image": "p43_clean_floor_0009.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_clean_floor_0009.jpg"
+      ]
+    },
+    {
+      "sha256": "2f462ea4f7fbf7ac19685be0fe618ba0ce782d212d60da02902b68f3ab2cbd67",
+      "primary_image": "p43_clean_floor_0014.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_clean_floor_0014.jpg"
+      ]
+    },
+    {
+      "sha256": "ed5ea15236715531034e834d8324ea1b51274f41ee810c4f54742859a41ef1c1",
+      "primary_image": "p43_clean_floor_0029.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_clean_floor_0029.jpg"
+      ]
+    },
+    {
+      "sha256": "f20c0aeeb3f9f882e38cea25e3e3f2bd66658b1c9cdc40ed759d2ae77c494060",
+      "primary_image": "p43_obstacle_0032.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_obstacle_0032.jpg"
+      ]
+    },
+    {
+      "sha256": "34f365ca71866f942b6f74721ae3aa7256b9f696afe98d122a2106eef053e808",
+      "primary_image": "p43_obstacle_0096.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_obstacle_0096.jpg"
+      ]
+    },
+    {
+      "sha256": "5cf1143437f09281268ba29863920486603fe903fafc918a5c6f9a82a75ef257",
+      "primary_image": "p43_obstacle_0102.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_obstacle_0102.jpg"
+      ]
+    },
+    {
+      "sha256": "d8cab84b33857d1d043c1c74cf019520fb4c95e4ff6422c4fa30ffb1832fe822",
+      "primary_image": "p43_obstacle_0121.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_obstacle_0121.jpg"
+      ]
+    },
+    {
+      "sha256": "9f2578737d9c6371a5af34d06e4d5cffee9b2a8f70dd64bff2124a92d98a8cef",
+      "primary_image": "p43_oil_spill_0047.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_oil_spill_0047.jpg"
+      ]
+    },
+    {
+      "sha256": "f765d02e13d597ebe3c4315030475bd9bb25141b7a0c41d9c920825cab3fe775",
+      "primary_image": "p43_oil_spill_0058.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_oil_spill_0058.jpg"
+      ]
+    },
+    {
+      "sha256": "fd18d28f23b5a87b5fba5cf351da3a850eb6024d435fcd6a9326576bc1e053d6",
+      "primary_image": "p43_oil_spill_0072.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_oil_spill_0072.jpg"
+      ]
+    },
+    {
+      "sha256": "006d024ae18061ef1dde2c948d893fd347b14af741ada809c0ab5eff882728b1",
+      "primary_image": "p43_oil_spill_0108.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_oil_spill_0108.jpg"
+      ]
+    },
+    {
+      "sha256": "30d1fed16ca263324e2f5ef208b4b10c227faa73f5f8bc3071d1a1362c90e6e2",
+      "primary_image": "p43_oil_spill_0148.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_oil_spill_0148.jpg"
+      ]
+    },
+    {
+      "sha256": "02dafa447b105451c763139b40f858d4ab5e300414b1d2741a6658412b022de7",
+      "primary_image": "p43_water_spill_0007.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_water_spill_0007.jpg"
+      ]
+    },
+    {
+      "sha256": "7b796818d24802aea5665ae9aa4b18e873285583004a43684664f3c8c142f5dd",
+      "primary_image": "p43_water_spill_0009.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_water_spill_0009.jpg"
+      ]
+    },
+    {
+      "sha256": "189e22fc88ef3959bf5dcae7babf9d7ec192ab0f2772612fd60e74522d8a1521",
+      "primary_image": "p43_water_spill_0012.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_water_spill_0012.jpg"
+      ]
+    },
+    {
+      "sha256": "d8b70de6395fa7e87c99036b68267f7d07f0a1781f9dda24b0fc98f6d80f9ac3",
+      "primary_image": "p43_water_spill_0017.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_water_spill_0017.jpg"
+      ]
+    },
+    {
+      "sha256": "616db5fdf83a378145bd3270a9fce710cc6fc4a09b4a6f7599a6050e00df185d",
+      "primary_image": "p43_water_spill_0020.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_water_spill_0020.jpg"
+      ]
+    },
+    {
+      "sha256": "933a4ea67db26e527a362d83f95cc25d25d3ef40b0d4704fafe753e11210d1d8",
+      "primary_image": "panel_cable_cord_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "117744b40e2b31f94f533c4da79c5ad3664bec9bb8b80659aa5bd01ce9293525",
+      "primary_image": "panel_chemical_spill_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "b71192b3f6f61b160d5187eeb1000747b8f768e762ede04fc9f160a53f480327",
+      "primary_image": "panel_chemical_spill_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "6fb85a9cd5cd87bce7e075ac9f3bf62c3a114e441ba540a385a7ede0ac0102f3",
+      "primary_image": "panel_chemical_spill_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "f17ccded0e659b438b8e17324a9cc576bb945b116dc6e50c0673fdecef0e4c81",
+      "primary_image": "panel_food_waste_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "2409267f1317f7a86873560de0770f654eab411e961659cac765350a7845c778",
+      "primary_image": "panel_food_waste_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "36ccc232b92797ce146d333e707bd24fbc6ee99979806f89365587702924aedf",
+      "primary_image": "panel_food_waste_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "11ec71194731e1de6805491cea297131b5e1464c1b1afa0fa7ecca83b6485b30",
+      "primary_image": "panel_mud_dirt_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_mud_dirt_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "cc9fc3caa2ffbd55e7f5a0f1e9582a36f556fe365123e7e4e4894127436f0007",
+      "primary_image": "panel_obstacle_debris_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "9ba49f1c4401c5845a7ab984b38341bd807ef1994f5a8d25056bd771ed254d98",
+      "primary_image": "panel_obstacle_debris_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "0e2d21def246a7fcf52407d26d30bb3c87d02734cc42b581bb20ed2e65cc656e",
+      "primary_image": "panel_obstacle_debris_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "8a9245a353699eefa8bdaa0e0ab1b506f194864614000892a1e1e9b63b937729",
+      "primary_image": "panel_obstacle_debris_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "e34c04c3df5a08b5eb8b727a789e900532b42f2680b78d0766d3731721f5fdaf",
+      "primary_image": "panel_oil_spill_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "e87c39b59c24947f9a77888718443cbc2a7a140d45b3a9a073679c34bd265a53",
+      "primary_image": "panel_oil_spill_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "68d406b28b88433c4ea6967637e60fd1bc710078b99ee3b4476a1e3f791ef9f1",
+      "primary_image": "panel_oil_spill_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "ff4352da8e0c3cc55f217527fba56e0aaa71d75bf09d51fa97e16c97ed7ddf5c",
+      "primary_image": "panel_plastic_bottle_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "3958fa82afa2649c9468dd5b830256064a0a6378dde318a3f42eb5055d3a104d",
+      "primary_image": "panel_plastic_bottle_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "b75c37fae223cedd50df88025fdab87c6184d803a6ba2ac5dbc7c531705b1092",
+      "primary_image": "panel_plastic_bottle_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "e45c0e015781b771a688ebfd04a316de76280aa1c96c140f9caabbebdf316ded",
+      "primary_image": "panel_stairs_hazard_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "c0c7bef43743bab01b796321888af2c978f35cc3c24b63cddf4e34b6184b6ef2",
+      "primary_image": "panel_stairs_hazard_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "735d2ca30391d8a07bf9922836c00fe867b1f7696802d14cbdf1b096018ae74c",
+      "primary_image": "panel_water_spill_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "1c6629a3639fe9b0586816419defb594f17ce3cfdd302ac87ec34b10509f8cfa",
+      "primary_image": "panel_water_spill_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "8752a2cd16446db9118eceed26e7ebd2fbd7bb30999b5d867131a57288c95bf8",
+      "primary_image": "panel_water_spill_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "141db0f1f665db751cf8580d6114a6667e842c3d25bbf637b67848cf39728163",
+      "primary_image": "panel_water_spill_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "a489c556cbe925a5c8530562732b1b5a88dd6c9ee960f15e2f6683330f4b6050",
+      "primary_image": "phele_glass_test_79.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_test_79.jpg"
+      ]
+    },
+    {
+      "sha256": "6598a364033e130329fd6a59bc8e8d6b46f4cd3f491125068c9bb84c1df74c8a",
+      "primary_image": "phele_glass_test_80.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_test_80.jpg"
+      ]
+    },
+    {
+      "sha256": "0988cf16e6c6c1d963f4c43ce8f0d137da497725d6e6bbb5dfe8373934a8ff5c",
+      "primary_image": "phele_glass_train_506.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_506.jpg"
+      ]
+    },
+    {
+      "sha256": "a298f2ddd7072f830f17f9310ac6f93b5f2fe576df2431e538ed29671f5c18fa",
+      "primary_image": "phele_glass_train_507.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_507.jpg"
+      ]
+    },
+    {
+      "sha256": "210c9a3f4156acfa92faebe744a725607aa488499b215192bb58e6257c45a6b9",
+      "primary_image": "phele_glass_train_509.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_509.jpg"
+      ]
+    },
+    {
+      "sha256": "ae889d2fba4f18ced29e0eecc0d018afcfc6f21498ffcc4d4bc233fa38743147",
+      "primary_image": "phele_glass_train_510.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_510.jpg"
+      ]
+    },
+    {
+      "sha256": "b6bbbd580f04f35f51f421ec376bc252baa97a866c16b545fc6395b140d43fd3",
+      "primary_image": "phele_glass_train_511.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_511.jpg"
+      ]
+    },
+    {
+      "sha256": "78a3ec1f306602b07146f0a802ba5fcfbc9f01a0e33a079875cc90c8b8b843e3",
+      "primary_image": "phele_glass_train_512.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_512.jpg"
+      ]
+    },
+    {
+      "sha256": "1c8f8f8116a5809200688c3cab8ea85ed2062c099210ae922ade85749a3b58fb",
+      "primary_image": "phele_glass_train_513.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_513.jpg"
+      ]
+    },
+    {
+      "sha256": "df1449df22cee69e44e377109a413adda6e8cdcdf3aa83e65ffb698e6421a686",
+      "primary_image": "phele_glass_train_518.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_518.jpg"
+      ]
+    },
+    {
+      "sha256": "205592e2d1c76267bdf6639078626912749dfa39f318c423a677313a5a561bb5",
+      "primary_image": "phele_wet_test_73.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_test_73.jpg"
+      ]
+    },
+    {
+      "sha256": "ca0eec31c2411e911905333cfdab798e62daa034fff3fb0474adc6ba4046ed8e",
+      "primary_image": "phele_wet_test_74.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_test_74.jpg"
+      ]
+    },
+    {
+      "sha256": "33991bcf4273415647108b8b20d4d4b327424f2622cb1f2613a13972ce4bef32",
+      "primary_image": "phele_wet_test_75.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_test_75.jpg"
+      ]
+    },
+    {
+      "sha256": "f59a5b3558806995167040ed8455411ee408d33baf487d9be621b080b288a098",
+      "primary_image": "phele_wet_train_522.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_522.jpg"
+      ]
+    },
+    {
+      "sha256": "20c6fd1b6bc374db224a995ae989c6d07377c322336161f7ba9e1ad6c23eb571",
+      "primary_image": "phele_wet_train_523.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_523.jpg"
+      ]
+    },
+    {
+      "sha256": "041cfbb9b4aa9859bc3ea8302a0b38827cedb882eca550f5e6422f948abed804",
+      "primary_image": "phele_wet_train_526.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_526.jpg"
+      ]
+    },
+    {
+      "sha256": "b39308c07e479e86812f0c996e40bedf4d48af85805e28f03b258095466fd4cb",
+      "primary_image": "phele_wet_train_527.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_527.jpg"
+      ]
+    },
+    {
+      "sha256": "20f05f50f4b9790d78c73f99872cf596749498fb078d1ec69ff865092e9d3167",
+      "primary_image": "phele_wet_train_529.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_529.jpg"
+      ]
+    },
+    {
+      "sha256": "c3902239d2cdd6759c07e04338646963624c680602f3566b061870f3250ad01d",
+      "primary_image": "sample_water_spill.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "sample_water_spill.jpg"
+      ]
+    },
+    {
+      "sha256": "087f07ec8ba080eea5aca506a691d46c55a417e52aae6340fdd5e86353c0f2e9",
+      "primary_image": "synth_neg_clean_white_tile_clean_plate_train_016.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "synth_neg_clean_white_tile_clean_plate_train_037.jpg"
+      ]
+    },
+    {
+      "sha256": "f95e94345a969a65b3f12c7d12e2e470db31c43b80b04e09f9ae69bc8ef82d74",
+      "primary_image": "thumb_clean_floor.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "thumb_clean_floor.jpg"
+      ]
+    },
+    {
+      "sha256": "2bcde7e32cf4ca6c9b0fd955ac0df4947ef9bd69c105332fa0608fbb91031aa5",
+      "primary_image": "user_bottle_blue_label_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_blue_label_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "0b2ba0be6fa8e367ac388c484ce80fbee7aa048c2c6c42d589d9c3254adb546b",
+      "primary_image": "user_bottle_blue_label_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_blue_label_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "38fd1718d29f82c85c5e9655ad181226b1574a9a5816aaafeca1ac6d2a2d1d2d",
+      "primary_image": "user_bottle_blue_label_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_blue_label_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "33e89951e166ed575267be1ec86d9c9e83926dd7f1dd3c77ea3b6cca476d4744",
+      "primary_image": "user_bottle_gold_label_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_gold_label_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "1b7278c666e5cd805a70d0b909d18c1151466523b4750a9aa52b920d9888e467",
+      "primary_image": "user_bottle_green_label_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_green_label_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "0d0923405e1544b982deb081029ac390f9f5ec3d0c2ac1ef2f0ee175d8f00468",
+      "primary_image": "user_bottle_green_label_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_green_label_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "20e1a52a6eccb989b70e2c2cab5ea686ee27b8e0b13e502824f6d1ee06b1f440",
+      "primary_image": "user_bottle_green_label_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_green_label_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "ac0f4c4500b74cdee62f21f90ad9fdb3b5fcc13d02f0b82ab38f6b665a5490fa",
+      "primary_image": "user_coca_bottle_crop_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "150fd26f389d1598fa29563866b839d3b37cb1843c9e64b2f67eea99b3f743c1",
+      "primary_image": "user_coca_bottle_crop_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "cdbb2823667d2587a85996fe58a2792aafef69fc93ed2cd5cdee53a3c143bddd",
+      "primary_image": "user_coca_bottle_full_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "378c5a9115743d1defb5ed476b352aba0ede7ea379fae5842e27b4f0ff75fa31",
+      "primary_image": "user_vid_boxes_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_boxes_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "9157a94fe31024716cee1d6857650ef88291f9e0800bed59fca3d0685ed3b082",
+      "primary_image": "user_vid_boxes_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_boxes_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "f8373ad1148bd80f45b5d6489ca6a020a42a95528d12eba08a6120e7d7382e57",
+      "primary_image": "user_vid_crack_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_crack_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "db8b8ec07fbb7a0cc3492562cc50555ca2b97485cd0b965a1454f5256176efc5",
+      "primary_image": "user_vid_crack_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_crack_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "a0b330503611413fd6cb2db78a4738976b8d17d67ba5d6677c9635a452c956c1",
+      "primary_image": "user_vid_kf1_boxes.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_kf1_boxes.jpg"
+      ]
+    },
+    {
+      "sha256": "a19f68bec871faf51081f208af1afdf625658f6e0d5b371f1bf971e4f92f6761",
+      "primary_image": "user_vid_kf3_crack.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_kf3_crack.jpg"
+      ]
+    },
+    {
+      "sha256": "592f6006127e5992bc591a794c6e9f4cfaba4fbd49d4b730f074a72145337354",
+      "primary_image": "user_vid_kf4_rug_lip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_kf4_rug_lip.jpg"
+      ]
+    },
+    {
+      "sha256": "c75274e26e91f8f812080046cd71f8a54179a8f0b5c8c80049641590827a98a2",
+      "primary_image": "user_vid_sauce_food_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_sauce_food_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "4da6de6cf6b09d4a5d65c51b172d17a7ed661c97ea390188ec5667799d707cfc",
+      "primary_image": "water_spill_main.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "water_spill_main.jpg"
+      ]
+    },
+    {
+      "sha256": "e354901fbaf6db5ccb815052589e0694fdc5839e9b7edaab6947ad69af56702f",
+      "primary_image": "clear_bottle_green_plastic_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_green_plastic_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "2944827bbba212c4e2b833b0647743a4041a2e762f5a76f662c73493d6198604",
+      "primary_image": "clear_bottle_green_plastic_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_green_plastic_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "0e5e52cedca235ef71350d70751341527158e354fe8300dd81b59d62493f0bac",
+      "primary_image": "clear_water_bottle_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_water_bottle_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "4b23308a916eb60553b187f95a44392da89e0a4c236143e4ee8b578ace4b7ab3",
+      "primary_image": "coca_bottle_crop_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "coca_bottle_crop_bright.jpg",
+        "user_coca_bottle_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "e8e69ee6ca3efd1e57b226a0fec2b635ba9622c0ec6a8c1b50f8fb9c73702932",
+      "primary_image": "coca_bottle_crop_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "coca_bottle_crop_hflip.jpg",
+        "user_coca_bottle_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "bad4b8bb3fec4faf989c9f1a3bf6b40c0d89735101dce93bf75ef71c21abc93b",
+      "primary_image": "coca_bottle_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "coca_bottle_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "f1831e64a20981d1b8fe9011a6b845cf5cdb481cb16cddd87f145adf4284df2e",
+      "primary_image": "floor_hazard_broken_glass_store_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "65fde6600ffca0a30ce225a1e9a1734997e4f51f47499f2ea7014ddf1e00b3d8",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "3e380c2fababef88b972c6a97433cadd79070df01767d414b36f8a679e082cfa",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "b2bb67f644aa958e18ae6a6cf94ad532bf1d9b17d16ac0d8006b81b9578d7635",
+      "primary_image": "floor_hazard_gravel_scatter_floor_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_gravel_scatter_floor_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "be7b59760e452ea5b19f83cdc0c107ed5d62bf0b1a499bb017819df6ac3cb21e",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "8c9c1a31394217b414f60ccca30366e5c4eaf9d51f59693f428c256088d1ea90",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "b087eb710c0bf07e0eb422370e0fa72d9de8356f2d8609d54eda5c6e2faea481",
+      "primary_image": "floor_hazard_pallet_obstacle_aisle_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_pallet_obstacle_aisle_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "a0293c937a836ae88f49f3b891e6b8ef6dd41635d143135558532c4ddac68b7a",
+      "primary_image": "floor_hazard_stairs_slip_hazard_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_stairs_slip_hazard_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "ad9b83dcb1a4d6f19d2bda3b924e211711d01169ade781862c4e4810eafa22c9",
+      "primary_image": "floor_hazard_wet_surface_patio_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "0c15d2135289f2af2f986787f16f17ee0955b02d1c20c2b5f701919a12e8367f",
+      "primary_image": "floor_hazard_wet_surface_patio_aug1_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug1_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "bd82d44e5de0d6653b628c5ffb2dd043e4c80d6ee307189e215817341311edd7",
+      "primary_image": "hf_bal_clean_floor_0155.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0155.jpg"
+      ]
+    },
+    {
+      "sha256": "500b1b113e742ef9105377e863b2fa6da122d47de5db289906144977517ab76f",
+      "primary_image": "hf_bal_clean_floor_0182.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0182.jpg"
+      ]
+    },
+    {
+      "sha256": "9b969e70c7671960236eb4534db524e3514e501844e96ac921988b582c5befb9",
+      "primary_image": "hf_bal_obstacle_0181.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0181.jpg"
+      ]
+    },
+    {
+      "sha256": "7b88ccc50192dfbf5dc9314937fae24f2ef5eb905096730c2aca8e73ce40cf09",
+      "primary_image": "hf_bal_oil_spill_0202.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_oil_spill_0202.jpg"
+      ]
+    },
+    {
+      "sha256": "14548065879fc64ecf85856e9f9ab82ea27c1b2ed0e4c12b18e4b92b8e4e2636",
+      "primary_image": "hf_p41_clean_floor_0091.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0091.jpg"
+      ]
+    },
+    {
+      "sha256": "13ae180391334b987224380ff11e50c6a220c684dcb00e1a9c68715050fec1a0",
+      "primary_image": "hf_p41_clean_floor_0106.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0106.jpg"
+      ]
+    },
+    {
+      "sha256": "45179b60b723d7878ada747b1a6cdde49d2c9e479ed55e41658f667077c6f008",
+      "primary_image": "hf_p41_clean_floor_0146.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0146.jpg"
+      ]
+    },
+    {
+      "sha256": "98c8269a8e49f4ba96e09ecc094cbb3fc9b37f0097da56e76cd9dfaa2d4b510f",
+      "primary_image": "hf_p41_water_spill_0064.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0064.jpg"
+      ]
+    },
+    {
+      "sha256": "40a6ab7906122885cdbd85017dd600ee81b92f4cc56f1af80eeabb4206662bd8",
+      "primary_image": "hf_pilot_obstacle_0010.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_obstacle_0010.jpg"
+      ]
+    },
+    {
+      "sha256": "54b7d82bcaf79666b45f6779cbe90c2aae6d2ad0a47ba0ddffff9d74173d257e",
+      "primary_image": "hf_pilot_water_spill_0018.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_pilot_water_spill_0018.jpg"
+      ]
+    },
+    {
+      "sha256": "15607a8ddc2e1ab13935b4752f249d6384c7b07ee308c47847d96fa68d758f76",
+      "primary_image": "multi_cable_cord_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "7e3dd19013ce3356499e4a42d3c6bda5c6a074d522cf5e6e24e416b798a9283b",
+      "primary_image": "multi_chemical_spill_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "4fd36ad9734134dc2313b964afce20d505f57aeb40b04b529b74b84664eeea73",
+      "primary_image": "multi_chemical_spill_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "689c6845af1efe2165f66f652c2dca972de796217131ab74f2daef690fa99e6e",
+      "primary_image": "multi_mud_dirt_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "938175c8c03b270b3796525b56b059896e90f591f21f4e3ded5194a11ffd6987",
+      "primary_image": "multi_mud_dirt_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "b9e76baf6ee6adb438ef3b6152b21e3dec73f703f094ae2d0c282efec416d2a8",
+      "primary_image": "multi_mud_dirt_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_mud_dirt_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "4239490e1dbab0ff4f5c4385bbb9918d2bec562c16658c10183e53af294d3f04",
+      "primary_image": "multi_oil_spill_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_oil_spill_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "0c928736df54e3ccf8c7b31f2fdf1eceb8d0e27ecfe09d37295bfa3b74e70c02",
+      "primary_image": "multi_trash_litter_panel_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_trash_litter_panel_bright.jpg",
+        "panel_plastic_bottle_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "504cc32aa36851ea316f250a99db2bbdeceddde2807dfdbd21c4cfdab88c52b7",
+      "primary_image": "multi_trash_litter_panel_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "bb4e4891704bc786f5b8e1eaaf3d5cff7cca086000d2f4bd43ae13f7067642d1",
+      "primary_image": "multi_trash_litter_panel_crop_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_crop_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "ff529ab60687120524f7dc196dfaadb69efebc7d40837f964153a2c27b11d1c6",
+      "primary_image": "p43_clean_floor_0007.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_clean_floor_0007.jpg"
+      ]
+    },
+    {
+      "sha256": "ad7af40147e32fdf411b2aac4ce6e9acea0e655aacae19b804553977ab169e90",
+      "primary_image": "p43_clean_floor_0024.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_clean_floor_0024.jpg"
+      ]
+    },
+    {
+      "sha256": "f21b76ff9a713c3f03796cd4d2ff2754c777a06a08d70865483b11ecb8ccbadf",
+      "primary_image": "panel_cable_cord_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "b9cdf72fb41568b3bdfca43e9128f755e851d9ac7bb46224a99cb10b5b5ae23f",
+      "primary_image": "panel_cable_cord_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "bbb8f0cdba7385b5f5ed92e6aef18d129f2ca775872d980f9e9f6fd9d2cded3d",
+      "primary_image": "panel_mud_dirt_exp_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_mud_dirt_exp_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "bcd53cca322e850c6171164917524d680f11718bf2a50159d2b32ae9d6946ec8",
+      "primary_image": "panel_mud_dirt_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_mud_dirt_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "61467c9ae5cb9d850a347276aecce6feb1176cf4d9aaadc96ef1901f300f0298",
+      "primary_image": "panel_plastic_bottle_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "b24026e5831bc2313a58dea62539988b8841f9a72dc89273425f6accb23d9bb7",
+      "primary_image": "phele_glass_train_504.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_504.jpg"
+      ]
+    },
+    {
+      "sha256": "cd00bed51ce4377c62db86523052aa6f580023dd3ed8f65209a5a16c5a8855dc",
+      "primary_image": "phele_glass_train_508.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_508.jpg"
+      ]
+    },
+    {
+      "sha256": "98925495828a70b5378cfa6be26af099d16b790f16df2dc2f9f4735bb676fe37",
+      "primary_image": "phele_glass_train_514.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_train_514.jpg"
+      ]
+    },
+    {
+      "sha256": "0a3b86b7f2f43f872437feb93da86b87a117810f822b21598c56cdd51ffd4e68",
+      "primary_image": "phele_wet_test_76.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_test_76.jpg"
+      ]
+    },
+    {
+      "sha256": "eda48f774b1c3b5f7258a895a9742f8905de30fa18c2ee9208bb39b30ad3182f",
+      "primary_image": "user_bottle_gold_label_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_gold_label_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "42ab8ca27c686a2321280d8b972c40d72aa113191c70f2c072fbc4472de49057",
+      "primary_image": "user_bottle_gold_label_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_gold_label_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "a3dcee98f47c15fec168df0ca7bb0815f181eca0c146fcb6f2bdeee8cd61f14b",
+      "primary_image": "user_bottle_gold_label_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_gold_label_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "e1114c1994f69e177b8c92856beffe76a79b33d885681b7d69e470d957f3fef3",
+      "primary_image": "user_coca_bottle_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "397a9c8b4afb9f88249b5b420e3f2ae8c6f15c9888a4088c390b537af8e6f4ee",
+      "primary_image": "user_coca_bottle_full_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "269b3659ecc25815104975822764671f03964595cbff25823ac78f82d1ed630d",
+      "primary_image": "user_coca_bottle_full_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "bf86b866b4c58302fa54e5f158716968628073a0db4e3116e6c6321375ad66ba",
+      "primary_image": "user_vid_kf0_cables.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_kf0_cables.jpg"
+      ]
+    },
+    {
+      "sha256": "32ece13c4c0c54876b7b071e3585d18fd8976bb2d4003a828c786277bf0caa27",
+      "primary_image": "user_vid_kf2_sauce_glass.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_kf2_sauce_glass.jpg"
+      ]
+    },
+    {
+      "sha256": "1079cc64cc45d780ecb45eb1db498797efa4fba1c7c70bee922876f75ce9c85f",
+      "primary_image": "aug_cables_sec02_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec02_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "bfdc5b723f9a447637af888e2b04a24555ff89af16072fff2736023b4b061129",
+      "primary_image": "aug_cables_sec02_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec02_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "0b4cd5f4026c8c5bb8b4ebbfd1a805f1d29d19929d70935a82ec15f73e053c35",
+      "primary_image": "clear_bottle_amber_bottle_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_amber_bottle_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "92e26dbbd9c34d425a362094f477b7a16769b866652e6c6ff5ec9a0a98f26b8a",
+      "primary_image": "clear_bottle_cap_angle_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "2da557dd5429c84abe9bd4a20504690113e7bac31243c3e0211236288fc7de3f",
+      "primary_image": "clear_bottle_cap_angle_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "225762b6bd4e4f157d20b134110f5f3d10c1dfec9c6a3e6fa34e246ef691e9fc",
+      "primary_image": "clear_bottle_cap_angle_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "5772361de9dd41ba1e3f36885ccdbed89574c93a77adb5a1840a6afcf03aa64a",
+      "primary_image": "clear_bottle_cap_angle_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "c9f43fc19fa381f7c47ee25bb76859bf0dec137728a86bb3f1170c5009146e55",
+      "primary_image": "clear_bottle_cap_angle_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_cap_angle_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "9c7f4575d50ada01d57dfb06d5adbbee009aaaff37ba961abafe567f271b048a",
+      "primary_image": "clear_bottle_green_plastic_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "clear_bottle_green_plastic_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "5734fc87f3084c64f6ed0d147e0a451deebb6fbb37bb7ef9c2c16359c8912c25",
+      "primary_image": "coca_bottle_full_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "coca_bottle_full_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "77636b1e64c95d574152de3248cedc20c095753633534a7cf3cbef552bd9f1db",
+      "primary_image": "floor_hazard_broken_glass_store_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_broken_glass_store_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "33ae71d51cb2b2bbc0ee913f7e219c02dbb1ceb8f05be54e96509ae0340e0348",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "cab1401edd4f6537a82d860429ec3272ee13ea4c4a1fb613cf2adaa92f9c5667",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "d2fec9ab27b31289070edf46f41fa0fc29f3111e31420af2a651947b6abaac8e",
+      "primary_image": "floor_hazard_cable_cord_hallway_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_cable_cord_hallway_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "b79f3c2c5299d207df0084525f2e648f48f44fc468fe936d5bdf3a928d1fc999",
+      "primary_image": "floor_hazard_chemical_coolant_spill_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_chemical_coolant_spill_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "046eb850fae896d5de4ca25c0b6d5212716b986ee3782fb8bd56f798f3c3ed26",
+      "primary_image": "floor_hazard_food_waste_peel_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_food_waste_peel_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "808260e843937ec5989f85736fca0bb1a469d65c0d27555550f42c9555c561a0",
+      "primary_image": "floor_hazard_mud_tracks_soil_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_mud_tracks_soil_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "b6759a85c1db59d3a65f20656bd12b3dd51f1a18b2d5b598d8504fb11a07742c",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug2_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug2_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "c8d65d4155af4f70f3a2317f9fafa7254ab16eb0be11279e66cb330018fcc0f9",
+      "primary_image": "floor_hazard_oil_spill_warehouse_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_oil_spill_warehouse_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "a5c484736fb246e2b247b185272362797a778cd11d9dc1e86d8001223fc4eb55",
+      "primary_image": "floor_hazard_water_spill_marble_aug0_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_water_spill_marble_aug0_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "8acd8e6004f17caa548cc65fa784935bf0057196f12650b6aaf081f02c3056bf",
+      "primary_image": "floor_hazard_wet_surface_patio_aug3_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug3_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "582a215ecaddc66d8d2ae7f510199a40639ad7fcb4ff224d9f39f86715192dcf",
+      "primary_image": "floor_hazard_wet_surface_patio_aug4_contrast.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug4_contrast.jpg"
+      ]
+    },
+    {
+      "sha256": "a6758923541859e997772853f435832a96199fbc0bcd50a09eae78f242aba25a",
+      "primary_image": "floor_hazard_wet_surface_patio_aug5_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "floor_hazard_wet_surface_patio_aug5_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "7ca2a1fa8708b27b21af99a21ba807087fa667bcf862388d28efe87e40a21a92",
+      "primary_image": "hf_bal_clean_floor_0133.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_clean_floor_0133.jpg"
+      ]
+    },
+    {
+      "sha256": "b5ec8a4d16d7e1b1b2119b37f3e614678f4857bd86df2340cabdf9b8157ab4e2",
+      "primary_image": "hf_bal_obstacle_0029.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0029.jpg"
+      ]
+    },
+    {
+      "sha256": "7a908097379ba317a0f76d27baec14efa434494e1134586982007d09cc06f8b8",
+      "primary_image": "hf_bal_obstacle_0122.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_bal_obstacle_0122.jpg"
+      ]
+    },
+    {
+      "sha256": "5539dda39a19eff436a8c5164eab21a34e9b9953a41b49dd533bd3f09e279bfd",
+      "primary_image": "hf_p41_clean_floor_0064.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0064.jpg"
+      ]
+    },
+    {
+      "sha256": "3549e62f84b7f19a0914da199b23f09a0e7a65211701b9304709775b0cd34e73",
+      "primary_image": "hf_p41_clean_floor_0187.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_clean_floor_0187.jpg"
+      ]
+    },
+    {
+      "sha256": "c5c570bee233daa94e7244647152004a0096ee7777a4bd527910de5a2a058852",
+      "primary_image": "hf_p41_oil_spill_0067.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_oil_spill_0067.jpg"
+      ]
+    },
+    {
+      "sha256": "140fc2a19d9547c21b1a96b905c6dc3ac896feb3e50f32a97921eb8bb2447325",
+      "primary_image": "hf_p41_water_spill_0090.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_p41_water_spill_0090.jpg"
+      ]
+    },
+    {
+      "sha256": "a09c8a5341dc0f13509dc1d2cfeb4274108012d71b6252bfd677784d38b999fd",
+      "primary_image": "hf_warehouse_spill_0005.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_spill_0005.jpg"
+      ]
+    },
+    {
+      "sha256": "f0bb4b755d48aa825683ae2a7a9393b73c3fd64184dc4d23aea62e030fb3efc8",
+      "primary_image": "hf_warehouse_spill_0008.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "hf_warehouse_spill_0008.jpg"
+      ]
+    },
+    {
+      "sha256": "6cb71b5534250857d4f55adb5be29ee8e34f5f07a9ca83e2c495b7d70527b349",
+      "primary_image": "multi_cable_cord_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_cable_cord_bright.jpg",
+        "panel_cable_cord_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "487be2ca1ba65c9a766b80ac8581114aac4dbe1d69365c23e9ac6b73d9a06410",
+      "primary_image": "multi_cable_cord_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_cable_cord_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "0b2e78533fe761627172fb3956234b4c3045a8d548284288d147603b69e9a216",
+      "primary_image": "multi_chemical_spill_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_chemical_spill_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "d1cdb10140c93195e5f1a46bc3da8f00e4ffc7e966de0c2a886e40288921794d",
+      "primary_image": "multi_food_waste_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "c7ee084915c2a793945f2884f407cc6b60c55699ad9a7a9354afda44ddebeb32",
+      "primary_image": "multi_food_waste_crop_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_food_waste_crop_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "70bc0386feaab1cb0f60e3363b7f0e194c846528474fef6129866dbe1141874e",
+      "primary_image": "multi_obstacle_debris_hflip.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_obstacle_debris_hflip.jpg",
+        "panel_obstacle_debris_exp_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "cb27d6f2fc7bb11239c953556c5eb396e62005bf39eb2c8d35f86a7e3bb49eb0",
+      "primary_image": "multi_oil_spill_bright.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "multi_oil_spill_bright.jpg",
+        "panel_oil_spill_exp_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "2a04d238503ac113ea268a92ac326b1bf50abac5dbacb36a0085f5aa8265c285",
+      "primary_image": "multi_stairs_hazard_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_stairs_hazard_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "577fb6227c465ef6bdaf822a9e22ff556794bc2f819c8042ee65c68c4e1c02a0",
+      "primary_image": "multi_trash_litter_panel_crop_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "multi_trash_litter_panel_crop_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "38dfd9c90cb750a06c05f000f1b83efdada68c70f20bcd9d53d49081207b492b",
+      "primary_image": "p43_obstacle_0073.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "p43_obstacle_0073.jpg"
+      ]
+    },
+    {
+      "sha256": "99a28707b506af27519a69086b0e4319a2f31f4ee3aac02f661221e3f65159ee",
+      "primary_image": "panel_cable_cord_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "db2f852e33df10012cc5bb961ce26aed285577096092897cc012aa202eec437a",
+      "primary_image": "panel_chemical_spill_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "bc7eb87bf05a9daf07dbb62f90921b85cee65b5384e6e1f4bb05451e8b789b1b",
+      "primary_image": "panel_food_waste_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "3fc902fe50fa637291cd74b06cf97b85185db01596f216b6c60ff7dc67d6139a",
+      "primary_image": "panel_mud_dirt_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_mud_dirt_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "00b0b71b0e5f35bbc15e6b4960f16daf45fddad96af5ad21f98b76ac4c28afef",
+      "primary_image": "panel_oil_spill_exp_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "fde366498668c76a732e720d0d3aa9a311fee986100833dd147d66b35378abf7",
+      "primary_image": "panel_stairs_hazard_exp_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "25ea73926a75ee8ec00fd45f59ea4f266fcc3aca46eabc782d16f4f4a907e2bb",
+      "primary_image": "panel_stairs_hazard_exp_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "b040fa724895fe3a2e94963a5a330b733663fe743a8bf320c783f868e324b9d6",
+      "primary_image": "phele_glass_test_77.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_test_77.jpg"
+      ]
+    },
+    {
+      "sha256": "330e50fd0a747c5338c34db3d58f777890fa6d32bc98745f6e0fb1f3fc49100c",
+      "primary_image": "phele_glass_test_78.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_glass_test_78.jpg"
+      ]
+    },
+    {
+      "sha256": "0beecdf0a38ccdaa22a347266365ba668857c769920708a362126700fa67439e",
+      "primary_image": "phele_wet_train_521.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_521.jpg"
+      ]
+    },
+    {
+      "sha256": "d97248a802b307fa7ebbb2b4083f9295c647ddf285e8bc23d588d249f3944cf3",
+      "primary_image": "phele_wet_train_528.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "phele_wet_train_528.jpg"
+      ]
+    },
+    {
+      "sha256": "c054d8e7d8be14769be73598524133e09f83c25b88fadfd18ab13df142d8406a",
+      "primary_image": "user_bottle_blue_label_cool.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_blue_label_cool.jpg"
+      ]
+    },
+    {
+      "sha256": "cd4b941ea70319d92a2d916fca98f62b2f34f619b51358dacf811e5c0dd60e2a",
+      "primary_image": "user_bottle_green_label_hflip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_bottle_green_label_hflip.jpg"
+      ]
+    },
+    {
+      "sha256": "ff618d29bca2af103f93dc1a86039924040fc50bf0b65a122cde791c71d70042",
+      "primary_image": "user_coca_bottle_crop_warm.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_warm.jpg"
+      ]
+    },
+    {
+      "sha256": "379e57f703945970065a7897383d5b7c2232ffd9fec92a22096bb48744694ab5",
+      "primary_image": "user_coca_bottle_full_hflip_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_hflip_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "9533ec42fdee7dee9d1408e695fcfc2ed278675a7af5d6328ab00344ca981e19",
+      "primary_image": "user_vid_cables_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_cables_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "df7646d5cf4e5b40a6a0fb19e333abfd7f3d2c333b124900403306eba4e5f2a0",
+      "primary_image": "user_vid_cables_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_cables_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "7b2efe07c7e50eb88164841e92a074d21cad51e187092b8f3872031806dfc2b6",
+      "primary_image": "user_vid_curled_mat_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_curled_mat_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "c46165f956dcc873e7f9e32ceba35d6aabf00fdcdc0a8a26326657154d721699",
+      "primary_image": "user_vid_curled_mat_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_curled_mat_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "352607a457ea7096121fd0d489ad13692ec64c590af0706e7e8504a9008dbe0a",
+      "primary_image": "aug_food_sec05_orig.jpg",
+      "duplicate_count": 2,
+      "duplicates": [
+        "user_vid_sauce_food_orig.jpg",
+        "user_vid_sauce_food_val.jpg"
+      ]
+    },
+    {
+      "sha256": "d29aeeb99a687aa7aeed860d23f5d17c2c05fc25e1c35413883cb43d48bec8a4",
+      "primary_image": "coca_bottle_crop_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "f8f99958f347ff1a5685bfdc3f11b2c5ddd3a04a5ed26677436919b16fbd4576",
+      "primary_image": "coca_bottle_crop_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_crop_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "db3f90f0c70fda7c68f58fba0a9534555353e44c7ae27c09dd5a794406715969",
+      "primary_image": "coca_bottle_full_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "ca2b955fcd1aff0fc7f2be68b81c98516543dd6790922893152dc2746582ca6a",
+      "primary_image": "coca_bottle_full_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_coca_bottle_full_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "e09d5ca761003847314a7883d6d07e508ec56e51619555ceedf1de7e9d84b62d",
+      "primary_image": "multi_cable_cord_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "5ba0face46de726e8a6f66eebbb31894a254d7ce80f3e30036ce49b135a46eed",
+      "primary_image": "multi_cable_cord_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_cable_cord_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "6917cc024520a66b109f78a6f4545966ffa16b09061bb2417c933bb4f7a41012",
+      "primary_image": "multi_chemical_spill_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "3bc8e2e9d6a6452717e8ce5b1efe0442f1565b66a18590de3b3c526fc1d0424c",
+      "primary_image": "multi_chemical_spill_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_chemical_spill_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "2d194d593bce71e9da07415dcb4b42138d94621a19b04b3d4e88be442624311b",
+      "primary_image": "multi_food_waste_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "d5ca533bef0d439ae6863045c994d958cb6263564b03028affcfbc97c98b2d87",
+      "primary_image": "multi_food_waste_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_food_waste_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "7f5b160aaa0c3950d7d06feadf7b31f9500e07df5f693a529e24bd07ab584c92",
+      "primary_image": "multi_mud_dirt_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_mud_dirt_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "69f9970137fd0eac7333843a134dcc66b3dcfd0de2a3559c406d399d18c0962c",
+      "primary_image": "multi_obstacle_debris_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "a8cec484137cf586307fb3ba14f334f8eb83bda652e4de445ad303ee134ca531",
+      "primary_image": "multi_obstacle_debris_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_obstacle_debris_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "21dffa3750f3f1de5c6e1cde131dbe3d257b6655655df6e01cc7ff8b4de997ea",
+      "primary_image": "multi_oil_spill_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "ab5c5cf2045e0a7a05762108448c7be193eeccb0c2c64244c92865951d38ccd5",
+      "primary_image": "multi_oil_spill_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_oil_spill_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "756ead13378ffa19ffcd289f5747c2f445fb6bc3db758945ca2754e8eaf57f96",
+      "primary_image": "multi_stairs_hazard_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "69f1e65a8245cddd6300f7f3b07eeb10520a66a952a06b5aafb4c58e9fd1bbb4",
+      "primary_image": "multi_stairs_hazard_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_stairs_hazard_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "c5eaa4d5ca58095373c1d068a6f616dcf2635633652ed08037379a76c3ce54d6",
+      "primary_image": "multi_trash_litter_panel_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "6706836afa79f02c3d4996ac124bc347878f4fb601830faed4a1c3998939590e",
+      "primary_image": "multi_trash_litter_panel_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_plastic_bottle_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "e951993fd7c3a7cc46ad390df09cd7f2a9bc3ba932a044e9a95e5f36741e7cd2",
+      "primary_image": "multi_water_spill_dim.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_dim.jpg"
+      ]
+    },
+    {
+      "sha256": "68a69539fb418a55983a630709a5fe5d1875ac2051a10c8ecc84e4516d2de917",
+      "primary_image": "multi_water_spill_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "panel_water_spill_exp_orig.jpg"
+      ]
+    },
+    {
+      "sha256": "6e618bad9ae7f7f49a42263922e24b2244589816f6cfa24260d209fea0c18ea2",
+      "primary_image": "user_vid_boxes_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_boxes_val.jpg"
+      ]
+    },
+    {
+      "sha256": "8a6d29991cf14e6ae80d79b56d1f906b8b5ca07842ea36716f12ecac8cc295d8",
+      "primary_image": "user_vid_cables_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_cables_val.jpg"
+      ]
+    },
+    {
+      "sha256": "f928c2b4ed58c9ff86de3dc69780edb62b8ebabb8cd913a21f90d0dd64a82340",
+      "primary_image": "user_vid_crack_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_crack_val.jpg"
+      ]
+    },
+    {
+      "sha256": "8d9a10e42b66f0be01ed24c5d1f5de2d15717288371454f380838a2eff0e474c",
+      "primary_image": "user_vid_curled_mat_orig.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "user_vid_curled_mat_val.jpg"
+      ]
+    }
+  ]
+}

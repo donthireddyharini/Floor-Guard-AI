@@ -1,0 +1,65 @@
+{
+  "taxonomy": "Canonical 10-Class Hazard + Clean Floor Control",
+  "splits": {
+    "train": {
+      "total_images": 363,
+      "clean_floor_negatives": 24,
+      "hazard_boxes": {
+        "obstacle_debris": 102,
+        "cable_cord": 12,
+        "food_waste": 69,
+        "water_spill": 78,
+        "broken_glass": 105,
+        "chemical_spill": 12,
+        "mud_dirt": 11,
+        "oil_spill": 32,
+        "stairs_hazard": 14,
+        "trash_litter": 4
+      }
+    },
+    "val": {
+      "total_images": 79,
+      "clean_floor_negatives": 7,
+      "hazard_boxes": {
+        "obstacle_debris": 21,
+        "water_spill": 8,
+        "broken_glass": 30,
+        "cable_cord": 8,
+        "chemical_spill": 3,
+        "mud_dirt": 6,
+        "stairs_hazard": 1,
+        "oil_spill": 2,
+        "trash_litter": 3,
+        "food_waste": 18
+      }
+    },
+    "test": {
+      "total_images": 85,
+      "clean_floor_negatives": 6,
+      "hazard_boxes": {
+        "cable_cord": 11,
+        "obstacle_debris": 22,
+        "broken_glass": 15,
+        "chemical_spill": 3,
+        "food_waste": 21,
+        "mud_dirt": 2,
+        "oil_spill": 5,
+        "water_spill": 12,
+        "stairs_hazard": 3,
+        "trash_litter": 1
+      }
+    }
+  },
+  "aggregate_boxes_per_class": {
+    "water_spill": 98,
+    "oil_spill": 39,
+    "chemical_spill": 18,
+    "broken_glass": 150,
+    "cable_cord": 31,
+    "obstacle_debris": 145,
+    "trash_litter": 8,
+    "food_waste": 108,
+    "mud_dirt": 19,
+    "stairs_hazard": 18
+  }
+}

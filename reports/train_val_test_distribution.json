@@ -1,0 +1,63 @@
+{
+  "split_ratios": {
+    "train": "68.0%",
+    "val": "15.5%",
+    "test": "16.5%"
+  },
+  "per_split_breakdown": {
+    "train": {
+      "images": 413,
+      "clean_negatives": 41,
+      "class_boxes": {
+        "obstacle_debris": 76,
+        "cable_cord": 12,
+        "floor_damage": 36,
+        "food_waste": 69,
+        "floor_mat_hazard": 23,
+        "water_spill": 78,
+        "broken_glass": 105,
+        "chemical_spill": 12,
+        "mud_dirt": 11,
+        "oil_spill": 32,
+        "stairs_hazard": 14,
+        "trash_litter": 4
+      }
+    },
+    "val": {
+      "images": 94,
+      "clean_negatives": 13,
+      "class_boxes": {
+        "obstacle_debris": 19,
+        "water_spill": 8,
+        "broken_glass": 30,
+        "cable_cord": 8,
+        "chemical_spill": 3,
+        "mud_dirt": 6,
+        "stairs_hazard": 1,
+        "oil_spill": 2,
+        "trash_litter": 3,
+        "floor_damage": 8,
+        "food_waste": 18,
+        "floor_mat_hazard": 3
+      }
+    },
+    "test": {
+      "images": 100,
+      "clean_negatives": 12,
+      "class_boxes": {
+        "cable_cord": 11,
+        "obstacle_debris": 18,
+        "broken_glass": 15,
+        "chemical_spill": 3,
+        "food_waste": 21,
+        "mud_dirt": 2,
+        "oil_spill": 5,
+        "water_spill": 12,
+        "stairs_hazard": 3,
+        "trash_litter": 1,
+        "floor_damage": 5,
+        "floor_mat_hazard": 8
+      }
+    }
+  }
+}

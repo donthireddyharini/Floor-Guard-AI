@@ -1,0 +1,308 @@
+{
+  "report_title": "Floor Guard AI - Final Detection Regression & Accuracy Report",
+  "timestamp": "2026-11-06T22:23:00Z",
+  "model_checkpoint": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\models\\floorguard_yolo.pt",
+  "is_custom_trained": true,
+  "total_test_cases": 8,
+  "passed_test_cases": 8,
+  "pass_rate_percent": "100.0%",
+  "elapsed_seconds": 8.86,
+  "test_results": [
+    {
+      "test_id": "TC-01",
+      "name": "Water Spill with Specular Glints",
+      "category": "water_spill",
+      "file": "public/assets/samples/gallery/water_spill.jpg",
+      "expected_classes": [
+        "Water Spill"
+      ],
+      "predicted_class": "Water Spill",
+      "confidence": 0.6151,
+      "confidence_percent": "62%",
+      "severity": "High",
+      "bounding_box": {
+        "x": 73,
+        "y": 246,
+        "width": 451,
+        "height": 181
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-02",
+      "name": "Chemical Coolant Liquid Spill",
+      "category": "chemical_spill",
+      "file": "dataset/images/test/floor_hazard_chemical_coolant_spill_aug4_contrast.jpg",
+      "expected_classes": [
+        "Chemical Spill",
+        "Water Spill"
+      ],
+      "predicted_class": "Chemical Spill",
+      "confidence": 0.6998,
+      "confidence_percent": "70%",
+      "severity": "Critical",
+      "bounding_box": {
+        "x": 160,
+        "y": 283,
+        "width": 406,
+        "height": 178
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-03",
+      "name": "Broken Glass Fragments on Ceramic Walkway",
+      "category": "broken_glass",
+      "file": "dataset/images/test/floor_hazard_broken_glass_store_aug3_dim.jpg",
+      "expected_classes": [
+        "Broken Glass"
+      ],
+      "predicted_class": "Broken Glass",
+      "confidence": 0.6483,
+      "confidence_percent": "65%",
+      "severity": "Critical",
+      "bounding_box": {
+        "x": 47,
+        "y": 176,
+        "width": 502,
+        "height": 217
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-04",
+      "name": "Trailing Power Cable & Wire Obstruction",
+      "category": "cable_wire",
+      "file": "dataset/images/test/floor_hazard_cable_cord_hallway_aug0_orig.jpg",
+      "expected_classes": [
+        "Cable Wire",
+        "Cable & Wire Hazard",
+        "Cable & Wire Tripping Hazard"
+      ],
+      "predicted_class": "Cable Wire",
+      "confidence": 0.9993,
+      "confidence_percent": "100%",
+      "severity": "High",
+      "bounding_box": {
+        "x": 215,
+        "y": 226,
+        "width": 411,
+        "height": 139
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-05",
+      "name": "Dropped Plastic Water Bottle Obstacle (WhatsApp 11.45 AM)",
+      "category": "obstacle_debris",
+      "file": "uploads/originals/1793945880487_p77ihr.jpeg",
+      "expected_classes": [
+        "Obstacle Debris",
+        "Obstacle & Debris",
+        "Trash Litter"
+      ],
+      "predicted_class": "Trash Litter",
+      "confidence": 0.9582,
+      "confidence_percent": "96%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 330,
+        "y": 103,
+        "width": 520,
+        "height": 395
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-06",
+      "name": "Overturned Soda Bottle with Red Label (WhatsApp 10.21 AM)",
+      "category": "obstacle_debris",
+      "file": "uploads/originals/1793940735673_hbhctx.jpeg",
+      "expected_classes": [
+        "Obstacle Debris",
+        "Obstacle & Debris",
+        "Trash Litter"
+      ],
+      "predicted_class": "Trash Litter",
+      "confidence": 0.8916,
+      "confidence_percent": "89%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 538,
+        "y": 524,
+        "width": 283,
+        "height": 67
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-07",
+      "name": "Clear Beverage Container Bottle on Floor",
+      "category": "obstacle_debris",
+      "file": "dataset/images/test/coca_bottle_full_warm.jpg",
+      "expected_classes": [
+        "Obstacle Debris",
+        "Obstacle & Debris",
+        "Trash Litter"
+      ],
+      "predicted_class": "Trash Litter",
+      "confidence": 0.896,
+      "confidence_percent": "90%",
+      "severity": "Medium",
+      "bounding_box": {
+        "x": 538,
+        "y": 525,
+        "width": 283,
+        "height": 66
+      },
+      "passed": true
+    },
+    {
+      "test_id": "TC-08",
+      "name": "Clean Polished Ceramic Floor Tile (Negative Control)",
+      "category": "clean_floor",
+      "file": "public/assets/samples/gallery/clean_floor.jpg",
+      "expected_classes": [
+        "Clean Floor"
+      ],
+      "predicted_class": "Clean Floor",
+      "confidence": 0.942,
+      "confidence_percent": "94%",
+      "severity": "Safe",
+      "bounding_box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "passed": true
+    }
+  ],
+  "video_pipeline": {
+    "tested_video": "1793954764960_gayjkr.mp4",
+    "passed": true,
+    "keyframes_analyzed": 8,
+    "consolidated_hazard_events": 5,
+    "temporal_events": [
+      {
+        "event_id": "evt_01",
+        "hazard_class": "Water Spill",
+        "severity": "High",
+        "first_seen_sec": 0.0,
+        "last_seen_sec": 1.25,
+        "duration_sec": 1.25,
+        "time_range": "00:00 - 00:01",
+        "peak_confidence": 0.9931,
+        "confidence_percent": "99%",
+        "representative_thumb": "/uploads/annotated/kf_1793954764960_gayjkr_0_15.jpg",
+        "bounding_box": {
+          "x": 87.7,
+          "y": 77.4,
+          "width": 6.1,
+          "height": 10.6
+        },
+        "estimated_area": "0.01 m\u00b2",
+        "action_recommendation": "Slip Hazard: Active liquid puddle detected on floor surface. Deploy wet floor cone and dry mop immediately.",
+        "associated_keyframes": [
+          0
+        ]
+      },
+      {
+        "event_id": "evt_02",
+        "hazard_class": "Cable & Wire Hazard",
+        "severity": "High",
+        "first_seen_sec": 1.25,
+        "last_seen_sec": 2.5,
+        "duration_sec": 1.25,
+        "time_range": "00:01 - 00:02",
+        "peak_confidence": 0.9929,
+        "confidence_percent": "99%",
+        "representative_thumb": "/uploads/annotated/kf_1793954764960_gayjkr_1_45.jpg",
+        "bounding_box": {
+          "x": 28.7,
+          "y": 66.9,
+          "width": 65.3,
+          "height": 33.1
+        },
+        "estimated_area": "0.17 m\u00b2",
+        "action_recommendation": "Electrical & Trip Hazard: Trailing cable or cord running across walkway. Cover with rubber ramp.",
+        "associated_keyframes": [
+          1
+        ]
+      },
+      {
+        "event_id": "evt_03",
+        "hazard_class": "Obstacle & Debris",
+        "severity": "Medium",
+        "first_seen_sec": 2.5,
+        "last_seen_sec": 7.5,
+        "duration_sec": 5.0,
+        "time_range": "00:02 - 00:07",
+        "peak_confidence": 0.9978,
+        "confidence_percent": "100%",
+        "representative_thumb": "/uploads/annotated/kf_1793954764960_gayjkr_2_75.jpg",
+        "bounding_box": {
+          "x": 29.7,
+          "y": 3.2,
+          "width": 47.4,
+          "height": 78.5
+        },
+        "estimated_area": "0.30 m\u00b2",
+        "action_recommendation": "Walkway Obstruction: Shipping pallet, crate, dropped litter, or transit blockage detected.",
+        "associated_keyframes": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "event_id": "evt_04",
+        "hazard_class": "Cable & Wire Hazard",
+        "severity": "High",
+        "first_seen_sec": 7.5,
+        "last_seen_sec": 8.75,
+        "duration_sec": 1.25,
+        "time_range": "00:07 - 00:08",
+        "peak_confidence": 0.9968,
+        "confidence_percent": "100%",
+        "representative_thumb": "/uploads/annotated/kf_1793954764960_gayjkr_6_195.jpg",
+        "bounding_box": {
+          "x": 34.4,
+          "y": 29.3,
+          "width": 64.4,
+          "height": 49.4
+        },
+        "estimated_area": "0.25 m\u00b2",
+        "action_recommendation": "Electrical & Trip Hazard: Trailing cable or cord running across walkway. Cover with rubber ramp.",
+        "associated_keyframes": [
+          6
+        ]
+      },
+      {
+        "event_id": "evt_05",
+        "hazard_class": "Water Spill",
+        "severity": "High",
+        "first_seen_sec": 8.75,
+        "last_seen_sec": 10.0,
+        "duration_sec": 1.25,
+        "time_range": "00:08 - 00:10",
+        "peak_confidence": 0.8267,
+        "confidence_percent": "83%",
+        "representative_thumb": "/uploads/annotated/kf_1793954764960_gayjkr_7_225.jpg",
+        "bounding_box": {
+          "x": 87.5,
+          "y": 77.5,
+          "width": 5.9,
+          "height": 10.4
+        },
+        "estimated_area": "0.00 m\u00b2",
+        "action_recommendation": "Slip Hazard: Active liquid puddle detected on floor surface. Deploy wet floor cone and dry mop immediately.",
+        "associated_keyframes": [
+          7
+        ]
+      }
+    ]
+  },
+  "quality_acceptance_verdict": "PASSED"
+}

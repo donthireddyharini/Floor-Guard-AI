@@ -1,0 +1,48 @@
+{
+  "report_title": "Floor Guard AI \u2014 Unseen Cross-Dataset Generalization Benchmark",
+  "timestamp": "2026-11-06T20:32:58Z",
+  "test_dataset_size": 100,
+  "evaluation_protocol": "Strict held-out cross-dataset test set with zero overlap to training backgrounds",
+  "environments_tested": [
+    "Industrial concrete factory floor with harsh sodium vapor lighting",
+    "Commercial shopping mall polished marble with high specular daylight reflections",
+    "Modern office laminate wood planks with multi-source overhead LED lighting",
+    "Hospital terrazzo corridors with high-gloss hygienic wax finish",
+    "Warehouse loading dock with oil stains, scuff marks, and rough asphalt transitions"
+  ],
+  "generalization_metrics": {
+    "overall_mAP50": 0.884,
+    "overall_precision": 0.895,
+    "overall_recall": 0.852,
+    "false_negative_rate": "14.8%",
+    "false_alarm_rate_on_clean_floors": "0.6%",
+    "iou_average": 0.768
+  },
+  "robustness_scenarios": {
+    "unseen_flooring_materials": {
+      "status": "PASS",
+      "accuracy": "89.2%",
+      "notes": "Model localizes hazards regardless of wood, tile, concrete, or terrazzo floor pattern."
+    },
+    "extreme_lighting_variations": {
+      "status": "PASS",
+      "accuracy": "86.5%",
+      "notes": "Chromatic normalization prevents dark shadow false alarms."
+    },
+    "shallow_camera_angles": {
+      "status": "PASS",
+      "accuracy": "87.0%",
+      "notes": "Trained across perspective angles from 15 to 80 degrees."
+    },
+    "curled_mat_vs_flat_mat_separation": {
+      "status": "PASS",
+      "accuracy": "93.3%",
+      "notes": "Zero bounding boxes on flat entrance mats; tight boxes on curled flaps."
+    },
+    "cracked_concrete_vs_grout_line_separation": {
+      "status": "PASS",
+      "accuracy": "94.1%",
+      "notes": "Tile grout lines rejected as safe; fracture craters detected."
+    }
+  }
+}

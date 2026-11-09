@@ -1,0 +1,14 @@
+class_id,class_name,train_count,val_count,test_count,total_count
+0,clean_floor,18,3,5,26
+1,mat_hazard,21,4,5,30
+2,floor_damage,32,7,8,47
+3,water_spill,40,9,9,58
+4,oil_spill,17,3,5,25
+5,chemical_spill,2,1,1,4
+6,broken_glass,88,11,28,127
+7,cable_cord,11,2,3,16
+8,obstacle_debris,22,4,6,32
+9,trash_litter,14,3,3,20
+10,food_waste,61,12,13,86
+11,mud_dirt,3,1,1,5
+12,stair_hazard,3,1,1,5

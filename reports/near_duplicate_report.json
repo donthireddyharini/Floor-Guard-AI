@@ -1,0 +1,180 @@
+{
+  "report_title": "Floor Guard AI \u2014 Perceptual Near-Duplicate Audit (pHash)",
+  "timestamp": "2026-11-06T20:32:58Z",
+  "hashing_algorithm": "Perceptual Hash (DCT pHash, Hamming Distance Threshold <= 4)",
+  "total_images_analyzed": 1110,
+  "near_duplicate_clusters": 106,
+  "total_near_duplicates_removed": 435,
+  "sample_near_duplicate_clusters": [
+    {
+      "base_image": "aug_boxes_sec03_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_boxes_sec03_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_boxes_sec03_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec03_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec03_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_orig.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "aug_boxes_sec04_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_boxes_sec04_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_boxes_sec04_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec04_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec04_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_cables_sec01_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_cables_sec01_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_cables_sec01_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "aug_cables_sec01_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_cables_sec01_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_crack_sec06_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_crack_sec06_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_crack_sec06_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec06_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec06_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_crack_sec07_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_crack_sec07_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_crack_sec07_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec07_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "aug_crack_sec07_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "aug_food_sec05_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_food_sec05_bright.jpg",
+      "near_duplicate_count": 6,
+      "similar_images": [
+        {
+          "filename": "user_vid_sauce_food_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_sauce_food_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_kf2_sauce_glass.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_vid_kf2_sauce_glass.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_sauce_food_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_sauce_food_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    }
+  ],
+  "segregation_directory": "data/processed/duplicates/near/",
+  "audit_verdict": "PASSED \u2014 All 435 re-scaled, re-compressed, and repeated video frames purged."
+}

@@ -1,0 +1,79 @@
+{
+  "analysis_title": "Floor Guard AI \u2014 Comprehensive Root Cause Forensics (Vectors A through M)",
+  "timestamp": "2026-11-06T20:30:11Z",
+  "direct_checkpoint_verification": {
+    "model_path": "models/floorguard_yolo.pt",
+    "parameters": "11.15M",
+    "classes_count": 12,
+    "test_image": "floor-guard-ai/public/assets/samples/gallery/water_spill.jpg",
+    "direct_detections_found": 1,
+    "detections": [
+      {
+        "class_id": 0,
+        "class_name": "water_spill",
+        "confidence": 0.41855913400650024,
+        "xyxy": [
+          118.1,
+          177.9,
+          588.9,
+          422.7
+        ]
+      }
+    ]
+  },
+  "root_cause_vector_breakdown": {
+    "A_dataset_quality": {
+      "diagnosis": "PARTIAL ROOT CAUSE",
+      "detail": "Legacy archives contained synthetic samples with uncalibrated color saturations and lack of real-world curled mat / cracked tile images."
+    },
+    "B_annotations": {
+      "diagnosis": "CRITICAL ROOT CAUSE",
+      "detail": "Legacy dataset remapped loose mats (class 7) and floor cracks (class 8/9) into obstacle_debris (class 5), causing semantic dilution and misclassification."
+    },
+    "C_duplicates": {
+      "diagnosis": "CRITICAL ROOT CAUSE",
+      "detail": "445 exact bit duplicates and 435 perceptual duplicates existed across raw and split folders, causing model over-memorization on duplicate backgrounds."
+    },
+    "D_model_architecture": {
+      "diagnosis": "HEALTHY",
+      "detail": "Ultralytics YOLOv8s with 11.15M parameters is optimal for fast CPU/edge inference (180ms) and high multi-hazard recall."
+    },
+    "E_wrong_checkpoint_loading": {
+      "diagnosis": "PREVIOUSLY BROKEN / NOW FIXED",
+      "detail": "Fast inference daemon previously held an older weights file in RAM until process restart. Synchronized to models/floorguard_yolo.pt."
+    },
+    "F_class_mapping_mismatch": {
+      "diagnosis": "CRITICAL ROOT CAUSE / RESOLVED",
+      "detail": "Predict_video.py had a 10-class map that lacked floor_mat_hazard and floor_damage, forcing cracks and curled mats into water_spill. Upgraded to Canonical 12-Hazard Universal Mapping."
+    },
+    "G_image_preprocessing_mismatch": {
+      "diagnosis": "MINOR ISSUE",
+      "detail": "Direct OpenCV BGR vs PIL RGB conversion was inconsistent across montage and full-frame paths; standard RGB normalized arrays enforced."
+    },
+    "H_confidence_thresholds": {
+      "diagnosis": "CRITICAL ROOT CAUSE / RESOLVED",
+      "detail": "Hardcoded min threshold of 0.30 in predict_image.py discarded genuine low-contrast liquid pools and curled edges, defaulting to Clean Floor."
+    },
+    "I_bbox_coordinate_conversion": {
+      "diagnosis": "PREVIOUSLY BROKEN / NOW FIXED",
+      "detail": "Out-of-bounds boundary check (by + bh <= img.shape[0]) failed when boxes touched pixel margins by 1px, skipping semantic validation entirely."
+    },
+    "J_video_frame_sampling": {
+      "diagnosis": "CRITICAL ROOT CAUSE / NOW FIXED",
+      "detail": "Video analyzer took only 8 rigid fixed segments, skipping short-duration hazards and jumping past transition points."
+    },
+    "K_temporal_tracking": {
+      "diagnosis": "PARTIAL ISSUE / RESOLVED",
+      "detail": "Spatial IoU threshold in temporal event consolidation was 0.15, which separated moving camera frames into duplicate event alerts."
+    },
+    "L_frontend_stale_state": {
+      "diagnosis": "RESOLVED",
+      "detail": "Frontend React state maintained static demo preset values when server response was delayed; resolved by active mode isolation."
+    },
+    "M_keyframe_sync": {
+      "diagnosis": "CRITICAL ROOT CAUSE / RESOLVED",
+      "detail": "seekTime was recorded as start_sec while frame was extracted at mid_sec, creating player vs thumbnail timestamp desynchronization."
+    }
+  },
+  "investigation_verdict": "The failures did not stem from a single module, but from an interaction between duplicate training data, class remapping omission, boundary-rejection filters in predict_image.py, and seekTime desynchronization in predict_video.py."
+}

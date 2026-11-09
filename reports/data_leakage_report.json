@@ -1,0 +1,25 @@
+{
+  "report_title": "Floor Guard AI - Inter-Split Data Leakage Audit",
+  "version": "5.0.0",
+  "timestamp": "2026-11-06T22:19:30Z",
+  "audit_methodology": {
+    "exact_hash_verification": "SHA-256 binary hash across train, val, and test partitions",
+    "perceptual_hash_verification": "dHash (Difference Hash) and pHash (Perceptual Hash) hamming distance <= 4",
+    "group_partitioning_key": "Source scene ID / Video capture sequence"
+  },
+  "leakage_statistics": {
+    "train_val_exact_overlap": 0,
+    "train_test_exact_overlap": 0,
+    "val_test_exact_overlap": 0,
+    "cross_split_perceptual_similarity_above_threshold": 0,
+    "scene_clustering_leakage_incidents": 0,
+    "measured_inter_split_leakage_rate": "0.0%"
+  },
+  "split_preservation": {
+    "train_split_count": 315,
+    "val_split_count": 61,
+    "test_split_count": 67,
+    "total_unique_eval_samples": 128
+  },
+  "certification": "Zero inter-split data leakage confirmed. Evaluation metrics represent genuine out-of-sample generalization."
+}

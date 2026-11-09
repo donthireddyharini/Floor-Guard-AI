@@ -1,0 +1,16 @@
+{
+  "audit_version": "2.0-canonical",
+  "total_label_files_checked": 527,
+  "total_bounding_boxes": 634,
+  "invalid_or_degenerate_boxes": 0,
+  "issues_found": [],
+  "coordinate_normalization_score": 100.0,
+  "mean_box_aspect_ratio": 1.406,
+  "mean_box_relative_area": 0.1702,
+  "clean_floor_negative_controls": {
+    "train": 24,
+    "val": 7,
+    "test": 6
+  },
+  "status": "CERTIFIED - All coordinates strictly normalized [0, 1] with zero degenerate boxes"
+}

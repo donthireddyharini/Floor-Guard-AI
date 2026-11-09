@@ -1,0 +1,19 @@
+path: c:/Users/donth_/Downloads/harry_client/floor-guard-ai/dataset
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: clean_floor
+  1: mat_hazard
+  2: floor_damage
+  3: water_spill
+  4: oil_spill
+  5: chemical_spill
+  6: broken_glass
+  7: cable_cord
+  8: obstacle_debris
+  9: trash_litter
+  10: food_waste
+  11: mud_dirt
+  12: stair_hazard

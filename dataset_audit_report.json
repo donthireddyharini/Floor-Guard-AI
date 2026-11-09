@@ -1,0 +1,140 @@
+{
+  "status": "completed",
+  "timestamp": "2026-11-09T20:25:00+05:30",
+  "taxonomy": {
+    "0": "clean_floor",
+    "1": "mat_hazard",
+    "2": "floor_damage",
+    "3": "water_spill",
+    "4": "oil_spill",
+    "5": "chemical_spill",
+    "6": "broken_glass",
+    "7": "cable_cord",
+    "8": "obstacle_debris",
+    "9": "trash_litter",
+    "10": "food_waste",
+    "11": "mud_dirt",
+    "12": "stair_hazard"
+  },
+  "scanned_images_total": 1433,
+  "unique_sha256_images": 743,
+  "exact_duplicates_count": 690,
+  "perceptual_visual_groups": 366,
+  "near_duplicates_count": 377,
+  "curated_representative_images": 344,
+  "split_distribution": {
+    "train_images": 235,
+    "val_images": 49,
+    "test_images": 60,
+    "boxes_per_split": {
+      "train": 332,
+      "val": 61,
+      "test": 88
+    }
+  },
+  "class_wise_distribution": {
+    "clean_floor": {
+      "id": 0,
+      "train": 18,
+      "val": 3,
+      "test": 5,
+      "total": 26
+    },
+    "mat_hazard": {
+      "id": 1,
+      "train": 21,
+      "val": 4,
+      "test": 5,
+      "total": 30
+    },
+    "floor_damage": {
+      "id": 2,
+      "train": 32,
+      "val": 7,
+      "test": 8,
+      "total": 47
+    },
+    "water_spill": {
+      "id": 3,
+      "train": 40,
+      "val": 9,
+      "test": 9,
+      "total": 58
+    },
+    "oil_spill": {
+      "id": 4,
+      "train": 17,
+      "val": 3,
+      "test": 5,
+      "total": 25
+    },
+    "chemical_spill": {
+      "id": 5,
+      "train": 2,
+      "val": 1,
+      "test": 1,
+      "total": 4
+    },
+    "broken_glass": {
+      "id": 6,
+      "train": 88,
+      "val": 11,
+      "test": 28,
+      "total": 127
+    },
+    "cable_cord": {
+      "id": 7,
+      "train": 11,
+      "val": 2,
+      "test": 3,
+      "total": 16
+    },
+    "obstacle_debris": {
+      "id": 8,
+      "train": 22,
+      "val": 4,
+      "test": 6,
+      "total": 32
+    },
+    "trash_litter": {
+      "id": 9,
+      "train": 14,
+      "val": 3,
+      "test": 3,
+      "total": 20
+    },
+    "food_waste": {
+      "id": 10,
+      "train": 61,
+      "val": 12,
+      "test": 13,
+      "total": 86
+    },
+    "mud_dirt": {
+      "id": 11,
+      "train": 3,
+      "val": 1,
+      "test": 1,
+      "total": 5
+    },
+    "stair_hazard": {
+      "id": 12,
+      "train": 3,
+      "val": 1,
+      "test": 1,
+      "total": 5
+    }
+  },
+  "annotation_quality": {
+    "invalid_boxes_removed": 0,
+    "corrected_annotations": 16,
+    "unannotated_moved_to_review": 22
+  },
+  "critical_semantic_corrections": [
+    "Reclassified plastic bottles from water_spill and obstacle_debris to trash_litter (Class 9)",
+    "Reclassified cardboard boxes from cable_cord to obstacle_debris (Class 8)",
+    "Consolidated cracked floors and damaged surfaces into floor_damage (Class 2)",
+    "Curled mats, lifted rug flaps, and displaced runners assigned to mat_hazard (Class 1)",
+    "Enforced 0 hazard boxes on clean floor baseline control images"
+  ]
+}

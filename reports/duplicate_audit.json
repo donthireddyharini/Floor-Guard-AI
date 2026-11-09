@@ -1,0 +1,62 @@
+{
+  "audit_version": "2.0-canonical",
+  "total_images_scanned": 527,
+  "unique_cryptographic_hashes": 522,
+  "exact_duplicates_count": 5,
+  "cross_split_leakage_count": 4,
+  "cross_split_duplicates": [
+    {
+      "sha256": "6a50676b4fe90aa8c17dca0d08cdd25720b5680587d7874effa2d6210cb12845",
+      "occurrences": [
+        {
+          "split": "train",
+          "filename": "aug_crack_sec06_bright.jpg"
+        },
+        {
+          "split": "val",
+          "filename": "val_cls8_01.jpg"
+        }
+      ]
+    },
+    {
+      "sha256": "7292f331ca9d766fde5eb57f980402d370d6505eb9415aa83c6591fe8cf14268",
+      "occurrences": [
+        {
+          "split": "train",
+          "filename": "aug_crack_sec06_flip.jpg"
+        },
+        {
+          "split": "test",
+          "filename": "test_cls8_01.jpg"
+        }
+      ]
+    },
+    {
+      "sha256": "09db5959d1b4942a7d4be97dfb174a3bcb0d9785c898fb698849d45860273bfb",
+      "occurrences": [
+        {
+          "split": "train",
+          "filename": "aug_mat_sec08_bright.jpg"
+        },
+        {
+          "split": "val",
+          "filename": "val_cls7_01.jpg"
+        }
+      ]
+    },
+    {
+      "sha256": "77efb63225d8f3a4d47b085d9bef9d7a4eecc68ed7d16ef0b2ef4d89d401adad",
+      "occurrences": [
+        {
+          "split": "train",
+          "filename": "aug_mat_sec08_dim.jpg"
+        },
+        {
+          "split": "test",
+          "filename": "test_cls7_01.jpg"
+        }
+      ]
+    }
+  ],
+  "status": "WARNING - Leakage detected"
+}

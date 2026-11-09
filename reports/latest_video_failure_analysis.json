@@ -1,0 +1,109 @@
+{
+  "report_version": "1.0",
+  "task": "Phase 1 - Forensic Video Failure Analysis",
+  "generated_at": "2026-11-07T00:23:15Z",
+  "video_metadata": {
+    "source_file": "media_1793954820354_31873854.mp4",
+    "resolution": "1904x906 (screen capture viewport: 1918x908)",
+    "framerate_fps": 30.0,
+    "total_frames": 313,
+    "duration_seconds": 10.43,
+    "source_type": "Application UI Screen Recording"
+  },
+  "critical_observations": {
+    "ground_truth_advisory": "This recording captures the application UI rendering prior predictions. Interface overlays, sample predictions, and bounding box coordinates are not ground truth and must not be used for model training.",
+    "food_waste_status": "Food waste is completely unrepresented in this recording. A dedicated independent food waste dataset and test split must be constructed.",
+    "duplication_issue": "Repeated video sequences (10-15s) generated redundant event logs due to lack of temporal object tracking across adjacent frames.",
+    "warning_sign_false_positive": "A yellow wet-floor caution sign placed on dry tiles triggered a critical spill alarm, indicating severe context bias rather than genuine fluid feature recognition."
+  },
+  "scene_breakdown": [
+    {
+      "scene_id": 1,
+      "timestamp_range": "0.0s - 1.0s",
+      "visible_condition": "Tangled black and grey electrical power cables lying across light floor tiles near pedestrian feet.",
+      "expected_class": "cable_cord",
+      "expected_class_label": "Cable / Cord",
+      "prior_predicted_class": "Cable / Cord",
+      "confidence": 0.99,
+      "localization_quality": "Deficient - Oversized box spanning 65% of screen height including normal tile floor and person shoes.",
+      "failure_type": "Oversized Bounding Box",
+      "mitigation_required": "Tighten bounding box coordinates around the actual cable bundle using fine-grained polygon/box annotations."
+    },
+    {
+      "scene_id": 2,
+      "timestamp_range": "2.0s - 2.8s",
+      "visible_condition": "Stacked cardboard boxes and shipping parcels obstructing an aisle walkway.",
+      "expected_class": "obstacle_debris",
+      "expected_class_label": "Obstacle / Debris",
+      "prior_predicted_class": "Obstacle / Debris",
+      "confidence": 0.98,
+      "localization_quality": "Moderate - Box coordinates included empty side aisle areas.",
+      "failure_type": "Imprecise Localization",
+      "mitigation_required": "Isolate actual footprint of boxes and debris from walkable floor space."
+    },
+    {
+      "scene_id": 3,
+      "timestamp_range": "3.0s - 4.2s",
+      "visible_condition": "Overturned plastic beverage bottle with transparent liquid puddle spreading across white ceramic tiles.",
+      "expected_class": "water_spill & trash_litter",
+      "expected_class_label": "Water Spill & Trash / Litter",
+      "prior_predicted_class": "Improper Floor Mat / Misclassified",
+      "confidence": 0.92,
+      "localization_quality": "Grossly Inaccurate - Liquid boundary omitted, bottle misclassified into floor mat or single giant box.",
+      "failure_type": "Class Confusion & Coarse Boxing",
+      "mitigation_required": "Disentangle the bottle (trash_litter) from the spread liquid puddle (water_spill) with dedicated multi-box localization."
+    },
+    {
+      "scene_id": 4,
+      "timestamp_range": "4.5s - 5.5s",
+      "visible_condition": "Cracked and chipped industrial concrete floor slab.",
+      "expected_class": "obstacle_debris",
+      "expected_class_label": "Obstacle / Debris",
+      "prior_predicted_class": "Floor Crack (Non-canonical)",
+      "confidence": 0.94,
+      "localization_quality": "Inconsistent - Tagged non-canonical class ID.",
+      "failure_type": "Taxonomy Deviation",
+      "mitigation_required": "Consolidate structural floor trip hazards into obstacle_debris or handle as surface defect with clear severity rating."
+    },
+    {
+      "scene_id": 5,
+      "timestamp_range": "5.8s - 6.8s",
+      "visible_condition": "Raised, curled transition lip of commercial floor runner mat.",
+      "expected_class": "obstacle_debris",
+      "expected_class_label": "Obstacle / Debris",
+      "prior_predicted_class": "Improper Floor Mat (Non-canonical)",
+      "confidence": 0.95,
+      "localization_quality": "Acceptable localization of mat edge, but non-canonical classification.",
+      "failure_type": "Taxonomy Deviation",
+      "mitigation_required": "Map curled runner edges to canonical obstacle_debris trip hazard."
+    },
+    {
+      "scene_id": 6,
+      "timestamp_range": "7.0s - 9.5s",
+      "visible_condition": "High-visibility yellow 'Wet Floor' caution cone placed in warehouse walkway; pedestrian walking in background; floor is clean and dry.",
+      "expected_class": "clean_floor",
+      "expected_class_label": "Clean Floor (Negative Control)",
+      "prior_predicted_class": "Water Spill",
+      "confidence": 0.96,
+      "localization_quality": "Severe False Positive - Warning sign classified as active water spill.",
+      "failure_type": "Spurious Correlation False Positive",
+      "mitigation_required": "Incorporate hard-negative training images of caution signs, safety cones, and walking people on dry floors without liquid spills."
+    },
+    {
+      "scene_id": 7,
+      "timestamp_range": "10.0s - 15.43s",
+      "visible_condition": "Loop of earlier scenes playing in web application interface.",
+      "expected_class": "Duplicate Scene Playback",
+      "expected_class_label": "Temporal Continuity Test",
+      "prior_predicted_class": "Generated duplicate events for identical hazards",
+      "confidence": 0.95,
+      "localization_quality": "Jittering bounding boxes between frames.",
+      "failure_type": "Temporal Tracker Absence",
+      "mitigation_required": "Implement IoU / ByteTrack object persistence and event consolidation to unify multiple frames into single hazard events with first_seen, last_seen, and peak_confidence."
+    }
+  ],
+  "food_waste_deficiency_remedy": {
+    "action": "Construct independent diverse food-waste dataset across diverse floor substrates (white tile, dark marble, hardwood, concrete) covering rice, bread crumbs, vegetable trimmings, fruit peels, sauces, and dropped meals.",
+    "localization_rule": "Bounding boxes must tightly encircle food fragments, excluding surrounding non-soiled floor, plates, bowls, and clean packaging."
+  }
+}

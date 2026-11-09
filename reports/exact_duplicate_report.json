@@ -1,0 +1,60 @@
+{
+  "report_title": "Floor Guard AI \u2014 Exact Cryptographic Duplicate Audit (SHA-256)",
+  "timestamp": "2026-11-06T20:32:58Z",
+  "hashing_algorithm": "SHA-256 (256-bit bitwise payload hash)",
+  "total_images_analyzed": 1110,
+  "exact_duplicate_groups": 416,
+  "total_exact_duplicates_removed": 445,
+  "sample_duplicate_groups": [
+    {
+      "sha256": "d968af475fe8383d6747c54a4e1b016215546cb3e6f294b5974e000020948088",
+      "primary_image": "aug_boxes_sec03_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec03_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "784ac674c49f962875f23b7cca0f7ce1ecb8e37313a9c461140c9de1e0a82c1c",
+      "primary_image": "aug_boxes_sec03_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec03_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "d29790f7a2a637ebcb92b49c457590018016a527a4cd75267d6adab9fdfd991c",
+      "primary_image": "aug_boxes_sec04_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec04_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "1710382a91538f010788dab6dbbf5437cefd34342ed6ed2fb61c2d0ed327253b",
+      "primary_image": "aug_boxes_sec04_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_boxes_sec04_flip.jpg"
+      ]
+    },
+    {
+      "sha256": "fdc69c7f3d513e97f45040093a48cddd9f6012a2c19430f26bae108cf55486b4",
+      "primary_image": "aug_cables_sec01_bright.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec01_bright.jpg"
+      ]
+    },
+    {
+      "sha256": "83515fc382f0d2c2e23bbc10cd59c4fa6a0eb226a722daf5d3cd81f58a472902",
+      "primary_image": "aug_cables_sec01_flip.jpg",
+      "duplicate_count": 1,
+      "duplicates": [
+        "aug_cables_sec01_flip.jpg"
+      ]
+    }
+  ],
+  "segregation_directory": "data/processed/duplicates/exact/",
+  "audit_verdict": "PASSED \u2014 All 445 exact bit duplicates purged from training pool."
+}

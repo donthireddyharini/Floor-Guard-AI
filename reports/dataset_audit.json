@@ -1,24 +1,25 @@
 {
-  "audit_timestamp": "2026-05-18T17:30:00Z",
-  "total_candidate_images": 2345,
-  "corrupted_images_detected": 4,
-  "duplicates_removed": 34,
-  "valid_images_preserved": 2307,
-  "classes_distribution": {
-    "clean_floor": 1108,
-    "water_spill": 420,
-    "oil_spill": 310,
-    "broken_glass": 219,
-    "obstacle_debris": 250
+  "dataset_name": "FloorGuard Unified Canonical Dataset",
+  "total_images": 527,
+  "unique_images": 522,
+  "split_summary": {
+    "train": 363,
+    "val": 79,
+    "test": 85
   },
-  "resolution_stats": {
-    "min_width": 640,
-    "max_width": 3840,
-    "average_aspect_ratio": "16:9",
-    "color_channels": 3
-  },
-  "leakage_prevention": {
-    "grouping_strategy": "Video sequences, burst frames, and identical scene hashes grouped into isolated clusters prior to split",
-    "status": "PASS"
-  }
+  "total_bounding_boxes": 634,
+  "classes_supported": [
+    "water_spill",
+    "oil_spill",
+    "chemical_spill",
+    "broken_glass",
+    "cable_cord",
+    "obstacle_debris",
+    "trash_litter",
+    "food_waste",
+    "mud_dirt",
+    "stairs_hazard"
+  ],
+  "negative_controls": 37,
+  "validation_passed": false
 }

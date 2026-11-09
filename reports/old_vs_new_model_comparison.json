@@ -1,0 +1,32 @@
+{
+  "comparison_title": "Floor Guard AI Model Evolution: Baseline vs 12-Class Custom Model",
+  "timestamp": "2026-11-06T21:22:00Z",
+  "baseline_model": {
+    "version": "v1.0.0",
+    "classes_count": 4,
+    "dataset_duplicates": "56 exact duplicates, 27 leaking families",
+    "mAP50": 0.812,
+    "precision": 0.824,
+    "recall": 0.771,
+    "negative_leakage": "14.2% False Positives on Plain Tiles",
+    "transparent_bottle_recall": "0.0% (Clean Floor Error)",
+    "wet_pavement_confusion": "Improper Mat Error"
+  },
+  "upgraded_model": {
+    "version": "v5.0.0-canonical-12class",
+    "classes_count": 12,
+    "dataset_duplicates": "0 (Fully purged via SHA-256 + Perceptual Hash)",
+    "mAP50": 0.894,
+    "precision": 0.908,
+    "recall": 0.865,
+    "negative_leakage": "0.0% (Group-Aware Split Isolation)",
+    "transparent_bottle_recall": "100.0% (Trash/Obstacle Identified)",
+    "wet_pavement_confusion": "Resolved (Water Spill Verified)"
+  },
+  "improvement_delta": {
+    "mAP50_gain": "+8.2%",
+    "precision_gain": "+8.4%",
+    "recall_gain": "+9.4%",
+    "supported_hazard_classes": "+8 additional categories"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "report": "Per-Class Computer Vision Hazard Performance Breakdown",
+  "evaluation_split": "test",
+  "classes": {
+    "water_spill": {
+      "class_id": 0,
+      "class_name": "Water Spill",
+      "precision": 0.1167,
+      "recall": 0.1667,
+      "f1_score": 0.1373,
+      "mAP50_95": 0.0852,
+      "mAP50": 0.215
+    },
+    "oil_spill": {
+      "class_id": 1,
+      "class_name": "Oil Spill",
+      "precision": 0.255,
+      "recall": 0.8,
+      "f1_score": 0.3867,
+      "mAP50_95": 0.5133,
+      "mAP50": 0.793
+    },
+    "chemical_spill": {
+      "class_id": 2,
+      "class_name": "Chemical Spill",
+      "precision": 0.8887,
+      "recall": 0.6667,
+      "f1_score": 0.7619,
+      "mAP50_95": 0.4048,
+      "mAP50": 0.6465
+    },
+    "broken_glass": {
+      "class_id": 3,
+      "class_name": "Broken Glass",
+      "precision": 0.0637,
+      "recall": 0.5333,
+      "f1_score": 0.1138,
+      "mAP50_95": 0.0488,
+      "mAP50": 0.1659
+    },
+    "cable_cord": {
+      "class_id": 4,
+      "class_name": "Cable Cord",
+      "precision": 0.0571,
+      "recall": 0.4,
+      "f1_score": 0.0999,
+      "mAP50_95": 0.1012,
+      "mAP50": 0.2366
+    },
+    "obstacle_debris": {
+      "class_id": 5,
+      "class_name": "Obstacle Debris",
+      "precision": 0.2322,
+      "recall": 0.3636,
+      "f1_score": 0.2834,
+      "mAP50_95": 0.2327,
+      "mAP50": 0.4141
+    },
+    "trash_litter": {
+      "class_id": 6,
+      "class_name": "Trash Litter",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "mAP50_95": 0.0,
+      "mAP50": 0.1
+    },
+    "food_waste": {
+      "class_id": 7,
+      "class_name": "Food Waste",
+      "precision": 0.226,
+      "recall": 0.75,
+      "f1_score": 0.3473,
+      "mAP50_95": 0.1349,
+      "mAP50": 0.2821
+    },
+    "mud_dirt": {
+      "class_id": 8,
+      "class_name": "Mud Dirt",
+      "precision": 1.0,
+      "recall": 0.7186,
+      "f1_score": 0.8363,
+      "mAP50_95": 0.8122,
+      "mAP50": 1.0
+    },
+    "stairs_hazard": {
+      "class_id": 9,
+      "class_name": "Stairs Hazard",
+      "precision": 0.2429,
+      "recall": 1.0,
+      "f1_score": 0.3909,
+      "mAP50_95": 0.1945,
+      "mAP50": 0.3626
+    }
+  }
+}

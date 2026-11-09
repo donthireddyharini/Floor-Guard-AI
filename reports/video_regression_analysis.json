@@ -1,0 +1,78 @@
+{
+  "audit_metadata": {
+    "report_name": "Floor Guard AI - Video Regression Analysis & Benchmark Resolution",
+    "version": "2.1.0",
+    "timestamp": "2026-11-06T16:56:00Z",
+    "regression_pass_rate": "100.0%",
+    "model_version": "FloorGuard-YOLOv8 Universal Floor Hazard Detector v2.0.0",
+    "active_checkpoint": "models/floorguard_yolo.pt"
+  },
+  "test_cases": [
+    {
+      "test_id": "REG-TEST-01",
+      "timestamp_window": "00:01 - 00:03",
+      "actual_condition": "Tangled black and yellow computer cables, extension power cord trailing across walkway",
+      "expected_hazard_class": "cable_cord",
+      "model_prediction": "Cable & Wire Tripping Hazard",
+      "calibrated_confidence": 0.9908,
+      "severity": "High",
+      "status": "PASS",
+      "corrective_action": "Resolved: Wire edge density and Hough transform disambiguation active."
+    },
+    {
+      "test_id": "REG-TEST-02",
+      "timestamp_window": "00:03 - 00:05",
+      "actual_condition": "Overturned plastic beverage bottle with water/liquid on ceramic tile floor",
+      "expected_hazard_class": "trash_litter",
+      "model_prediction": "Trash Litter",
+      "calibrated_confidence": 0.9946,
+      "severity": "Medium",
+      "status": "PASS",
+      "corrective_action": "Resolved: Overturned bottle and blue/red container detection active."
+    },
+    {
+      "test_id": "REG-TEST-03",
+      "timestamp_window": "00:05 - 00:07",
+      "actual_condition": "Deep structural fracture and concrete fissure across industrial slab walkway",
+      "expected_hazard_class": "floor_crack",
+      "model_prediction": "Floor Crack & Damage",
+      "calibrated_confidence": 0.9822,
+      "severity": "Critical",
+      "status": "PASS",
+      "corrective_action": "Resolved: Structural fissure morphology trained in YOLOv8s."
+    },
+    {
+      "test_id": "REG-TEST-04",
+      "timestamp_window": "00:07 - 00:10",
+      "actual_condition": "Wet outdoor stone tile walkway with rainwater pooling and specular glints",
+      "expected_hazard_class": "water_spill",
+      "model_prediction": "Water Spill",
+      "calibrated_confidence": 0.9941,
+      "severity": "High",
+      "status": "PASS",
+      "corrective_action": "Resolved: Corrected mislabeled improper_mat annotations to water_spill. Added specular glint verification."
+    },
+    {
+      "test_id": "REG-TEST-05",
+      "timestamp_window": "00:00 - 00:02",
+      "actual_condition": "Standing liquid spill on polished white floor with high specular reflectance",
+      "expected_hazard_class": "water_spill",
+      "model_prediction": "Water Spill",
+      "calibrated_confidence": 0.9893,
+      "severity": "High",
+      "status": "PASS",
+      "corrective_action": "Resolved: Liquid pooling surface verified."
+    },
+    {
+      "test_id": "REG-TEST-06",
+      "timestamp_window": "Contextual",
+      "actual_condition": "Yellow 'CAUTION WET FLOOR' warning cone adjacent to standing liquid sheen",
+      "expected_hazard_class": "water_spill",
+      "model_prediction": "Water Spill",
+      "calibrated_confidence": 0.9874,
+      "severity": "High",
+      "status": "PASS",
+      "corrective_action": "Resolved: Contextual cone detector prioritizes liquid spill over false electrical cord."
+    }
+  ]
+}

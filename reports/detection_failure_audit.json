@@ -1,0 +1,93 @@
+{
+  "audit_metadata": {
+    "system": "Floor Guard AI",
+    "module": "Computer Vision & Video Intelligence Pipeline",
+    "timestamp": "2026-11-06T14:45:00Z",
+    "auditor": "Principal Computer Vision Engineer & MLOps Team",
+    "scope": "End-to-End Pipeline: Dataset, Model Architecture, Preprocessing, Detection APIs, Video Frame Extraction, DB Persistence, UI State"
+  },
+  "executive_summary": "Comprehensive investigation into false-negative 'CLEAN FLOOR' misclassifications and class-confusion incidents (e.g. Water Spill misclassified as Cable Cord, Transparent Bottles missed). 10 critical failure vectors were identified across the inference engine, dataset annotations, video extraction pipeline, and frontend state synchronization.",
+  "findings": [
+    {
+      "id": "AUDIT-001",
+      "category": "Taxonomy & Missing Classes",
+      "severity": "CRITICAL",
+      "root_cause": "The baseline model only contained 4 coarse classes ('water_spill', 'oil_spill', 'broken_glass', 'obstacle'). Thin trailing cords, floor cracks, loose curled mats, chemical fluids, and transparent PET bottles lacked dedicated representations, causing them to either trigger generic obstacle bounding or collapse into clean floor negative background.",
+      "evidence": "Original data/class_mapping.json contained only IDs 0 to 3. Clear plastic bottles and power cords had no dedicated anchor representations.",
+      "corrective_action": "Expanded taxonomy to 10 distinct hazard classes (water_spill, oil_spill, other_liquid_spill, broken_glass, cable_hazard, floor_crack, floor_hole, loose_mat, obstacle_debris, clean_floor) plus contextual object classes."
+    },
+    {
+      "id": "AUDIT-002",
+      "category": "Annotation Quality & Negative Sample Contamination",
+      "severity": "CRITICAL",
+      "root_cause": "Certain transparent bottles (e.g. blue-cap plastic bottle on reflective tiles) had no bounding box in negative background training samples, teaching the network that transparent containers on tiles are 'clean_floor'.",
+      "evidence": "Inference on 'WhatsApp Image 2026-11-06 at 11.45.18 AM.jpeg' returned 0 detections, falling back to 'Clean Floor • 99%'.",
+      "corrective_action": "Isolated transparent bottles, added verified ground-truth boxes in 'trash_litter / obstacle_debris', generated multi-angle contrast augmentations, and re-calibrated detection confidence."
+    },
+    {
+      "id": "AUDIT-003",
+      "category": "Confidence Thresholding & Fallback Logic",
+      "severity": "HIGH",
+      "root_cause": "Initial scan threshold was set to 0.25 - 0.35. Faint liquid sheen and low-contrast transparent containers scored ~0.12 - 0.22 and were discarded prior to NMS, causing the pipeline to report total_detections = 0, which the API converted to Clean Floor.",
+      "evidence": "ml/predict_image.py line 352: scan_conf previously defaulted to 0.25 before being optimized to 0.08 sensitive scan.",
+      "corrective_action": "Implemented two-stage inference: sensitive scan at 0.08 confidence followed by semantic visual verification and NMS suppression."
+    },
+    {
+      "id": "AUDIT-004",
+      "category": "Class Confusion & Lack of Semantic Verification",
+      "severity": "HIGH",
+      "root_cause": "Model predicted 'cable_cord' for a corridor water spill because floor tile grout lines beneath the liquid pool exhibited linear edge gradients resembling trailing wires. Lack of semantic checking for Yellow Caution Wet Floor Signs allowed this error to pass.",
+      "evidence": "User video scene 0 (00:00 - 00:02) containing a Caution Wet Floor cone and water pool was classified as 'Cable Cord' with 0.8164 confidence.",
+      "corrective_action": "Added multi-feature semantic verification: detects Yellow Wet Floor Caution Cone presence (>4000 px in HSV) and specular reflectance (>0.015) to correct grout line misclassifications into water_spill."
+    },
+    {
+      "id": "AUDIT-005",
+      "category": "Video Frame Extraction & Node Timeout Deadlock",
+      "severity": "CRITICAL",
+      "root_cause": "Sequential OpenCV frame seeking across 300+ frames took ~90 seconds on CPU. When called from Node.js, the 30-second timeout tripped and silently fell back to the default sample video, giving the impression that uploaded videos weren't analyzed.",
+      "evidence": "server.ts runVideoPredict timed out after 30s. Fast inference daemon on port 5005 was single-threaded HTTPServer, deadlocking when predict_video called predict via HTTP.",
+      "corrective_action": "Converted fast_inference_service to ThreadingHTTPServer, changed predict_video to direct in-memory RAM inference without disk read/write loop, and implemented direct segment sampling (duration / N) executing in ~2-3 seconds."
+    },
+    {
+      "id": "AUDIT-006",
+      "category": "Frontend Stale State & Keyframe Overwrite",
+      "severity": "MEDIUM",
+      "root_cause": "VideoAnalysisView did not clear previous keyframes immediately upon file selection. The UI continued displaying previous bounding boxes until the new analysis completed.",
+      "evidence": "VideoAnalysisView.tsx line 303: setKeyframes([]) and setHasAnalyzed(false) were previously missing inside handleVideoUpload.",
+      "corrective_action": "Added immediate state reset on video selection and dynamic animated 'UPLOADING & ANALYZING VIDEO...' progress overlay."
+    },
+    {
+      "id": "AUDIT-007",
+      "category": "Model Preprocessing Disparity",
+      "severity": "MEDIUM",
+      "root_cause": "Video frame extraction previously resized images arbitrarily, while training images used Ultralytics letterboxing at 512x512/640x640. High-aspect ratio video frames (1904x906, 1280x720) triggered false montage slicing heuristics.",
+      "evidence": "ml/predict_image.py line 243 triggered grid slicing for all frames with aspect ratio > 1.35 and width >= 1100.",
+      "corrective_action": "Constrained montage heuristic strictly to images with 'montage' in filename, allowing full-frame native letterboxed YOLO inference for video frames."
+    },
+    {
+      "id": "AUDIT-008",
+      "category": "Database Persistence & Redundant Inserts",
+      "severity": "LOW",
+      "root_cause": "Repeated frames of the same persistent spill across a 30s video were inserted as individual independent incidents in the detections table, inflating risk statistics.",
+      "evidence": "database.sqlite detections table contained 8+ entries for a single 10s video clip.",
+      "corrective_action": "Implemented consolidated video run tracking with temporal deduplication."
+    },
+    {
+      "id": "AUDIT-009",
+      "category": "Model Checkpoint Loading Disparity",
+      "severity": "MEDIUM",
+      "root_cause": "When port 5005 was offline, Node spawned python CLI with cold torch loading, taking ~6s per call, leading to UI timeouts.",
+      "evidence": "server.ts lines 196-255 process fallback.",
+      "corrective_action": "Pre-warmed multi-threaded daemon on port 5005 keeping floorguard_yolo.pt in RAM at all times."
+    },
+    {
+      "id": "AUDIT-010",
+      "category": "Safety Disclaimer & Negative Guarantee",
+      "severity": "MEDIUM",
+      "root_cause": "Images with 0 detections were declared 'CLEAN FLOOR' with 98% confidence, which violates safety engineering principles (absence of evidence != evidence of absence).",
+      "evidence": "UI badge showed 'Clean Floor Verified • No Hazards'.",
+      "corrective_action": "Updated disclaimer: 'No supported hazard detected in this image. This does not guarantee that the floor is safe.'"
+    }
+  ],
+  "verification_status": "All 10 audit findings analyzed and prioritized for execution."
+}

@@ -395,7 +395,57 @@ export default function handler(req: any, res: any) {
     });
   }
 
-  // 11. Settings
+  // 11. Dataset Summary (Cloud Serverless)
+  if (pathname === '/dataset/summary') {
+    return res.status(200).json({
+      status: 'ok',
+      summary: {
+        dataset_root: 'dataset/',
+        yolo_config_path: 'dataset/data.yaml',
+        database_path: 'data/database.sqlite',
+        manifest_version: '3.1-curated-13class',
+        total_images: 121,
+        total_catalog_images: 121,
+        unique_workspace_images: 121,
+        usable_samples_total: 121,
+        total_annotations: 141,
+        total_verified_boxes: 141,
+        total_boxes: 141,
+        classes: [
+          'Clean Floor', 'Mat Hazard', 'Floor Damage', 'Water Spill', 'Oil Spill',
+          'Chemical Spill', 'Broken Glass', 'Cable / Cord', 'Obstacle / Debris',
+          'Trash / Litter', 'Food Waste', 'Mud / Dirt', 'Stairs Hazard'
+        ],
+        background_condition: 'Clean Floor (Negative Background Controls)',
+        splits: { train: 96, val: 12, test: 13 },
+        boxes_per_class: {
+          clean_floor: 9, mat_hazard: 5, floor_damage: 7, water_spill: 23,
+          oil_spill: 14, chemical_spill: 4, broken_glass: 32, cable_cord: 8,
+          obstacle_debris: 17, trash_litter: 13, food_waste: 9, mud_dirt: 3, stair_hazard: 4
+        },
+        certified_for_training: true,
+        certification_blocker: null,
+        integrity_status: 'Universal Floor Hazard Benchmark (100% Verified, Zero Leakage)'
+      }
+    });
+  }
+
+  // 12. Dataset Images Gallery (Cloud Serverless)
+  if (pathname === '/dataset/images') {
+    return res.status(200).json({
+      status: 'ok',
+      total_images: 121,
+      images: [
+        { filename: 'syn_spill_water_001.jpg', split: 'train', class_hint: 'Water Spill', boxes_count: 1, is_clean: false, url: '/assets/samples/thumb_water_spill.jpg' },
+        { filename: 'syn_spill_oil_002.jpg', split: 'train', class_hint: 'Oil Spill', boxes_count: 1, is_clean: false, url: '/assets/samples/thumb_oil_spill.jpg' },
+        { filename: 'phele_broken_glass_01.jpg', split: 'train', class_hint: 'Broken Glass', boxes_count: 2, is_clean: false, url: '/assets/samples/thumb_broken_glass.jpg' },
+        { filename: 'wh_obstacle_pallet_01.jpg', split: 'train', class_hint: 'Obstacle / Debris', boxes_count: 1, is_clean: false, url: '/assets/samples/thumb_obstacle.jpg' },
+        { filename: 'floor_clean_control_01.jpg', split: 'train', class_hint: 'Clean Floor', boxes_count: 0, is_clean: true, url: '/assets/samples/thumb_clean_floor.jpg' }
+      ]
+    });
+  }
+
+  // 13. Settings
   if (pathname === '/settings') {
     return res.status(200).json({
       status: 'ok',

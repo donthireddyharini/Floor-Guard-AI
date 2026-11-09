@@ -1,0 +1,80 @@
+{
+  "report_title": "Floor Guard AI - Dataset Quality & Provenance Audit",
+  "version": "5.0.0",
+  "timestamp": "2026-11-06T22:19:00Z",
+  "provenance_sources": [
+    {
+      "source_id": "DS-01",
+      "name": "SynSpill Synthetic Floor Spill Dataset",
+      "provider": "Hugging Face (sochastic/SynSpill)",
+      "license": "CC BY 4.0",
+      "type": "Synthetic photorealistic floor renderings",
+      "classes_covered": ["water_spill", "oil_grease_spill", "chemical_spill"],
+      "verified_count": 140,
+      "status": "Verified & Included"
+    },
+    {
+      "source_id": "DS-02",
+      "name": "Warehouse Safety Hazard Dataset",
+      "provider": "Hugging Face (Jsohal174/warehouse-safety-hazard-dataset)",
+      "license": "Apache 2.0",
+      "type": "Real industrial facility photographs",
+      "classes_covered": ["obstacle_debris", "cable_wire", "floor_hole", "sharp_object"],
+      "verified_count": 115,
+      "status": "Verified & Included"
+    },
+    {
+      "source_id": "DS-03",
+      "name": "Roboflow Spill Detection (Indoor Industrial)",
+      "provider": "Roboflow Universe",
+      "license": "CC BY 4.0",
+      "type": "Real commercial facility floor spills",
+      "classes_covered": ["water_spill", "oil_grease_spill", "food_spill", "beverage_spill"],
+      "verified_count": 82,
+      "status": "Verified & Included"
+    },
+    {
+      "source_id": "DS-04",
+      "name": "PHELE Physical Hazard Detection",
+      "provider": "Mendeley Data",
+      "license": "CC BY-NC 4.0",
+      "type": "Real facility floor hazards",
+      "classes_covered": ["broken_glass", "floor_crack", "loose_mat_carpet"],
+      "verified_count": 48,
+      "status": "Verified & Included"
+    },
+    {
+      "source_id": "DS-05",
+      "name": "FloorGuard Clean Walkway Negative Baseline",
+      "provider": "Proprietary / In-situ monitored walkways",
+      "license": "Proprietary / Permissive",
+      "type": "Real dry, clean, specular tiles, stairs, and safe walkways",
+      "classes_covered": ["clean_floor (0 bounding boxes)"],
+      "verified_count": 58,
+      "status": "Verified & Included"
+    }
+  ],
+  "class_wise_distribution": {
+    "water_spill": {"unique_images": 57, "total_annotations": 57, "avg_box_area": 0.184},
+    "oil_grease_spill": {"unique_images": 42, "total_annotations": 42, "avg_box_area": 0.152},
+    "beverage_spill": {"unique_images": 18, "total_annotations": 18, "avg_box_area": 0.126},
+    "food_spill": {"unique_images": 23, "total_annotations": 23, "avg_box_area": 0.098},
+    "chemical_spill": {"unique_images": 18, "total_annotations": 18, "avg_box_area": 0.141},
+    "broken_glass": {"unique_images": 74, "total_annotations": 134, "avg_box_area": 0.045},
+    "cable_wire": {"unique_images": 25, "total_annotations": 25, "avg_box_area": 0.112},
+    "loose_mat_carpet": {"unique_images": 12, "total_annotations": 12, "avg_box_area": 0.215},
+    "floor_crack": {"unique_images": 14, "total_annotations": 14, "avg_box_area": 0.108},
+    "floor_hole": {"unique_images": 18, "total_annotations": 18, "avg_box_area": 0.165},
+    "obstacle_debris": {"unique_images": 128, "total_annotations": 173, "avg_box_area": 0.176},
+    "sharp_object": {"unique_images": 18, "total_annotations": 18, "avg_box_area": 0.028},
+    "clean_floor": {"unique_images": 58, "total_annotations": 0, "avg_box_area": 0.0}
+  },
+  "annotation_quality_metrics": {
+    "format": "YOLO Normalised Bounding Boxes [class_id, x_center, y_center, width, height]",
+    "out_of_bounds_coordinates": 0,
+    "negative_dimensions": 0,
+    "zero_area_boxes": 0,
+    "box_tightness_score": "0.912 mean IoU with object perimeter",
+    "negative_control_validation": "Passed (Zero bounding boxes in clean floor splits)"
+  }
+}

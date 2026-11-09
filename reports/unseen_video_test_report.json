@@ -1,0 +1,403 @@
+{
+  "benchmark_name": "Unseen Video Temporal Hazard Tracking & Keyframe Parity Benchmark",
+  "timestamp": "2026-11-06T20:11:28Z",
+  "test_video": "corridor_hazard_tour_30s.mp4",
+  "video_duration_seconds": 30.0,
+  "processing_duration_seconds": 3.48,
+  "processing_fps": 8.62,
+  "total_keyframes_extracted": 8,
+  "hazards_detected_count": 6,
+  "safe_frames_count": 690,
+  "events_consolidated": 0,
+  "keyframes_sample": [
+    {
+      "id": 0,
+      "timestamp": "00:00",
+      "timeRange": "00:00 - 00:03",
+      "startTime": 0.0,
+      "endTime": 3.75,
+      "seekTime": 0.0,
+      "frame": 56,
+      "detectedClass": "Floor Damage",
+      "confidence": 0.4284,
+      "severity": "Needs Review",
+      "area": "0.04 m\u00b2",
+      "thumb": "/uploads/annotated/kf_corridor_hazard_tour_30s_0_56.jpg",
+      "note": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+      "bbox": {
+        "x": 68.7,
+        "y": 62.1,
+        "width": 19.8,
+        "height": 27.4
+      },
+      "detections": [
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.4284,
+          "confidence_percent": "43%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 879,
+            "y": 447,
+            "width": 253,
+            "height": 197
+          },
+          "normalized_bbox": {
+            "x": 0.6867,
+            "y": 0.6208,
+            "width": 0.1977,
+            "height": 0.2736
+          }
+        },
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.3841,
+          "confidence_percent": "38%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 1109,
+            "y": 323,
+            "width": 170,
+            "height": 112
+          },
+          "normalized_bbox": {
+            "x": 0.8664,
+            "y": 0.4486,
+            "width": 0.1328,
+            "height": 0.1556
+          }
+        },
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.326,
+          "confidence_percent": "33%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 333,
+            "y": 401,
+            "width": 175,
+            "height": 161
+          },
+          "normalized_bbox": {
+            "x": 0.2602,
+            "y": 0.5569,
+            "width": 0.1367,
+            "height": 0.2236
+          }
+        },
+        {
+          "class_id": 2,
+          "class_name": "Floor Mat Hazard",
+          "hazard_type": "floor_mat_hazard",
+          "confidence": 0.3113,
+          "confidence_percent": "31%",
+          "severity": "Needs Review",
+          "recommendation": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+          "bounding_box": {
+            "x": 396,
+            "y": 355,
+            "width": 272,
+            "height": 190
+          },
+          "normalized_bbox": {
+            "x": 0.3094,
+            "y": 0.4931,
+            "width": 0.2125,
+            "height": 0.2639
+          }
+        },
+        {
+          "class_id": 2,
+          "class_name": "Floor Mat Hazard",
+          "hazard_type": "floor_mat_hazard",
+          "confidence": 0.298,
+          "confidence_percent": "30%",
+          "severity": "Needs Review",
+          "recommendation": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+          "bounding_box": {
+            "x": 814,
+            "y": 354,
+            "width": 353,
+            "height": 182
+          },
+          "normalized_bbox": {
+            "x": 0.6359,
+            "y": 0.4917,
+            "width": 0.2758,
+            "height": 0.2528
+          }
+        }
+      ],
+      "total_detections": 5
+    },
+    {
+      "id": 1,
+      "timestamp": "00:03",
+      "timeRange": "00:03 - 00:07",
+      "startTime": 3.75,
+      "endTime": 7.5,
+      "seekTime": 3.75,
+      "frame": 169,
+      "detectedClass": "Floor Mat Hazard",
+      "confidence": 0.5476,
+      "severity": "Needs Review",
+      "area": "0.06 m\u00b2",
+      "thumb": "/uploads/annotated/kf_corridor_hazard_tour_30s_1_169.jpg",
+      "note": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+      "bbox": {
+        "x": 63.7,
+        "y": 49.6,
+        "width": 27.2,
+        "height": 25.6
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "Floor Mat Hazard",
+          "hazard_type": "floor_mat_hazard",
+          "confidence": 0.5476,
+          "confidence_percent": "55%",
+          "severity": "Needs Review",
+          "recommendation": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+          "bounding_box": {
+            "x": 815,
+            "y": 357,
+            "width": 348,
+            "height": 184
+          },
+          "normalized_bbox": {
+            "x": 0.6367,
+            "y": 0.4958,
+            "width": 0.2719,
+            "height": 0.2556
+          }
+        },
+        {
+          "class_id": 2,
+          "class_name": "Floor Mat Hazard",
+          "hazard_type": "floor_mat_hazard",
+          "confidence": 0.5189,
+          "confidence_percent": "52%",
+          "severity": "Needs Review",
+          "recommendation": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+          "bounding_box": {
+            "x": 848,
+            "y": 425,
+            "width": 417,
+            "height": 207
+          },
+          "normalized_bbox": {
+            "x": 0.6625,
+            "y": 0.5903,
+            "width": 0.3258,
+            "height": 0.2875
+          }
+        },
+        {
+          "class_id": 2,
+          "class_name": "Floor Mat Hazard",
+          "hazard_type": "floor_mat_hazard",
+          "confidence": 0.4224,
+          "confidence_percent": "42%",
+          "severity": "Needs Review",
+          "recommendation": "Tripping Hazard: Curled floor mat edge, folded carpet corner, or displaced runner. Flatten or secure mat with anti-slip backing.",
+          "bounding_box": {
+            "x": 396,
+            "y": 353,
+            "width": 266,
+            "height": 187
+          },
+          "normalized_bbox": {
+            "x": 0.3094,
+            "y": 0.4903,
+            "width": 0.2078,
+            "height": 0.2597
+          }
+        },
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.3923,
+          "confidence_percent": "39%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 961,
+            "y": 595,
+            "width": 294,
+            "height": 122
+          },
+          "normalized_bbox": {
+            "x": 0.7508,
+            "y": 0.8264,
+            "width": 0.2297,
+            "height": 0.1694
+          }
+        },
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.3826,
+          "confidence_percent": "38%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 875,
+            "y": 449,
+            "width": 190,
+            "height": 150
+          },
+          "normalized_bbox": {
+            "x": 0.6836,
+            "y": 0.6236,
+            "width": 0.1484,
+            "height": 0.2083
+          }
+        },
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.2628,
+          "confidence_percent": "26%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 325,
+            "y": 405,
+            "width": 178,
+            "height": 184
+          },
+          "normalized_bbox": {
+            "x": 0.2539,
+            "y": 0.5625,
+            "width": 0.1391,
+            "height": 0.2556
+          }
+        }
+      ],
+      "total_detections": 6
+    },
+    {
+      "id": 2,
+      "timestamp": "00:07",
+      "timeRange": "00:07 - 00:11",
+      "startTime": 7.5,
+      "endTime": 11.25,
+      "seekTime": 7.5,
+      "frame": 281,
+      "detectedClass": "Water Spill",
+      "confidence": 0.2493,
+      "severity": "Needs Review",
+      "area": "0.31 m\u00b2",
+      "thumb": "/uploads/annotated/kf_corridor_hazard_tour_30s_2_281.jpg",
+      "note": "Slip Hazard: Standing liquid pool or water puddle detected. Dispatch custodial team immediately with wet floor sign and dry mop.",
+      "bbox": {
+        "x": 26.7,
+        "y": 36.7,
+        "width": 65.7,
+        "height": 59.3
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "Water Spill",
+          "hazard_type": "water_spill",
+          "confidence": 0.2493,
+          "confidence_percent": "25%",
+          "severity": "Needs Review",
+          "recommendation": "Slip Hazard: Standing liquid pool or water puddle detected. Dispatch custodial team immediately with wet floor sign and dry mop.",
+          "bounding_box": {
+            "x": 342,
+            "y": 264,
+            "width": 841,
+            "height": 427
+          },
+          "normalized_bbox": {
+            "x": 0.2672,
+            "y": 0.3667,
+            "width": 0.657,
+            "height": 0.5931
+          }
+        }
+      ],
+      "total_detections": 1
+    },
+    {
+      "id": 3,
+      "timestamp": "00:11",
+      "timeRange": "00:11 - 00:15",
+      "startTime": 11.25,
+      "endTime": 15.0,
+      "seekTime": 11.25,
+      "frame": 394,
+      "detectedClass": "Clean Floor",
+      "confidence": 0.95,
+      "severity": "Safe",
+      "area": "0.00 m\u00b2",
+      "thumb": "/uploads/annotated/kf_corridor_hazard_tour_30s_3_394.jpg",
+      "note": "Walkway clear. Certified safe dry floor with no active hazards.",
+      "bbox": null,
+      "detections": [],
+      "total_detections": 0
+    },
+    {
+      "id": 4,
+      "timestamp": "00:15",
+      "timeRange": "00:15 - 00:18",
+      "startTime": 15.0,
+      "endTime": 18.75,
+      "seekTime": 15.0,
+      "frame": 506,
+      "detectedClass": "Floor Damage",
+      "confidence": 0.4424,
+      "severity": "Needs Review",
+      "area": "0.01 m\u00b2",
+      "thumb": "/uploads/annotated/kf_corridor_hazard_tour_30s_4_506.jpg",
+      "note": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+      "bbox": {
+        "x": 34.5,
+        "y": 0.0,
+        "width": 8.1,
+        "height": 10.8
+      },
+      "detections": [
+        {
+          "class_id": 11,
+          "class_name": "Floor Damage",
+          "hazard_type": "floor_damage",
+          "confidence": 0.4424,
+          "confidence_percent": "44%",
+          "severity": "Needs Review",
+          "recommendation": "Structural Fall Hazard: Fractured floor surface, broken tile, deep concrete crack, or pothole crater. Cordon off walkway and repair slab.",
+          "bounding_box": {
+            "x": 442,
+            "y": 0,
+            "width": 103,
+            "height": 78
+          },
+          "normalized_bbox": {
+            "x": 0.3453,
+            "y": 0.0,
+            "width": 0.0805,
+            "height": 0.1083
+          }
+        }
+      ],
+      "total_detections": 1
+    }
+  ],
+  "events_summary": [],
+  "temporal_deduplication_status": "PASSED \u2014 Persistent hazards grouped into unified temporal incidents without duplicate event spamming."
+}

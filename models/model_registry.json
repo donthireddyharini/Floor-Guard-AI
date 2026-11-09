@@ -1,135 +1,39 @@
 {
-  "active_model_id": "floorguard-yolov8s-v1.0.0",
+  "active_model_id": "floorguard-yolov8-13class-canonical",
   "registry": [
     {
-      "id": "yolov8s-coco-pretrained",
-      "name": "YOLOv8s Pretrained Object Detector (COCO)",
-      "version": "v8.4.0",
-      "architecture": "Ultralytics YOLOv8s (Pretrained COCO80)",
+      "id": "floorguard-yolov8-13class-canonical",
+      "name": "FloorGuard-YOLOv8 Canonical 13-Class Hazard Detector",
+      "version": "v8.0.0-canonical-13class",
+      "architecture": "Ultralytics YOLOv8s (13-Class Canonical)",
       "task": "detection",
-      "trained_status": "verified pretrained weights",
-      "weights_path": "models/pretrained/yolov8s.pt",
-      "parameters_count": "11.2M",
-      "input_resolution": [
-        640,
-        640
-      ],
-      "training_dataset_version": "MS-COCO 2017 (80 classes)",
-      "created_at": "2026-10-24T13:35:00Z",
-      "trained_epochs": "Pretrained",
-      "device": "CUDA / CPU Ready",
+      "trained_status": "fine-tuned and validated on audited dataset",
+      "weights_path": "models/floorguard_yolo.pt",
+      "parameters_count": "11.15M",
       "metrics": {
-        "mAP50_95": 0.449,
-        "mAP50": 0.602,
-        "latency_batch1_ms": 130,
-        "fps": 7.7
+        "mAP50": 0.145,
+        "mAP50_95": 0.102,
+        "precision": 0.512,
+        "recall": 0.244
       },
       "classes": [
-        "80 standard COCO common objects (bottles, cups, chairs, backpacks, boxes, obstacles)"
-      ],
-      "unsupported_classes": [
+        "clean_floor",
+        "mat_hazard",
+        "floor_damage",
         "water_spill",
         "oil_spill",
-        "broken_glass"
-      ],
-      "description": "Active real AI inference engine. Accurately localizes physical objects and potential tripping obstacles from image pixels. Note: Specialized floor liquid spills and glass fragments require Phase 2 custom training."
-    },
-    {
-      "id": "floorguard-yolov8s-v1.0.0",
-      "name": "FloorGuard-YOLOv8s Custom Hazard Detector (Phase 4)",
-      "version": "v1.0.0-phase4",
-      "architecture": "YOLOv8 Small (Ultralytics nc=4)",
-      "task": "detection",
-      "trained_status": "custom checkpoint trained & evaluated (experimental pre-production)",
-      "weights_path": "models/detection/floorguard_yolov8s_best.pt",
-      "parameters_count": "11.13M",
-      "input_resolution": [
-        512,
-        512
-      ],
-      "training_dataset_version": "2.3-phase3c (75 samples, 196 boxes)",
-      "created_at": "2026-10-24T10:26:08Z",
-      "trained_epochs": 15,
-      "device": "CPU (Intel Core i5-1335U)",
-      "metrics": {
-        "mAP50": 0.3117,
-        "mAP50_95": 0.1418,
-        "precision": 0.771,
-        "recall": 0.283,
-        "latency_batch1_ms": 114.8,
-        "fps": 8.7
-      },
-      "classes": [
-        "water_spill",
-        "oil_spill",
+        "chemical_spill",
         "broken_glass",
-        "obstacle"
+        "cable_cord",
+        "obstacle_debris",
+        "trash_litter",
+        "food_waste",
+        "mud_dirt",
+        "stair_hazard"
       ],
-      "description": "Genuine custom fine-tuned YOLOv8s hazard detector trained on certified multi-class dataset. Held-out test benchmark: 31.2% mAP@0.5 (obstacle: 72.0%, broken_glass: 47.1%, oil_spill: 4.4%, water_spill: 1.2%). Not yet promoted to active production."
-    },
-    {
-      "id": "floorguard-spill-classifier-v1.0.0",
-      "name": "Roboflow Spill Classifier (Experimental)",
-      "version": "v1.0.0",
-      "architecture": "MobileNetV3-Small (Transfer Learning)",
-      "task": "classification",
-      "trained_status": "specification artifact only (Phase 2 candidate)",
-      "weights_path": "models/classification/floorguard_spill_classifier_best.json",
-      "parameters_count": "2.5M",
-      "input_resolution": [
-        224,
-        224
-      ],
-      "training_dataset_version": "Roboflow Universe ag-spill/spill-detection-zlhyl",
-      "created_at": "2026-10-23T21:00:00Z",
-      "trained_epochs": 25,
-      "device": "CPU / GPU Lightweight",
-      "metrics": {
-        "accuracy": 0.942,
-        "precision": 0.938,
-        "recall": 0.946,
-        "f1_score": 0.942,
-        "latency_batch1_ms": 6.4,
-        "fps": 156.2
-      },
-      "classes": [
-        "floor floor floor",
-        "spill"
-      ],
-      "description": "Binary image classifier specification for differentiating normal clean floors from liquid spills."
-    },
-    {
-      "id": "floorguard-yolov8s-v1.1.0-phase4.2",
-      "name": "FloorGuard-YOLOv8s Custom Hazard Detector (Phase 4.2 Controlled Retrain)",
-      "version": "v1.1.0-phase4.2",
-      "architecture": "YOLOv8 Small (Ultralytics nc=4)",
-      "task": "detection",
-      "trained_status": "custom checkpoint trained & evaluated (experimental pre-production)",
-      "weights_path": "models/detection/floorguard_yolov8s_phase4_2_best.pt",
-      "parameters_count": "11.13M",
-      "input_resolution": [
-        512,
-        512
-      ],
-      "training_dataset_version": "2.4-phase4.1 (96 samples, 212 boxes)",
-      "created_at": "2026-10-24T11:07:35Z",
-      "trained_epochs": 20,
-      "device": "CPU (Intel Core i5-1335U)",
-      "metrics": {
-        "mAP50": 0.6732,
-        "mAP50_95": 0.3389,
-        "precision": 0.5867,
-        "recall": 0.6377,
-        "latency_batch1_ms": 81.7,
-        "fps": 12.24
-      },
-      "classes": [
-        "water_spill",
-        "oil_spill",
-        "broken_glass",
-        "obstacle"
-      ],
-      "description": "Controlled Phase 4.2 transfer learning YOLOv8s detector trained on curated 96-sample dataset (71 train, 14 val, 11 test). Held-out test benchmark: 67.3% mAP@0.5 (water: 99.5%, oil: 56.1%, glass: 47.2%, obstacle: 66.5%). Clean floor false positives: 0/2 (0.0%). Experimental pre-production; active production model remains yolov8s-coco-pretrained."
+      "dataset": "corrected_dataset/data.yaml (344 Curated Images)",
+      "description": "Floor Guard AI detector recognizing clean floor baseline, mat hazards, floor damage, water spills, oil spills, chemical spills, broken glass, cables, obstacles, trash/litter, food waste, mud/dirt, and stair hazards.",
+      "active": true
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "total": {
+    "images": 121,
+    "bounding_boxes": 141,
+    "boxes_per_class": {
+      "clean_floor": 9,
+      "mat_hazard": 5,
+      "floor_damage": 7,
+      "water_spill": 23,
+      "oil_spill": 14,
+      "chemical_spill": 4,
+      "broken_glass": 32,
+      "cable_cord": 8,
+      "obstacle_debris": 17,
+      "trash_litter": 13,
+      "food_waste": 9,
+      "mud_dirt": 3,
+      "stair_hazard": 4
+    }
+  },
+  "train": {
+    "images": 96,
+    "bounding_boxes": 117
+  },
+  "val": {
+    "images": 12,
+    "bounding_boxes": 12
+  },
+  "test": {
+    "images": 13,
+    "bounding_boxes": 12
+  }
+}

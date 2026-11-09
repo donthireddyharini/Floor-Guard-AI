@@ -1,0 +1,56 @@
+{
+  "audit_timestamp": "2026-11-06T22:18:00Z",
+  "system": "Floor Guard AI - Intelligent Multi-Hazard Floor Detection System",
+  "investigation_scope": "End-to-end audit of model architecture, dataset annotations, inference pre/post-processing, confidence calibration, and frontend rendering",
+  "root_causes": [
+    {
+      "id": "RC-01",
+      "issue": "Artificial confidence inflation (suspicious 97%-100% scores)",
+      "evidence": "ml/predict_image.py line 585: scaled_conf = round(0.950 + 0.046 * min(1.0, max(0.0, (conf_val - 0.10) / 0.90)), 4). A raw model probability of 0.22 was mathematically transformed into 0.956 (96%). In ml/predict_video.py line 211: scaled_conf = round(0.950 + 0.046 * ...) forced video frame predictions to >= 95%.",
+      "severity": "CRITICAL",
+      "impact": "Unreliable confidence scores; low-confidence artifacts and noisy background detections were displayed as 98%-100% confident hazards.",
+      "implemented_correction": "Removed artificial scaling function. The system now reports genuine raw softmax/sigmoid model probabilities directly (e.g. 0.74 -> 74%). Scores between 0.35 and 0.60 are explicitly assigned 'Needs Review' status."
+    },
+    {
+      "id": "RC-02",
+      "issue": "Oversized bounding boxes covering whole floor regions",
+      "evidence": "ml/predict_image.py line 632: pad_scale = 3.2 arbitrarily expanded bottle/debris boxes by over 320% of their actual radius. Multi-tile grid inference merged overlapping bounding boxes across quadrant seams without coordinate constraint, resulting in boxes encompassing 60%-90% of the entire image.",
+      "severity": "CRITICAL",
+      "impact": "Bounding boxes engulfed clean floor areas, making detections appear unlocalized and inaccurate.",
+      "implemented_correction": "Disabled artificial coordinate expansion. Implemented direct inverse-letterbox transformation preserving the model's exact predicted coordinates. Non-maximum suppression (IoU 0.45) cleans multi-scale boxes without spatial dilation."
+    },
+    {
+      "id": "RC-03",
+      "issue": "Cables and wires misclassified as obstacle debris or water spills",
+      "evidence": "In early training runs, thin linear cables had low pixel mass and were overwhelmed by obstacle_debris bounding boxes in multi-class images. In heuristic fallback, absence of high edge density redirected cables to water_spill.",
+      "severity": "HIGH",
+      "impact": "Tripping hazards from power cords and trailing wires were incorrectly categorized.",
+      "implemented_correction": "Enforced dedicated cable_wire class training with augmented line-kernel features and strict Hough transform / dark linear edge verification in post-processing."
+    },
+    {
+      "id": "RC-04",
+      "issue": "False hazard detections on clean reflective floors and normal stairs",
+      "evidence": "Dataset previously had insufficient hard-negative samples representing dry polished porcelain tiles with specular fluorescent light reflections and regular architectural stair steps.",
+      "severity": "HIGH",
+      "impact": "Normal indoor flooring specularities were tagged as liquid spills or cracks.",
+      "implemented_correction": "Integrated dedicated negative baseline samples (clean polished tiles, dry grout lines, architectural staircases, safe floor mats) with 0 bounding boxes. Specular reflection filter requires contour liquid boundary verification before confirming water spills."
+    },
+    {
+      "id": "RC-05",
+      "issue": "Small floor hazards receiving oversized or missed bounding boxes",
+      "evidence": "Input resizing to 512x512 with stride 32 downsampled small glass shards or bottle caps below feature map resolution (down to 16x16 feature grid).",
+      "severity": "MEDIUM",
+      "impact": "Nails, small glass shards, and bottle caps either disappeared or were grouped into large surrounding floor boxes.",
+      "implemented_correction": "Preserved aspect ratio with centered letterboxing; calibrated minimum object detection threshold with localized high-resolution patch evaluation for small objects."
+    },
+    {
+      "id": "RC-06",
+      "issue": "Video keyframe temporal fragmentation",
+      "evidence": "Sparse keyframe sampling without tracking caused intermittent frame-by-frame class switching when lighting shifted.",
+      "severity": "MEDIUM",
+      "impact": "Same continuous hazard logged as multiple distinct event types in video analysis.",
+      "implemented_correction": "Implemented temporal event consolidation with spatial IoU matching and keyframe smoothing, aggregating consecutive frames into unified hazard incidents."
+    }
+  ],
+  "verification_verdict": "All root causes empirically verified on test frames and images. Model pipeline re-engineered for genuine probability reporting, tight localization, and hard-negative suppression."
+}

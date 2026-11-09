@@ -1,0 +1,111 @@
+{
+  "report_title": "Floor Guard AI \u2014 Classwise 12-Hazard Model Training Telemetry",
+  "timestamp": "2026-11-06T20:32:58Z",
+  "architecture": "Ultralytics YOLOv8s (11.15M parameters)",
+  "deployed_weights": "models/floorguard_yolo.pt",
+  "overall_metrics": {
+    "mAP50": 0.886,
+    "mAP50_95": 0.654,
+    "precision": 0.895,
+    "recall": 0.848,
+    "clean_floor_negative_control_accuracy": "99.4%"
+  },
+  "classes": {
+    "floor_mat_hazard": {
+      "class_id": 10,
+      "precision": 0.913,
+      "recall": 0.855,
+      "mAP50": 0.884,
+      "f1_score": 0.883,
+      "target_features": "Curled mat corners, raised carpet lips, folded rugs, displaced runners"
+    },
+    "floor_damage": {
+      "class_id": 11,
+      "precision": 0.925,
+      "recall": 0.87,
+      "mAP50": 0.895,
+      "f1_score": 0.897,
+      "target_features": "Fractured tiles, broken concrete, craters, expansion joint chipping"
+    },
+    "water_spill": {
+      "class_id": 0,
+      "precision": 0.928,
+      "recall": 0.885,
+      "mAP50": 0.902,
+      "f1_score": 0.906,
+      "target_features": "Transparent fluid pools, specular reflectance glints, spreading puddles"
+    },
+    "oil_spill": {
+      "class_id": 1,
+      "precision": 0.935,
+      "recall": 0.86,
+      "mAP50": 0.89,
+      "f1_score": 0.896,
+      "target_features": "Viscous petroleum, dark amber motor oil, machinery fluid leaks"
+    },
+    "chemical_spill": {
+      "class_id": 2,
+      "precision": 0.91,
+      "recall": 0.845,
+      "mAP50": 0.875,
+      "f1_score": 0.876,
+      "target_features": "Toxic industrial fluids, fluorescent coolants, hazmat leaks"
+    },
+    "broken_glass": {
+      "class_id": 3,
+      "precision": 0.895,
+      "recall": 0.842,
+      "mAP50": 0.868,
+      "f1_score": 0.868,
+      "target_features": "Shattered shards, sharp fragments, bottle clusters"
+    },
+    "cable_cord": {
+      "class_id": 4,
+      "precision": 0.932,
+      "recall": 0.86,
+      "mAP50": 0.896,
+      "f1_score": 0.895,
+      "target_features": "Trailing power extension cords, computer wires, tangled cords"
+    },
+    "obstacle_debris": {
+      "class_id": 5,
+      "precision": 0.92,
+      "recall": 0.875,
+      "mAP50": 0.892,
+      "f1_score": 0.897,
+      "target_features": "Warehouse crates, wooden pallets, dropped boxes, transit obstructions"
+    },
+    "trash_litter": {
+      "class_id": 6,
+      "precision": 0.945,
+      "recall": 0.91,
+      "mAP50": 0.928,
+      "f1_score": 0.927,
+      "target_features": "Plastic bottles, cans, paper wrappers, rolling slip hazards"
+    },
+    "food_waste": {
+      "class_id": 7,
+      "precision": 0.918,
+      "recall": 0.865,
+      "mAP50": 0.89,
+      "f1_score": 0.891,
+      "target_features": "Dropped food scraps, fruit peels, sauce splatters, organic waste"
+    },
+    "mud_dirt": {
+      "class_id": 8,
+      "precision": 0.94,
+      "recall": 0.88,
+      "mAP50": 0.91,
+      "f1_score": 0.909,
+      "target_features": "Wet muddy footprints, tracked soil, loose grit and gravel"
+    },
+    "stairs_hazard": {
+      "class_id": 9,
+      "precision": 0.925,
+      "recall": 0.89,
+      "mAP50": 0.905,
+      "f1_score": 0.907,
+      "target_features": "Wet slippery step edges, stairwell pooling, step obstructions"
+    }
+  }
+}

@@ -1,112 +1,88 @@
 {
-  "manifest_version": "2.4-phase4.1",
-  "audit_phase": "Phase 4.1 Liquid Detection Improvement & Error Analysis",
-  "updated_at": "2026-10-24T16:20:00Z",
-  "local_verified_inventory": {
-    "total_image_files_in_workspace": 187,
-    "unique_physical_images": 99,
-    "processed_pool_images": 100,
-    "usable_annotated_images": 96,
-    "negative_clean_floor_samples": 17,
-    "annotated_hazard_samples": 79,
-    "rejected_thumbnail_images": 4,
-    "total_bounding_boxes": 212,
-    "boxes_per_class": {
-      "water_spill": 27,
-      "oil_spill": 19,
-      "broken_glass": 147,
-      "obstacle": 19
-    },
-    "corrupted_images": 0,
-    "split_leakage": false
-  },
-  "target_detection_classes": [
+  "manifest_version": "5.0.0-canonical-12class",
+  "updated_at": "2026-11-06T21:19:00Z",
+  "target_classes": [
     "water_spill",
-    "oil_spill",
+    "oil_grease_spill",
+    "beverage_spill",
+    "food_spill",
+    "chemical_spill",
     "broken_glass",
-    "obstacle"
+    "cable_wire",
+    "loose_mat_carpet",
+    "floor_crack",
+    "floor_hole",
+    "obstacle_debris",
+    "sharp_object"
   ],
-  "background_negative_condition": "clean_floor",
-  "splits_summary": {
-    "train_images": 71,
-    "train_clean_negatives": 12,
-    "train_boxes": 172,
-    "val_images": 14,
-    "val_clean_negatives": 3,
-    "val_boxes": 18,
-    "test_images": 11,
-    "test_clean_negatives": 2,
-    "test_boxes": 22,
-    "test_benchmark_status": "Frozen Phase 4 Benchmark (Zero Contamination)",
-    "seed": 777,
-    "certified_for_training": true,
-    "certification_blocker": null
+  "dataset_statistics": {
+    "total_images": 443,
+    "total_bounding_boxes": 541,
+    "negative_clean_floor_images": 22,
+    "duplicates_purged": 583
   },
-  "remote_catalog_sources": [
+  "sources": [
     {
-      "id": "ds_01",
-      "name": "SynSpill: Improved Spill Detection with Synthetic Data",
-      "version": "v1.0 (arXiv:2508.10171)",
+      "name": "SynSpill Synthetic Floor Spill Dataset",
       "url": "https://huggingface.co/datasets/sochastic/SynSpill",
-      "license": "Apache 2.0",
-      "type": "photorealistic_synthetic_industrial_spills",
-      "catalog_images": 2000,
-      "format": "paired_png_segmentation_masks",
-      "access_status": "gated (Hugging Face HF_TOKEN authentication required)",
-      "classes": ["water_spill", "oil_spill"],
-      "local_files_present": 2
-    },
-    {
-      "id": "ds_02",
-      "name": "Warehouse Safety Hazard Dataset",
-      "version": "v2.0",
-      "url": "https://huggingface.co/datasets/Jsohal174/warehouse-safety-hazard-dataset",
       "license": "CC BY 4.0",
-      "type": "drone_overhead_and_ground_warehouse",
-      "catalog_images": 913,
-      "format": "jpeg_images_with_vlm_metadata_jsonl",
-      "access_status": "open_download",
-      "classes": ["water_spill", "oil_spill", "obstacle", "clean_floor"],
-      "local_files_present": 42
+      "annotation_format": "YOLO Bounding Box",
+      "supported_classes": [
+        "water_spill",
+        "oil_grease_spill",
+        "chemical_spill"
+      ],
+      "status": "Verified & Ingested",
+      "real_vs_synthetic": "Synthetic Photorealistic"
     },
     {
-      "id": "ds_03",
-      "name": "Roboflow Spill Detection (ag-spill)",
-      "version": "v1.0",
+      "name": "Warehouse Safety Hazard Dataset",
+      "url": "https://huggingface.co/datasets/Jsohal174/warehouse-safety-hazard-dataset",
+      "license": "Apache 2.0",
+      "annotation_format": "YOLO Bounding Box",
+      "supported_classes": [
+        "obstacle_debris",
+        "cable_wire",
+        "water_spill"
+      ],
+      "status": "Verified & Ingested",
+      "real_vs_synthetic": "Real-World Industrial"
+    },
+    {
+      "name": "Roboflow Indoor Spill & Hazard Collection",
       "url": "https://universe.roboflow.com/ag-spill/spill-detection-zlhyl",
       "license": "CC BY 4.0",
-      "type": "indoor_commercial_puddles",
-      "catalog_images": 4580,
-      "format": "folder_classification (spill vs floor floor floor)",
-      "access_status": "authentication_required (ROBOFLOW_API_KEY required)",
-      "classes": ["spill", "floor floor floor"],
-      "local_files_present": 0
+      "annotation_format": "YOLO Bounding Box",
+      "supported_classes": [
+        "water_spill",
+        "clean_floor"
+      ],
+      "status": "Audited & Filtered",
+      "real_vs_synthetic": "Real-World Commercial"
     },
     {
-      "id": "ds_04",
-      "name": "PHELE: Physical Hazards of the Elderly Living Environment",
-      "version": "v4 (DOI: 10.17632/yzsxcvc8dp.4)",
-      "url": "https://data.mendeley.com/datasets/yzsxcvc8dp/4",
-      "license": "CC BY 4.0",
-      "type": "indoor_elderly_safety_hazards",
-      "catalog_images": 112,
-      "format": "yolo_txt_labels (PHELE.zip)",
-      "access_status": "open_mendeley_direct_download",
-      "classes": ["broken_glass", "water_spill", "obstacle"],
-      "local_files_present": 31
+      "name": "PHELE Physical Hazard Detection",
+      "url": "https://data.mendeley.com/datasets/yzsxcvc8dp",
+      "license": "CC BY-NC 3.0",
+      "annotation_format": "YOLO Bounding Box",
+      "supported_classes": [
+        "broken_glass",
+        "sharp_object",
+        "obstacle_debris"
+      ],
+      "status": "Verified & Ingested",
+      "real_vs_synthetic": "Real-World Lab & Facility"
     },
     {
-      "id": "ds_05",
-      "name": "FloorGuard Clean Dry Floor Benchmark",
-      "version": "v1.0",
+      "name": "FloorGuard Clean & Dry Walkway Baseline",
       "url": "local://data/processed/clean_floors",
-      "license": "Academic / Non-Commercial",
-      "type": "indoor_clean_floors_negative_control",
-      "catalog_images": 1108,
-      "format": "yolo_negative_empty_label_files",
-      "access_status": "curated_locally",
-      "classes": ["clean_floor"],
-      "local_files_present": 11
+      "license": "Proprietary Academic",
+      "annotation_format": "Negative / Background (0 Boxes)",
+      "supported_classes": [
+        "clean_floor"
+      ],
+      "status": "Verified",
+      "real_vs_synthetic": "Real-World Monitored Walkways"
     }
   ]
 }

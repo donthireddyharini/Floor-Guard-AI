@@ -1,0 +1,3359 @@
+{
+  "total_unique_hashes_analyzed": 665,
+  "near_duplicate_clusters": 106,
+  "total_near_duplicate_files": 435,
+  "clusters": [
+    {
+      "base_image": "aug_boxes_sec03_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_boxes_sec03_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_boxes_sec03_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec03_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec03_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec03_orig.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "aug_boxes_sec04_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_boxes_sec04_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_boxes_sec04_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec04_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_boxes_sec04_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_boxes_sec04_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_cables_sec01_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_cables_sec01_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_cables_sec01_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "aug_cables_sec01_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_cables_sec01_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec01_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_crack_sec06_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_crack_sec06_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_crack_sec06_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec06_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec06_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec06_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_crack_sec07_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_crack_sec07_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_crack_sec07_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_crack_sec07_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "aug_crack_sec07_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_crack_sec07_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "aug_food_sec05_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_food_sec05_bright.jpg",
+      "near_duplicate_count": 6,
+      "similar_images": [
+        {
+          "filename": "user_vid_sauce_food_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_sauce_food_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_kf2_sauce_glass.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_vid_kf2_sauce_glass.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_food_sec05_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_food_sec05_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_sauce_food_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_sauce_food_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_mat_sec08_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_mat_sec08_bright.jpg",
+      "near_duplicate_count": 7,
+      "similar_images": [
+        {
+          "filename": "aug_mat_sec08_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_mat_sec08_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_kf4_rug_lip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_kf4_rug_lip.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_curled_mat_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_vid_curled_mat_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "aug_mat_sec08_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_mat_sec08_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_mat_sec08_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_mat_sec08_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_curled_mat_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_curled_mat_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_curled_mat_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_curled_mat_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "aug_mat_sec08_flip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_mat_sec08_flip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "user_vid_curled_mat_flip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_vid_curled_mat_flip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_mat_sec09_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\aug_mat_sec09_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_mat_sec09_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_mat_sec09_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_mat_sec09_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_mat_sec09_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "aug_mat_sec09_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_mat_sec09_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "clear_bottle_amber_bottle_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_amber_bottle_bright.jpg",
+      "near_duplicate_count": 21,
+      "similar_images": [
+        {
+          "filename": "clear_bottle_amber_bottle_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_amber_bottle_cool.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_cyan_plastic_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_cyan_plastic_cool.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_cyan_plastic_warm.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_green_plastic_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_green_plastic_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "clear_water_bottle_full_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_full_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_water_bottle_full_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_full_cool.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_green_plastic_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\clear_bottle_green_plastic_warm.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_amber_bottle_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_amber_bottle_warm.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "clear_bottle_green_plastic_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_green_plastic_cool.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_amber_bottle_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_amber_bottle_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_amber_bottle_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_amber_bottle_dim.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "clear_bottle_amber_bottle_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_amber_bottle_orig.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cyan_plastic_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cyan_plastic_dim.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cyan_plastic_orig.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_green_plastic_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_green_plastic_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_green_plastic_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_green_plastic_dim.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_green_plastic_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_green_plastic_orig.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_water_bottle_full_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_full_contrast.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_water_bottle_full_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_full_orig.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "clear_bottle_amber_bottle_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_amber_bottle_hflip.jpg",
+      "near_duplicate_count": 7,
+      "similar_images": [
+        {
+          "filename": "clear_bottle_amber_bottle_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_amber_bottle_hflip_bright.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_cyan_plastic_hflip.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_water_bottle_full_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_full_hflip.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_green_plastic_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\clear_bottle_green_plastic_hflip.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_cyan_plastic_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cyan_plastic_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "clear_bottle_green_plastic_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_green_plastic_hflip_bright.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "clear_water_bottle_full_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_full_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "clear_bottle_cap_angle_cool.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_bottle_cap_angle_cool.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "clear_bottle_cap_angle_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_cap_angle_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_bottle_cap_angle_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_cap_angle_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_bottle_cap_angle_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_cap_angle_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_bottle_cap_angle_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cap_angle_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_bottle_cap_angle_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_bottle_cap_angle_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "clear_water_bottle_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "clear_water_bottle_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_crop_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_water_bottle_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_crop_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_water_bottle_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\clear_water_bottle_crop_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_water_bottle_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_crop_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "clear_water_bottle_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_crop_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "clear_water_bottle_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "clear_water_bottle_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_crop_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "clear_water_bottle_full_warm.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\clear_water_bottle_full_warm.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "clear_water_bottle_full_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\clear_water_bottle_full_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "coca_bottle_crop_cool.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\coca_bottle_crop_cool.jpg",
+      "near_duplicate_count": 8,
+      "similar_images": [
+        {
+          "filename": "user_coca_bottle_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_coca_bottle_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\coca_bottle_crop_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\coca_bottle_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_coca_bottle_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_coca_bottle_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_coca_bottle_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_coca_bottle_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "coca_bottle_full_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\coca_bottle_full_bright.jpg",
+      "near_duplicate_count": 26,
+      "similar_images": [
+        {
+          "filename": "coca_bottle_full_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\coca_bottle_full_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_blue_label_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_bottle_blue_label_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_blue_label_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_gold_label_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_green_label_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_green_label_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "user_bottle_green_label_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_green_label_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_green_label_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_green_label_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_coca_bottle_full_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_coca_bottle_full_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_bottle_gold_label_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "user_bottle_gold_label_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_bottle_gold_label_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_coca_bottle_full_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_coca_bottle_full_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_coca_bottle_full_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_coca_bottle_full_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_full_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\coca_bottle_full_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_bottle_blue_label_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_full_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_full_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_full_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_full_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_full_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_full_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_blue_label_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_blue_label_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_blue_label_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_gold_label_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_bottle_gold_label_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_gold_label_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_gold_label_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_green_label_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_green_label_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_bottle_green_label_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_green_label_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_green_label_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_green_label_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "coca_bottle_full_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\coca_bottle_full_hflip.jpg",
+      "near_duplicate_count": 8,
+      "similar_images": [
+        {
+          "filename": "user_bottle_blue_label_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_bottle_blue_label_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_bottle_gold_label_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_green_label_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_bottle_green_label_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_coca_bottle_full_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_coca_bottle_full_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_full_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_full_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_blue_label_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_blue_label_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_bottle_gold_label_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_gold_label_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "user_bottle_green_label_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_bottle_green_label_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_broken_glass_store_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_broken_glass_store_aug0_orig.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_broken_glass_store_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_broken_glass_store_aug2_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "floor_hazard_broken_glass_store_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_broken_glass_store_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_broken_glass_store_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_broken_glass_store_aug3_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_broken_glass_store_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_broken_glass_store_aug1_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_broken_glass_store_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_broken_glass_store_aug5_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_cable_cord_hallway_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_cable_cord_hallway_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "multi_cable_cord_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_cable_cord_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_cable_cord_hallway_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_cable_cord_hallway_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_cable_cord_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_cable_cord_exp_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_cable_cord_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_cable_cord_hallway_aug3_dim.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_cable_cord_hallway_aug3_dim.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "multi_cable_cord_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_cable_cord_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_cable_cord_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_cable_cord_exp_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "floor_hazard_cable_cord_hallway_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_cable_cord_hallway_aug4_contrast.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "panel_cable_cord_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\panel_cable_cord_exp_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_cable_cord_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\panel_cable_cord_exp_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_cable_cord_hallway_aug0_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_cable_cord_hallway_aug0_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_cable_cord_hallway_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_cable_cord_hallway_aug2_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "multi_cable_cord_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_cable_cord_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "multi_cable_cord_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_cable_cord_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_cable_cord_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "multi_cable_cord_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_cable_cord_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_chemical_coolant_spill_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_chemical_coolant_spill_aug0_orig.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_chemical_coolant_spill_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_chemical_coolant_spill_aug2_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_chemical_spill_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_chemical_spill_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_chemical_spill_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_chemical_spill_exp_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_chemical_spill_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_chemical_spill_exp_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_chemical_coolant_spill_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_chemical_coolant_spill_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_chemical_coolant_spill_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_chemical_coolant_spill_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_chemical_spill_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_chemical_spill_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_chemical_spill_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_chemical_spill_exp_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_chemical_spill_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_chemical_coolant_spill_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_chemical_coolant_spill_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_chemical_coolant_spill_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_chemical_coolant_spill_aug5_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_chemical_spill_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_chemical_spill_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_chemical_spill_exp_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_food_waste_peel_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_food_waste_peel_aug0_orig.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_food_waste_peel_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_food_waste_peel_aug2_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "floor_hazard_food_waste_peel_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_food_waste_peel_aug3_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_food_waste_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_bright.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "multi_food_waste_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_food_waste_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_food_waste_exp_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_food_waste_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_food_waste_exp_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_food_waste_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_food_waste_exp_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_food_waste_peel_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_food_waste_peel_aug4_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_food_waste_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_food_waste_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_food_waste_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_food_waste_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_food_waste_peel_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_food_waste_peel_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_food_waste_peel_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_food_waste_peel_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_food_waste_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_food_waste_exp_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_gravel_scatter_floor_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_gravel_scatter_floor_aug0_orig.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_gravel_scatter_floor_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_gravel_scatter_floor_aug2_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "floor_hazard_gravel_scatter_floor_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_gravel_scatter_floor_aug3_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_gravel_scatter_floor_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_gravel_scatter_floor_aug4_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_gravel_scatter_floor_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_gravel_scatter_floor_aug1_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_gravel_scatter_floor_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_gravel_scatter_floor_aug5_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_mud_tracks_soil_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_mud_tracks_soil_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_mud_tracks_soil_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_mud_tracks_soil_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_mud_dirt_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_mud_dirt_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_mud_dirt_exp_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "multi_mud_dirt_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_mud_tracks_soil_aug3_dim.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_mud_tracks_soil_aug3_dim.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_mud_tracks_soil_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_mud_tracks_soil_aug4_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "multi_mud_dirt_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_mud_dirt_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_mud_tracks_soil_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_mud_tracks_soil_aug2_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_mud_dirt_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\panel_mud_dirt_exp_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_mud_dirt_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\panel_mud_dirt_exp_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_mud_tracks_soil_aug0_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_mud_tracks_soil_aug0_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_mud_dirt_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_mud_dirt_exp_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_mud_dirt_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_mud_dirt_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_oil_spill_warehouse_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_oil_spill_warehouse_aug0_orig.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_oil_spill_warehouse_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_oil_spill_warehouse_aug3_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_oil_spill_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_oil_spill_exp_contrast.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "panel_oil_spill_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_oil_spill_exp_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_oil_spill_warehouse_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_oil_spill_warehouse_aug2_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_oil_spill_warehouse_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_oil_spill_warehouse_aug4_contrast.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "multi_oil_spill_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_oil_spill_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_oil_spill_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_oil_spill_exp_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_contrast.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "multi_oil_spill_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_oil_spill_warehouse_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_oil_spill_warehouse_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_oil_spill_warehouse_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_oil_spill_warehouse_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_oil_spill_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_oil_spill_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_oil_spill_exp_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_oil_spill_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_pallet_obstacle_aisle_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_pallet_obstacle_aisle_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_pallet_obstacle_aisle_aug5_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_obstacle_debris_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_obstacle_debris_exp_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_obstacle_debris_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_pallet_obstacle_aisle_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_pallet_obstacle_aisle_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_obstacle_debris_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_obstacle_debris_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_obstacle_debris_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_obstacle_debris_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_obstacle_debris_exp_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_obstacle_debris_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_obstacle_debris_exp_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_obstacle_debris_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_obstacle_debris_exp_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_pallet_obstacle_aisle_aug0_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_pallet_obstacle_aisle_aug0_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_pallet_obstacle_aisle_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_pallet_obstacle_aisle_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_obstacle_debris_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_obstacle_debris_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_plastic_bottle_rolling_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug0_orig.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_plastic_bottle_rolling_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug2_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_plastic_bottle_rolling_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_plastic_bottle_rolling_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_trash_litter_panel_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_trash_litter_panel_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_trash_litter_panel_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_plastic_bottle_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_plastic_bottle_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_plastic_bottle_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_plastic_bottle_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_plastic_bottle_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_plastic_bottle_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_trash_litter_panel_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_trash_litter_panel_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_trash_litter_panel_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_plastic_bottle_rolling_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_plastic_bottle_rolling_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_plastic_bottle_rolling_aug5_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_trash_litter_panel_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_plastic_bottle_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\panel_plastic_bottle_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_stairs_slip_hazard_aug0_orig.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_stairs_slip_hazard_aug0_orig.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_stairs_slip_hazard_aug2_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_stairs_slip_hazard_aug2_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_stairs_slip_hazard_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_stairs_slip_hazard_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_stairs_hazard_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_stairs_hazard_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_stairs_hazard_exp_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_stairs_hazard_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_stairs_hazard_exp_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_stairs_slip_hazard_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_stairs_slip_hazard_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_stairs_hazard_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_stairs_hazard_exp_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_stairs_slip_hazard_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_stairs_slip_hazard_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_stairs_slip_hazard_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_stairs_slip_hazard_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_stairs_hazard_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\panel_stairs_hazard_exp_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_water_spill_marble_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_water_spill_marble_aug1_hflip.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_water_spill_marble_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_water_spill_marble_aug5_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_water_spill_exp_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_water_spill_exp_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_water_spill_marble_aug2_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_water_spill_marble_aug2_bright.jpg",
+      "near_duplicate_count": 12,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_water_spill_marble_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_water_spill_marble_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_water_spill_marble_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_water_spill_marble_aug4_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_water_spill_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "panel_water_spill_exp_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_water_spill_exp_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_water_spill_exp_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_water_spill_exp_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "panel_water_spill_exp_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\panel_water_spill_exp_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_water_spill_marble_aug0_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_water_spill_marble_aug0_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_wet_surface_patio_aug2_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\floor_hazard_wet_surface_patio_aug2_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_wet_surface_patio_aug0_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_wet_surface_patio_aug0_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "floor_hazard_wet_surface_patio_aug3_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_wet_surface_patio_aug3_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "floor_hazard_wet_surface_patio_aug4_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_wet_surface_patio_aug4_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_clean_floor_0057.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_clean_floor_0057.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_00.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_00.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_beverage_spill_12.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_12.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_sharp_object_00.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_00.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_12.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_12.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_clean_floor_0144.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_clean_floor_0144.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_01.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_01.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_beverage_spill_13.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_13.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_01.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_01.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_sharp_object_13.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_13.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_clean_floor_0198.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_clean_floor_0198.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_02.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_02.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_sharp_object_02.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_02.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_beverage_spill_14.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_beverage_spill_14.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_sharp_object_14.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_sharp_object_14.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_obstacle_0043.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_obstacle_0043.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_bal_oil_spill_0030.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_oil_spill_0030.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_obstacle_0098.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_obstacle_0098.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "hf_pilot_obstacle_0018.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_obstacle_0018.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "p43_clean_floor_0009.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_clean_floor_0009.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_beverage_spill_08.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_08.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_sharp_object_08.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_08.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_oil_spill_0065.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_oil_spill_0065.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_p41_oil_spill_0067.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\hf_p41_oil_spill_0067.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_bal_oil_spill_0123.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_bal_oil_spill_0123.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "p43_obstacle_0096.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_obstacle_0096.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "hf_p41_clean_floor_0152.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_p41_clean_floor_0152.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_03.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_03.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_sharp_object_03.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_03.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_beverage_spill_15.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_beverage_spill_15.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_sharp_object_15.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_sharp_object_15.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_p41_water_spill_0062.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_p41_water_spill_0062.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_p41_water_spill_0064.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\hf_p41_water_spill_0064.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_clean_floor_0017.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_clean_floor_0017.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_04.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_04.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_floor_hole_04.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_floor_hole_04.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "synth_sharp_object_04.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_04.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_beverage_spill_16.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_beverage_spill_16.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_16.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_sharp_object_16.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_clean_floor_0024.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_clean_floor_0024.jpg",
+      "near_duplicate_count": 8,
+      "similar_images": [
+        {
+          "filename": "hf_pilot_clean_floor_0026.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_clean_floor_0026.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "hf_warehouse_obstacle_0006.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_warehouse_obstacle_0006.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_beverage_spill_05.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_05.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_beverage_spill_06.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_06.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "synth_sharp_object_05.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_05.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_06.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_06.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_beverage_spill_17.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_beverage_spill_17.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_17.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_sharp_object_17.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_clean_floor_0072.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_clean_floor_0072.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_07.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_07.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_floor_hole_07.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_floor_hole_07.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_sharp_object_07.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_07.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_obstacle_0008.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_obstacle_0008.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "hf_pilot_obstacle_0010.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\hf_pilot_obstacle_0010.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "hf_p41_clean_floor_0187.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\hf_p41_clean_floor_0187.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "hf_warehouse_spill_0005.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\hf_warehouse_spill_0005.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_obstacle_0025.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_obstacle_0025.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_pilot_water_spill_0013.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_water_spill_0013.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "hf_pilot_water_spill_0021.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_water_spill_0021.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "hf_pilot_water_spill_0022.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\hf_pilot_water_spill_0022.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "p43_water_spill_0020.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_water_spill_0020.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_cable_cord_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_cable_cord_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_cable_cord_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_cable_cord_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_cable_cord_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_cable_cord_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_cable_cord_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_cable_cord_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_cable_cord_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_cable_cord_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_cable_cord_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_cable_cord_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_cable_cord_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_chemical_spill_crop_cool.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_chemical_spill_crop_cool.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_chemical_spill_crop_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_chemical_spill_crop_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_chemical_spill_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_chemical_spill_crop_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_chemical_spill_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_crop_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_chemical_spill_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_chemical_spill_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_chemical_spill_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_chemical_spill_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_chemical_spill_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_chemical_spill_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_food_waste_crop_cool.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_crop_cool.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_food_waste_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_crop_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_crop_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_food_waste_crop_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_food_waste_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_crop_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_food_waste_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_food_waste_crop_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "multi_food_waste_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_food_waste_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_food_waste_crop_hflip_bright.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "multi_mud_dirt_crop_cool.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_mud_dirt_crop_cool.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_mud_dirt_crop_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_mud_dirt_crop_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_mud_dirt_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_mud_dirt_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_obstacle_debris_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_obstacle_debris_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_obstacle_debris_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_obstacle_debris_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_obstacle_debris_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_obstacle_debris_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_obstacle_debris_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_oil_spill_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_oil_spill_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_oil_spill_crop_cool.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_oil_spill_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_oil_spill_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_oil_spill_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_oil_spill_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_oil_spill_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_oil_spill_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_stairs_hazard_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_stairs_hazard_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_stairs_hazard_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_stairs_hazard_crop_warm.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_stairs_hazard_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_crop_dim.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_stairs_hazard_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_crop_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "multi_stairs_hazard_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_stairs_hazard_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_stairs_hazard_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_stairs_hazard_crop_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "multi_trash_litter_panel_crop_warm.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_trash_litter_panel_crop_warm.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_trash_litter_panel_crop_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_trash_litter_panel_crop_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\multi_trash_litter_panel_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_crop_contrast.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_trash_litter_panel_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_water_spill_crop_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_crop_bright.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "multi_water_spill_crop_cool.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_crop_cool.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_water_spill_crop_warm.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_crop_warm.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_water_spill_crop_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_crop_contrast.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "multi_water_spill_crop_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_crop_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "multi_water_spill_crop_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_crop_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_water_spill_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\multi_water_spill_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_water_spill_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_water_spill_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "p43_clean_floor_0014.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_clean_floor_0014.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "p43_water_spill_0009.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_water_spill_0009.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "synth_beverage_spill_09.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_09.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_sharp_object_09.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_09.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "p43_clean_floor_0029.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_clean_floor_0029.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "synth_beverage_spill_10.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_10.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_sharp_object_10.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_10.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "p43_oil_spill_0108.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_oil_spill_0108.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_p41_clean_floor_0064.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\hf_p41_clean_floor_0064.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "p43_water_spill_0007.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_water_spill_0007.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "p43_clean_floor_0007.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\p43_clean_floor_0007.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "p43_water_spill_0012.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\p43_water_spill_0012.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "hf_bal_obstacle_0122.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\hf_bal_obstacle_0122.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "phele_glass_train_513.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\phele_glass_train_513.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "phele_glass_train_514.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\phele_glass_train_514.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "phele_wet_train_529.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\phele_wet_train_529.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "phele_wet_train_528.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\phele_wet_train_528.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "sample_water_spill.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\sample_water_spill.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "water_spill_main.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\water_spill_main.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "synth_beverage_spill_11.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_beverage_spill_11.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "synth_sharp_object_11.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_sharp_object_11.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "thumb_clean_floor.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\thumb_clean_floor.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "synth_cable_white_tile_train_045.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_cable_white_tile_train_045.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_multi_food_white_tile_train_046.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_white_tile_train_046.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_concrete_bread_crust_train_017.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_concrete_bread_crust_train_017.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_concrete_bread_crust_train_027.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_concrete_bread_crust_train_027.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_div_food_concrete_spilled_sauce_train_020.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_concrete_spilled_sauce_train_020.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_div_food_concrete_bread_crust_val_000.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_div_food_concrete_bread_crust_val_000.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_div_food_concrete_bread_crust_test_008.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_concrete_bread_crust_test_008.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_concrete_bread_crust_train_035.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_concrete_bread_crust_train_035.jpg",
+      "near_duplicate_count": 10,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_concrete_fruit_scraps_train_023.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_concrete_fruit_scraps_train_023.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "synth_neg_clean_concrete_caution_cone_train_003.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_concrete_caution_cone_train_003.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_neg_clean_concrete_caution_cone_train_026.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_concrete_caution_cone_train_026.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_neg_clean_concrete_caution_cone_train_032.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_concrete_caution_cone_train_032.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_neg_clean_concrete_caution_cone_train_033.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_concrete_caution_cone_train_033.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_div_food_concrete_fruit_scraps_val_002.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_div_food_concrete_fruit_scraps_val_002.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_div_food_concrete_fruit_scraps_val_004.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_div_food_concrete_fruit_scraps_val_004.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_div_food_concrete_fruit_scraps_test_000.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_concrete_fruit_scraps_test_000.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_div_food_concrete_vegetable_waste_test_007.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_concrete_vegetable_waste_test_007.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_neg_clean_concrete_caution_cone_test_002.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_neg_clean_concrete_caution_cone_test_002.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_dark_marble_bread_crust_train_007.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_dark_marble_bread_crust_train_007.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_dark_marble_fruit_scraps_test_009.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_dark_marble_fruit_scraps_test_009.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_dark_marble_bread_crust_train_042.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_dark_marble_bread_crust_train_042.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_dark_marble_spilled_sauce_train_002.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_dark_marble_spilled_sauce_train_002.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_dark_marble_scattered_rice_train_009.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_dark_marble_scattered_rice_train_009.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_multi_food_dark_marble_train_012.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_dark_marble_train_012.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_white_tile_fruit_scraps_train_000.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_white_tile_fruit_scraps_train_000.jpg",
+      "near_duplicate_count": 4,
+      "similar_images": [
+        {
+          "filename": "synth_multi_food_white_tile_train_010.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_white_tile_train_010.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_cable_white_tile_val_010.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_cable_white_tile_val_010.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_multi_food_white_tile_val_012.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_multi_food_white_tile_val_012.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_neg_clean_white_tile_caution_cone_test_003.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_neg_clean_white_tile_caution_cone_test_003.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_white_tile_fruit_scraps_train_039.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_white_tile_fruit_scraps_train_039.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_multi_food_white_tile_train_031.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_white_tile_train_031.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "synth_div_food_white_tile_scattered_rice_train_005.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_white_tile_scattered_rice_train_005.jpg",
+      "near_duplicate_count": 5,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_white_tile_scattered_rice_train_044.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_white_tile_scattered_rice_train_044.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "synth_div_food_white_tile_spilled_sauce_train_029.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_div_food_white_tile_spilled_sauce_train_029.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        },
+        {
+          "filename": "synth_multi_food_white_tile_train_001.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_white_tile_train_001.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_multi_food_white_tile_train_024.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_white_tile_train_024.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        },
+        {
+          "filename": "synth_multi_food_white_tile_val_003.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_multi_food_white_tile_val_003.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_floor_hole_05.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_floor_hole_05.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_floor_hole_17.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_floor_hole_17.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "synth_multi_food_concrete_train_008.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_concrete_train_008.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_concrete_spilled_sauce_val_009.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_div_food_concrete_spilled_sauce_val_009.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_multi_food_dark_marble_train_015.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_multi_food_dark_marble_train_015.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_div_food_dark_marble_fruit_scraps_test_011.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_dark_marble_fruit_scraps_test_011.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "synth_neg_clean_dark_marble_clean_plate_train_018.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_dark_marble_clean_plate_train_018.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "synth_neg_clean_dark_marble_clean_plate_train_021.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_dark_marble_clean_plate_train_021.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "synth_div_food_wood_plank_scattered_rice_test_001.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_div_food_wood_plank_scattered_rice_test_001.jpg",
+          "hamming_distance": 3,
+          "similarity_percent": 95.3
+        }
+      ]
+    },
+    {
+      "base_image": "synth_neg_clean_dark_marble_tile_specular_train_004.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_dark_marble_tile_specular_train_004.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_neg_clean_dark_marble_tile_specular_train_047.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_dark_marble_tile_specular_train_047.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "synth_neg_clean_wood_plank_tile_specular_train_011.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_wood_plank_tile_specular_train_011.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "synth_neg_clean_wood_plank_tile_specular_train_019.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\synth_neg_clean_wood_plank_tile_specular_train_019.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "synth_neg_clean_concrete_tile_specular_test_006.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_neg_clean_concrete_tile_specular_test_006.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        }
+      ]
+    },
+    {
+      "base_image": "user_coca_bottle_crop_hflip_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_coca_bottle_crop_hflip_bright.jpg",
+      "near_duplicate_count": 2,
+      "similar_images": [
+        {
+          "filename": "coca_bottle_crop_hflip.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\coca_bottle_crop_hflip.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "coca_bottle_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\coca_bottle_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "user_vid_boxes_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_boxes_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "user_vid_kf1_boxes.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_kf1_boxes.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_boxes_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_boxes_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_boxes_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_boxes_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "user_vid_crack_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_crack_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "user_vid_kf3_crack.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\train\\user_vid_kf3_crack.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_crack_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_crack_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_crack_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_crack_orig.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    },
+    {
+      "base_image": "floor_hazard_wet_surface_patio_aug1_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\floor_hazard_wet_surface_patio_aug1_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "floor_hazard_wet_surface_patio_aug5_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\floor_hazard_wet_surface_patio_aug5_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_mud_dirt_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_mud_dirt_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_mud_dirt_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_mud_dirt_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "multi_trash_litter_panel_crop_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\multi_trash_litter_panel_crop_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "multi_trash_litter_panel_crop_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\multi_trash_litter_panel_crop_hflip_bright.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "synth_multi_food_white_tile_val_011.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\synth_multi_food_white_tile_val_011.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "synth_multi_food_white_tile_test_010.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\synth_multi_food_white_tile_test_010.jpg",
+          "hamming_distance": 4,
+          "similarity_percent": 93.8
+        }
+      ]
+    },
+    {
+      "base_image": "user_vid_kf0_cables.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\val\\user_vid_kf0_cables.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "user_vid_cables_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\user_vid_cables_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        },
+        {
+          "filename": "user_vid_cables_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_cables_dim.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        },
+        {
+          "filename": "user_vid_cables_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\user_vid_cables_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "aug_cables_sec02_bright.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\aug_cables_sec02_bright.jpg",
+      "near_duplicate_count": 3,
+      "similar_images": [
+        {
+          "filename": "aug_cables_sec02_contrast.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec02_contrast.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "aug_cables_sec02_dim.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec02_dim.jpg",
+          "hamming_distance": 2,
+          "similarity_percent": 96.9
+        },
+        {
+          "filename": "aug_cables_sec02_orig.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\raw_archive\\images\\aug_cables_sec02_orig.jpg",
+          "hamming_distance": 0,
+          "similarity_percent": 100.0
+        }
+      ]
+    },
+    {
+      "base_image": "clear_bottle_cap_angle_hflip.jpg",
+      "base_path": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_cap_angle_hflip.jpg",
+      "near_duplicate_count": 1,
+      "similar_images": [
+        {
+          "filename": "clear_bottle_cap_angle_hflip_bright.jpg",
+          "filepath": "C:\\Users\\donth_\\Downloads\\harry_client\\floor-guard-ai\\dataset\\images\\test\\clear_bottle_cap_angle_hflip_bright.jpg",
+          "hamming_distance": 1,
+          "similarity_percent": 98.4
+        }
+      ]
+    }
+  ]
+}

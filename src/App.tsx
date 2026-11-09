@@ -9,7 +9,7 @@ import { Header } from './components/Header';
 import { OverviewDashboard } from './components/OverviewDashboard';
 import { ImageDetectionWorkspace } from './components/ImageDetectionWorkspace';
 import { VideoAnalysisView } from './components/VideoAnalysisView';
-import { AiModelLabView } from './components/AiModelLabView';
+import { DatasetTrainingView } from './components/DatasetTrainingView';
 import { HazardHistoryView } from './components/HazardHistoryView';
 import { AnalyticsView } from './components/AnalyticsView';
 import { SettingsView } from './components/SettingsView';
@@ -20,6 +20,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('overview');
   const [selectedDateRange, setSelectedDateRange] = useState('May 20, 2026 – May 26, 2026');
   const [selectedDetection, setSelectedDetection] = useState<any | null>(null);
+  const [analyticsData, setAnalyticsData] = useState<AnalyticsSummary | null>(null);
   const [modelStatus, setModelStatus] = useState<any>(null);
 
   const fetchModelStatus = () => {
@@ -35,7 +36,19 @@ export default function App() {
       });
   };
 
+  // Load backend summary and model status
   useEffect(() => {
+    fetch('/api/analytics/summary')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'ok') {
+          setAnalyticsData(data);
+        }
+      })
+      .catch((err) => {
+        console.error('Failed to load analytics summary:', err);
+      });
+
     fetchModelStatus();
   }, []);
 
@@ -56,12 +69,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 flex font-sans antialiased selection:bg-orange-500 selection:text-white">
+    <div className="min-h-screen bg-[#090e17] text-slate-100 flex font-sans antialiased selection:bg-[#22c55e] selection:text-black">
       {/* Sidebar Navigation */}
       <Sidebar
         activeSection={activeSection}
         onSelectSection={(sec) => setActiveSection(sec)}
-        onOpenModelDetails={() => setActiveSection('ai_model_lab')}
+        onOpenModelDetails={() => setActiveSection('analytics')}
+        activeModel={modelStatus?.model}
       />
 
       {/* Main Content Area */}
@@ -69,9 +83,7 @@ export default function App() {
         {/* Header Bar */}
         <Header
           activeSection={activeSection}
-          onOpenModelDetails={() => setActiveSection('ai_model_lab')}
-          selectedDateRange={selectedDateRange}
-          onSelectDateRange={setSelectedDateRange}
+          onOpenModelDetails={() => setActiveSection('analytics')}
           activeModel={modelStatus?.model}
           allModels={modelStatus?.all_models || []}
           onSelectModel={handleSelectModel}
@@ -83,6 +95,7 @@ export default function App() {
             <OverviewDashboard
               onNavigate={(sec) => setActiveSection(sec)}
               onSelectDetection={(item) => setSelectedDetection(item)}
+              analyticsData={analyticsData}
               activeModel={modelStatus?.model}
               allModels={modelStatus?.all_models || []}
               onSelectModel={handleSelectModel}
@@ -97,27 +110,15 @@ export default function App() {
             />
           )}
 
-          {activeSection === 'video_analysis' && (
-            <VideoAnalysisView
-              onOpenDetail={(id) => setSelectedDetection({ id })}
-            />
-          )}
+          {activeSection === 'video_analysis' && <VideoAnalysisView />}
+
+          {activeSection === 'dataset_training' && <DatasetTrainingView />}
 
           {activeSection === 'hazard_history' && (
-            <HazardHistoryView
-              onSelectDetection={(item) => setSelectedDetection(item)}
-            />
+            <HazardHistoryView onSelectDetection={(item) => setSelectedDetection(item)} />
           )}
 
           {activeSection === 'analytics' && <AnalyticsView />}
-
-          {activeSection === 'ai_model_lab' && (
-            <AiModelLabView
-              models={modelStatus?.all_models || []}
-              activeModelId={modelStatus?.active_model_id}
-              onModelSelect={handleSelectModel}
-            />
-          )}
 
           {activeSection === 'settings' && (
             <SettingsView

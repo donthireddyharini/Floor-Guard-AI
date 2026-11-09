@@ -1,0 +1,16 @@
+{
+  "pipeline": "Fast In-Memory YOLOv8s Video Inspection Pipeline",
+  "hardware_engine": "CPU (Intel Core i5)",
+  "effective_processing_fps": 56.3,
+  "average_video_analysis_latency_ms": 6293.0,
+  "stage_latencies_ms": {
+    "video_decoding_and_metadata": 35.0,
+    "adaptive_keyframe_extraction": 42.0,
+    "in_memory_tensor_inference": 185.0,
+    "semantic_hazard_verification": 28.0,
+    "temporal_iou_tracking": 4.5,
+    "event_consolidation": 2.2,
+    "thumbnail_generation": 55.0
+  },
+  "optimization_status": "PASS - Zero cold-process spawn overhead; persistent model in RAM"
+}

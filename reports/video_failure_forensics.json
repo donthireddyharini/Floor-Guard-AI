@@ -1,0 +1,98 @@
+{
+  "forensics_metadata": {
+    "title": "Floor Guard AI \u2014 Video Detection Failure Forensics",
+    "timestamp": "2026-11-06T20:29:39Z",
+    "analyzed_video": "regression_recording_16.5s",
+    "duration_seconds": 16.5,
+    "fps": 30.0,
+    "resolution": "1916x912",
+    "total_frames": 495
+  },
+  "failure_analysis_table": [
+    {
+      "timestamp": "00:00 (0.0s)",
+      "frame_index": 0,
+      "actual_visible_scene": "Overturned jar on floor with liquid spill spread and shattered glass shards",
+      "expected_ground_truth": "Obstacle (container) + Liquid Spill / Broken Glass",
+      "previous_model_output": "Clean Floor",
+      "previous_confidence": "94%",
+      "failure_classification": "False Negative / Missed Critical Hazard",
+      "root_cause": "Border rejection filter (is_border=True) pruned box touching frame boundary; high min threshold (0.30) rejected partial liquid reflections; defaulted to Clean Floor."
+    },
+    {
+      "timestamp": "00:01 (1.0s)",
+      "frame_index": 30,
+      "actual_visible_scene": "Broken, cracked concrete slab and fractured floor tile crater",
+      "expected_ground_truth": "Floor Damage",
+      "previous_model_output": "Water Spill",
+      "previous_confidence": "88%",
+      "failure_classification": "Incorrect Hazard Classification / Semantic Confusion",
+      "root_cause": "Legacy 10-class taxonomy lacked floor_damage class; detector forced crack shadow contour into water_spill puddle class."
+    },
+    {
+      "timestamp": "00:02 (2.0s)",
+      "frame_index": 60,
+      "actual_visible_scene": "Curled commercial entrance mat corner and raised runner tripping lip",
+      "expected_ground_truth": "Floor Mat Hazard",
+      "previous_model_output": "Water Spill",
+      "previous_confidence": "79%",
+      "failure_classification": "Incorrect Hazard Classification / Semantic Confusion",
+      "root_cause": "Legacy taxonomy lacked floor_mat_hazard class; raised mat contour misattributed to liquid pooling perimeter."
+    },
+    {
+      "timestamp": "00:03 - 00:04 (3.5s)",
+      "frame_index": 105,
+      "actual_visible_scene": "Wet liquid sheen with yellow caution cone in background",
+      "expected_ground_truth": "Water Spill",
+      "previous_model_output": "Water Spill",
+      "previous_confidence": "82%",
+      "failure_classification": "True Positive (Pass)",
+      "root_cause": "Correctly identified liquid specular reflectance glints and wet floor geometry."
+    },
+    {
+      "timestamp": "00:05 (5.0s)",
+      "frame_index": 150,
+      "actual_visible_scene": "Completely dry normal polished floor with yellow cone outside spill area",
+      "expected_ground_truth": "Clean Floor (Safe baseline)",
+      "previous_model_output": "Broken Glass / Chemical Spill",
+      "previous_confidence": "91%",
+      "failure_classification": "False Alarm on Negative Baseline",
+      "root_cause": "Yellow caution cone reflection on dry tile triggered high-saturation rule in broken glass / chemical spill classifier."
+    },
+    {
+      "timestamp": "00:06 - 00:07 (6.5s)",
+      "frame_index": 195,
+      "actual_visible_scene": "Multiple black and grey electrical extension cables tangled across pedestrian aisle",
+      "expected_ground_truth": "Cable / Cord",
+      "previous_model_output": "Clean Floor",
+      "previous_confidence": "95%",
+      "failure_classification": "False Negative / Missed Tripping Hazard",
+      "root_cause": "Cable wire Hough line threshold was too strict (minLineLength=35px), thin cords below 40px bounding box dimension were pruned by noise filter."
+    },
+    {
+      "timestamp": "00:08 (8.0s)",
+      "frame_index": 240,
+      "actual_visible_scene": "Cardboard packing boxes and crate blocking central warehouse walkway",
+      "expected_ground_truth": "Obstacle / Debris",
+      "previous_model_output": "Clean Floor",
+      "previous_confidence": "94%",
+      "failure_classification": "False Negative / Missed Obstruction",
+      "root_cause": "Box touched outer frame margin; is_border check discarded candidate box before NMS."
+    },
+    {
+      "timestamp": "00:09 - 00:16 (12.0s)",
+      "frame_index": 360,
+      "actual_visible_scene": "Repeated walkthrough of previous zones with slight camera pan",
+      "expected_ground_truth": "Consolidated Persistent Events without redundant duplicates",
+      "previous_model_output": "Spammed new incidents on every single frame sample",
+      "previous_confidence": "Fluctuating",
+      "failure_classification": "Temporal Associative Tracking Failure",
+      "root_cause": "Fixed 8-segment sampling without spatio-temporal IoU continuity tracking created duplicate alerts for identical spatial hazards."
+    }
+  ],
+  "synchronization_forensics": {
+    "issue": "Keyframe thumbnail and video player timestamp discrepancy",
+    "mechanism": "Keyframe extraction sampled frame at mid_sec of time segment, but recorded seekTime at start_sec. User clicking keyframe sought to start_sec (showing different visual content) instead of mid_sec frame.",
+    "resolution": "Explicitly enforce keyframe.seekTime == (keyframe.frame / fps) with synchronized timestamp labeling."
+  }
+}

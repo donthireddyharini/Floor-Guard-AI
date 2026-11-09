@@ -1,0 +1,101 @@
+{
+  "evaluation_name": "Floor Mat Hazard Generalization & False Alarm Audit",
+  "timestamp": "2026-11-06T20:11:05Z",
+  "target_class": "floor_mat_hazard",
+  "hazard_scenarios_tested": [
+    "curled_mat_corner",
+    "folded_entrance_mat",
+    "raised_carpet_edge",
+    "displaced_rubber_mat"
+  ],
+  "hard_negatives_tested": [
+    "completely_flat_commercial_entrance_mat",
+    "flat_office_carpet_tile",
+    "smooth_vinyl_runner"
+  ],
+  "positive_tests": [
+    {
+      "file": "synth_mat_concrete_curled_corner_test_012.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.9212,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_dark_marble_curled_corner_test_006.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.929,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_dark_marble_curled_corner_test_010.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.7749,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_white_tile_curled_corner_test_000.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.8875,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_white_tile_curled_corner_test_008.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.9745,
+      "passed": true
+    },
+    {
+      "file": "user_vid_curled_mat_bright.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.2379,
+      "passed": true
+    },
+    {
+      "file": "user_vid_curled_mat_flip.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Floor Mat Hazard",
+      "confidence": 0.2693,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_wood_plank_raised_edge_test_014.jpg",
+      "ground_truth": "floor_mat_hazard",
+      "detected_class": "Clean Floor",
+      "confidence": 0.942,
+      "passed": false
+    }
+  ],
+  "negative_tests": [
+    {
+      "file": "synth_mat_concrete_normal_flat_mat_test_004.jpg",
+      "ground_truth": "clean_floor (flat mat)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    },
+    {
+      "file": "synth_mat_dark_marble_normal_flat_mat_test_002.jpg",
+      "ground_truth": "clean_floor (flat mat)",
+      "detected_class": "Clean Floor",
+      "total_detections": 0,
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "true_positives": 7,
+    "false_negatives": 1,
+    "true_negatives": 2,
+    "false_positives": 0,
+    "sensitivity_recall": 0.875,
+    "specificity": 1.0,
+    "precision": 1.0,
+    "false_alarm_rate": 0.0,
+    "compliance_status": "PASSED \u2014 Flat mats rejected as clean; curled corners correctly flagged."
+  }
+}

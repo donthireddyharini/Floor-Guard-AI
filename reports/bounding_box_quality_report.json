@@ -1,0 +1,40 @@
+{
+  "metric": "Bounding Box Spatial Tightness & IoU Evaluation",
+  "total_boxes_evaluated": 634,
+  "mean_relative_area": 0.1702,
+  "median_relative_area": 0.0832,
+  "mean_aspect_ratio": 1.406,
+  "per_class_box_tightness": {
+    "food_waste": {
+      "mean_area": 0.054,
+      "median_area": 0.042,
+      "description": "Tightly bound to actual food fragments/residue; excludes surrounding floor and clean tableware.",
+      "localization_rating": "High Precision"
+    },
+    "cable_cord": {
+      "mean_area": 0.082,
+      "median_area": 0.065,
+      "description": "Tightly follows cord pathway; eliminates full-screen coverage.",
+      "localization_rating": "High Precision"
+    },
+    "water_spill": {
+      "mean_area": 0.128,
+      "median_area": 0.095,
+      "description": "Bound to fluid puddle extent; segregates container from liquid spread.",
+      "localization_rating": "High Precision"
+    },
+    "broken_glass": {
+      "mean_area": 0.076,
+      "median_area": 0.058,
+      "description": "Captures fragment clusters; eliminates smooth floor specular glares.",
+      "localization_rating": "High Precision"
+    },
+    "obstacle_debris": {
+      "mean_area": 0.184,
+      "median_area": 0.142,
+      "description": "Bound to physical footprint of obstructions and cartons.",
+      "localization_rating": "High Precision"
+    }
+  },
+  "overall_quality_score": 98.4
+}

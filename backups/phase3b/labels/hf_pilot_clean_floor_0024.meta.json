@@ -1,9 +1,0 @@
-{
-  "image_file": "hf_pilot_clean_floor_0024.jpg",
-  "label_file": "hf_pilot_clean_floor_0024.txt",
-  "annotator": "auditor",
-  "verified_human_review": true,
-  "is_negative_sample": true,
-  "notes": "Verified dry clean floor surface without localized hazard bounding boxes.",
-  "updated_at": "2026-10-24T09:36:18.073867+00:00"
-}

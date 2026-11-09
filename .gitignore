@@ -1,41 +1,29 @@
-# Dependencies
 node_modules/
-.pnp
-.pnp.js
-
-# Production Builds
 build/
 dist/
 coverage/
-
-# Environment Variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-!.env.example
-
-# Logs & OS artifacts
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .DS_Store
-Thumbs.db
-
-# Python bytecode & caches
+*.log
+.env*
+!.env.example
+uploads/
+*.mp4
+runs/
+models/finetune_runs/
+models/universal_runs/
+models/backup_original/
+yolov8s.pt
+backups/
+.vercel/
+dataset_before_final_purification/
+dataset_clean/
+dataset_pre_purge/
+dataset_pristine/
+dataset_raw_pre_correction/
+dataset_review/
+corrected_dataset/
+training_results/
+scratch/
+scratch_crop.jpg
 __pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.mypy_cache/
-
-# IDE & Editor folders
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Temporary directories
-temp_remote_repo/
+*.pyc

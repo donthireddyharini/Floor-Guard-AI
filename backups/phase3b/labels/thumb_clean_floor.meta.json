@@ -1,9 +1,0 @@
-{
-  "image_file": "thumb_clean_floor.jpg",
-  "label_file": "thumb_clean_floor.txt",
-  "annotator": "auditor_review",
-  "verified_human_review": true,
-  "is_negative_sample": true,
-  "notes": "Verified dry clean floor surface without localized hazard bounding boxes.",
-  "updated_at": "2026-10-24T08:24:36.304610+00:00"
-}
