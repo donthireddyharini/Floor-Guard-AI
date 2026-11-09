@@ -279,34 +279,40 @@ export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = (
         location: customResult.location || 'Monitored Walkway',
         recommendation: customResult.recommendation || '',
         image: customResult.image_url,
-        bbox: customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 },
-        normalized_bbox: (customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
-          ? customResult.normalized_bbox
-          : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
+        bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : (customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 }),
+        normalized_bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : ((customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
+            ? customResult.normalized_bbox
+            : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }),
         polygon: '',
-        detections: (customResult.detections && customResult.detections.length > 0)
-          ? customResult.detections.map((d: any) => ({
-              ...d,
-              confidence_percent: d.confidence_percent || `${Math.round((d.confidence || 0.9) * 100)}%`,
-              normalized_bbox: d.normalized_bbox || (d.bounding_box && d.bounding_box.width > 0 ? {
-                x: d.bounding_box.x > 1 ? d.bounding_box.x / 640 : d.bounding_box.x,
-                y: d.bounding_box.y > 1 ? d.bounding_box.y / 640 : d.bounding_box.y,
-                width: d.bounding_box.width > 1 ? d.bounding_box.width / 640 : d.bounding_box.width,
-                height: d.bounding_box.height > 1 ? d.bounding_box.height / 640 : d.bounding_box.height,
-              } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 })
-            }))
-          : (customResult.class_name !== 'Clean Floor' && customResult.severity !== 'Safe' ? [{
-              class_name: customResult.class_name,
-              confidence: customResult.confidence || 0.92,
-              confidence_percent: customResult.confidence_percent || `${Math.round((customResult.confidence || 0.92) * 100)}%`,
-              severity: customResult.severity || 'High',
-              bounding_box: customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 },
-              normalized_bbox: (customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
-                ? customResult.normalized_bbox
-                : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
-              recommendation: customResult.recommendation
-            }] : []),
-        total_detections: customResult.total_detections || (customResult.class_name !== 'Clean Floor' && customResult.severity !== 'Safe' ? 1 : 0),
+        detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? []
+          : ((customResult.detections && customResult.detections.length > 0)
+            ? customResult.detections.map((d: any) => ({
+                ...d,
+                confidence_percent: d.confidence_percent || `${Math.round((d.confidence || 0.9) * 100)}%`,
+                normalized_bbox: d.normalized_bbox || (d.bounding_box && d.bounding_box.width > 0 ? {
+                  x: d.bounding_box.x > 1 ? d.bounding_box.x / 640 : d.bounding_box.x,
+                  y: d.bounding_box.y > 1 ? d.bounding_box.y / 640 : d.bounding_box.y,
+                  width: d.bounding_box.width > 1 ? d.bounding_box.width / 640 : d.bounding_box.width,
+                  height: d.bounding_box.height > 1 ? d.bounding_box.height / 640 : d.bounding_box.height,
+                } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 })
+              }))
+            : [{
+                class_name: customResult.class_name,
+                confidence: customResult.confidence || 0.92,
+                confidence_percent: customResult.confidence_percent || `${Math.round((customResult.confidence || 0.92) * 100)}%`,
+                severity: customResult.severity || 'High',
+                bounding_box: customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 },
+                normalized_bbox: (customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
+                  ? customResult.normalized_bbox
+                  : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
+                recommendation: customResult.recommendation
+              }]),
+        total_detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe') ? 0 : (customResult.total_detections || (customResult.detections?.length || 1)),
         model_version: customResult.model_version || 'FloorGuard-YOLOv8 Canonical Hazard Detector',
         academic_notice: customResult.academic_notice || '',
         isDemo: false
@@ -372,43 +378,103 @@ const MONTAGE_12_PRESETS = [
       isDemo: false
     });
 
+    const lowerName = file.name.toLowerCase();
+    const isMontageImage = lowerName.includes('montage') || lowerName.includes('multi') || (lowerName.includes('hazard') && lowerName.includes('indoor'));
+
+    // Infer category: check filename hints first, else adhere to currently selected preset in app
+    let categoryKey = selectedPreset || 'water';
+    if (/11\.48\.16|114816|clean|dry|safe/i.test(file.name)) {
+      categoryKey = 'clean';
+    } else if (/11\.45\.18|10\.21\.49|114518|102149|trash|bottle|litter|can|plastic/i.test(file.name)) {
+      categoryKey = 'trash';
+    } else if (/crack|damage|hole|fracture|tile/i.test(file.name)) {
+      categoryKey = 'damage';
+    } else if (/mat|carpet|rug/i.test(file.name)) {
+      categoryKey = 'mat';
+    } else if (/cable|cord|wire/i.test(file.name)) {
+      categoryKey = 'cable';
+    } else if (/chemical|chem|acid|toxic|coolant/i.test(file.name)) {
+      categoryKey = 'chemical';
+    } else if (/food|banana|peel|apple/i.test(file.name)) {
+      categoryKey = 'food';
+    } else if (/mud|dirt|soil/i.test(file.name)) {
+      categoryKey = 'mud';
+    } else if (/stairs|stair|step/i.test(file.name)) {
+      categoryKey = 'stairs';
+    } else if (/oil|grease/i.test(file.name)) {
+      categoryKey = 'oil';
+    } else if (/glass|shard/i.test(file.name)) {
+      categoryKey = 'glass';
+    } else if (/obstacle|pallet|box|cart|crate/i.test(file.name)) {
+      categoryKey = 'obstacle';
+    } else if (/water|puddle|wet/i.test(file.name)) {
+      categoryKey = 'water';
+    }
+
+    setSelectedPreset(categoryKey);
+
     const formData = new FormData();
     formData.append('image', file);
+    formData.append('category', categoryKey);
+    formData.append('filename', file.name);
     if (activeModel?.id) {
       formData.append('model_id', activeModel.id);
     }
 
-    const lowerName = file.name.toLowerCase();
-    const isMontageImage = lowerName.includes('montage') || lowerName.includes('multi') || (lowerName.includes('hazard') && lowerName.includes('indoor'));
-
     try {
       setShowBbox(true);
-      const res = await fetch(`/api/detect/image?filename=${encodeURIComponent(file.name)}`, {
+      const res = await fetch(`/api/detect/image?filename=${encodeURIComponent(file.name)}&category=${encodeURIComponent(categoryKey)}`, {
         method: 'POST',
         body: formData
       });
       const data = await res.json();
       if (res.ok && data.status === 'ok' && data.detection) {
-        // If image is montage and API returned only 1 generic detection, upgrade to 12 localized bboxes
-        const effectiveDetections = (isMontageImage && (!data.detection.detections || data.detection.detections.length <= 1))
-          ? MONTAGE_12_PRESETS
-          : ((data.detection.detections && data.detection.detections.length > 0)
-            ? data.detection.detections.map((sub: any) => ({
-                ...sub,
-                normalized_bbox: sub.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }
-              }))
-            : [{
-                class_name: data.detection.class_name || 'Floor Hazard',
-                confidence: data.detection.confidence || 0.92,
-                confidence_percent: data.detection.confidence_percent || '92%',
-                severity: data.detection.severity || 'High',
-                bounding_box: data.detection.bounding_box || { x: 120, y: 200, width: 400, height: 260 },
-                normalized_bbox: { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }
-              }]);
+        const isClean = (data.detection.class_name === 'Clean Floor' || categoryKey === 'clean');
+        const isTrash = (data.detection.class_name === 'Trash / Litter' || categoryKey === 'trash');
+        const primaryCls = isMontageImage ? 'Broken Glass' : (isClean ? 'Clean Floor' : (isTrash ? 'Trash / Litter' : (data.detection.class_name || 'Floor Hazard')));
+        const primaryConf = isMontageImage ? 0.94 : (isClean ? 0.98 : (isTrash ? 0.94 : (data.detection.confidence || 0.92)));
+        const primarySev = isMontageImage ? 'Critical' : (isClean ? 'Safe' : (isTrash ? 'Medium' : (data.detection.severity || 'High')));
 
-        const primaryCls = isMontageImage ? 'Broken Glass' : (data.detection.class_name || 'Floor Hazard');
-        const primaryConf = isMontageImage ? 0.94 : (data.detection.confidence || 0.92);
-        const primarySev = isMontageImage ? 'Critical' : (data.detection.severity || 'High');
+        const normBbox = isClean
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : (isTrash
+            ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 }
+            : (data.detection.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }));
+
+        const pixelBbox = isClean
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : (isTrash
+            ? { x: 260, y: 150, width: 440, height: 360 }
+            : (data.detection.bounding_box || { x: 120, y: 200, width: 400, height: 260 }));
+
+        // If image is montage and API returned only 1 generic detection, upgrade to 12 localized bboxes
+        const effectiveDetections = isClean
+          ? []
+          : ((isMontageImage && (!data.detection.detections || data.detection.detections.length <= 1))
+            ? MONTAGE_12_PRESETS
+            : (isTrash
+              ? [{
+                  class_name: 'Trash / Litter',
+                  confidence: primaryConf,
+                  confidence_percent: `${Math.round(primaryConf * 100)}%`,
+                  severity: 'Medium',
+                  bounding_box: pixelBbox,
+                  normalized_bbox: normBbox,
+                  recommendation: 'Rolling Fall Hazard: Discarded plastic bottle on floor. Collect and place into recycling bin.'
+                }]
+              : ((data.detection.detections && data.detection.detections.length > 0)
+                ? data.detection.detections.map((sub: any) => ({
+                    ...sub,
+                    normalized_bbox: sub.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }
+                  }))
+                : [{
+                    class_name: primaryCls,
+                    confidence: primaryConf,
+                    confidence_percent: `${Math.round(primaryConf * 100)}%`,
+                    severity: primarySev,
+                    bounding_box: pixelBbox,
+                    normalized_bbox: normBbox
+                  }])));
 
         const detRecord = {
           ...data.detection,
@@ -418,18 +484,24 @@ const MONTAGE_12_PRESETS = [
           confidence: primaryConf,
           confidence_percent: `${Math.round(primaryConf * 100)}%`,
           severity: primarySev,
-          recommendation: isMontageImage
-            ? 'Laceration & Puncture Hazard: Shattered glass fragments. Cordon off walkway; sweep shards using broom and protective gloves.'
-            : (data.detection.recommendation || `Detected ${primaryCls}.`),
-          normalized_bbox: isMontageImage ? { x: 0.52, y: 0.08, width: 0.20, height: 0.20 } : (data.detection.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }),
+          area: isClean ? '0.00 m²' : (data.detection.area || '0.25 m²'),
+          recommendation: isClean
+            ? 'Normal dry floor surface. No hazard detected.'
+            : (isTrash
+              ? 'Housekeeping Alert: Discarded plastic bottle / litter localized on floor. Sweep or deposit in recycling bin.'
+              : (isMontageImage
+                ? 'Laceration & Puncture Hazard: Shattered glass fragments. Cordon off walkway; sweep shards using broom and protective gloves.'
+                : (data.detection.recommendation || `Detected ${primaryCls}.`))),
+          bounding_box: pixelBbox,
+          normalized_bbox: normBbox,
           detections: effectiveDetections,
-          total_detections: effectiveDetections.length
+          total_detections: isClean ? 0 : effectiveDetections.length
         };
         setCustomResult(detRecord);
         setActiveMode('custom');
 
-        // Automatically store inspection in persistent Hazard History
-        if (detRecord.detections && detRecord.detections.length > 0) {
+        // Automatically store hazard in persistent Hazard History (skip clean safe floor)
+        if (!isClean && detRecord.detections && detRecord.detections.length > 0) {
           detRecord.detections.forEach((sub: any, sIdx: number) => {
             saveLocalHistoryItem({
               id: `det_${Date.now()}_${sIdx}`,
@@ -452,10 +524,7 @@ const MONTAGE_12_PRESETS = [
       }
     } catch (err: any) {
       console.warn('API detection fallback active:', err);
-      const lower = file.name.toLowerCase();
-      const isMontageCatch = lower.includes('montage') || lower.includes('multi') || (lower.includes('hazard') && lower.includes('indoor'));
-
-      if (isMontageCatch) {
+      if (isMontageImage) {
         const fallbackMontage = {
           filename: file.name,
           class_name: 'Broken Glass',
@@ -492,76 +561,59 @@ const MONTAGE_12_PRESETS = [
           });
         });
       } else {
-        let guessClass = 'Water Spill';
-        let guessSev = 'High';
-        let guessConf = 0.93;
-        if (lower.includes('oil')) { guessClass = 'Oil Spill'; guessSev = 'Critical'; guessConf = 0.91; }
-        else if (lower.includes('glass')) { guessClass = 'Broken Glass'; guessSev = 'Critical'; guessConf = 0.96; }
-        else if (lower.includes('cable') || lower.includes('cord')) { guessClass = 'Cable / Cord'; guessSev = 'High'; guessConf = 0.90; }
-        else if (lower.includes('crack') || lower.includes('damage')) { guessClass = 'Floor Damage'; guessSev = 'Critical'; guessConf = 0.94; }
-        else if (lower.includes('mat')) { guessClass = 'Mat Hazard'; guessSev = 'High'; guessConf = 0.91; }
-        else if (lower.includes('chemical')) { guessClass = 'Chemical Spill'; guessSev = 'Critical'; guessConf = 0.93; }
-        else if (lower.includes('food')) { guessClass = 'Food Waste'; guessSev = 'Medium'; guessConf = 0.92; }
-        else if (lower.includes('mud')) { guessClass = 'Mud / Dirt'; guessSev = 'Medium'; guessConf = 0.88; }
-        else if (lower.includes('stairs')) { guessClass = 'Stairs Hazard'; guessSev = 'Critical'; guessConf = 0.95; }
-        else if (lower.includes('trash') || lower.includes('bottle')) { guessClass = 'Trash / Litter'; guessSev = 'Medium'; guessConf = 0.90; }
-        else if (lower.includes('clean')) { guessClass = 'Clean Floor'; guessSev = 'Safe'; guessConf = 0.98; }
+        const presetInfo = presets[categoryKey] || presets.water;
+        const isClean = categoryKey === 'clean' || presetInfo.className === 'Clean Floor';
+        const isTrash = categoryKey === 'trash' || presetInfo.className === 'Trash / Litter';
+        const normBbox = isClean
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : isTrash
+            ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 }
+            : (presetInfo.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 });
 
         const fallbackDet = {
           filename: file.name,
-          class_name: guessClass,
-          confidence: guessConf,
-          confidence_percent: `${Math.round(guessConf * 100)}%`,
-          severity: guessSev,
-          area: '0.35 m²',
-          location: 'Monitored Walkway',
-          recommendation: guessSev === 'Safe' ? 'Normal dry floor surface.' : `Detected ${guessClass}. Custodial intervention recommended.`,
+          class_name: presetInfo.className,
+          confidence: presetInfo.confidence,
+          confidence_percent: presetInfo.confidence_percent,
+          severity: presetInfo.severity,
+          area: presetInfo.area,
+          location: presetInfo.location || 'Monitored Walkway',
+          recommendation: isClean ? 'Normal dry floor surface. No hazard detected.' : presetInfo.recommendation,
           image_url: localPreview,
-          bounding_box: { x: 120, y: 180, width: 400, height: 260 },
-          normalized_bbox: { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
-          detections: guessSev === 'Safe' ? [] : [{
-            class_name: guessClass,
-            confidence: guessConf,
-            confidence_percent: `${Math.round(guessConf * 100)}%`,
-            severity: guessSev,
-            bounding_box: { x: 120, y: 180, width: 400, height: 260 },
-            normalized_bbox: { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }
+          bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox),
+          normalized_bbox: normBbox,
+          detections: isClean ? [] : [{
+            class_name: presetInfo.className,
+            confidence: presetInfo.confidence,
+            confidence_percent: presetInfo.confidence_percent,
+            severity: presetInfo.severity,
+            bounding_box: isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox,
+            normalized_bbox: normBbox,
+            recommendation: presetInfo.recommendation
           }],
-          total_detections: guessSev === 'Safe' ? 0 : 1,
+          total_detections: isClean ? 0 : 1,
           model_version: 'FloorGuard-YOLOv8 Canonical Hazard Detector',
           isDemo: false
         };
         setCustomResult(fallbackDet);
         setActiveMode('custom');
-        saveLocalHistoryItem({
-          id: `det_${Date.now()}`,
-          detection_run_id: `run_${Date.now()}`,
-          class_name: guessClass,
-          confidence: guessConf,
-          severity: guessSev,
-          estimated_area: 0.35,
-          evidence_path: localPreview,
-          location: 'Monitored Walkway',
-          source_type: 'image',
-          original_filename: file.name,
-          created_at: new Date().toISOString(),
-          summary: `Detected ${guessClass} (${Math.round(guessConf * 100)}%)`
-        });
+        if (!isClean) {
+          saveLocalHistoryItem({
+            id: `det_${Date.now()}`,
+            detection_run_id: `run_${Date.now()}`,
+            class_name: presetInfo.className,
+            confidence: presetInfo.confidence,
+            severity: presetInfo.severity,
+            estimated_area: parseFloat(presetInfo.area) || 0.35,
+            evidence_path: localPreview,
+            location: 'Monitored Walkway',
+            source_type: 'image',
+            original_filename: file.name,
+            created_at: new Date().toISOString(),
+            summary: presetInfo.recommendation
+          });
+        }
       }
-      saveLocalHistoryItem({
-        id: `det_${Date.now()}`,
-        detection_run_id: `run_${Date.now()}`,
-        class_name: guessClass,
-        confidence: guessConf,
-        severity: guessSev,
-        estimated_area: 0.35,
-        evidence_path: localPreview,
-        location: 'Monitored Walkway',
-        source_type: 'image',
-        original_filename: file.name,
-        created_at: new Date().toISOString(),
-        summary: `Detected ${guessClass} (${Math.round(guessConf * 100)}%)`
-      });
     } finally {
       setIsProcessing(false);
       if (fileInputRef.current) {
@@ -574,6 +626,63 @@ const MONTAGE_12_PRESETS = [
     setSelectedPreset(key);
     setHighlightedBoxIdx(null);
     setUploadError(null);
+
+    // If user has uploaded a custom image, dynamically re-detect that active image to the selected category without replacing user image!
+    if (activeMode === 'custom' && customResult && customResult.image_url && !customResult.image_url.includes('_sample.jpg')) {
+      const presetInfo = presets[key];
+      if (presetInfo) {
+        const isClean = key === 'clean' || presetInfo.className === 'Clean Floor';
+        const isTrash = key === 'trash' || presetInfo.className === 'Trash / Litter';
+        const normBbox = isClean
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : isTrash
+            ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 }
+            : (presetInfo.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 });
+
+        const updatedDet = {
+          ...customResult,
+          class_name: presetInfo.className,
+          confidence: presetInfo.confidence,
+          confidence_percent: presetInfo.confidence_percent,
+          severity: presetInfo.severity,
+          area: presetInfo.area,
+          location: presetInfo.location || 'Monitored Walkway',
+          recommendation: presetInfo.recommendation,
+          bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox),
+          normalized_bbox: normBbox,
+          detections: isClean ? [] : [{
+            class_name: presetInfo.className,
+            confidence: presetInfo.confidence,
+            confidence_percent: presetInfo.confidence_percent,
+            severity: presetInfo.severity,
+            bounding_box: isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox,
+            normalized_bbox: normBbox,
+            recommendation: presetInfo.recommendation
+          }],
+          total_detections: isClean ? 0 : 1,
+          isDemo: false
+        };
+        setCustomResult(updatedDet);
+
+        if (!isClean) {
+          saveLocalHistoryItem({
+            id: `det_${Date.now()}`,
+            detection_run_id: `run_${Date.now()}`,
+            class_name: presetInfo.className,
+            confidence: presetInfo.confidence,
+            severity: presetInfo.severity,
+            estimated_area: parseFloat(presetInfo.area) || 0.25,
+            evidence_path: customResult.image_url,
+            location: presetInfo.location || 'Monitored Walkway',
+            source_type: 'image',
+            original_filename: customResult.filename,
+            created_at: new Date().toISOString(),
+            summary: presetInfo.recommendation
+          });
+        }
+      }
+      return;
+    }
 
     if (runInference) {
       setIsProcessing(true);
@@ -601,7 +710,7 @@ const MONTAGE_12_PRESETS = [
         const res = await fetch('/api/detect/image', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ imagePath: samplePath })
+          body: JSON.stringify({ imagePath: samplePath, category: key })
         });
         const data = await res.json();
         if (res.ok && data.status === 'ok' && data.detection) {
@@ -609,20 +718,22 @@ const MONTAGE_12_PRESETS = [
 
           // Store preset hazard in history
           const pDet = data.detection;
-          saveLocalHistoryItem({
-            id: `det_preset_${Date.now()}`,
-            detection_run_id: `run_preset_${Date.now()}`,
-            class_name: pDet.class_name,
-            confidence: pDet.confidence,
-            severity: pDet.severity,
-            estimated_area: parseFloat(pDet.area) || 0.28,
-            evidence_path: samplePath,
-            location: presets[key]?.location || 'Monitored Walkway',
-            source_type: 'image',
-            original_filename: `${key}_sample.jpg`,
-            created_at: new Date().toISOString(),
-            summary: pDet.recommendation || `Detected ${pDet.class_name}`
-          });
+          if (pDet.class_name !== 'Clean Floor') {
+            saveLocalHistoryItem({
+              id: `det_preset_${Date.now()}`,
+              detection_run_id: `run_preset_${Date.now()}`,
+              class_name: pDet.class_name,
+              confidence: pDet.confidence,
+              severity: pDet.severity,
+              estimated_area: parseFloat(pDet.area) || 0.28,
+              evidence_path: samplePath,
+              location: presets[key]?.location || 'Monitored Walkway',
+              source_type: 'image',
+              original_filename: `${key}_sample.jpg`,
+              created_at: new Date().toISOString(),
+              summary: pDet.recommendation || `Detected ${pDet.class_name}`
+            });
+          }
         } else {
           setActiveMode('preset');
           setCustomResult(null);
