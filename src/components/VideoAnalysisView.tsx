@@ -115,6 +115,54 @@ const DEFAULT_KEYFRAMES: KeyframeItem[] = [
   }
 ];
 
+const normalizeKeyframe = (kf: any, idx: number): KeyframeItem => {
+  const rawClass = kf.detectedClass || kf.detected_class || kf.class_name;
+  const isSafe = kf.severity === 'Safe' || rawClass === 'Clean Floor';
+  const detectedClass = rawClass || (isSafe ? 'Clean Floor' : 'Floor Hazard');
+  const severity: 'Safe' | 'Medium' | 'High' | 'Critical' = kf.severity || (isSafe ? 'Safe' : 'High');
+  const confidence = typeof kf.confidence === 'number' ? kf.confidence : 0.92;
+  const seekTime = typeof kf.seekTime === 'number' ? kf.seekTime : (typeof kf.frame === 'number' ? kf.frame / 30 : idx * 3);
+  const timestamp = kf.timestamp || `00:${String(Math.floor(seekTime)).padStart(2, '0')}`;
+  const area = kf.area || (isSafe ? '0.00 m²' : '0.35 m²');
+  const note = kf.note || kf.summary || (isSafe ? 'Normal unobstructed floor zone.' : `Active hazard localized: ${detectedClass}`);
+  const thumb = kf.thumb || kf.annotated_image_url || '/assets/samples/thumb_water_spill.jpg';
+
+  let bbox: { x: number; y: number; width: number; height: number } | null = null;
+  const rawBbox = kf.bbox || (kf.detections && kf.detections[0]?.bounding_box);
+  if (rawBbox && !isSafe) {
+    const isPixel = rawBbox.x > 1 || rawBbox.y > 1 || rawBbox.width > 1;
+    if (isPixel) {
+      const baseW = rawBbox.x > 640 || rawBbox.width > 640 ? 1280 : 640;
+      const baseH = rawBbox.y > 360 || rawBbox.height > 360 ? 720 : 360;
+      bbox = {
+        x: Math.max(5, Math.min(85, (rawBbox.x / baseW) * 100)),
+        y: Math.max(5, Math.min(85, (rawBbox.y / baseH) * 100)),
+        width: Math.max(10, Math.min(90, (rawBbox.width / baseW) * 100)),
+        height: Math.max(10, Math.min(90, (rawBbox.height / baseH) * 100))
+      };
+    } else {
+      bbox = rawBbox;
+    }
+  }
+
+  return {
+    id: kf.id ?? idx,
+    timestamp,
+    timeRange: kf.timeRange || timestamp,
+    startTime: kf.startTime ?? seekTime,
+    endTime: kf.endTime ?? (seekTime + 3),
+    seekTime,
+    frame: kf.frame ?? Math.round(seekTime * 30),
+    detectedClass,
+    confidence,
+    severity,
+    area,
+    thumb,
+    note,
+    bbox
+  };
+};
+
 export const VideoAnalysisView: React.FC = () => {
   const [videoSrc, setVideoSrc] = useState<string>(DEFAULT_SAMPLE_VIDEO);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
@@ -331,7 +379,7 @@ export const VideoAnalysisView: React.FC = () => {
       setAnalysisStatus('Sampling keyframes and executing FloorGuard YOLOv8 detection...');
       setProgress(60);
 
-      const res = await fetch('/api/detect/video', {
+      const res = await fetch(`/api/detect/video?filename=${encodeURIComponent(file.name)}`, {
         method: 'POST',
         body: formData
       });
@@ -354,29 +402,30 @@ export const VideoAnalysisView: React.FC = () => {
         });
 
         if (va.keyframes && va.keyframes.length > 0) {
-          setKeyframes(va.keyframes);
+          const normKeyframes = va.keyframes.map((kf: any, idx: number) => normalizeKeyframe(kf, idx));
+          setKeyframes(normKeyframes);
           setSelectedKeyframe(0);
           setHasAnalyzed(true);
           setShowOverlay(true);
 
           // Record each detected hazard keyframe to persistent Hazard History
-          va.keyframes.forEach((kf: any, kIdx: number) => {
+          normKeyframes.forEach((kf: KeyframeItem, kIdx: number) => {
             if (kf.severity && kf.severity !== 'Safe') {
               try {
                 if (typeof saveLocalHistoryItem === 'function') {
                   saveLocalHistoryItem({
                     id: `det_vid_${Date.now()}_${kIdx}`,
                     detection_run_id: data.run_id || `run_vid_${Date.now()}`,
-                    class_name: kf.detected_class || kf.class_name || 'Hazard',
+                    class_name: kf.detectedClass || 'Hazard',
                     confidence: kf.confidence || 0.9,
                     severity: kf.severity || 'Medium',
-                    estimated_area: 0.25,
-                    evidence_path: kf.annotated_image_url || kf.thumb || '/assets/samples/thumb_water_spill.jpg',
+                    estimated_area: parseFloat(kf.area) || 0.25,
+                    evidence_path: kf.thumb || '/assets/samples/thumb_water_spill.jpg',
                     location: `Video @ ${kf.timestamp || '00:00'} (${file.name})`,
                     source_type: 'video',
                     original_filename: file.name,
                     created_at: new Date().toISOString(),
-                    summary: `Video hazard: ${kf.detected_class || kf.class_name} detected at frame ${kf.frame || kIdx}`
+                    summary: `Video hazard: ${kf.detectedClass} detected at ${kf.timestamp}`
                   });
                 }
               } catch (histErr) {
@@ -414,7 +463,7 @@ export const VideoAnalysisView: React.FC = () => {
           area: '0.42 m²',
           thumb: '/assets/samples/thumb_broken_glass.jpg',
           note: 'Puncture & Laceration Hazard: Shattered glass jar with food liquid spill localized on floor.',
-          bbox: { x: 260, y: 320, width: 340, height: 240 }
+          bbox: { x: 28, y: 38, width: 44, height: 36 }
         },
         {
           id: 1,
@@ -427,7 +476,7 @@ export const VideoAnalysisView: React.FC = () => {
           area: '0.35 m²',
           thumb: '/assets/samples/gallery/food_waste.jpg',
           note: 'Slip Hazard: Viscous sauce puddle spreading across aisle surface.',
-          bbox: { x: 300, y: 360, width: 300, height: 210 }
+          bbox: { x: 30, y: 42, width: 40, height: 32 }
         },
         {
           id: 2,
@@ -442,7 +491,7 @@ export const VideoAnalysisView: React.FC = () => {
           note: 'Clear walkway segment behind the shopping cart.',
           bbox: null
         }
-      ];
+      ].map((kf, idx) => normalizeKeyframe(kf, idx));
 
       setKeyframes(generatedKeyframes);
       setSelectedKeyframe(0);
@@ -528,27 +577,28 @@ export const VideoAnalysisView: React.FC = () => {
         });
 
         if (va.keyframes && va.keyframes.length > 0) {
-          setKeyframes(va.keyframes);
+          const normKeyframes = va.keyframes.map((kf: any, idx: number) => normalizeKeyframe(kf, idx));
+          setKeyframes(normKeyframes);
           setSelectedKeyframe(0);
 
           // Record tour keyframes to persistent Hazard History
-          va.keyframes.forEach((kf: any, kIdx: number) => {
+          normKeyframes.forEach((kf: KeyframeItem, kIdx: number) => {
             if (kf.severity && kf.severity !== 'Safe') {
               try {
                 if (typeof saveLocalHistoryItem === 'function') {
                   saveLocalHistoryItem({
                     id: `det_tour_${Date.now()}_${kIdx}`,
                     detection_run_id: `run_tour_${Date.now()}`,
-                    class_name: kf.detected_class || kf.class_name || 'Hazard',
+                    class_name: kf.detectedClass || 'Hazard',
                     confidence: kf.confidence || 0.95,
                     severity: kf.severity || 'High',
-                    estimated_area: 0.35,
-                    evidence_path: kf.annotated_image_url || kf.thumb || '/assets/samples/thumb_water_spill.jpg',
+                    estimated_area: parseFloat(kf.area) || 0.35,
+                    evidence_path: kf.thumb || '/assets/samples/thumb_water_spill.jpg',
                     location: `Patrol Tour @ ${kf.timestamp || '00:00'}`,
                     source_type: 'video',
                     original_filename: 'corridor_hazard_tour_30s.mp4',
                     created_at: new Date().toISOString(),
-                    summary: `Sample Tour hazard: ${kf.detected_class || kf.class_name} at ${kf.timestamp}`
+                    summary: `Sample Tour hazard: ${kf.detectedClass} at ${kf.timestamp}`
                   });
                 }
               } catch (histErr) {
@@ -716,8 +766,8 @@ export const VideoAnalysisView: React.FC = () => {
               />
             ) : (
               <img
-                src={current.thumb}
-                alt={current.detectedClass}
+                src={current?.thumb || '/assets/samples/thumb_broken_glass.jpg'}
+                alt={current?.detectedClass || 'Video Keyframe'}
                 className="w-full h-full object-cover"
               />
             )}
@@ -742,7 +792,7 @@ export const VideoAnalysisView: React.FC = () => {
                 {/* Floating Tag */}
                 <div className="absolute -top-7 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow flex items-center gap-1 whitespace-nowrap">
                   <AlertTriangle className="w-3 h-3" />
-                  <span>{current.detectedClass.toUpperCase()} ({(current.confidence * 100).toFixed(0)}%)</span>
+                  <span>{(current?.detectedClass || current?.detected_class || 'Floor Hazard').toUpperCase()} ({((current?.confidence || 0.9) * 100).toFixed(0)}%)</span>
                 </div>
               </div>
             )}
@@ -750,19 +800,19 @@ export const VideoAnalysisView: React.FC = () => {
             {/* CCTV Telemetry Overlay Stamp */}
             <div className="absolute top-3 left-3 bg-black/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 text-white font-mono text-xs flex items-center gap-2 shadow-lg">
               <Clock className="w-3.5 h-3.5 text-[#22c55e]" />
-              <span>{current.timestamp}</span>
+              <span>{current?.timestamp || '00:00'}</span>
               <span className="text-slate-400">|</span>
               {hasAnalyzed ? (
                 <>
                   <span
                     className={`font-bold ${
-                      current.severity === 'Safe' ? 'text-[#22c55e]' : 'text-[#ef4444]'
+                      current?.severity === 'Safe' ? 'text-[#22c55e]' : 'text-[#ef4444]'
                     }`}
                   >
-                    {current.detectedClass.toUpperCase()}
+                    {(current?.detectedClass || current?.detected_class || 'Floor Hazard').toUpperCase()}
                   </span>
                   <span className="text-slate-500 font-mono text-[10px]">
-                    {(current.confidence * 100).toFixed(0)}% CONF
+                    {((current?.confidence || 0.9) * 100).toFixed(0)}% CONF
                   </span>
                 </>
               ) : isAnalyzing ? (
@@ -777,10 +827,10 @@ export const VideoAnalysisView: React.FC = () => {
 
             {/* Severity Risk Badge */}
             {hasAnalyzed ? (
-              current.severity !== 'Safe' ? (
+              (current?.severity || 'Medium') !== 'Safe' ? (
                 <div className="absolute bottom-3 right-3 bg-[#ef4444]/95 backdrop-blur-md px-3.5 py-1.5 rounded-lg text-white font-bold text-xs shadow-lg flex items-center gap-1.5 border border-red-400/50">
                   <AlertTriangle className="w-3.5 h-3.5" />
-                  <span>{current.severity.toUpperCase()} RISK {current.detectedClass.toUpperCase()}</span>
+                  <span>{(current?.severity || 'High').toUpperCase()} RISK {(current?.detectedClass || current?.detected_class || 'Hazard').toUpperCase()}</span>
                 </div>
               ) : (
                 <div className="absolute bottom-3 right-3 bg-[#22c55e]/95 backdrop-blur-md px-3.5 py-1.5 rounded-lg text-black font-bold text-xs shadow-lg flex items-center gap-1.5">
@@ -819,23 +869,23 @@ export const VideoAnalysisView: React.FC = () => {
                   }`}
                 >
                   <div className="aspect-16/10 rounded-md overflow-hidden bg-black mb-1.5 relative">
-                    <img src={kf.thumb} alt={kf.detectedClass} className="w-full h-full object-cover" />
+                    <img src={kf.thumb || '/assets/samples/thumb_water_spill.jpg'} alt={kf.detectedClass || 'Keyframe'} className="w-full h-full object-cover" />
                     {hasAnalyzed && kf.severity !== 'Safe' && (
                       <span className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
                     )}
                   </div>
                   <div className="flex items-center justify-between text-[10px] font-mono">
-                    <span className="text-slate-300 font-bold">{kf.timestamp}</span>
+                    <span className="text-slate-300 font-bold">{kf.timestamp || '00:00'}</span>
                     <span
                       className={`font-bold ${
                         !hasAnalyzed ? 'text-slate-400' : kf.severity === 'Safe' ? 'text-[#22c55e]' : 'text-[#ef4444]'
                       }`}
                     >
-                      {hasAnalyzed ? kf.severity : 'Frame'}
+                      {hasAnalyzed ? (kf.severity || 'Hazard') : 'Frame'}
                     </span>
                   </div>
                   <div className="text-[10px] text-slate-400 truncate mt-0.5">
-                    {hasAnalyzed ? kf.detectedClass : 'Sampled View'}
+                    {hasAnalyzed ? (kf.detectedClass || kf.detected_class || 'Floor Hazard') : 'Sampled View'}
                   </div>
                 </button>
               ))}
@@ -885,24 +935,24 @@ export const VideoAnalysisView: React.FC = () => {
           <div className="p-4 rounded-xl bg-[#0d131f] border border-[#1d2b3f] space-y-2 text-xs">
             <div className="flex items-center justify-between">
               <span className="text-slate-400 font-semibold">Active Keyframe:</span>
-              <span className="text-[#38bdf8] font-mono font-bold">{current.timestamp}</span>
+              <span className="text-[#38bdf8] font-mono font-bold">{current?.timestamp || '00:00'}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-slate-400">Classification:</span>
-              <span className="text-white font-bold">{hasAnalyzed ? current.detectedClass : 'Awaiting Analysis'}</span>
+              <span className="text-white font-bold">{hasAnalyzed ? (current?.detectedClass || current?.detected_class || 'Floor Hazard') : 'Awaiting Analysis'}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-slate-400">Confidence:</span>
               <span className="text-emerald-400 font-mono font-bold">
-                {hasAnalyzed ? `${(current.confidence * 100).toFixed(1)}%` : '---'}
+                {hasAnalyzed ? `${((current?.confidence || 0.9) * 100).toFixed(1)}%` : '---'}
               </span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-slate-400">Hazard Area:</span>
-              <span className="text-slate-200 font-mono">{hasAnalyzed ? current.area : '---'}</span>
+              <span className="text-slate-200 font-mono">{hasAnalyzed ? (current?.area || '0.35 m²') : '---'}</span>
             </div>
             <p className="text-[11px] text-slate-300 pt-1 border-t border-[#182335] leading-relaxed">
-              {hasAnalyzed ? current.note : 'Raw footage preview. Click "Run Video Analysis" to trigger AI hazard localization.'}
+              {hasAnalyzed ? (current?.note || 'Localized floor hazard incident.') : 'Raw footage preview. Click "Run Video Analysis" to trigger AI hazard localization.'}
             </p>
           </div>
 
