@@ -318,7 +318,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
             </h2>
           </div>
           <p className="text-xs text-slate-400">
-            Unified detector trained on <strong>{analyticsData?.dataset_summary?.total_curated_images || 121}</strong> multi-hazard indoor images (<strong>{analyticsData?.dataset_summary?.total_annotations || 141}</strong> ground-truth annotations) across 12 hazard classes + 9 clean floor controls.
+            Unified detector trained on <strong>{analyticsData?.dataset_summary?.total_curated_images || 160}</strong> multi-hazard indoor images (<strong>{analyticsData?.dataset_summary?.total_annotations || 160}</strong> ground-truth annotations) across 12 hazard classes + 9 clean floor controls.
           </p>
         </div>
 
@@ -327,18 +327,18 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141d2c] border border-[#23354e]">
             <Database className="w-3.5 h-3.5 text-[#22c55e]" />
             <span className="text-slate-400">Curated:</span>
-            <span className="font-bold text-white">{analyticsData?.dataset_summary?.total_curated_images || 121} Imgs</span>
+            <span className="font-bold text-white">{analyticsData?.dataset_summary?.total_curated_images || 160} Imgs</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141d2c] border border-[#23354e]">
             <Layers className="w-3.5 h-3.5 text-[#38bdf8]" />
             <span className="text-slate-400">Annotations:</span>
-            <span className="font-bold text-[#38bdf8]">{analyticsData?.dataset_summary?.total_annotations || 141} Boxes</span>
+            <span className="font-bold text-[#38bdf8]">{analyticsData?.dataset_summary?.total_annotations || 160} Boxes</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141d2c] border border-[#23354e]">
             <GitBranch className="w-3.5 h-3.5 text-[#f59e0b]" />
             <span className="text-slate-400">Splits:</span>
             <span className="font-bold text-white">
-              {analyticsData?.dataset_summary?.splits?.train || 96} / {analyticsData?.dataset_summary?.splits?.val || 12} / {analyticsData?.dataset_summary?.splits?.test || 13}
+              {analyticsData?.dataset_summary?.splits?.train || 112} / {analyticsData?.dataset_summary?.splits?.val || 15} / {analyticsData?.dataset_summary?.splits?.test || 14}
             </span>
           </div>
           <button
@@ -365,7 +365,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               Curated Dataset Images
             </div>
             <div className="text-2xl font-bold font-mono text-white tracking-tight tabular-nums">
-              {analyticsData?.dataset_summary?.total_curated_images || 121}
+              {analyticsData?.dataset_summary?.total_curated_images || 160}
             </div>
             <div className="text-[11px] font-semibold text-[#22c55e] flex items-center gap-1">
               <span>82 Train / 18 Val / 16 Test</span>
@@ -394,7 +394,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               Hazard Annotations
             </div>
             <div className="text-2xl font-bold font-mono text-white tracking-tight tabular-nums">
-              {analyticsData?.dataset_summary?.total_annotations || 141}
+              {analyticsData?.dataset_summary?.total_annotations || 160}
             </div>
             <div className="text-[11px] font-semibold text-[#ef4444] flex items-center gap-1">
               <span>141 Verified Ground Truth Boxes</span>
@@ -771,7 +771,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               const distItems = (analyticsData?.hazard_distribution?.items && analyticsData.hazard_distribution.items.length > 0)
                 ? analyticsData.hazard_distribution.items
                 : defaultDistribution;
-              const totalAnn = analyticsData?.hazard_distribution?.total || 141;
+              const totalAnn = analyticsData?.hazard_distribution?.total || 160;
 
               // Circumference of r=38
               const C = 238.76;
@@ -1084,11 +1084,11 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           <div className="space-y-4">
             {/* Splits Bar */}
             {(() => {
-              const totImgs = datasetSummary?.total_catalog_images || 121;
-              const totBoxes = datasetSummary?.total_verified_boxes || 141;
-              const trCount = datasetSummary?.splits?.train || 96;
-              const valCount = datasetSummary?.splits?.val || 12;
-              const tsCount = datasetSummary?.splits?.test || 13;
+              const totImgs = datasetSummary?.total_catalog_images || 160;
+              const totBoxes = datasetSummary?.total_verified_boxes || 160;
+              const trCount = datasetSummary?.splits?.train || 112;
+              const valCount = datasetSummary?.splits?.val || 15;
+              const tsCount = datasetSummary?.splits?.test || 14;
               const trPct = Math.round((trCount / totImgs) * 100);
               const valPct = Math.round((valCount / totImgs) * 100);
               const tsPct = Math.max(1, 100 - trPct - valPct);

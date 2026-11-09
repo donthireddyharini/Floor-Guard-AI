@@ -45,8 +45,8 @@ export const DatasetTrainingView: React.FC = () => {
       version: 'v1.2 (arXiv:2508.10171)',
       license: 'Apache 2.0',
       url: 'https://huggingface.co/datasets/sochastic/SynSpill',
-      images: 34,
-      annotations: 38,
+      images: 38,
+      annotations: 42,
       format: 'Polygon Masks / YOLO BBox',
       classes: ['Water Spill', 'Oil Spill'],
       status: 'Audited & Integrated',
@@ -58,8 +58,8 @@ export const DatasetTrainingView: React.FC = () => {
       version: 'v2.0',
       license: 'Apache 2.0',
       url: 'https://huggingface.co/datasets/Jsohal174/warehouse-safety-hazard-dataset',
-      images: 28,
-      annotations: 32,
+      images: 34,
+      annotations: 38,
       format: 'YOLO BBox',
       classes: ['Obstacle / Debris', 'Water Spill', 'Clean Floor'],
       status: 'Audited & Integrated',
@@ -71,8 +71,8 @@ export const DatasetTrainingView: React.FC = () => {
       version: 'v2.0',
       license: 'OSHA Walkway Standards',
       url: 'local://dataset/labels/structural_damage',
-      images: 13,
-      annotations: 13,
+      images: 18,
+      annotations: 18,
       format: 'YOLO BBox',
       classes: ['Floor Damage', 'Mat Hazard'],
       status: 'Audited & Integrated',
@@ -84,8 +84,8 @@ export const DatasetTrainingView: React.FC = () => {
       version: 'v4.0 (Mendeley Open Data)',
       license: 'CC BY 4.0',
       url: 'https://data.mendeley.com/datasets/yzsxcvc8dp/4',
-      images: 25,
-      annotations: 32,
+      images: 28,
+      annotations: 34,
       format: 'YOLO BBox',
       classes: ['Broken Glass', 'Obstacle / Debris', 'Water Spill'],
       status: 'Audited & Integrated',
@@ -97,8 +97,8 @@ export const DatasetTrainingView: React.FC = () => {
       version: 'v2.1',
       license: 'FloorGuard Internal',
       url: 'local://dataset/environmental',
-      images: 12,
-      annotations: 17,
+      images: 14,
+      annotations: 19,
       format: 'YOLO BBox',
       classes: ['Chemical Spill', 'Cable / Cord', 'Trash / Litter', 'Food Waste', 'Mud / Dirt', 'Stairs Hazard'],
       status: 'Audited & Integrated',
@@ -119,14 +119,14 @@ export const DatasetTrainingView: React.FC = () => {
     }
   ];
 
-  const totalImgs = datasetImages.length || datasetSummary?.total_catalog_images || 121;
-  const trainImgs = datasetImages.filter((i) => i.split === 'train').length || datasetSummary?.splits?.train || 96;
-  const valImgs = datasetImages.filter((i) => i.split === 'val').length || datasetSummary?.splits?.val || 12;
-  const testImgs = datasetImages.filter((i) => i.split === 'test').length || datasetSummary?.splits?.test || 13;
-  const totalBoxes = datasetImages.reduce((sum, i) => sum + (i.boxes_count || 0), 0) || datasetSummary?.total_verified_boxes || 141;
+  const totalImgs = datasetImages.length || datasetSummary?.total_catalog_images || 160;
+  const trainImgs = datasetImages.filter((i) => i.split === 'train').length || datasetSummary?.splits?.train || 112;
+  const valImgs = datasetImages.filter((i) => i.split === 'val').length || datasetSummary?.splits?.val || 15;
+  const testImgs = datasetImages.filter((i) => i.split === 'test').length || datasetSummary?.splits?.test || 14;
+  const totalBoxes = datasetImages.reduce((sum, i) => sum + (i.boxes_count || 0), 0) || datasetSummary?.total_verified_boxes || 160;
   const trainBoxes = datasetImages.filter((i) => i.split === 'train').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 117;
-  const valBoxes = datasetImages.filter((i) => i.split === 'val').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 12;
-  const testBoxes = datasetImages.filter((i) => i.split === 'test').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 12;
+  const valBoxes = datasetImages.filter((i) => i.split === 'val').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 15;
+  const testBoxes = datasetImages.filter((i) => i.split === 'test').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 15;
 
   const splits = {
     train: { count: trainImgs, pct: `${Math.round((trainImgs / totalImgs) * 100)}%`, boxes: trainBoxes, desc: `${trainImgs} representative hazard and clean background control images in dataset/images/train/` },
@@ -197,7 +197,7 @@ export const DatasetTrainingView: React.FC = () => {
               <div className="text-2xl font-bold font-mono text-white mt-1">
                 {totalImgs} Images
               </div>
-              <div className="text-[11px] text-[#22c55e] mt-0.5">112 hazard images + 9 clean controls</div>
+              <div className="text-[11px] text-[#22c55e] mt-0.5">132 hazard images + 9 clean controls</div>
             </div>
             <div className="p-4 rounded-xl bg-[#131b29] border border-[#1e2c3f]">
               <div className="text-xs text-slate-400">Ground-Truth Bounding Boxes</div>
@@ -325,7 +325,7 @@ export const DatasetTrainingView: React.FC = () => {
                 pct: splits.train.pct,
                 count: splits.train.count,
                 boxes: splits.train.boxes,
-                desc: '167 hazard images + 15 clean background controls in dataset/images/train/'
+                desc: '132 hazard images + 15 clean background controls in dataset/images/train/'
               },
               {
                 key: 'Validation Split',
