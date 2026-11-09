@@ -102,8 +102,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       area: '0.32 m²',
       location: 'Floor Surface',
       alert: 'Potential slip hazard detected. Please clean the area.',
-      image: '/dataset/images/test/hf_pilot_water_spill_0013.jpg',
-      thumb: '/dataset/images/test/hf_pilot_water_spill_0013.jpg',
+      image: '/assets/samples/thumb_water_spill.jpg',
+      thumb: '/assets/samples/thumb_water_spill.jpg',
       badge: 'Hazard',
       badgeColor: 'bg-[#ef4444] text-white',
       accentColor: '#ef4444',
@@ -121,8 +121,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       area: '0.00 m²',
       location: 'Pedestrian Walkway',
       alert: 'Normal dry floor surface. No hazard detected.',
-      image: '/dataset/images/test/hf_bal_clean_floor_0057.jpg',
-      thumb: '/dataset/images/test/hf_bal_clean_floor_0057.jpg',
+      image: '/assets/samples/thumb_clean_floor.jpg',
+      thumb: '/assets/samples/thumb_clean_floor.jpg',
       badge: 'Safe',
       badgeColor: 'bg-[#15803d] text-white',
       accentColor: '#22c55e',
@@ -140,8 +140,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       area: '0.28 m²',
       location: 'Workshop Bay 3',
       alert: 'Viscous hydrocarbon oil detected. Slip hazard critical.',
-      image: '/dataset/images/test/hf_pilot_oil_spill_0014.jpg',
-      thumb: '/dataset/images/test/hf_pilot_oil_spill_0014.jpg',
+      image: '/assets/samples/thumb_oil_spill.jpg',
+      thumb: '/assets/samples/thumb_oil_spill.jpg',
       badge: 'Hazard',
       badgeColor: 'bg-[#ef4444] text-white',
       accentColor: '#ef4444',
@@ -159,8 +159,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       area: '0.15 m²',
       location: 'Cafeteria Corridor',
       alert: 'Sharp shattered glass fragments detected. Puncture risk.',
-      image: '/dataset/images/test/phele_glass_train_508.jpg',
-      thumb: '/dataset/images/test/phele_glass_train_508.jpg',
+      image: '/assets/samples/thumb_broken_glass.jpg',
+      thumb: '/assets/samples/thumb_broken_glass.jpg',
       badge: 'Hazard',
       badgeColor: 'bg-[#ef4444] text-white',
       accentColor: '#ef4444',
@@ -178,8 +178,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       area: '0.45 m²',
       location: 'Logistics Walkway',
       alert: 'Physical obstacle obstructing pedestrian path. Relocate object.',
-      image: '/dataset/images/test/hf_bal_obstacle_0043.jpg',
-      thumb: '/dataset/images/test/hf_bal_obstacle_0043.jpg',
+      image: '/assets/samples/thumb_obstacle.jpg',
+      thumb: '/assets/samples/thumb_obstacle.jpg',
       badge: 'Hazard',
       badgeColor: 'bg-[#ef4444] text-white',
       accentColor: '#ef4444',
@@ -1398,7 +1398,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                   : [
                       {
                         created_at: new Date().toISOString(),
-                        evidence_path: '/dataset/images/test/hf_pilot_water_spill_0013.jpg',
+                        evidence_path: '/assets/samples/thumb_water_spill.jpg',
                         class_name: 'Water Spill',
                         confidence: 0.91,
                         severity: 'High'
@@ -1415,7 +1415,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                   const timeStr = row.created_at
                     ? new Date(row.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
                     : `Recent #${idx + 1}`;
-                  const thumbUrl = row.evidence_path || row.file_path || '/dataset/images/test/hf_pilot_water_spill_0013.jpg';
+                  const thumbUrl = row.evidence_path || row.file_path || '/assets/samples/thumb_water_spill.jpg';
 
                   return (
                     <tr
