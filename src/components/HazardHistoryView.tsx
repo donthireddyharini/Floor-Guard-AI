@@ -14,6 +14,7 @@ import {
   Layers
 } from 'lucide-react';
 import { RecentDetectionRow } from '../types';
+import { getLocalHistory, removeLocalHistoryItem } from '../utils/historyStore';
 
 interface HazardHistoryViewProps {
   onSelectDetection: (item: any) => void;
@@ -27,23 +28,59 @@ export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDe
   const [selectedSeverity, setSelectedSeverity] = useState('all');
   const [loading, setLoading] = useState(false);
 
-  // Load records from backend API
+  // Load records from backend API + persistent localStorage
   const loadDetections = async () => {
     setLoading(true);
     try {
-      const url = new URL('/api/detections', window.location.origin);
-      if (activeSourceTab !== 'all') url.searchParams.set('source_type', activeSourceTab);
-      if (selectedClass !== 'all') url.searchParams.set('className', selectedClass);
-      if (selectedSeverity !== 'all') url.searchParams.set('severity', selectedSeverity);
-      if (searchTerm) url.searchParams.set('search', searchTerm);
+      const localItems = getLocalHistory();
+      let apiItems: any[] = [];
+      try {
+        const url = new URL('/api/detections', window.location.origin);
+        if (activeSourceTab !== 'all') url.searchParams.set('source_type', activeSourceTab);
+        if (selectedClass !== 'all') url.searchParams.set('className', selectedClass);
+        if (selectedSeverity !== 'all') url.searchParams.set('severity', selectedSeverity);
+        if (searchTerm) url.searchParams.set('search', searchTerm);
 
-      const res = await fetch(url.toString());
-      const data = await res.json();
-      if (data.status === 'ok') {
-        setDetections(data.detections);
+        const res = await fetch(url.toString());
+        if (res.ok) {
+          const data = await res.json();
+          if (data.status === 'ok' && Array.isArray(data.detections)) {
+            apiItems = data.detections;
+          }
+        }
+      } catch (e) {
+        console.warn('Backend detections endpoint unavailable, loading local history store');
       }
+
+      // Merge local items and API items, deduplicating by ID
+      const seenIds = new Set<string>();
+      const combined: any[] = [];
+      for (const item of [...localItems, ...apiItems]) {
+        if (!seenIds.has(item.id)) {
+          seenIds.add(item.id);
+          combined.push(item);
+        }
+      }
+
+      // Apply client-side filters
+      const filtered = combined.filter((row: any) => {
+        if (activeSourceTab !== 'all' && (row.source_type || 'image') !== activeSourceTab) return false;
+        if (selectedClass !== 'all' && !(row.class_name || '').toLowerCase().includes(selectedClass.toLowerCase())) return false;
+        if (selectedSeverity !== 'all' && row.severity !== selectedSeverity) return false;
+        if (searchTerm) {
+          const q = searchTerm.toLowerCase();
+          const matchFilename = (row.original_filename || '').toLowerCase().includes(q);
+          const matchClass = (row.class_name || '').toLowerCase().includes(q);
+          const matchLoc = (row.location || '').toLowerCase().includes(q);
+          if (!matchFilename && !matchClass && !matchLoc) return false;
+        }
+        return true;
+      });
+
+      filtered.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      setDetections(filtered);
     } catch (err) {
-      console.error(err);
+      console.error('Error loading hazard detections history:', err);
     } finally {
       setLoading(false);
     }
@@ -51,6 +88,9 @@ export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDe
 
   useEffect(() => {
     loadDetections();
+    const handleUpdate = () => loadDetections();
+    window.addEventListener('floorguard:history_updated', handleUpdate);
+    return () => window.removeEventListener('floorguard:history_updated', handleUpdate);
   }, [activeSourceTab, selectedClass, selectedSeverity, searchTerm]);
 
   // Export CSV
@@ -62,12 +102,13 @@ export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDe
   const handleDelete = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     if (!confirm('Are you sure you want to remove this detection log?')) return;
+    removeLocalHistoryItem(id);
     try {
       await fetch(`/api/detections/${id}`, { method: 'DELETE' });
-      setDetections((prev) => prev.filter((d) => d.id !== id));
     } catch (err) {
-      console.error(err);
+      // ignore
     }
+    setDetections((prev) => prev.filter((d) => d.id !== id));
   };
 
   const imageCount = detections.filter(d => (d as any).source_type === 'image').length;
@@ -246,6 +287,9 @@ export const HazardHistoryView: React.FC<HazardHistoryViewProps> = ({ onSelectDe
                         src={row.evidence_path || '/assets/samples/thumb_water_spill.jpg'}
                         alt={row.class_name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/assets/samples/thumb_water_spill.jpg';
+                        }}
                       />
                     </div>
                   </td>

@@ -566,10 +566,10 @@ app.get('/api/analytics/summary', async (req: Request, res: Response) => {
 
     const activeModelInfo = getActiveModelInfo();
 
-    const totalImages = cleanSummary?.total?.images || 268;
-    const totalBoxes = cleanSummary?.total?.bounding_boxes || 374;
-    const cleanNegatives = cleanSummary?.total?.clean_floor_negatives || 22;
-    const hazardImages = cleanSummary?.total?.hazard_images || 246;
+    const totalImages = cleanSummary?.total?.images || 121;
+    const totalBoxes = cleanSummary?.total?.bounding_boxes || 141;
+    const cleanNegatives = cleanSummary?.total?.clean_floor_negatives || 9;
+    const hazardImages = cleanSummary?.total?.hazard_images || 112;
 
     // Hazard distribution dynamically calculated from verified 12-class dataset
     const classCounts = cleanSummary?.total?.boxes_per_class || {};
@@ -581,11 +581,15 @@ app.get('/api/analytics/summary', async (req: Request, res: Response) => {
       'cable_cord': '#ec4899',
       'food_waste': '#eab308',
       'floor_crack': '#f97316',
+      'floor_damage': '#f97316',
       'improper_mat': '#10b981',
+      'mat_hazard': '#10b981',
       'mud_dirt': '#a855f7',
       'chemical_spill': '#6366f1',
       'trash_litter': '#64748b',
-      'stairs_hazard': '#14b8a6'
+      'stairs_hazard': '#14b8a6',
+      'stair_hazard': '#14b8a6',
+      'clean_floor': '#22c55e'
     };
 
     const classPrettyNames: Record<string, string> = {
@@ -595,12 +599,16 @@ app.get('/api/analytics/summary', async (req: Request, res: Response) => {
       'oil_spill': 'Oil Spill',
       'cable_cord': 'Cable / Cord',
       'food_waste': 'Food Waste',
-      'floor_crack': 'Floor Crack',
-      'improper_mat': 'Improper Floor Mat',
+      'floor_crack': 'Floor Damage',
+      'floor_damage': 'Floor Damage',
+      'improper_mat': 'Mat Hazard',
+      'mat_hazard': 'Mat Hazard',
       'mud_dirt': 'Mud / Dirt',
       'chemical_spill': 'Chemical Spill',
       'trash_litter': 'Trash / Litter',
-      'stairs_hazard': 'Stairs Hazard'
+      'stairs_hazard': 'Stairs Hazard',
+      'stair_hazard': 'Stairs Hazard',
+      'clean_floor': 'Clean Floor (Control)'
     };
 
     const distribution = Object.entries(classCounts).map(([key, count]: [string, any]) => {

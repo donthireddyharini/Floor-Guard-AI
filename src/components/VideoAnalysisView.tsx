@@ -357,6 +357,26 @@ export const VideoAnalysisView: React.FC = () => {
           setSelectedKeyframe(0);
           setHasAnalyzed(true);
           setShowOverlay(true);
+
+          // Record each detected hazard keyframe to persistent Hazard History
+          va.keyframes.forEach((kf: any, kIdx: number) => {
+            if (kf.severity && kf.severity !== 'Safe') {
+              saveLocalHistoryItem({
+                id: `det_vid_${Date.now()}_${kIdx}`,
+                detection_run_id: data.run_id || `run_vid_${Date.now()}`,
+                class_name: kf.detected_class || kf.class_name || 'Hazard',
+                confidence: kf.confidence || 0.9,
+                severity: kf.severity || 'Medium',
+                estimated_area: 0.25,
+                evidence_path: kf.annotated_image_url || kf.thumb || '/assets/samples/thumb_water_spill.jpg',
+                location: `Video @ ${kf.timestamp || '00:00'} (${file.name})`,
+                source_type: 'video',
+                original_filename: file.name,
+                created_at: new Date().toISOString(),
+                summary: `Video hazard: ${kf.detected_class || kf.class_name} detected at frame ${kf.frame || kIdx}`
+              });
+            }
+          });
         }
 
         // Keep localBlobUrl for smooth playback without browser media interruption
@@ -451,6 +471,26 @@ export const VideoAnalysisView: React.FC = () => {
         if (va.keyframes && va.keyframes.length > 0) {
           setKeyframes(va.keyframes);
           setSelectedKeyframe(0);
+
+          // Record tour keyframes to persistent Hazard History
+          va.keyframes.forEach((kf: any, kIdx: number) => {
+            if (kf.severity && kf.severity !== 'Safe') {
+              saveLocalHistoryItem({
+                id: `det_tour_${Date.now()}_${kIdx}`,
+                detection_run_id: `run_tour_${Date.now()}`,
+                class_name: kf.detected_class || kf.class_name || 'Hazard',
+                confidence: kf.confidence || 0.95,
+                severity: kf.severity || 'High',
+                estimated_area: 0.35,
+                evidence_path: kf.annotated_image_url || kf.thumb || '/assets/samples/thumb_water_spill.jpg',
+                location: `Patrol Tour @ ${kf.timestamp || '00:00'}`,
+                source_type: 'video',
+                original_filename: 'corridor_hazard_tour_30s.mp4',
+                created_at: new Date().toISOString(),
+                summary: `Sample Tour hazard: ${kf.detected_class || kf.class_name} at ${kf.timestamp}`
+              });
+            }
+          });
         }
         setHasAnalyzed(true);
         setShowOverlay(true);

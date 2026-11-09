@@ -27,6 +27,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { DetectionItem } from '../types';
+import { saveLocalHistoryItem } from '../utils/historyStore';
 
 interface ImageDetectionWorkspaceProps {
   activeModel?: any;
@@ -347,6 +348,42 @@ export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = (
       if (res.ok && data.status === 'ok' && data.detection) {
         setCustomResult(data.detection);
         setActiveMode('custom');
+
+        // Automatically store inspection in persistent Hazard History
+        const detRecord = data.detection;
+        if (detRecord.detections && detRecord.detections.length > 0) {
+          detRecord.detections.forEach((sub: any, sIdx: number) => {
+            saveLocalHistoryItem({
+              id: `det_${Date.now()}_${sIdx}`,
+              detection_run_id: data.run_id || `run_${Date.now()}`,
+              class_name: sub.class_name || detRecord.class_name || 'Hazard',
+              confidence: typeof sub.confidence === 'number' ? sub.confidence : detRecord.confidence,
+              severity: sub.severity || detRecord.severity || 'Medium',
+              estimated_area: parseFloat(detRecord.area) || 0.25,
+              evidence_path: detRecord.annotated_image_url || detRecord.image_url || localPreview,
+              location: detRecord.location || 'Monitored Walkway',
+              source_type: 'image',
+              original_filename: file.name,
+              created_at: new Date().toISOString(),
+              summary: sub.recommendation || detRecord.recommendation || `Detected ${sub.class_name}`
+            });
+          });
+        } else {
+          saveLocalHistoryItem({
+            id: detRecord.id || `det_${Date.now()}`,
+            detection_run_id: data.run_id || `run_${Date.now()}`,
+            class_name: detRecord.class_name,
+            confidence: detRecord.confidence,
+            severity: detRecord.severity,
+            estimated_area: parseFloat(detRecord.area) || 0.32,
+            evidence_path: detRecord.annotated_image_url || detRecord.image_url || localPreview,
+            location: detRecord.location || 'Monitored Walkway',
+            source_type: 'image',
+            original_filename: file.name,
+            created_at: new Date().toISOString(),
+            summary: detRecord.recommendation || `Detected ${detRecord.class_name}`
+          });
+        }
       } else {
         setUploadError(data.message || `Inference error (HTTP ${res.status})`);
       }
@@ -396,6 +433,23 @@ export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = (
         const data = await res.json();
         if (res.ok && data.status === 'ok' && data.detection) {
           setCustomResult(data.detection);
+
+          // Store preset hazard in history
+          const pDet = data.detection;
+          saveLocalHistoryItem({
+            id: `det_preset_${Date.now()}`,
+            detection_run_id: `run_preset_${Date.now()}`,
+            class_name: pDet.class_name,
+            confidence: pDet.confidence,
+            severity: pDet.severity,
+            estimated_area: parseFloat(pDet.area) || 0.28,
+            evidence_path: samplePath,
+            location: presets[key]?.location || 'Monitored Walkway',
+            source_type: 'image',
+            original_filename: `${key}_sample.jpg`,
+            created_at: new Date().toISOString(),
+            summary: pDet.recommendation || `Detected ${pDet.class_name}`
+          });
         } else {
           setActiveMode('preset');
           setCustomResult(null);
