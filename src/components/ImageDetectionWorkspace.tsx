@@ -342,7 +342,7 @@ const MONTAGE_12_PRESETS = [
   { class_name: 'Trash / Litter', confidence: 0.96, confidence_percent: '96%', severity: 'Medium', bounding_box: { x: 440, y: 720, width: 320, height: 180 }, normalized_bbox: { x: 0.28, y: 0.72, width: 0.20, height: 0.18 }, recommendation: 'Rolling Trip Hazard: Discarded plastic bottle in corridor.' },
   { class_name: 'Mud / Dirt', confidence: 0.86, confidence_percent: '86%', severity: 'Medium', bounding_box: { x: 55, y: 740, width: 330, height: 180 }, normalized_bbox: { x: 0.04, y: 0.74, width: 0.20, height: 0.18 }, recommendation: 'Traction Loss: Heavy mud footprints on floor surface.' },
   { class_name: 'Food Waste', confidence: 0.85, confidence_percent: '85%', severity: 'Medium', bounding_box: { x: 450, y: 440, width: 310, height: 180 }, normalized_bbox: { x: 0.29, y: 0.44, width: 0.19, height: 0.18 }, recommendation: 'Slip Hazard: Organic fruit peel on polished walkway.' },
-  { class_name: 'Water Spill', confidence: 0.86, confidence_percent: '86%', severity: 'High', bounding_box: { x: 810, y: 720, width: 320, height: 190 }, normalized_bbox: { x: 0.52, y: 0.72, width: 0.20, height: 0.20 }, recommendation: 'Slip Hazard: Liquid pooling on walkway tile surface.' }
+  { class_name: 'Mud / Dirt', confidence: 0.91, confidence_percent: '91%', severity: 'Medium', bounding_box: { x: 810, y: 720, width: 320, height: 190 }, normalized_bbox: { x: 0.52, y: 0.72, width: 0.20, height: 0.20 }, recommendation: 'Traction Loss: Heavy mud footprints on floor surface.' }
 ];
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -678,7 +678,7 @@ const MONTAGE_12_PRESETS = [
       {/* Top Controls Toolbar */}
       <div className="flex flex-wrap items-center justify-between gap-4 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-4">
         {/* Presets */}
-        <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-1">
+        <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0 pb-1">
           <span className="text-xs font-semibold text-slate-400 mr-1 shrink-0">Hazard Categories:</span>
           {Object.keys(presets).map((key) => (
             <button

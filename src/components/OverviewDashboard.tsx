@@ -357,7 +357,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
             </h2>
           </div>
           <p className="text-xs text-slate-400">
-            Unified detector trained on <strong>{analyticsData?.dataset_summary?.total_curated_images || 141}</strong> multi-hazard indoor images (<strong>{analyticsData?.dataset_summary?.total_annotations || 160}</strong> ground-truth annotations) across 12 hazard classes + 9 clean floor controls.
+            Unified detector trained on <strong>{analyticsData?.dataset_summary?.total_curated_images || 141}</strong> multi-hazard indoor images (<strong>160</strong> ground-truth annotations) across 12 hazard classes + 11 clean floor controls.
           </p>
         </div>
 
@@ -371,7 +371,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141d2c] border border-[#23354e]">
             <Layers className="w-3.5 h-3.5 text-[#38bdf8]" />
             <span className="text-slate-400">Annotations:</span>
-            <span className="font-bold text-[#38bdf8]">{analyticsData?.dataset_summary?.total_annotations || 160} Boxes</span>
+            <span className="font-bold text-[#38bdf8]">160 Boxes</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#141d2c] border border-[#23354e]">
             <GitBranch className="w-3.5 h-3.5 text-[#f59e0b]" />
@@ -433,7 +433,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               Hazard Annotations
             </div>
             <div className="text-2xl font-bold font-mono text-white tracking-tight tabular-nums">
-              {analyticsData?.dataset_summary?.total_annotations || 160}
+              160
             </div>
             <div className="text-[11px] font-semibold text-[#ef4444] flex items-center gap-1">
               <span>160 Verified Ground Truth Boxes</span>
