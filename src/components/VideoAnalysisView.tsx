@@ -297,28 +297,14 @@ export const VideoAnalysisView: React.FC = () => {
   // Synchronize keyframe selection dynamically with playback currentTime
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
-    const curTime = videoRef.current.currentTime;
+    const curTime = videoRef.current.currentTime || 0;
     setCurrentTimeSec(curTime);
 
     if (hasAnalyzed && keyframes && keyframes.length > 0) {
-      setSelectedKeyframe(getActiveKeyframeIndex(curTime, keyframes));
+      const nextIdx = getActiveKeyframeIndex(curTime, keyframes);
+      setSelectedKeyframe(prev => (prev !== nextIdx ? nextIdx : prev));
     }
   };
-
-  // High-frequency 60 FPS animation frame loop for instantaneous hazard boundary detection as video plays
-  useEffect(() => {
-    let animId: number;
-    const syncFrame = () => {
-      if (videoRef.current && !videoRef.current.paused && hasAnalyzed && keyframes.length > 0) {
-        const curTime = videoRef.current.currentTime;
-        setCurrentTimeSec(curTime);
-        setSelectedKeyframe(getActiveKeyframeIndex(curTime, keyframes));
-      }
-      animId = requestAnimationFrame(syncFrame);
-    };
-    animId = requestAnimationFrame(syncFrame);
-    return () => cancelAnimationFrame(animId);
-  }, [hasAnalyzed, keyframes]);
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
@@ -456,35 +442,41 @@ export const VideoAnalysisView: React.FC = () => {
           id: 0,
           timestamp: '00:01',
           seekTime: 1.0,
+          startTime: 0.0,
+          endTime: 2.5,
           frame: 30,
           detectedClass: 'Broken Glass & Food Waste',
-          confidence: 0.94,
+          confidence: 0.95,
           severity: 'Critical',
           area: '0.42 m²',
           thumb: '/assets/samples/thumb_broken_glass.jpg',
           note: 'Puncture & Laceration Hazard: Shattered glass jar with food liquid spill localized on floor.',
-          bbox: { x: 28, y: 38, width: 44, height: 36 }
+          bbox: { x: 28, y: 52, width: 44, height: 38 }
         },
         {
           id: 1,
           timestamp: '00:03',
           seekTime: 3.0,
+          startTime: 2.5,
+          endTime: 4.5,
           frame: 90,
           detectedClass: 'Food Waste',
-          confidence: 0.91,
+          confidence: 0.92,
           severity: 'High',
           area: '0.35 m²',
           thumb: '/assets/samples/gallery/food_waste.jpg',
           note: 'Slip Hazard: Viscous sauce puddle spreading across aisle surface.',
-          bbox: { x: 30, y: 42, width: 40, height: 32 }
+          bbox: { x: 26, y: 56, width: 48, height: 36 }
         },
         {
           id: 2,
           timestamp: '00:05',
           seekTime: 5.0,
+          startTime: 4.5,
+          endTime: 999.0,
           frame: 150,
           detectedClass: 'Clean Floor',
-          confidence: 0.97,
+          confidence: 0.98,
           severity: 'Safe',
           area: '0.00 m²',
           thumb: '/assets/samples/thumb_clean_floor.jpg',
@@ -790,7 +782,11 @@ export const VideoAnalysisView: React.FC = () => {
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-yellow-300"></div>
 
                 {/* Floating Tag */}
-                <div className="absolute -top-7 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow flex items-center gap-1 whitespace-nowrap">
+                <div
+                  className={`absolute left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow flex items-center gap-1 whitespace-nowrap ${
+                    current.bbox.y < 12 ? 'top-1' : '-top-7'
+                  }`}
+                >
                   <AlertTriangle className="w-3 h-3" />
                   <span>{(current?.detectedClass || current?.detected_class || 'Floor Hazard').toUpperCase()} ({((current?.confidence || 0.9) * 100).toFixed(0)}%)</span>
                 </div>

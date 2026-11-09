@@ -582,6 +582,8 @@ export default function handler(req: any, res: any) {
                 frame: 30,
                 timestamp: '00:01',
                 seekTime: 1.0,
+                startTime: 0.0,
+                endTime: 2.5,
                 detected_class: 'Broken Glass & Food Waste',
                 detectedClass: 'Broken Glass & Food Waste',
                 confidence: 0.95,
@@ -590,14 +592,14 @@ export default function handler(req: any, res: any) {
                 detections_count: 2,
                 thumb: '/assets/samples/thumb_broken_glass.jpg',
                 note: 'Puncture & Laceration Hazard: Shattered glass jar with food liquid spill localized on floor.',
-                bbox: { x: 28, y: 38, width: 44, height: 36 },
+                bbox: { x: 28, y: 52, width: 44, height: 38 },
                 detections: [
                   {
                     class_name: 'Broken Glass',
                     confidence: 0.95,
                     confidence_percent: '95%',
                     severity: 'Critical',
-                    bounding_box: { x: 180, y: 240, width: 280, height: 230 }
+                    bounding_box: { x: 180, y: 374, width: 280, height: 274 }
                   }
                 ]
               },
@@ -606,6 +608,8 @@ export default function handler(req: any, res: any) {
                 frame: 90,
                 timestamp: '00:03',
                 seekTime: 3.0,
+                startTime: 2.5,
+                endTime: 4.5,
                 detected_class: 'Food Waste',
                 detectedClass: 'Food Waste',
                 confidence: 0.92,
@@ -614,14 +618,14 @@ export default function handler(req: any, res: any) {
                 detections_count: 1,
                 thumb: '/assets/samples/gallery/food_waste.jpg',
                 note: 'Slip Hazard: Viscous sauce puddle spreading across aisle surface.',
-                bbox: { x: 30, y: 42, width: 40, height: 32 },
+                bbox: { x: 26, y: 56, width: 48, height: 36 },
                 detections: [
                   {
                     class_name: 'Food Waste',
                     confidence: 0.92,
                     confidence_percent: '92%',
                     severity: 'High',
-                    bounding_box: { x: 190, y: 270, width: 260, height: 200 }
+                    bounding_box: { x: 166, y: 403, width: 307, height: 259 }
                   }
                 ]
               },
@@ -630,6 +634,8 @@ export default function handler(req: any, res: any) {
                 frame: 150,
                 timestamp: '00:05',
                 seekTime: 5.0,
+                startTime: 4.5,
+                endTime: 999.0,
                 detected_class: 'Clean Floor',
                 detectedClass: 'Clean Floor',
                 confidence: 0.98,
@@ -774,6 +780,64 @@ export default function handler(req: any, res: any) {
         };
 
     return res.status(200).json(videoResponse);
+  }
+
+  // 9b. Dedicated Video Inspection History
+  if (pathname === '/history/videos' || pathname.startsWith('/history/videos')) {
+    if (req.method === 'DELETE') {
+      return res.status(200).json({ status: 'ok', message: 'Video run deleted' });
+    }
+    return res.status(200).json({
+      status: 'ok',
+      runs: [
+        {
+          id: 'run_vid_sample_patrol',
+          original_filename: 'corridor_hazard_tour_30s.mp4',
+          file_path: '/assets/samples/corridor_hazard_tour_30s.mp4',
+          total_detections: 4,
+          created_at: new Date(Date.now() - 3600000).toISOString(),
+          summary: 'Continuous 30s video hazard inspection: 4 distinct hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).',
+          detections: [
+            {
+              id: 'det_hist_1',
+              class_name: 'Water Spill',
+              confidence: 0.94,
+              severity: 'High',
+              estimated_area: 0.34,
+              location: 'Corridor Entrance @ 00:08',
+              evidence_path: '/assets/samples/thumb_water_spill.jpg'
+            },
+            {
+              id: 'det_hist_2',
+              class_name: 'Oil Spill',
+              confidence: 0.91,
+              severity: 'Critical',
+              estimated_area: 0.41,
+              location: 'Pump Station @ 00:15',
+              evidence_path: '/assets/samples/thumb_oil_spill.jpg'
+            },
+            {
+              id: 'det_hist_3',
+              class_name: 'Broken Glass',
+              confidence: 0.97,
+              severity: 'Critical',
+              estimated_area: 0.28,
+              location: 'Monitored Walkway @ 00:21',
+              evidence_path: '/assets/samples/thumb_broken_glass.jpg'
+            },
+            {
+              id: 'det_hist_4',
+              class_name: 'Obstacle / Debris',
+              confidence: 0.92,
+              severity: 'Medium',
+              estimated_area: 0.48,
+              location: 'Transit Path @ 00:27',
+              evidence_path: '/assets/samples/thumb_obstacle.jpg'
+            }
+          ]
+        }
+      ]
+    });
   }
 
   // 10. Dataset Summary
