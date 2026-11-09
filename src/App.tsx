@@ -16,6 +16,41 @@ import { SettingsView } from './components/SettingsView';
 import { DetectionDetailModal } from './components/DetectionDetailModal';
 import { NavSection, AnalyticsSummary } from './types';
 
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: any, info: any) {
+    console.error('ErrorBoundary caught:', error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center p-12 text-center min-h-[500px]">
+          <div className="p-6 rounded-2xl bg-[#131b29] border border-red-500/40 text-red-200 max-w-md shadow-2xl">
+            <h3 className="font-bold text-base mb-2 text-white">Floor Guard AI - Session Restored</h3>
+            <p className="text-xs text-slate-300 mb-4">A rendering state was recovered safely. Click below to continue uninterrupted.</p>
+            <button
+              onClick={() => {
+                this.setState({ hasError: false });
+                window.location.href = '/';
+              }}
+              className="px-5 py-2 bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs rounded-xl shadow-lg transition-colors cursor-pointer"
+            >
+              Return to Overview
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function App() {
   const [activeSection, setActiveSection] = useState<NavSection>('overview');
   const [selectedDateRange, setSelectedDateRange] = useState('May 20, 2026 – May 26, 2026');
@@ -91,6 +126,7 @@ export default function App() {
 
         {/* View Routing */}
         <main className="flex-1 pb-12">
+          <ErrorBoundary>
           {activeSection === 'overview' && (
             <OverviewDashboard
               onNavigate={(sec) => setActiveSection(sec)}
@@ -127,6 +163,7 @@ export default function App() {
               onSelectModel={handleSelectModel}
             />
           )}
+          </ErrorBoundary>
         </main>
       </div>
 

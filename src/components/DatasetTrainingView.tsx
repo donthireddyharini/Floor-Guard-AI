@@ -120,11 +120,11 @@ export const DatasetTrainingView: React.FC = () => {
     }
   ];
 
-  const totalImgs = datasetImages.length || datasetSummary?.total_catalog_images || 160;
+  const totalImgs = datasetImages.length || datasetSummary?.total_catalog_images || 141;
   const trainImgs = datasetImages.filter((i) => i.split === 'train').length || datasetSummary?.splits?.train || 112;
   const valImgs = datasetImages.filter((i) => i.split === 'val').length || datasetSummary?.splits?.val || 15;
   const testImgs = datasetImages.filter((i) => i.split === 'test').length || datasetSummary?.splits?.test || 14;
-  const totalBoxes = datasetImages.reduce((sum, i) => sum + (i.boxes_count || 0), 0) || datasetSummary?.total_verified_boxes || 160;
+  const totalBoxes = datasetImages.reduce((sum, i) => sum + (i.boxes_count || 0), 0) || datasetSummary?.total_verified_boxes || 141;
   const trainBoxes = datasetImages.filter((i) => i.split === 'train').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 117;
   const valBoxes = datasetImages.filter((i) => i.split === 'val').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 15;
   const testBoxes = datasetImages.filter((i) => i.split === 'test').reduce((sum, i) => sum + (i.boxes_count || 0), 0) || 15;
@@ -152,24 +152,29 @@ export const DatasetTrainingView: React.FC = () => {
 
   const filteredImages = useMemo(() => {
     return datasetImages.filter((img) => {
+      if (!img) return false;
       if (selectedSplitFilter !== 'all' && img.split !== selectedSplitFilter) return false;
+      const h = (img.class_hint || '').toLowerCase();
+      const fn = (img.filename || '').toLowerCase();
       if (selectedClassFilter !== 'all') {
-        if (selectedClassFilter === 'clean' && !img.is_clean) return false;
+        if (selectedClassFilter === 'clean' && !img.is_clean && !h.includes('clean')) return false;
         if (selectedClassFilter === 'damage' || selectedClassFilter === 'crack') {
-          const h = (img.class_hint || '').toLowerCase();
-          const fn = (img.filename || '').toLowerCase();
-          return h.includes('damage') || h.includes('crack') || fn.includes('damage') || fn.includes('crack');
+          if (!h.includes('damage') && !h.includes('crack') && !fn.includes('damage') && !fn.includes('crack')) return false;
+        } else if (selectedClassFilter === 'mat') {
+          if (!h.includes('mat') && !fn.includes('mat')) return false;
+        } else if (selectedClassFilter === 'spill') {
+          if (!h.includes('spill') && !fn.includes('spill') && !h.includes('water') && !h.includes('oil') && !h.includes('chemical')) return false;
+        } else if (selectedClassFilter === 'glass') {
+          if (!h.includes('glass') && !fn.includes('glass')) return false;
+        } else if (selectedClassFilter === 'cable') {
+          if (!h.includes('cable') && !h.includes('cord') && !fn.includes('cable') && !fn.includes('cord')) return false;
+        } else if (selectedClassFilter !== 'clean') {
+          if (!h.includes(selectedClassFilter.toLowerCase())) return false;
         }
-        if (selectedClassFilter === 'mat') {
-          const h = (img.class_hint || '').toLowerCase();
-          const fn = (img.filename || '').toLowerCase();
-          return h.includes('mat') || fn.includes('mat');
-        }
-        if (selectedClassFilter !== 'clean' && !img.class_hint.toLowerCase().includes(selectedClassFilter.toLowerCase())) return false;
       }
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
-        if (!img.filename.toLowerCase().includes(q) && !img.class_hint.toLowerCase().includes(q)) return false;
+        if (!fn.includes(q) && !h.includes(q)) return false;
       }
       return true;
     });

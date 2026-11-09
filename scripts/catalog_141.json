@@ -1,1155 +1,12 @@
 [
   {
-    "id": "train_1",
-    "filename": "aug_boxes_sec03_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_2",
-    "filename": "aug_boxes_sec04_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_3",
-    "filename": "aug_cables_sec01_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_4",
-    "filename": "aug_cables_sec02_bright.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_5",
-    "filename": "aug_crack_sec06_bright.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_6",
-    "filename": "aug_crack_sec07_bright.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_7",
-    "filename": "aug_food_sec05_bright.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_8",
-    "filename": "aug_mat_sec08_bright.jpg",
-    "split": "train",
-    "class_hint": "Mat Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "train_9",
-    "filename": "aug_mat_sec09_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "train_10",
-    "filename": "clear_bottle_amber_bottle_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_11",
-    "filename": "clear_bottle_cap_angle_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_12",
-    "filename": "clear_bottle_cyan_plastic_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_13",
-    "filename": "clear_bottle_green_plastic_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_14",
-    "filename": "clear_water_bottle_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_15",
-    "filename": "clear_water_bottle_full_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_16",
-    "filename": "coca_bottle_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_17",
-    "filename": "coca_bottle_full_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_18",
-    "filename": "floor_hazard_broken_glass_store_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_19",
-    "filename": "floor_hazard_cable_cord_hallway_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_20",
-    "filename": "floor_hazard_chemical_coolant_spill_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Chemical Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/chemical_spill.jpg"
-  },
-  {
-    "id": "train_21",
-    "filename": "floor_hazard_food_waste_peel_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_22",
-    "filename": "floor_hazard_gravel_scatter_floor_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_23",
-    "filename": "floor_hazard_mud_tracks_soil_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_24",
-    "filename": "floor_hazard_oil_spill_warehouse_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_25",
-    "filename": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_26",
-    "filename": "floor_hazard_plastic_bottle_rolling_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_27",
-    "filename": "floor_hazard_stairs_slip_hazard_aug0_orig.jpg",
-    "split": "train",
-    "class_hint": "Stairs Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/stairs_hazard.jpg"
-  },
-  {
-    "id": "train_28",
-    "filename": "floor_hazard_water_spill_marble_aug2_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_29",
-    "filename": "floor_hazard_wet_surface_patio_aug2_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_30",
-    "filename": "hf_bal_clean_floor_0144.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_31",
-    "filename": "hf_bal_clean_floor_0198.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_32",
-    "filename": "hf_bal_obstacle_0029.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_33",
-    "filename": "hf_bal_obstacle_0069.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_34",
-    "filename": "hf_bal_oil_spill_0033.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_35",
-    "filename": "hf_bal_oil_spill_0065.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_36",
-    "filename": "hf_p41_clean_floor_0064.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_37",
-    "filename": "hf_p41_clean_floor_0091.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_38",
-    "filename": "hf_p41_oil_spill_0055.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_39",
-    "filename": "hf_p41_oil_spill_0117.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_40",
-    "filename": "hf_p41_water_spill_0040.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_41",
-    "filename": "hf_p41_water_spill_0084.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_42",
-    "filename": "hf_pilot_clean_floor_0017.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_43",
-    "filename": "hf_pilot_clean_floor_0024.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_44",
-    "filename": "hf_pilot_obstacle_0010.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_45",
-    "filename": "hf_pilot_obstacle_0018.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_46",
-    "filename": "hf_pilot_oil_spill_0014.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_47",
-    "filename": "hf_pilot_water_spill_0013.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_48",
-    "filename": "hf_pilot_water_spill_0018.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_49",
-    "filename": "hf_warehouse_obstacle_0002.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_50",
-    "filename": "hf_warehouse_spill_0005.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_51",
-    "filename": "multi_cable_cord_bright.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_52",
-    "filename": "multi_cable_cord_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_53",
-    "filename": "multi_chemical_spill_bright.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_54",
-    "filename": "multi_chemical_spill_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Chemical Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/chemical_spill.jpg"
-  },
-  {
-    "id": "train_55",
-    "filename": "multi_food_waste_bright.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_56",
-    "filename": "multi_food_waste_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_57",
-    "filename": "multi_mud_dirt_bright.jpg",
-    "split": "train",
-    "class_hint": "Mud / Dirt",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/mud_dirt.jpg"
-  },
-  {
-    "id": "train_58",
-    "filename": "multi_mud_dirt_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Mud / Dirt",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/mud_dirt.jpg"
-  },
-  {
-    "id": "train_59",
-    "filename": "multi_obstacle_debris_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_60",
-    "filename": "multi_obstacle_debris_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_61",
-    "filename": "multi_oil_spill_bright.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_62",
-    "filename": "multi_oil_spill_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_63",
-    "filename": "multi_stairs_hazard_bright.jpg",
-    "split": "train",
-    "class_hint": "Stairs Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/stairs_hazard.jpg"
-  },
-  {
-    "id": "train_64",
-    "filename": "multi_stairs_hazard_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Stairs Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/stairs_hazard.jpg"
-  },
-  {
-    "id": "train_65",
-    "filename": "multi_trash_litter_panel_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_66",
-    "filename": "multi_trash_litter_panel_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_67",
-    "filename": "multi_water_spill_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_68",
-    "filename": "multi_water_spill_crop_bright.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_69",
-    "filename": "p43_broken_glass_0533.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_70",
-    "filename": "p43_broken_glass_0534.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_71",
-    "filename": "p43_broken_glass_0552.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_72",
-    "filename": "p43_clean_floor_0014.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_73",
-    "filename": "p43_clean_floor_0024.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_74",
-    "filename": "p43_obstacle_0032.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_75",
-    "filename": "p43_obstacle_0102.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_76",
-    "filename": "p43_oil_spill_0047.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_77",
-    "filename": "p43_water_spill_0007.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_78",
-    "filename": "p43_water_spill_0009.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_79",
-    "filename": "panel_cable_cord_exp_bright.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_80",
-    "filename": "panel_chemical_spill_exp_bright.jpg",
-    "split": "train",
-    "class_hint": "Chemical Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/chemical_spill.jpg"
-  },
-  {
-    "id": "train_81",
-    "filename": "panel_food_waste_exp_bright.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_82",
-    "filename": "panel_obstacle_debris_exp_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_83",
-    "filename": "panel_oil_spill_exp_bright.jpg",
-    "split": "train",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "train_84",
-    "filename": "panel_plastic_bottle_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_85",
-    "filename": "phele_glass_test_77.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_86",
-    "filename": "phele_glass_test_78.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 10,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_87",
-    "filename": "phele_glass_test_79.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 7,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_88",
-    "filename": "phele_glass_train_510.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 7,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_89",
-    "filename": "phele_wet_test_73.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_90",
-    "filename": "phele_wet_test_74.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_91",
-    "filename": "phele_wet_test_75.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_92",
-    "filename": "phele_wet_train_521.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "train_93",
-    "filename": "test_cls7_01.jpg",
-    "split": "train",
-    "class_hint": "Mat Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "train_94",
-    "filename": "test_cls8_01.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_95",
-    "filename": "thumb_clean_floor.jpg",
-    "split": "train",
-    "class_hint": "Clean Floor (Control)",
-    "boxes_count": 0,
-    "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
-  },
-  {
-    "id": "train_96",
-    "filename": "user_bottle_gold_label_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_97",
-    "filename": "user_bottle_green_label_bright.jpg",
-    "split": "train",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "train_98",
-    "filename": "user_vid_boxes_bright.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_99",
-    "filename": "user_vid_boxes_val.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_100",
-    "filename": "user_vid_cables_val.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_101",
-    "filename": "user_vid_crack_bright.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_102",
-    "filename": "user_vid_crack_val.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_103",
-    "filename": "user_vid_curled_mat_bright.jpg",
-    "split": "train",
-    "class_hint": "Mat Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "train_104",
-    "filename": "user_vid_kf0_cables.jpg",
-    "split": "train",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "train_105",
-    "filename": "user_vid_kf1_boxes.jpg",
-    "split": "train",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "train_106",
-    "filename": "user_vid_kf2_sauce_glass.jpg",
-    "split": "train",
-    "class_hint": "Broken Glass",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "train_107",
-    "filename": "user_vid_kf3_crack.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_108",
-    "filename": "user_vid_sauce_food_bright.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 2,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_109",
-    "filename": "user_vid_sauce_food_val.jpg",
-    "split": "train",
-    "class_hint": "Food Waste",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
-  },
-  {
-    "id": "train_110",
-    "filename": "val_cls7_01.jpg",
-    "split": "train",
-    "class_hint": "Mat Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "train_111",
-    "filename": "val_cls8_01.jpg",
-    "split": "train",
-    "class_hint": "Floor Damage",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_damage.jpg"
-  },
-  {
-    "id": "train_112",
-    "filename": "water_spill_main.jpg",
-    "split": "train",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "val_1",
-    "filename": "aug_boxes_sec03_bright.jpg",
-    "split": "val",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "val_2",
-    "filename": "aug_mat_sec09_bright.jpg",
-    "split": "val",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
-    "id": "val_3",
-    "filename": "coca_bottle_crop_bright.jpg",
-    "split": "val",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "val_4",
-    "filename": "coca_bottle_full_bright.jpg",
-    "split": "val",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "val_5",
-    "filename": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
-    "split": "val",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "val_6",
-    "filename": "hf_bal_obstacle_0029.jpg",
-    "split": "val",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "val_7",
-    "filename": "hf_bal_obstacle_0069.jpg",
-    "split": "val",
-    "class_hint": "Obstacle / Debris",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_obstacle.jpg"
-  },
-  {
-    "id": "val_8",
-    "filename": "hf_warehouse_spill_0005.jpg",
-    "split": "val",
-    "class_hint": "Water Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
-  },
-  {
-    "id": "val_9",
-    "filename": "multi_chemical_spill_bright.jpg",
-    "split": "val",
-    "class_hint": "Chemical Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/chemical_spill.jpg"
-  },
-  {
-    "id": "val_10",
-    "filename": "multi_oil_spill_crop_bright.jpg",
-    "split": "val",
-    "class_hint": "Oil Spill",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
-  },
-  {
-    "id": "val_11",
-    "filename": "panel_stairs_hazard_exp_bright.jpg",
-    "split": "val",
-    "class_hint": "Stairs Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/stairs_hazard.jpg"
-  },
-  {
-    "id": "val_12",
-    "filename": "phele_glass_test_80.jpg",
-    "split": "val",
-    "class_hint": "Broken Glass",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/thumb_broken_glass.jpg"
-  },
-  {
-    "id": "val_13",
-    "filename": "user_bottle_blue_label_bright.jpg",
-    "split": "val",
-    "class_hint": "Trash / Litter",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
-  },
-  {
-    "id": "val_14",
-    "filename": "user_vid_cables_bright.jpg",
-    "split": "val",
-    "class_hint": "Cable / Cord",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
-  },
-  {
-    "id": "val_15",
-    "filename": "user_vid_kf4_rug_lip.jpg",
-    "split": "val",
-    "class_hint": "Mat Hazard",
-    "boxes_count": 1,
-    "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
-  },
-  {
     "id": "test_1",
     "filename": "aug_food_sec05_bright.jpg",
     "split": "test",
     "class_hint": "Food Waste",
     "boxes_count": 2,
     "is_clean": false,
-    "url": "/assets/samples/gallery/food_waste.jpg"
+    "url": "/dataset/images/test/aug_food_sec05_bright.jpg"
   },
   {
     "id": "test_2",
@@ -1158,7 +15,7 @@
     "class_hint": "Trash / Litter",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
+    "url": "/dataset/images/test/clear_bottle_cap_angle_bright.jpg"
   },
   {
     "id": "test_3",
@@ -1167,7 +24,7 @@
     "class_hint": "Trash / Litter",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
+    "url": "/dataset/images/test/clear_bottle_cyan_plastic_bright.jpg"
   },
   {
     "id": "test_4",
@@ -1176,25 +33,25 @@
     "class_hint": "Chemical Spill",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/chemical_spill.jpg"
+    "url": "/dataset/images/test/floor_hazard_chemical_coolant_spill_aug0_orig.jpg"
   },
   {
     "id": "test_5",
     "filename": "hf_pilot_clean_floor_0017.jpg",
     "split": "test",
-    "class_hint": "Clean Floor (Control)",
+    "class_hint": "Clean Floor",
     "boxes_count": 0,
     "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
+    "url": "/dataset/images/test/hf_pilot_clean_floor_0017.jpg"
   },
   {
     "id": "test_6",
     "filename": "hf_pilot_clean_floor_0024.jpg",
     "split": "test",
-    "class_hint": "Clean Floor (Control)",
+    "class_hint": "Clean Floor",
     "boxes_count": 0,
     "is_clean": true,
-    "url": "/assets/samples/thumb_clean_floor.jpg"
+    "url": "/dataset/images/test/hf_pilot_clean_floor_0024.jpg"
   },
   {
     "id": "test_7",
@@ -1203,7 +60,7 @@
     "class_hint": "Cable / Cord",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/cable_cord.jpg"
+    "url": "/dataset/images/test/multi_cable_cord_bright.jpg"
   },
   {
     "id": "test_8",
@@ -1212,7 +69,7 @@
     "class_hint": "Trash / Litter",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/trash_litter.jpg"
+    "url": "/dataset/images/test/multi_trash_litter_panel_crop_bright.jpg"
   },
   {
     "id": "test_9",
@@ -1221,7 +78,7 @@
     "class_hint": "Oil Spill",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
+    "url": "/dataset/images/test/p43_oil_spill_0047.jpg"
   },
   {
     "id": "test_10",
@@ -1230,7 +87,7 @@
     "class_hint": "Oil Spill",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/thumb_oil_spill.jpg"
+    "url": "/dataset/images/test/p43_oil_spill_0058.jpg"
   },
   {
     "id": "test_11",
@@ -1239,7 +96,7 @@
     "class_hint": "Mud / Dirt",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/mud_dirt.jpg"
+    "url": "/dataset/images/test/panel_mud_dirt_exp_bright.jpg"
   },
   {
     "id": "test_12",
@@ -1248,7 +105,7 @@
     "class_hint": "Water Spill",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
+    "url": "/dataset/images/test/panel_water_spill_exp_bright.jpg"
   },
   {
     "id": "test_13",
@@ -1257,7 +114,7 @@
     "class_hint": "Water Spill",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/thumb_water_spill.jpg"
+    "url": "/dataset/images/test/phele_wet_test_76.jpg"
   },
   {
     "id": "test_14",
@@ -1266,6 +123,1149 @@
     "class_hint": "Mat Hazard",
     "boxes_count": 1,
     "is_clean": false,
-    "url": "/assets/samples/gallery/floor_mat_hazard.jpg"
+    "url": "/dataset/images/test/user_vid_curled_mat_val.jpg"
+  },
+  {
+    "id": "train_15",
+    "filename": "aug_boxes_sec03_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_boxes_sec03_bright.jpg"
+  },
+  {
+    "id": "train_16",
+    "filename": "aug_boxes_sec04_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_boxes_sec04_bright.jpg"
+  },
+  {
+    "id": "train_17",
+    "filename": "aug_cables_sec02_bright.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_cables_sec02_bright.jpg"
+  },
+  {
+    "id": "train_18",
+    "filename": "aug_crack_sec06_bright.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_crack_sec06_bright.jpg"
+  },
+  {
+    "id": "train_19",
+    "filename": "aug_crack_sec07_bright.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_crack_sec07_bright.jpg"
+  },
+  {
+    "id": "train_20",
+    "filename": "aug_food_sec05_bright.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_food_sec05_bright.jpg"
+  },
+  {
+    "id": "train_21",
+    "filename": "aug_mat_sec08_bright.jpg",
+    "split": "train",
+    "class_hint": "Mat Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_mat_sec08_bright.jpg"
+  },
+  {
+    "id": "train_22",
+    "filename": "aug_water_spill_cone_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_water_spill_cone_bright.jpg"
+  },
+  {
+    "id": "train_23",
+    "filename": "aug_water_spill_warehouse_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/aug_water_spill_warehouse_bright.jpg"
+  },
+  {
+    "id": "train_24",
+    "filename": "clear_bottle_amber_bottle_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_bottle_amber_bottle_bright.jpg"
+  },
+  {
+    "id": "train_25",
+    "filename": "clear_bottle_cap_angle_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_bottle_cap_angle_bright.jpg"
+  },
+  {
+    "id": "train_26",
+    "filename": "clear_bottle_cyan_plastic_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_bottle_cyan_plastic_bright.jpg"
+  },
+  {
+    "id": "train_27",
+    "filename": "clear_bottle_green_plastic_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_bottle_green_plastic_bright.jpg"
+  },
+  {
+    "id": "train_28",
+    "filename": "clear_water_bottle_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_water_bottle_crop_bright.jpg"
+  },
+  {
+    "id": "train_29",
+    "filename": "clear_water_bottle_full_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/clear_water_bottle_full_bright.jpg"
+  },
+  {
+    "id": "train_30",
+    "filename": "coca_bottle_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/coca_bottle_crop_bright.jpg"
+  },
+  {
+    "id": "train_31",
+    "filename": "coca_bottle_full_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/coca_bottle_full_bright.jpg"
+  },
+  {
+    "id": "train_32",
+    "filename": "floor_hazard_broken_glass_store_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_broken_glass_store_aug0_orig.jpg"
+  },
+  {
+    "id": "train_33",
+    "filename": "floor_hazard_cable_cord_hallway_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_cable_cord_hallway_aug0_orig.jpg"
+  },
+  {
+    "id": "train_34",
+    "filename": "floor_hazard_chemical_coolant_spill_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Chemical Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_chemical_coolant_spill_aug0_orig.jpg"
+  },
+  {
+    "id": "train_35",
+    "filename": "floor_hazard_food_waste_peel_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_food_waste_peel_aug0_orig.jpg"
+  },
+  {
+    "id": "train_36",
+    "filename": "floor_hazard_gravel_scatter_floor_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_gravel_scatter_floor_aug0_orig.jpg"
+  },
+  {
+    "id": "train_37",
+    "filename": "floor_hazard_mud_tracks_soil_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Mud / Dirt",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_mud_tracks_soil_aug0_orig.jpg"
+  },
+  {
+    "id": "train_38",
+    "filename": "floor_hazard_oil_spill_warehouse_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_oil_spill_warehouse_aug0_orig.jpg"
+  },
+  {
+    "id": "train_39",
+    "filename": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg"
+  },
+  {
+    "id": "train_40",
+    "filename": "floor_hazard_plastic_bottle_rolling_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_plastic_bottle_rolling_aug0_orig.jpg"
+  },
+  {
+    "id": "train_41",
+    "filename": "floor_hazard_stairs_slip_hazard_aug0_orig.jpg",
+    "split": "train",
+    "class_hint": "Stairs Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_stairs_slip_hazard_aug0_orig.jpg"
+  },
+  {
+    "id": "train_42",
+    "filename": "floor_hazard_water_spill_marble_aug2_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_water_spill_marble_aug2_bright.jpg"
+  },
+  {
+    "id": "train_43",
+    "filename": "floor_hazard_wet_surface_patio_aug2_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/floor_hazard_wet_surface_patio_aug2_bright.jpg"
+  },
+  {
+    "id": "train_44",
+    "filename": "hf_bal_clean_floor_0144.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_bal_clean_floor_0144.jpg"
+  },
+  {
+    "id": "train_45",
+    "filename": "hf_bal_clean_floor_0198.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_bal_clean_floor_0198.jpg"
+  },
+  {
+    "id": "train_46",
+    "filename": "hf_bal_obstacle_0029.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_bal_obstacle_0029.jpg"
+  },
+  {
+    "id": "train_47",
+    "filename": "hf_bal_obstacle_0069.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_bal_obstacle_0069.jpg"
+  },
+  {
+    "id": "train_48",
+    "filename": "hf_bal_oil_spill_0033.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_bal_oil_spill_0033.jpg"
+  },
+  {
+    "id": "train_49",
+    "filename": "hf_bal_oil_spill_0065.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_bal_oil_spill_0065.jpg"
+  },
+  {
+    "id": "train_50",
+    "filename": "hf_p41_clean_floor_0064.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_p41_clean_floor_0064.jpg"
+  },
+  {
+    "id": "train_51",
+    "filename": "hf_p41_clean_floor_0091.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_p41_clean_floor_0091.jpg"
+  },
+  {
+    "id": "train_52",
+    "filename": "hf_p41_oil_spill_0055.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_p41_oil_spill_0055.jpg"
+  },
+  {
+    "id": "train_53",
+    "filename": "hf_p41_oil_spill_0117.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_p41_oil_spill_0117.jpg"
+  },
+  {
+    "id": "train_54",
+    "filename": "hf_p41_water_spill_0040.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_p41_water_spill_0040.jpg"
+  },
+  {
+    "id": "train_55",
+    "filename": "hf_p41_water_spill_0084.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_p41_water_spill_0084.jpg"
+  },
+  {
+    "id": "train_56",
+    "filename": "hf_pilot_clean_floor_0017.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_pilot_clean_floor_0017.jpg"
+  },
+  {
+    "id": "train_57",
+    "filename": "hf_pilot_clean_floor_0024.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/hf_pilot_clean_floor_0024.jpg"
+  },
+  {
+    "id": "train_58",
+    "filename": "hf_pilot_obstacle_0010.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_pilot_obstacle_0010.jpg"
+  },
+  {
+    "id": "train_59",
+    "filename": "hf_pilot_obstacle_0018.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_pilot_obstacle_0018.jpg"
+  },
+  {
+    "id": "train_60",
+    "filename": "hf_pilot_oil_spill_0014.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_pilot_oil_spill_0014.jpg"
+  },
+  {
+    "id": "train_61",
+    "filename": "hf_pilot_water_spill_0013.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_pilot_water_spill_0013.jpg"
+  },
+  {
+    "id": "train_62",
+    "filename": "hf_pilot_water_spill_0018.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_pilot_water_spill_0018.jpg"
+  },
+  {
+    "id": "train_63",
+    "filename": "hf_warehouse_obstacle_0002.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_warehouse_obstacle_0002.jpg"
+  },
+  {
+    "id": "train_64",
+    "filename": "hf_warehouse_spill_0005.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/hf_warehouse_spill_0005.jpg"
+  },
+  {
+    "id": "train_65",
+    "filename": "multi_cable_cord_bright.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_cable_cord_bright.jpg"
+  },
+  {
+    "id": "train_66",
+    "filename": "multi_cable_cord_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_cable_cord_crop_bright.jpg"
+  },
+  {
+    "id": "train_67",
+    "filename": "multi_chemical_spill_bright.jpg",
+    "split": "train",
+    "class_hint": "Chemical Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_chemical_spill_bright.jpg"
+  },
+  {
+    "id": "train_68",
+    "filename": "multi_chemical_spill_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Chemical Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_chemical_spill_crop_bright.jpg"
+  },
+  {
+    "id": "train_69",
+    "filename": "multi_food_waste_bright.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_food_waste_bright.jpg"
+  },
+  {
+    "id": "train_70",
+    "filename": "multi_food_waste_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_food_waste_crop_bright.jpg"
+  },
+  {
+    "id": "train_71",
+    "filename": "multi_mud_dirt_bright.jpg",
+    "split": "train",
+    "class_hint": "Mud / Dirt",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_mud_dirt_bright.jpg"
+  },
+  {
+    "id": "train_72",
+    "filename": "multi_mud_dirt_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Mud / Dirt",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_mud_dirt_crop_bright.jpg"
+  },
+  {
+    "id": "train_73",
+    "filename": "multi_obstacle_debris_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_obstacle_debris_bright.jpg"
+  },
+  {
+    "id": "train_74",
+    "filename": "multi_obstacle_debris_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_obstacle_debris_crop_bright.jpg"
+  },
+  {
+    "id": "train_75",
+    "filename": "multi_oil_spill_bright.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_oil_spill_bright.jpg"
+  },
+  {
+    "id": "train_76",
+    "filename": "multi_oil_spill_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_oil_spill_crop_bright.jpg"
+  },
+  {
+    "id": "train_77",
+    "filename": "multi_stairs_hazard_bright.jpg",
+    "split": "train",
+    "class_hint": "Stairs Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_stairs_hazard_bright.jpg"
+  },
+  {
+    "id": "train_78",
+    "filename": "multi_stairs_hazard_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Stairs Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_stairs_hazard_crop_bright.jpg"
+  },
+  {
+    "id": "train_79",
+    "filename": "multi_trash_litter_panel_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_trash_litter_panel_bright.jpg"
+  },
+  {
+    "id": "train_80",
+    "filename": "multi_trash_litter_panel_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_trash_litter_panel_crop_bright.jpg"
+  },
+  {
+    "id": "train_81",
+    "filename": "multi_water_spill_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_water_spill_bright.jpg"
+  },
+  {
+    "id": "train_82",
+    "filename": "multi_water_spill_crop_bright.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/multi_water_spill_crop_bright.jpg"
+  },
+  {
+    "id": "train_83",
+    "filename": "p43_broken_glass_0533.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_broken_glass_0533.jpg"
+  },
+  {
+    "id": "train_84",
+    "filename": "p43_broken_glass_0534.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_broken_glass_0534.jpg"
+  },
+  {
+    "id": "train_85",
+    "filename": "p43_broken_glass_0552.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_broken_glass_0552.jpg"
+  },
+  {
+    "id": "train_86",
+    "filename": "p43_clean_floor_0014.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/p43_clean_floor_0014.jpg"
+  },
+  {
+    "id": "train_87",
+    "filename": "p43_clean_floor_0024.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/p43_clean_floor_0024.jpg"
+  },
+  {
+    "id": "train_88",
+    "filename": "p43_obstacle_0032.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_obstacle_0032.jpg"
+  },
+  {
+    "id": "train_89",
+    "filename": "p43_obstacle_0102.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_obstacle_0102.jpg"
+  },
+  {
+    "id": "train_90",
+    "filename": "p43_oil_spill_0047.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_oil_spill_0047.jpg"
+  },
+  {
+    "id": "train_91",
+    "filename": "p43_water_spill_0007.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_water_spill_0007.jpg"
+  },
+  {
+    "id": "train_92",
+    "filename": "p43_water_spill_0009.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/p43_water_spill_0009.jpg"
+  },
+  {
+    "id": "train_93",
+    "filename": "panel_cable_cord_exp_bright.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_cable_cord_exp_bright.jpg"
+  },
+  {
+    "id": "train_94",
+    "filename": "panel_chemical_spill_exp_bright.jpg",
+    "split": "train",
+    "class_hint": "Chemical Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_chemical_spill_exp_bright.jpg"
+  },
+  {
+    "id": "train_95",
+    "filename": "panel_food_waste_exp_bright.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_food_waste_exp_bright.jpg"
+  },
+  {
+    "id": "train_96",
+    "filename": "panel_obstacle_debris_exp_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_obstacle_debris_exp_bright.jpg"
+  },
+  {
+    "id": "train_97",
+    "filename": "panel_oil_spill_exp_bright.jpg",
+    "split": "train",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_oil_spill_exp_bright.jpg"
+  },
+  {
+    "id": "train_98",
+    "filename": "panel_plastic_bottle_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/panel_plastic_bottle_bright.jpg"
+  },
+  {
+    "id": "train_99",
+    "filename": "phele_glass_test_77.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_glass_test_77.jpg"
+  },
+  {
+    "id": "train_100",
+    "filename": "phele_glass_test_78.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 10,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_glass_test_78.jpg"
+  },
+  {
+    "id": "train_101",
+    "filename": "phele_glass_test_79.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 7,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_glass_test_79.jpg"
+  },
+  {
+    "id": "train_102",
+    "filename": "phele_glass_train_510.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 7,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_glass_train_510.jpg"
+  },
+  {
+    "id": "train_103",
+    "filename": "phele_wet_test_73.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_wet_test_73.jpg"
+  },
+  {
+    "id": "train_104",
+    "filename": "phele_wet_test_74.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_wet_test_74.jpg"
+  },
+  {
+    "id": "train_105",
+    "filename": "phele_wet_test_75.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_wet_test_75.jpg"
+  },
+  {
+    "id": "train_106",
+    "filename": "phele_wet_train_521.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/phele_wet_train_521.jpg"
+  },
+  {
+    "id": "train_107",
+    "filename": "test_cls7_01.jpg",
+    "split": "train",
+    "class_hint": "Mat Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/test_cls7_01.jpg"
+  },
+  {
+    "id": "train_108",
+    "filename": "test_cls8_01.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/test_cls8_01.jpg"
+  },
+  {
+    "id": "train_109",
+    "filename": "thumb_clean_floor.jpg",
+    "split": "train",
+    "class_hint": "Clean Floor",
+    "boxes_count": 0,
+    "is_clean": true,
+    "url": "/dataset/images/train/thumb_clean_floor.jpg"
+  },
+  {
+    "id": "train_110",
+    "filename": "user_bottle_gold_label_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_bottle_gold_label_bright.jpg"
+  },
+  {
+    "id": "train_111",
+    "filename": "user_bottle_green_label_bright.jpg",
+    "split": "train",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_bottle_green_label_bright.jpg"
+  },
+  {
+    "id": "train_112",
+    "filename": "user_vid_boxes_bright.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_boxes_bright.jpg"
+  },
+  {
+    "id": "train_113",
+    "filename": "user_vid_boxes_val.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_boxes_val.jpg"
+  },
+  {
+    "id": "train_114",
+    "filename": "user_vid_cables_val.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_cables_val.jpg"
+  },
+  {
+    "id": "train_115",
+    "filename": "user_vid_crack_bright.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_crack_bright.jpg"
+  },
+  {
+    "id": "train_116",
+    "filename": "user_vid_crack_val.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_crack_val.jpg"
+  },
+  {
+    "id": "train_117",
+    "filename": "user_vid_curled_mat_bright.jpg",
+    "split": "train",
+    "class_hint": "Mat Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_curled_mat_bright.jpg"
+  },
+  {
+    "id": "train_118",
+    "filename": "user_vid_kf0_cables.jpg",
+    "split": "train",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_kf0_cables.jpg"
+  },
+  {
+    "id": "train_119",
+    "filename": "user_vid_kf1_boxes.jpg",
+    "split": "train",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_kf1_boxes.jpg"
+  },
+  {
+    "id": "train_120",
+    "filename": "user_vid_kf2_sauce_glass.jpg",
+    "split": "train",
+    "class_hint": "Broken Glass",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_kf2_sauce_glass.jpg"
+  },
+  {
+    "id": "train_121",
+    "filename": "user_vid_kf3_crack.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_kf3_crack.jpg"
+  },
+  {
+    "id": "train_122",
+    "filename": "user_vid_sauce_food_bright.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 2,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_sauce_food_bright.jpg"
+  },
+  {
+    "id": "train_123",
+    "filename": "user_vid_sauce_food_val.jpg",
+    "split": "train",
+    "class_hint": "Food Waste",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/user_vid_sauce_food_val.jpg"
+  },
+  {
+    "id": "train_124",
+    "filename": "val_cls7_01.jpg",
+    "split": "train",
+    "class_hint": "Mat Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/val_cls7_01.jpg"
+  },
+  {
+    "id": "train_125",
+    "filename": "val_cls8_01.jpg",
+    "split": "train",
+    "class_hint": "Floor Damage",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/val_cls8_01.jpg"
+  },
+  {
+    "id": "train_126",
+    "filename": "water_spill_main.jpg",
+    "split": "train",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/train/water_spill_main.jpg"
+  },
+  {
+    "id": "val_127",
+    "filename": "aug_boxes_sec03_bright.jpg",
+    "split": "val",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/aug_boxes_sec03_bright.jpg"
+  },
+  {
+    "id": "val_128",
+    "filename": "aug_mat_sec09_bright.jpg",
+    "split": "val",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/aug_mat_sec09_bright.jpg"
+  },
+  {
+    "id": "val_129",
+    "filename": "coca_bottle_crop_bright.jpg",
+    "split": "val",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/coca_bottle_crop_bright.jpg"
+  },
+  {
+    "id": "val_130",
+    "filename": "coca_bottle_full_bright.jpg",
+    "split": "val",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/coca_bottle_full_bright.jpg"
+  },
+  {
+    "id": "val_131",
+    "filename": "floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg",
+    "split": "val",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/floor_hazard_pallet_obstacle_aisle_aug2_bright.jpg"
+  },
+  {
+    "id": "val_132",
+    "filename": "hf_bal_obstacle_0029.jpg",
+    "split": "val",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/hf_bal_obstacle_0029.jpg"
+  },
+  {
+    "id": "val_133",
+    "filename": "hf_bal_obstacle_0069.jpg",
+    "split": "val",
+    "class_hint": "Obstacle / Debris",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/hf_bal_obstacle_0069.jpg"
+  },
+  {
+    "id": "val_134",
+    "filename": "hf_warehouse_spill_0005.jpg",
+    "split": "val",
+    "class_hint": "Water Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/hf_warehouse_spill_0005.jpg"
+  },
+  {
+    "id": "val_135",
+    "filename": "multi_chemical_spill_bright.jpg",
+    "split": "val",
+    "class_hint": "Chemical Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/multi_chemical_spill_bright.jpg"
+  },
+  {
+    "id": "val_136",
+    "filename": "multi_oil_spill_crop_bright.jpg",
+    "split": "val",
+    "class_hint": "Oil Spill",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/multi_oil_spill_crop_bright.jpg"
+  },
+  {
+    "id": "val_137",
+    "filename": "panel_stairs_hazard_exp_bright.jpg",
+    "split": "val",
+    "class_hint": "Stairs Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/panel_stairs_hazard_exp_bright.jpg"
+  },
+  {
+    "id": "val_138",
+    "filename": "phele_glass_test_80.jpg",
+    "split": "val",
+    "class_hint": "Broken Glass",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/phele_glass_test_80.jpg"
+  },
+  {
+    "id": "val_139",
+    "filename": "user_bottle_blue_label_bright.jpg",
+    "split": "val",
+    "class_hint": "Trash / Litter",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/user_bottle_blue_label_bright.jpg"
+  },
+  {
+    "id": "val_140",
+    "filename": "user_vid_cables_bright.jpg",
+    "split": "val",
+    "class_hint": "Cable / Cord",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/user_vid_cables_bright.jpg"
+  },
+  {
+    "id": "val_141",
+    "filename": "user_vid_kf4_rug_lip.jpg",
+    "split": "val",
+    "class_hint": "Mat Hazard",
+    "boxes_count": 1,
+    "is_clean": false,
+    "url": "/dataset/images/val/user_vid_kf4_rug_lip.jpg"
   }
 ]
