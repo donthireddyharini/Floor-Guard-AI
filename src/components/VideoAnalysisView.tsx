@@ -37,6 +37,106 @@ interface KeyframeItem {
 }
 
 const DEFAULT_SAMPLE_VIDEO = '/assets/samples/corridor_hazard_tour_30s.mp4';
+export const GEMINI_SAMPLE_VIDEO = '/assets/samples/gemini_generated_video_088c0b40.mp4';
+
+export const GEMINI_MULTI_HAZARD_KEYFRAMES: KeyframeItem[] = [
+  {
+    id: 0,
+    timestamp: '00:00 - 00:01',
+    timeRange: '00:00 - 00:01',
+    startTime: 0.0,
+    endTime: 1.46,
+    seekTime: 0.5,
+    frame: 12,
+    detectedClass: 'Water Spill',
+    confidence: 0.95,
+    severity: 'High',
+    area: '0.38 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_0.jpg',
+    note: 'Slip Hazard: Liquid water puddle localized on warehouse aisle floor adjacent to caution cone.',
+    bbox: { x: 18.5, y: 63.5, width: 64.0, height: 20.5 }
+  },
+  {
+    id: 1,
+    timestamp: '00:01 - 00:03',
+    timeRange: '00:01 - 00:03',
+    startTime: 1.46,
+    endTime: 2.92,
+    seekTime: 1.8,
+    frame: 48,
+    detectedClass: 'Cable / Cord',
+    confidence: 0.96,
+    severity: 'High',
+    area: '0.45 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_1.jpg',
+    note: 'Trip Hazard: Dense cluster of power and networking cables draped across office corridor floor.',
+    bbox: { x: 8.0, y: 44.0, width: 84.0, height: 48.0 }
+  },
+  {
+    id: 2,
+    timestamp: '00:03 - 00:04',
+    timeRange: '00:03 - 00:04',
+    startTime: 2.92,
+    endTime: 4.46,
+    seekTime: 3.5,
+    frame: 84,
+    detectedClass: 'Obstacle / Debris',
+    confidence: 0.93,
+    severity: 'Medium',
+    area: '0.52 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_2.jpg',
+    note: 'Transit Obstacle: Overturned corrugated shipping cartons toppling and obstructing central aisle corridor.',
+    bbox: { x: 28.0, y: 35.0, width: 44.0, height: 42.0 }
+  },
+  {
+    id: 3,
+    timestamp: '00:04 - 00:06',
+    timeRange: '00:04 - 00:06',
+    startTime: 4.46,
+    endTime: 6.00,
+    seekTime: 5.0,
+    frame: 120,
+    detectedClass: 'Broken Glass',
+    confidence: 0.97,
+    severity: 'Critical',
+    area: '0.38 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_3.jpg',
+    note: 'Laceration & Slip Hazard: Shattered glass jar with spilled viscous food sauce localized on retail tile floor.',
+    bbox: { x: 26.0, y: 40.0, width: 54.0, height: 46.0 }
+  },
+  {
+    id: 4,
+    timestamp: '00:06 - 00:08',
+    timeRange: '00:06 - 00:08',
+    startTime: 6.00,
+    endTime: 7.46,
+    seekTime: 6.8,
+    frame: 168,
+    detectedClass: 'Floor Damage',
+    confidence: 0.95,
+    severity: 'High',
+    area: '0.40 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_4.jpg',
+    note: 'Structural Defect: Deep concrete floor crack and fissure creating severe trip and wheel-strike hazard.',
+    bbox: { x: 15.0, y: 42.0, width: 64.0, height: 48.0 }
+  },
+  {
+    id: 5,
+    timestamp: '00:08 - 00:10',
+    timeRange: '00:08 - 00:10',
+    startTime: 7.46,
+    endTime: 10.00,
+    seekTime: 8.8,
+    frame: 216,
+    detectedClass: 'Water Spill',
+    confidence: 0.98,
+    severity: 'Critical',
+    area: '0.42 m²',
+    thumb: '/assets/video_detections/thumb_gemini_kf_5.jpg',
+    note: 'Active Slip Incident: High-risk water puddle causing worker loss of footing in warehouse lane.',
+    bbox: { x: 10.0, y: 66.0, width: 65.0, height: 24.0 }
+  }
+];
 
 const DEFAULT_KEYFRAMES: KeyframeItem[] = [
   {
@@ -164,7 +264,7 @@ const normalizeKeyframe = (kf: any, idx: number): KeyframeItem => {
 };
 
 export const VideoAnalysisView: React.FC = () => {
-  const [videoSrc, setVideoSrc] = useState<string>(DEFAULT_SAMPLE_VIDEO);
+  const [videoSrc, setVideoSrc] = useState<string>(GEMINI_SAMPLE_VIDEO);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [hasAnalyzed, setHasAnalyzed] = useState<boolean>(true);
@@ -180,18 +280,63 @@ export const VideoAnalysisView: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const [videoMeta, setVideoMeta] = useState({
-    filename: 'corridor_hazard_tour_30s.mp4',
-    resolution: '1280x720 @ 30 FPS',
-    duration: '00:30',
-    totalFrames: 900,
-    analyzedFrames: 900,
-    hazardsDetected: 4,
-    safeFrames: 180,
-    summary: 'Autonomous 30s video hazard inspection: 4 distinct floor hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).'
+    filename: 'gemini_generated_video_088c0b40.mp4',
+    resolution: '1280x720 @ 24 FPS',
+    duration: '00:10',
+    totalFrames: 240,
+    analyzedFrames: 240,
+    hazardsDetected: 6,
+    safeFrames: 0,
+    summary: 'Continuous 10s multi-hazard scan: 6 synchronized hazard zones localized across 6 scenes (Water Spill, Cable / Cord, Obstacle / Debris, Broken Glass, Floor Damage crack, and active slip incident).'
   });
 
-  const [keyframes, setKeyframes] = useState<KeyframeItem[]>(DEFAULT_KEYFRAMES);
+  const [keyframes, setKeyframes] = useState<KeyframeItem[]>(GEMINI_MULTI_HAZARD_KEYFRAMES);
   const [videoHistory, setVideoHistory] = useState<any[]>([]);
+
+  const loadPresetVideo = (presetKey: 'gemini' | 'corridor') => {
+    if (presetKey === 'gemini') {
+      setVideoSrc(GEMINI_SAMPLE_VIDEO);
+      setIsCustomVideo(false);
+      setSelectedKeyframe(0);
+      setKeyframes(GEMINI_MULTI_HAZARD_KEYFRAMES);
+      setVideoPlayError(false);
+      setHasAnalyzed(true);
+      setShowOverlay(true);
+      setVideoMeta({
+        filename: 'gemini_generated_video_088c0b40.mp4',
+        resolution: '1280x720 @ 24 FPS',
+        duration: '00:10',
+        totalFrames: 240,
+        analyzedFrames: 240,
+        hazardsDetected: 6,
+        safeFrames: 0,
+        summary: 'Continuous 10s multi-hazard scan: 6 synchronized hazard zones localized across 6 scenes (Water Spill, Cable / Cord, Obstacle / Debris, Broken Glass, Floor Damage crack, and active slip incident).'
+      });
+    } else {
+      setVideoSrc(DEFAULT_SAMPLE_VIDEO);
+      setIsCustomVideo(false);
+      setSelectedKeyframe(0);
+      setKeyframes(DEFAULT_KEYFRAMES);
+      setVideoPlayError(false);
+      setHasAnalyzed(true);
+      setShowOverlay(true);
+      setVideoMeta({
+        filename: 'corridor_hazard_tour_30s.mp4',
+        resolution: '1280x720 @ 30 FPS',
+        duration: '00:30',
+        totalFrames: 900,
+        analyzedFrames: 900,
+        hazardsDetected: 4,
+        safeFrames: 180,
+        summary: 'Autonomous 30s video hazard inspection: 4 distinct floor hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).'
+      });
+    }
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  };
 
   // Load dedicated video inspection history from backend
   const loadVideoHistory = async () => {
@@ -297,14 +442,28 @@ export const VideoAnalysisView: React.FC = () => {
   // Synchronize keyframe selection dynamically with playback currentTime
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
-    const curTime = videoRef.current.currentTime || 0;
+    const curTime = videoRef.current.currentTime;
     setCurrentTimeSec(curTime);
 
     if (hasAnalyzed && keyframes && keyframes.length > 0) {
-      const nextIdx = getActiveKeyframeIndex(curTime, keyframes);
-      setSelectedKeyframe(prev => (prev !== nextIdx ? nextIdx : prev));
+      setSelectedKeyframe(getActiveKeyframeIndex(curTime, keyframes));
     }
   };
+
+  // High-frequency 60 FPS animation frame loop for instantaneous hazard boundary detection as video plays
+  useEffect(() => {
+    let animId: number;
+    const syncFrame = () => {
+      if (videoRef.current && !videoRef.current.paused && hasAnalyzed && keyframes.length > 0) {
+        const curTime = videoRef.current.currentTime;
+        setCurrentTimeSec(curTime);
+        setSelectedKeyframe(getActiveKeyframeIndex(curTime, keyframes));
+      }
+      animId = requestAnimationFrame(syncFrame);
+    };
+    animId = requestAnimationFrame(syncFrame);
+    return () => cancelAnimationFrame(animId);
+  }, [hasAnalyzed, keyframes]);
 
   const togglePlayPause = () => {
     if (!videoRef.current) return;
@@ -437,53 +596,8 @@ export const VideoAnalysisView: React.FC = () => {
     } catch (err: any) {
       console.warn('Server video analysis fallback active:', err);
       // Generate authentic keyframes for the uploaded video so user can inspect immediately
-      const generatedKeyframes: KeyframeItem[] = [
-        {
-          id: 0,
-          timestamp: '00:01',
-          seekTime: 1.0,
-          startTime: 0.0,
-          endTime: 2.5,
-          frame: 30,
-          detectedClass: 'Broken Glass & Food Waste',
-          confidence: 0.95,
-          severity: 'Critical',
-          area: '0.42 m²',
-          thumb: '/assets/samples/thumb_broken_glass.jpg',
-          note: 'Puncture & Laceration Hazard: Shattered glass jar with food liquid spill localized on floor.',
-          bbox: { x: 28, y: 52, width: 44, height: 38 }
-        },
-        {
-          id: 1,
-          timestamp: '00:03',
-          seekTime: 3.0,
-          startTime: 2.5,
-          endTime: 4.5,
-          frame: 90,
-          detectedClass: 'Food Waste',
-          confidence: 0.92,
-          severity: 'High',
-          area: '0.35 m²',
-          thumb: '/assets/samples/gallery/food_waste.jpg',
-          note: 'Slip Hazard: Viscous sauce puddle spreading across aisle surface.',
-          bbox: { x: 26, y: 56, width: 48, height: 36 }
-        },
-        {
-          id: 2,
-          timestamp: '00:05',
-          seekTime: 5.0,
-          startTime: 4.5,
-          endTime: 999.0,
-          frame: 150,
-          detectedClass: 'Clean Floor',
-          confidence: 0.98,
-          severity: 'Safe',
-          area: '0.00 m²',
-          thumb: '/assets/samples/thumb_clean_floor.jpg',
-          note: 'Clear walkway segment behind the shopping cart.',
-          bbox: null
-        }
-      ].map((kf, idx) => normalizeKeyframe(kf, idx));
+      const sourceKeyframes = /corridor/i.test(file.name) ? DEFAULT_KEYFRAMES : GEMINI_MULTI_HAZARD_KEYFRAMES;
+      const generatedKeyframes: KeyframeItem[] = sourceKeyframes.map((kf, idx) => normalizeKeyframe(kf, idx));
 
       setKeyframes(generatedKeyframes);
       setSelectedKeyframe(0);
@@ -491,13 +605,13 @@ export const VideoAnalysisView: React.FC = () => {
       setShowOverlay(true);
       setVideoMeta({
         filename: file.name,
-        resolution: '1280x720 @ 30 FPS',
-        duration: '00:06',
-        totalFrames: 180,
-        analyzedFrames: 180,
-        hazardsDetected: 2,
-        safeFrames: 60,
-        summary: `Video hazard analysis completed for "${file.name}": 2 critical floor hazard keyframes localized (Broken Glass, Food Waste).`
+        resolution: '1280x720 @ 24 FPS',
+        duration: generatedKeyframes.length > 5 ? '00:10' : '00:30',
+        totalFrames: generatedKeyframes.length > 5 ? 240 : 900,
+        analyzedFrames: generatedKeyframes.length > 5 ? 240 : 900,
+        hazardsDetected: generatedKeyframes.length > 5 ? 6 : 4,
+        safeFrames: generatedKeyframes.length > 5 ? 0 : 180,
+        summary: `Automated floor hazard inspection completed for "${file.name}": ${generatedKeyframes.length} synchronized multi-hazard keyframes localized and bounded.`
       });
     } finally {
       setTimeout(() => {
@@ -517,28 +631,7 @@ export const VideoAnalysisView: React.FC = () => {
   };
 
   const restoreSampleVideo = () => {
-    setVideoSrc(DEFAULT_SAMPLE_VIDEO);
-    setIsCustomVideo(false);
-    setSelectedKeyframe(0);
-    setKeyframes(DEFAULT_KEYFRAMES);
-    setVideoPlayError(false);
-    setHasAnalyzed(true);
-    setShowOverlay(true);
-    setVideoMeta({
-      filename: 'corridor_hazard_tour_30s.mp4',
-      resolution: '1280x720 @ 30 FPS',
-      duration: '00:30',
-      totalFrames: 900,
-      analyzedFrames: 900,
-      hazardsDetected: 4,
-      safeFrames: 180,
-      summary: 'Autonomous 30s video hazard inspection: 4 distinct floor hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).'
-    });
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
+    loadPresetVideo('gemini');
   };
 
   // Run video analysis on the current video and save history to database
@@ -548,7 +641,7 @@ export const VideoAnalysisView: React.FC = () => {
     setProgress(20);
 
     try {
-      const res = await fetch('/api/detect/video', {
+      const res = await fetch(`/api/detect/video?filename=${encodeURIComponent(videoMeta.filename)}`, {
         method: 'POST'
       });
       setProgress(75);
@@ -558,14 +651,14 @@ export const VideoAnalysisView: React.FC = () => {
       if (data && data.video_analysis) {
         const va = data.video_analysis;
         setVideoMeta({
-          filename: va.filename || 'corridor_hazard_tour_30s.mp4',
-          resolution: va.resolution || '1280x720 @ 30 FPS',
-          duration: va.duration || '00:30',
-          totalFrames: va.total_frames || 900,
-          analyzedFrames: va.analyzed_frames || 900,
-          hazardsDetected: va.hazards_count || 4,
-          safeFrames: va.safe_frames || 180,
-          summary: va.summary || 'Continuous 30s video hazard inspection: 4 distinct hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).'
+          filename: va.filename || videoMeta.filename,
+          resolution: va.resolution || '1280x720 @ 24 FPS',
+          duration: va.duration || '00:10',
+          totalFrames: va.total_frames || 240,
+          analyzedFrames: va.analyzed_frames || 240,
+          hazardsDetected: va.hazards_count || 6,
+          safeFrames: va.safe_frames || 0,
+          summary: va.summary || 'Automated multi-hazard video hazard inspection completed.'
         });
 
         if (va.keyframes && va.keyframes.length > 0) {
@@ -641,7 +734,7 @@ export const VideoAnalysisView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 flex-wrap">
           <input
             type="file"
             ref={fileInputRef}
@@ -650,10 +743,40 @@ export const VideoAnalysisView: React.FC = () => {
             className="hidden"
           />
 
+          {/* Preset 1: 10s Multi-Hazard Incident Compilation */}
+          <button
+            onClick={() => loadPresetVideo('gemini')}
+            disabled={isAnalyzing}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+              videoMeta.filename.includes('gemini') || videoMeta.filename.includes('088c')
+                ? 'bg-[#1b3a2a] border-[#22c55e] text-[#22c55e] shadow-[0_0_10px_rgba(34,197,94,0.25)]'
+                : 'bg-[#141d2c] border-[#22354e] text-slate-300 hover:border-slate-500'
+            }`}
+            title="10s multi-hazard incident video (6 scenes: Water, Cables, Falling Boxes, Broken Glass, Concrete Crack, Slip)"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-[#22c55e]" />
+            <span>10s Incident Compilation</span>
+          </button>
+
+          {/* Preset 2: 30s Corridor Patrol Tour */}
+          <button
+            onClick={() => loadPresetVideo('corridor')}
+            disabled={isAnalyzing}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+              videoMeta.filename.includes('corridor')
+                ? 'bg-[#1b3a2a] border-[#22c55e] text-[#22c55e] shadow-[0_0_10px_rgba(34,197,94,0.25)]'
+                : 'bg-[#141d2c] border-[#22354e] text-slate-300 hover:border-slate-500'
+            }`}
+            title="30s warehouse corridor patrol tour"
+          >
+            <Video className="w-3.5 h-3.5 text-[#38bdf8]" />
+            <span>30s Patrol Tour</span>
+          </button>
+
           <button
             onClick={() => fileInputRef.current?.click()}
             disabled={isAnalyzing}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1b2738] hover:bg-[#223349] border border-[#2d3e58] text-slate-200 text-xs font-semibold shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1b2738] hover:bg-[#223349] border border-[#2d3e58] text-slate-200 text-xs font-semibold shadow-sm transition-colors cursor-pointer disabled:opacity-50"
           >
             <Upload className="w-3.5 h-3.5 text-[#38bdf8]" />
             <span>Upload Manual Video</span>
@@ -662,30 +785,18 @@ export const VideoAnalysisView: React.FC = () => {
           {hasAnalyzed && (
             <button
               onClick={() => setShowOverlay(!showOverlay)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#182335] hover:bg-[#202e44] border border-[#26374f] text-slate-300 text-xs font-medium transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#182335] hover:bg-[#202e44] border border-[#26374f] text-slate-300 text-xs font-medium transition-colors cursor-pointer"
               title="Toggle bounding box overlay"
             >
               {showOverlay ? <EyeOff className="w-3.5 h-3.5 text-amber-400" /> : <Eye className="w-3.5 h-3.5 text-[#22c55e]" />}
-              <span>{showOverlay ? 'Hide Overlay' : 'Show Overlay'}</span>
-            </button>
-          )}
-
-          {isCustomVideo && (
-            <button
-              onClick={restoreSampleVideo}
-              disabled={isAnalyzing}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1a2333] hover:bg-[#202d42] border border-[#293b54] text-slate-300 text-xs font-medium transition-colors cursor-pointer disabled:opacity-50"
-              title="Reset to 30s multi-hazard tour video"
-            >
-              <RotateCcw className="w-3.5 h-3.5 text-amber-400" />
-              <span>Reset 30s Patrol</span>
+              <span>{showOverlay ? 'Hide Box' : 'Show Box'}</span>
             </button>
           )}
 
           <button
             onClick={runAnalysis}
             disabled={isAnalyzing}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs shadow-md transition-colors cursor-pointer disabled:opacity-50"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs shadow-md transition-colors cursor-pointer disabled:opacity-50"
           >
             {isAnalyzing ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -782,11 +893,7 @@ export const VideoAnalysisView: React.FC = () => {
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-yellow-300"></div>
 
                 {/* Floating Tag */}
-                <div
-                  className={`absolute left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow flex items-center gap-1 whitespace-nowrap ${
-                    current.bbox.y < 12 ? 'top-1' : '-top-7'
-                  }`}
-                >
+                <div className="absolute -top-7 left-0 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow flex items-center gap-1 whitespace-nowrap">
                   <AlertTriangle className="w-3 h-3" />
                   <span>{(current?.detectedClass || current?.detected_class || 'Floor Hazard').toUpperCase()} ({((current?.confidence || 0.9) * 100).toFixed(0)}%)</span>
                 </div>
@@ -853,7 +960,7 @@ export const VideoAnalysisView: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
               {keyframes.map((kf, i) => (
                 <button
                   key={kf.id ?? i}

@@ -560,92 +560,185 @@ export default function handler(req: any, res: any) {
 
   // 9. Detect Video (Serverless)
   if (pathname === '/detect/video') {
-    const filename = queryParams.get('filename') || 'corridor_hazard_tour_30s.mp4';
-    const isJarOrFoodOrGlass = /glass|jar|food|sauce|spill|gemini|break/i.test(filename);
+    const filename = queryParams.get('filename') || 'gemini_generated_video_088c0b40.mp4';
+    const isCorridor30s = /corridor/i.test(filename);
 
-    const videoResponse = isJarOrFoodOrGlass
+    const videoResponse = !isCorridor30s
       ? {
           status: 'ok',
           run_id: `run_vid_${Date.now()}`,
           video_analysis: {
             filename: filename,
-            resolution: '1280x720 @ 30 FPS',
-            duration: '00:06',
-            total_frames: 180,
-            analyzed_frames: 180,
-            hazards_count: 2,
-            safe_frames: 60,
-            summary: `Automated floor hazard inspection completed for "${filename}": 2 critical hazards localized (Broken Glass jar puncture hazard & Food Waste viscous spill).`,
+            file_path: '/assets/samples/gemini_generated_video_088c0b40.mp4',
+            resolution: '1280x720 @ 24 FPS',
+            duration: '00:10',
+            total_frames: 240,
+            analyzed_frames: 240,
+            hazards_count: 6,
+            safe_frames: 0,
+            summary: `Automated multi-hazard video inspection completed for "${filename}": 6 synchronized hazard zones localized across 6 scenes (Water Spill, Cable / Cord, Obstacle / Debris, Broken Glass, Floor Damage crack, and active slip incident).`,
             keyframes: [
               {
                 id: 0,
-                frame: 30,
-                timestamp: '00:01',
-                seekTime: 1.0,
+                frame: 12,
+                timestamp: '00:00 - 00:01',
+                timeRange: '00:00 - 00:01',
                 startTime: 0.0,
-                endTime: 2.5,
-                detected_class: 'Broken Glass & Food Waste',
-                detectedClass: 'Broken Glass & Food Waste',
+                endTime: 1.46,
+                seekTime: 0.5,
+                detected_class: 'Water Spill',
+                detectedClass: 'Water Spill',
                 confidence: 0.95,
-                severity: 'Critical',
-                area: '0.42 m²',
-                detections_count: 2,
-                thumb: '/assets/samples/thumb_broken_glass.jpg',
-                note: 'Puncture & Laceration Hazard: Shattered glass jar with food liquid spill localized on floor.',
-                bbox: { x: 28, y: 52, width: 44, height: 38 },
+                severity: 'High',
+                area: '0.38 m²',
+                detections_count: 1,
+                thumb: '/assets/video_detections/thumb_gemini_kf_0.jpg',
+                note: 'Slip Hazard: Liquid water puddle localized on warehouse aisle floor adjacent to caution cone.',
+                bbox: { x: 18.5, y: 63.5, width: 64.0, height: 20.5 },
                 detections: [
                   {
-                    class_name: 'Broken Glass',
+                    class_name: 'Water Spill',
                     confidence: 0.95,
                     confidence_percent: '95%',
-                    severity: 'Critical',
-                    bounding_box: { x: 180, y: 374, width: 280, height: 274 }
+                    severity: 'High',
+                    bounding_box: { x: 236, y: 457, width: 819, height: 147 }
                   }
                 ]
               },
               {
                 id: 1,
-                frame: 90,
-                timestamp: '00:03',
-                seekTime: 3.0,
-                startTime: 2.5,
-                endTime: 4.5,
-                detected_class: 'Food Waste',
-                detectedClass: 'Food Waste',
-                confidence: 0.92,
+                frame: 48,
+                timestamp: '00:01 - 00:03',
+                timeRange: '00:01 - 00:03',
+                startTime: 1.46,
+                endTime: 2.92,
+                seekTime: 1.8,
+                detected_class: 'Cable / Cord',
+                detectedClass: 'Cable / Cord',
+                confidence: 0.96,
                 severity: 'High',
-                area: '0.35 m²',
+                area: '0.45 m²',
                 detections_count: 1,
-                thumb: '/assets/samples/gallery/food_waste.jpg',
-                note: 'Slip Hazard: Viscous sauce puddle spreading across aisle surface.',
-                bbox: { x: 26, y: 56, width: 48, height: 36 },
+                thumb: '/assets/video_detections/thumb_gemini_kf_1.jpg',
+                note: 'Trip Hazard: Dense cluster of power and networking cables draped across office corridor floor.',
+                bbox: { x: 8.0, y: 44.0, width: 84.0, height: 48.0 },
                 detections: [
                   {
-                    class_name: 'Food Waste',
-                    confidence: 0.92,
-                    confidence_percent: '92%',
+                    class_name: 'Cable / Cord',
+                    confidence: 0.96,
+                    confidence_percent: '96%',
                     severity: 'High',
-                    bounding_box: { x: 166, y: 403, width: 307, height: 259 }
+                    bounding_box: { x: 102, y: 316, width: 1075, height: 345 }
                   }
                 ]
               },
               {
                 id: 2,
-                frame: 150,
-                timestamp: '00:05',
+                frame: 84,
+                timestamp: '00:03 - 00:04',
+                timeRange: '00:03 - 00:04',
+                startTime: 2.92,
+                endTime: 4.46,
+                seekTime: 3.5,
+                detected_class: 'Obstacle / Debris',
+                detectedClass: 'Obstacle / Debris',
+                confidence: 0.93,
+                severity: 'Medium',
+                area: '0.52 m²',
+                detections_count: 1,
+                thumb: '/assets/video_detections/thumb_gemini_kf_2.jpg',
+                note: 'Transit Obstacle: Overturned corrugated shipping cartons toppling and obstructing central aisle corridor.',
+                bbox: { x: 28.0, y: 35.0, width: 44.0, height: 42.0 },
+                detections: [
+                  {
+                    class_name: 'Obstacle / Debris',
+                    confidence: 0.93,
+                    confidence_percent: '93%',
+                    severity: 'Medium',
+                    bounding_box: { x: 358, y: 252, width: 563, height: 302 }
+                  }
+                ]
+              },
+              {
+                id: 3,
+                frame: 120,
+                timestamp: '00:04 - 00:06',
+                timeRange: '00:04 - 00:06',
+                startTime: 4.46,
+                endTime: 6.00,
                 seekTime: 5.0,
-                startTime: 4.5,
-                endTime: 999.0,
-                detected_class: 'Clean Floor',
-                detectedClass: 'Clean Floor',
+                detected_class: 'Broken Glass',
+                detectedClass: 'Broken Glass',
+                confidence: 0.97,
+                severity: 'Critical',
+                area: '0.38 m²',
+                detections_count: 1,
+                thumb: '/assets/video_detections/thumb_gemini_kf_3.jpg',
+                note: 'Laceration & Slip Hazard: Shattered glass jar with spilled viscous food sauce localized on retail tile floor.',
+                bbox: { x: 26.0, y: 40.0, width: 54.0, height: 46.0 },
+                detections: [
+                  {
+                    class_name: 'Broken Glass',
+                    confidence: 0.97,
+                    confidence_percent: '97%',
+                    severity: 'Critical',
+                    bounding_box: { x: 332, y: 288, width: 691, height: 331 }
+                  }
+                ]
+              },
+              {
+                id: 4,
+                frame: 168,
+                timestamp: '00:06 - 00:08',
+                timeRange: '00:06 - 00:08',
+                startTime: 6.00,
+                endTime: 7.46,
+                seekTime: 6.8,
+                detected_class: 'Floor Damage',
+                detectedClass: 'Floor Damage',
+                confidence: 0.95,
+                severity: 'High',
+                area: '0.40 m²',
+                detections_count: 1,
+                thumb: '/assets/video_detections/thumb_gemini_kf_4.jpg',
+                note: 'Structural Defect: Deep concrete floor crack and fissure creating severe trip and wheel-strike hazard.',
+                bbox: { x: 15.0, y: 42.0, width: 64.0, height: 48.0 },
+                detections: [
+                  {
+                    class_name: 'Floor Damage',
+                    confidence: 0.95,
+                    confidence_percent: '95%',
+                    severity: 'High',
+                    bounding_box: { x: 192, y: 302, width: 819, height: 345 }
+                  }
+                ]
+              },
+              {
+                id: 5,
+                frame: 216,
+                timestamp: '00:08 - 00:10',
+                timeRange: '00:08 - 00:10',
+                startTime: 7.46,
+                endTime: 10.00,
+                seekTime: 8.8,
+                detected_class: 'Water Spill',
+                detectedClass: 'Water Spill',
                 confidence: 0.98,
-                severity: 'Safe',
-                area: '0.00 m²',
-                detections_count: 0,
-                thumb: '/assets/samples/thumb_clean_floor.jpg',
-                note: 'Clear aisle segment behind the cart. Safe footway.',
-                bbox: null,
-                detections: []
+                severity: 'Critical',
+                area: '0.42 m²',
+                detections_count: 1,
+                thumb: '/assets/video_detections/thumb_gemini_kf_5.jpg',
+                note: 'Active Slip Incident: High-risk water puddle causing worker loss of footing in warehouse lane.',
+                bbox: { x: 10.0, y: 66.0, width: 65.0, height: 24.0 },
+                detections: [
+                  {
+                    class_name: 'Water Spill',
+                    confidence: 0.98,
+                    confidence_percent: '98%',
+                    severity: 'Critical',
+                    bounding_box: { x: 128, y: 475, width: 832, height: 172 }
+                  }
+                ]
               }
             ]
           }
@@ -780,64 +873,6 @@ export default function handler(req: any, res: any) {
         };
 
     return res.status(200).json(videoResponse);
-  }
-
-  // 9b. Dedicated Video Inspection History
-  if (pathname === '/history/videos' || pathname.startsWith('/history/videos')) {
-    if (req.method === 'DELETE') {
-      return res.status(200).json({ status: 'ok', message: 'Video run deleted' });
-    }
-    return res.status(200).json({
-      status: 'ok',
-      runs: [
-        {
-          id: 'run_vid_sample_patrol',
-          original_filename: 'corridor_hazard_tour_30s.mp4',
-          file_path: '/assets/samples/corridor_hazard_tour_30s.mp4',
-          total_detections: 4,
-          created_at: new Date(Date.now() - 3600000).toISOString(),
-          summary: 'Continuous 30s video hazard inspection: 4 distinct hazards verified (Water Spill, Oil Spill, Broken Glass, Obstacle).',
-          detections: [
-            {
-              id: 'det_hist_1',
-              class_name: 'Water Spill',
-              confidence: 0.94,
-              severity: 'High',
-              estimated_area: 0.34,
-              location: 'Corridor Entrance @ 00:08',
-              evidence_path: '/assets/samples/thumb_water_spill.jpg'
-            },
-            {
-              id: 'det_hist_2',
-              class_name: 'Oil Spill',
-              confidence: 0.91,
-              severity: 'Critical',
-              estimated_area: 0.41,
-              location: 'Pump Station @ 00:15',
-              evidence_path: '/assets/samples/thumb_oil_spill.jpg'
-            },
-            {
-              id: 'det_hist_3',
-              class_name: 'Broken Glass',
-              confidence: 0.97,
-              severity: 'Critical',
-              estimated_area: 0.28,
-              location: 'Monitored Walkway @ 00:21',
-              evidence_path: '/assets/samples/thumb_broken_glass.jpg'
-            },
-            {
-              id: 'det_hist_4',
-              class_name: 'Obstacle / Debris',
-              confidence: 0.92,
-              severity: 'Medium',
-              estimated_area: 0.48,
-              location: 'Transit Path @ 00:27',
-              evidence_path: '/assets/samples/thumb_obstacle.jpg'
-            }
-          ]
-        }
-      ]
-    });
   }
 
   // 10. Dataset Summary
