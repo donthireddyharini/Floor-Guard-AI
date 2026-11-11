@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, Bell, CheckCircle2, LogOut, LogIn, ShieldCheck, Lock } from 'lucide-react';
+import { Bell, CheckCircle2, LogOut, LogIn, ShieldCheck, Cpu } from 'lucide-react';
 import { NavSection } from '../types';
 
 interface HeaderProps {
@@ -27,7 +27,6 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenLogin,
   userRole = 'Senior Facility Safety Officer'
 }) => {
-  const [showModelDropdown, setShowModelDropdown] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
   const titles: Record<NavSection, { title: string; subtitle: string }> = {
@@ -77,95 +76,20 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Right Controls */}
       <div className="flex items-center gap-3 shrink-0">
-        {/* Interactive Model Selector Dropdown */}
-        <div className="relative">
-          <button
-            onClick={() => setShowModelDropdown(!showModelDropdown)}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#131b29] border transition-all cursor-pointer text-xs font-semibold ${
-              activeModel?.task === 'classification'
-                ? 'border-[#38bdf8]/40 hover:border-[#38bdf8] text-slate-200'
-                : 'border-[#202e46] hover:border-[#22c55e]/60 text-slate-200'
-            }`}
-          >
-            <span
-              className={`w-2 h-2 rounded-full ${
-                activeModel?.task === 'classification'
-                  ? 'bg-[#38bdf8] shadow-[0_0_8px_#38bdf8]'
-                  : 'bg-[#22c55e] shadow-[0_0_8px_#22c55e]'
-              }`}
-            />
-            <span>
-              Model:{' '}
-              <span className={activeModel?.task === 'classification' ? 'text-[#38bdf8]' : 'text-[#22c55e]'}>
-                {activeModel?.name?.replace(' Detector', '').replace(' Classifier', '') || 'YOLOv8s'}
-              </span>
-            </span>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-          </button>
-
-          {showModelDropdown && (
-            <div className="absolute right-0 mt-2 w-80 rounded-xl bg-[#141d2c] border border-[#22334c] shadow-2xl p-2 z-50 space-y-1.5">
-              <div className="px-2 py-1.5 text-[11px] font-semibold text-slate-400 border-b border-[#1f2d42] flex items-center justify-between">
-                <span>Active Safety Checkpoints</span>
-                <span className="text-[10px] text-[#22c55e]">YOLOv8s Loaded</span>
-              </div>
-
-              {allModels.map((m: any) => {
-                const isSelected = (activeModel?.id || 'm1') === m.id;
-                return (
-                  <button
-                    key={m.id}
-                    onClick={() => {
-                      if (onSelectModel) onSelectModel(m.id);
-                      setShowModelDropdown(false);
-                    }}
-                    className={`w-full text-left p-2.5 rounded-lg transition-all flex items-start justify-between cursor-pointer ${
-                      isSelected
-                        ? 'bg-[#1b2a3d] border border-[#22c55e]/50'
-                        : 'hover:bg-[#192437] border border-transparent'
-                    }`}
-                  >
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-bold text-white">{m.name}</span>
-                        {isSelected && (
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#22c55e] shrink-0" />
-                        )}
-                      </div>
-                      <div className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
-                        {m.description || 'Ultralytics floor hazard detector'}
-                      </div>
-                      <div className="flex items-center gap-2 mt-1.5 text-[10px] font-mono text-slate-400">
-                        <span>mAP50: <span className="text-[#22c55e]">{(m.metrics?.mAP50 * 100).toFixed(1)}%</span></span>
-                        <span>•</span>
-                        <span>Lat: <span className="text-[#38bdf8]">{m.metrics?.latency_batch1_ms}ms</span></span>
-                      </div>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
-                        isSelected
-                          ? 'bg-[#22c55e]/20 text-[#22c55e]'
-                          : 'bg-slate-800 text-slate-400'
-                      }`}>
-                        {isSelected ? '✓ Active' : 'Switch'}
-                      </span>
-                    </div>
-                  </button>
-                );
-              })}
-
-              <button
-                onClick={() => {
-                  onOpenModelDetails();
-                  setShowModelDropdown(false);
-                }}
-                className="w-full text-center py-1.5 text-[11px] font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
-              >
-                Inspect Full Evaluation Matrix &rarr;
-              </button>
-            </div>
-          )}
-        </div>
+        {/* Dedicated Active Model Indicator Badge (No unrelated COCO models) */}
+        <button
+          onClick={onOpenModelDetails}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#131b29] border border-[#202e46] hover:border-[#22c55e]/60 transition-all cursor-pointer text-xs font-semibold text-slate-200"
+          title="Click to view model architecture and metrics"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e] animate-pulse" />
+          <span>
+            Model: <span className="text-[#22c55e]">FloorGuard-YOLOv8 Canonical (13 Classes)</span>
+          </span>
+          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            Active
+          </span>
+        </button>
 
         {/* Notification Bell */}
         <div className="relative">

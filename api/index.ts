@@ -6,7 +6,7 @@ const MODEL_REGISTRY = {
   registry: [
     {
       id: "floorguard-yolov8-13class-canonical",
-      name: "FloorGuard-YOLOv8 Universal Detector (12 Classes)",
+      name: "FloorGuard-YOLOv8 Canonical Detector (13 Classes)",
       version: "8.0.0-canonical-13class",
       architecture: "YOLOv8s",
       task: "detection",
@@ -18,7 +18,7 @@ const MODEL_REGISTRY = {
       description: "Fine-tuned YOLOv8s floor hazard detector trained on audited multi-source dataset across 12 hazard types + clean background controls.",
       classes: [
         "Clean Floor",
-        "Mat Hazard",
+        "Floor Mat Hazard",
         "Floor Damage",
         "Water Spill",
         "Oil Spill",
@@ -31,20 +31,6 @@ const MODEL_REGISTRY = {
         "Mud / Dirt",
         "Stairs Hazard"
       ]
-    },
-    {
-      id: "yolov8s-coco-pretrained",
-      name: "Ultralytics YOLOv8s Pretrained (COCO-80)",
-      version: "8.0.0",
-      architecture: "YOLOv8s",
-      task: "detection",
-      trained_status: "official_ultralytics_pretrained",
-      weights_path: "models/pretrained/yolov8s.pt",
-      parameters_count: "11.2M",
-      input_resolution: [640, 640],
-      active: false,
-      description: "Official pretrained weights from Ultralytics on MS COCO 80 classes.",
-      classes: ["person", "bicycle", "car", "motorcycle", "bottle", "chair", "potted plant", "laptop", "box"]
     }
   ]
 };
