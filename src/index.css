@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@layer base {
+  html, body, #root, * {
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  }
+}
+
+html, body, #root {
+  font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  background-color: #070b12;
+  color: #f1f5f9;
+}
+
 @layer utilities {
   .grid-cols-28 {
     display: grid;
