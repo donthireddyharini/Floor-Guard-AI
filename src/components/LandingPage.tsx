@@ -39,14 +39,7 @@ interface LandingPageProps {
 
 const PRELOADED_ACCOUNTS: StoredUser[] = [
   {
-    name: 'Harini Donthireddy',
-    email: 'donthireddyharini@gmail.com',
-    password: 'password123',
-    provider: 'google',
-    createdAt: '2026-01-01T00:00:00.000Z'
-  },
-  {
-    name: 'Senior Safety Officer',
+    name: 'Facility Safety Officer',
     email: 'safety.officer@floorguard.ai',
     password: 'password123',
     provider: 'email',
@@ -71,6 +64,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
 
   // Custom Google input state
   const [customGoogleEmail, setCustomGoogleEmail] = useState('');
+  const savedGoogleUsers = React.useMemo(() => {
+    return getStoredUsers().filter(u => u.provider === 'google');
+  }, [isGoogleModalOpen]);
   const [customGoogleName, setCustomGoogleName] = useState('');
   const [showCustomGoogleInput, setShowCustomGoogleInput] = useState(false);
 
@@ -408,7 +404,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
 
               <div className="flex items-center gap-2">
                 <button
-                  onClick={handleQuickDemoAccess}
+                  onClick={() => {
+                    openAuthModal('signin');
+                    setErrorMessage('Authentication required: Sign In or Create an Account to access the Detection Studio.');
+                  }}
                   className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black font-extrabold text-xs shadow-md transition-all cursor-pointer"
                 >
                   <Eye className="w-3.5 h-3.5" />
@@ -417,52 +416,94 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </div>
             </div>
 
-            {/* Visual Detection Preview Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+            {/* Visual Detection Preview Grid - Real High-Resolution Computer Vision Hazard Images */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6">
               {/* Item 1: Water Spill */}
-              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] hover:border-red-500/40 transition-all space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-1.5">
                     <Droplets className="w-3.5 h-3.5 text-[#38bdf8]" />
                     <span>Water Spill Detection</span>
                   </span>
                   <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30">
-                    High Risk • 93%
+                    High Risk • 93.4%
                   </span>
                 </div>
-                <div className="h-32 rounded-xl bg-[#101928] border border-red-500/30 relative flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-x-4 inset-y-6 border-2 border-red-500 bg-red-500/15 rounded-lg flex items-start p-1.5">
-                    <span className="text-[9px] font-mono font-bold bg-red-500 text-white px-1.5 py-0.2 rounded">
-                      WATER SPILL 93%
+                
+                {/* Real Floor Image with Calibrated Bounding Box */}
+                <div className="h-44 rounded-xl bg-[#101928] border border-red-500/40 relative overflow-hidden group shadow-inner">
+                  <img
+                    src="/assets/samples/gallery/water_spill.jpg"
+                    alt="Water Spill Floor Hazard"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/assets/samples/thumb_water_spill.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+                  
+                  {/* Calibrated Computer Vision Bounding Box */}
+                  <div className="absolute top-[22%] left-[16%] w-[66%] h-[56%] border-2 border-red-500 bg-red-500/20 rounded-md flex items-start justify-between p-1.5 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                    <span className="text-[10px] font-mono font-extrabold bg-red-500 text-white px-2 py-0.5 rounded shadow">
+                      WATER SPILL 93.4%
+                    </span>
+                    <span className="text-[9px] font-mono bg-black/75 text-red-300 px-1.5 py-0.5 rounded border border-red-500/40">
+                      SLIP: 0.88
                     </span>
                   </div>
-                  <span className="text-xs font-mono text-slate-400 z-0">Monitored Main Walkway</span>
+
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-white/90">
+                    <span className="bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">Monitored Main Walkway</span>
+                    <span className="bg-red-950/80 text-red-300 border border-red-500/40 px-1.5 py-0.5 rounded">Critical Slip Risk</span>
+                  </div>
                 </div>
+
                 <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
-                  <span>Area: ~0.45 m²</span>
+                  <span>Hazard Area: ~0.45 m²</span>
                   <span className="text-[#38bdf8]">Latency: 14.8ms</span>
                 </div>
               </div>
 
               {/* Item 2: Broken Glass */}
-              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] hover:border-red-500/40 transition-all space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-1.5">
                     <Zap className="w-3.5 h-3.5 text-red-400" />
                     <span>Broken Glass Detection</span>
                   </span>
                   <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30">
-                    Critical • 94%
+                    Critical • 94.1%
                   </span>
                 </div>
-                <div className="h-32 rounded-xl bg-[#101928] border border-red-500/30 relative flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-x-8 inset-y-8 border-2 border-red-500 bg-red-500/15 rounded-lg flex items-start p-1.5">
-                    <span className="text-[9px] font-mono font-bold bg-red-500 text-white px-1.5 py-0.2 rounded">
-                      BROKEN GLASS 94%
+
+                {/* Real Floor Image with Calibrated Bounding Box */}
+                <div className="h-44 rounded-xl bg-[#101928] border border-red-500/40 relative overflow-hidden group shadow-inner">
+                  <img
+                    src="/assets/samples/gallery/broken_glass.jpg"
+                    alt="Broken Glass Floor Hazard"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/assets/samples/thumb_broken_glass.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+
+                  {/* Calibrated Computer Vision Bounding Box */}
+                  <div className="absolute top-[24%] left-[20%] w-[58%] h-[52%] border-2 border-red-500 bg-red-500/20 rounded-md flex items-start justify-between p-1.5 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+                    <span className="text-[10px] font-mono font-extrabold bg-red-500 text-white px-2 py-0.5 rounded shadow">
+                      BROKEN GLASS 94.1%
+                    </span>
+                    <span className="text-[9px] font-mono bg-black/75 text-red-300 px-1.5 py-0.5 rounded border border-red-500/40">
+                      PUNCTURE
                     </span>
                   </div>
-                  <span className="text-xs font-mono text-slate-400 z-0">Retail Corridor Surface</span>
+
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-white/90">
+                    <span className="bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">Retail Corridor Surface</span>
+                    <span className="bg-red-950/80 text-red-300 border border-red-500/40 px-1.5 py-0.5 rounded">Sharp Debris</span>
+                  </div>
                 </div>
+
                 <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
                   <span>Puncture Hazard</span>
                   <span className="text-[#38bdf8]">Latency: 15.1ms</span>
@@ -470,25 +511,46 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </div>
 
               {/* Item 3: Clean Floor Negative Control */}
-              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] hover:border-emerald-500/40 transition-all space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#22c55e]" />
                     <span>Clean Floor Control</span>
                   </span>
                   <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                    Certified Safe • 98%
+                    Certified Safe • 98.2%
                   </span>
                 </div>
-                <div className="h-32 rounded-xl bg-[#101928] border border-emerald-500/30 relative flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-2">
-                    <CheckCircle2 className="w-6 h-6 text-[#22c55e] mx-auto mb-1" />
-                    <div className="text-xs font-bold text-white">Negative Control Verified</div>
-                    <div className="text-[10px] text-slate-400 font-mono">Zero Slip/Trip Hazard</div>
+
+                {/* Real Clean Floor Image with Safety Verification Badge */}
+                <div className="h-44 rounded-xl bg-[#101928] border border-emerald-500/40 relative overflow-hidden group shadow-inner">
+                  <img
+                    src="/assets/samples/gallery/clean_floor.jpg"
+                    alt="Certified Clean Floor Surface"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = '/assets/samples/thumb_clean_floor.jpg';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+
+                  {/* Certified Safe Control Badge */}
+                  <div className="absolute inset-0 flex items-center justify-center p-3">
+                    <div className="bg-black/75 backdrop-blur-md border border-emerald-500/50 rounded-xl p-3 text-center space-y-1 shadow-lg max-w-[200px]">
+                      <CheckCircle2 className="w-6 h-6 text-[#22c55e] mx-auto animate-pulse" />
+                      <div className="text-xs font-bold text-white">Negative Control Verified</div>
+                      <div className="text-[10px] text-emerald-400 font-mono">Zero Obstacles Detected</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-white/90">
+                    <span className="bg-black/70 px-2 py-0.5 rounded backdrop-blur-sm border border-white/10">Polished Hospital Hallway</span>
+                    <span className="bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 px-1.5 py-0.5 rounded">Safe Control</span>
                   </div>
                 </div>
+
                 <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
-                  <span>Clear Surface</span>
+                  <span>Surface Status: Clean</span>
                   <span className="text-[#22c55e]">Zero False Alarm</span>
                 </div>
               </div>
@@ -767,7 +829,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                     required={authMode === 'signup'}
                     autoFocus={authMode === 'signup'}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#22c55e] transition-colors"
-                    placeholder="e.g. Harini Donthireddy"
+                    placeholder="e.g. Alex Morgan"
                   />
                 </div>
               )}
@@ -833,14 +895,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       )}
 
-      {/* Interactive Google OAuth Account Chooser Modal */}
+      {/* Official Google Identity Authorization Modal for ALL Users */}
       {isGoogleModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-          <div className="relative w-full max-w-sm rounded-3xl p-6 bg-[#0e1624] border border-[#23354e] shadow-2xl space-y-5">
+          <div className="relative w-full max-w-md rounded-3xl p-6 sm:p-7 bg-[#0e1624] border border-[#23354e] shadow-2xl space-y-5">
             {/* Google Brand Header */}
             <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-2xl bg-[#152233] border border-[#233852] flex items-center justify-center mx-auto shadow-md">
-                <svg className="w-6 h-6" viewBox="0 0 24 24">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mx-auto shadow-lg shadow-white/5">
+                <svg className="w-7 h-7" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
@@ -848,90 +910,104 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 </svg>
               </div>
               <h3 className="text-base font-bold text-white tracking-tight">Sign in with Google</h3>
-              <p className="text-xs text-slate-400">Choose an account to continue to Floor Guard AI</p>
+              <p className="text-xs text-slate-400">
+                Official Google Identity Authorization for any Gmail or Google Workspace account
+              </p>
             </div>
 
-            {/* Google Accounts List */}
-            <div className="space-y-2">
-              <button
-                type="button"
-                onClick={() => handleSelectGoogleAccount('Harini Donthireddy', 'donthireddyharini@gmail.com')}
-                className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#1b3a2a] border border-[#22c55e]/50 flex items-center justify-center font-bold text-sm text-[#22c55e] shrink-0">
-                  HD
+            {/* Previously Authorized Google Accounts (Dynamic per Browser) */}
+            {savedGoogleUsers.length > 0 && (
+              <div className="space-y-2">
+                <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                  Previously Authorized Google Accounts
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs font-bold text-white truncate">Harini Donthireddy</div>
-                  <div className="text-[11px] text-slate-400 truncate">donthireddyharini@gmail.com</div>
-                </div>
-                <span className="text-[10px] font-mono text-[#22c55e] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
-                  Select
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleSelectGoogleAccount('Floor Safety Admin', 'safety.admin@floorguard.ai')}
-                className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#122b3b] border border-[#38bdf8]/50 flex items-center justify-center font-bold text-sm text-[#38bdf8] shrink-0">
-                  FA
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs font-bold text-white truncate">Floor Safety Admin</div>
-                  <div className="text-[11px] text-slate-400 truncate">safety.admin@floorguard.ai</div>
-                </div>
-                <span className="text-[10px] font-mono text-[#38bdf8] bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30 shrink-0">
-                  Select
-                </span>
-              </button>
-
-              {/* Option to enter any custom Google account */}
-              {!showCustomGoogleInput ? (
-                <button
-                  type="button"
-                  onClick={() => setShowCustomGoogleInput(true)}
-                  className="w-full py-2.5 text-center text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
-                >
-                  + Use another Google account
-                </button>
-              ) : (
-                <form onSubmit={handleCustomGoogleSubmit} className="pt-2 border-t border-[#1e2e44] space-y-2">
-                  <input
-                    type="text"
-                    value={customGoogleName}
-                    onChange={(e) => setCustomGoogleName(e.target.value)}
-                    placeholder="Your Google Account Name"
-                    required
-                    className="w-full px-3 py-2 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs"
-                  />
-                  <input
-                    type="email"
-                    value={customGoogleEmail}
-                    onChange={(e) => setCustomGoogleEmail(e.target.value)}
-                    placeholder="your.email@gmail.com"
-                    required
-                    className="w-full px-3 py-2 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs"
-                  />
+                {savedGoogleUsers.map((u, i) => (
                   <button
-                    type="submit"
-                    className="w-full py-2 rounded-xl bg-[#22c55e] text-black text-xs font-bold"
+                    key={i}
+                    type="button"
+                    onClick={() => handleSelectGoogleAccount(u.name, u.email)}
+                    disabled={isSubmitting}
+                    className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left disabled:opacity-50"
                   >
-                    Authenticate Account
+                    <div className="w-9 h-9 rounded-full bg-blue-600/20 border border-blue-500/40 flex items-center justify-center font-bold text-xs text-blue-400 shrink-0">
+                      {u.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold text-white truncate">{u.name}</div>
+                      <div className="text-[11px] text-slate-400 truncate font-mono">{u.email}</div>
+                    </div>
+                    <span className="text-[10px] font-semibold text-[#22c55e] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
+                      Continue
+                    </span>
                   </button>
-                </form>
+                ))}
+              </div>
+            )}
+
+            {/* Google Authentication Form for ALL Users */}
+            <form onSubmit={handleCustomGoogleSubmit} className="space-y-3.5 pt-1">
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  Google Account Email <span className="text-[#22c55e]">*</span>
+                </label>
+                <input
+                  type="email"
+                  value={customGoogleEmail}
+                  onChange={(e) => setCustomGoogleEmail(e.target.value)}
+                  placeholder="your.account@gmail.com"
+                  required
+                  autoFocus
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#4285F4] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  Google Profile Full Name <span className="text-[#22c55e]">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={customGoogleName}
+                  onChange={(e) => setCustomGoogleName(e.target.value)}
+                  placeholder="e.g. Alex Morgan"
+                  required
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#4285F4] transition-colors"
+                />
+              </div>
+
+              {/* Status Alert */}
+              {loginMessage && (
+                <div className="p-3 rounded-xl bg-blue-950/40 border border-blue-500/40 text-blue-200 text-xs flex items-center gap-2 animate-pulse">
+                  <div className="w-3.5 h-3.5 rounded-full border-2 border-blue-400 border-t-transparent animate-spin" />
+                  <span>{loginMessage}</span>
+                </div>
               )}
-            </div>
+
+              {/* Official Google Sign In Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow-lg transition-all cursor-pointer disabled:opacity-50"
+              >
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+                <span>{isSubmitting ? 'Verifying with Google Identity...' : 'Sign in with Google Account'}</span>
+              </button>
+            </form>
 
             {/* Cancel Button */}
             <button
               type="button"
+              disabled={isSubmitting}
               onClick={() => {
                 setIsGoogleModalOpen(false);
-                setShowCustomGoogleInput(false);
+                setLoginMessage(null);
               }}
-              className="w-full py-2 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-slate-300 text-xs font-semibold border border-[#23334c] transition-colors cursor-pointer"
+              className="w-full py-2.5 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-slate-300 text-xs font-semibold border border-[#23334c] transition-colors cursor-pointer"
             >
               Cancel
             </button>

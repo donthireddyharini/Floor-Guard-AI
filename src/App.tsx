@@ -81,17 +81,17 @@ export default function App() {
 
   const [userName, setUserName] = useState<string>(() => {
     try {
-      return localStorage.getItem('floorguard_user_name') || 'Harini Donthireddy';
+      return localStorage.getItem('floorguard_user_name') || 'Facility Safety Officer';
     } catch {
-      return 'Harini Donthireddy';
+      return 'Facility Safety Officer';
     }
   });
 
   const [userEmail, setUserEmail] = useState<string>(() => {
     try {
-      return localStorage.getItem('floorguard_user_email') || 'donthireddyharini@gmail.com';
+      return localStorage.getItem('floorguard_user_email') || 'safety.officer@floorguard.ai';
     } catch {
-      return 'donthireddyharini@gmail.com';
+      return 'safety.officer@floorguard.ai';
     }
   });
 
@@ -149,8 +149,8 @@ export default function App() {
   }, [isAuthenticated]);
 
   const handleLogin = (name?: string, email?: string, provider?: string) => {
-    const finalName = name || 'Harini Donthireddy';
-    const finalEmail = email || 'donthireddyharini@gmail.com';
+    const finalName = name || 'Facility Safety Officer';
+    const finalEmail = email || 'safety.officer@floorguard.ai';
     const finalProvider = provider || 'email';
 
     try {

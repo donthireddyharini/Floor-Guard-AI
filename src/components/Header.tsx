@@ -29,14 +29,14 @@ export const Header: React.FC<HeaderProps> = ({
   onSignOut,
   onOpenLogin,
   userRole = 'Senior Facility Safety Officer',
-  userName = 'Harini Donthireddy',
-  userEmail = 'donthireddyharini@gmail.com',
+  userName = 'Facility Safety Officer',
+  userEmail = 'safety.officer@floorguard.ai',
   authProvider = 'email'
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   const getInitials = (fullName: string) => {
-    if (!fullName) return 'HD';
+    if (!fullName) return 'SO';
     const parts = fullName.trim().split(' ').filter(Boolean);
     if (parts.length >= 2) {
       return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
