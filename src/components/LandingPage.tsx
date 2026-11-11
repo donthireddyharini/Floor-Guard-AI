@@ -1,3 +1,16 @@
+import {
+  getActiveGoogleClientId,
+  saveGoogleClientId,
+  renderOfficialGoogleButton,
+  launchGoogleOAuthPopup,
+  GoogleUserProfile
+} from '../utils/googleAuth';
+import {
+  ExternalLink,
+  Settings as SettingsIcon,
+  Globe,
+  Key as KeyIcon
+} from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import {
   ShieldAlert,
@@ -72,6 +85,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Custom Google input state
+  // Google Cloud Console OAuth 2.0 API State
+  const [googleClientId, setGoogleClientId] = useState<string>(() => getActiveGoogleClientId());
+  const [clientIdInput, setClientIdInput] = useState<string>(googleClientId);
+  const [showClientIdConfig, setShowClientIdConfig] = useState<boolean>(!googleClientId);
+  const [googleTab, setGoogleTab] = useState<'cloud_api' | 'direct_google'>('cloud_api');
+  const googleBtnContainerRef = React.useRef<HTMLDivElement | null>(null);
+
   const [customGoogleEmail, setCustomGoogleEmail] = useState('');
   const savedGoogleUsers = React.useMemo(() => {
     try {
@@ -201,6 +221,76 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       setIsSubmitting(false);
       onLogin('Safety Auditor (Demo)', 'demo.auditor@floorguard.ai', 'demo');
     }, 350);
+  };
+
+  // Render official Google Cloud Console Sign-In button when modal opens
+  useEffect(() => {
+    if (isGoogleModalOpen && googleClientId && googleBtnContainerRef.current) {
+      const rendered = renderOfficialGoogleButton(
+        googleBtnContainerRef.current,
+        googleClientId,
+        (profile) => {
+          handleSelectGoogleAccount(profile.name, profile.email);
+        },
+        (err) => {
+          console.warn('Google GSI button error:', err);
+        }
+      );
+      if (!rendered) {
+        // GSI script might be loading, retry in 600ms
+        const timer = setTimeout(() => {
+          if (googleBtnContainerRef.current) {
+            renderOfficialGoogleButton(
+              googleBtnContainerRef.current,
+              googleClientId,
+              (profile) => handleSelectGoogleAccount(profile.name, profile.email)
+            );
+          }
+        }, 600);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [isGoogleModalOpen, googleClientId, googleTab]);
+
+  // Launch official Google Cloud Console OAuth Popup
+  const handleLaunchGoogleCloudPopup = () => {
+    if (!googleClientId) {
+      setShowClientIdConfig(true);
+      setErrorMessage('Please configure your Google Cloud Console OAuth 2.0 Client ID below.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMessage(null);
+    setLoginMessage('Connecting to Google Cloud Console OAuth 2.0 API...');
+
+    launchGoogleOAuthPopup(
+      googleClientId,
+      (profile) => {
+        setIsSubmitting(false);
+        handleSelectGoogleAccount(profile.name, profile.email);
+      },
+      (err) => {
+        setIsSubmitting(false);
+        console.error('Google Cloud OAuth Error:', err);
+        setErrorMessage(
+          err.message?.includes('popup_closed')
+            ? 'Google Sign-In popup was closed.'
+            : (err.message || 'Google Cloud OAuth authentication failed. Please check Authorized Origins in Google Cloud Console.')
+        );
+      }
+    );
+  };
+
+  // Save Google Cloud Client ID
+  const handleSaveGoogleClientId = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanId = clientIdInput.trim();
+    saveGoogleClientId(cleanId);
+    setGoogleClientId(cleanId);
+    setShowClientIdConfig(false);
+    setLoginMessage('Google Cloud Console Client ID saved successfully!');
+    setTimeout(() => setLoginMessage(null), 3000);
   };
 
   // Google OAuth Handler
@@ -901,13 +991,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       )}
 
-      {/* Official Google Identity Authorization Modal for ALL Users */}
+      {/* Official Google Identity & Google Cloud Console OAuth 2.0 Modal */}
       {isGoogleModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-          <div className="relative w-full max-w-md rounded-3xl p-6 sm:p-7 bg-[#0e1624] border border-[#23354e] shadow-2xl space-y-5">
+          <div className="relative w-full max-w-lg rounded-3xl p-6 sm:p-7 bg-[#0e1624] border border-[#23354e] shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
             {/* Google Brand Header */}
             <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mx-auto shadow-lg shadow-white/5">
+              <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center mx-auto shadow-lg shadow-white/10">
                 <svg className="w-7 h-7" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -915,43 +1005,138 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-white tracking-tight">Sign in with Google</h3>
+              <h3 className="text-lg font-bold text-white tracking-tight">Google Login Authentication</h3>
               <p className="text-xs text-slate-400">
-                Official Google Identity Authorization for any Gmail or Google Workspace account
+                Official Google Cloud Console OAuth 2.0 API &amp; Google Identity Services
               </p>
             </div>
 
-            {/* Previously Authorized Google Accounts (Dynamic per Browser) */}
-            {savedGoogleUsers.length > 0 && (
-              <div className="space-y-2">
-                <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
-                  Previously Authorized Google Accounts
-                </div>
-                {savedGoogleUsers.map((u, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => handleSelectGoogleAccount(u.name, u.email)}
-                    disabled={isSubmitting}
-                    className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left disabled:opacity-50"
+            {/* Google Cloud API Connection Status Pill */}
+            <div className="flex items-center justify-between p-3 rounded-2xl bg-[#121c2d] border border-[#1e2f46]">
+              <div className="flex items-center gap-2">
+                <span className={`w-2.5 h-2.5 rounded-full ${googleClientId ? 'bg-[#22c55e] animate-pulse shadow-[0_0_8px_#22c55e]' : 'bg-amber-400'}`} />
+                <span className="text-xs font-semibold text-white">
+                  {googleClientId ? 'Google Cloud Console OAuth Connected' : 'Google Cloud Client ID Required'}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowClientIdConfig(!showClientIdConfig)}
+                className="text-[11px] font-mono text-[#38bdf8] hover:text-[#7dd3fc] underline cursor-pointer"
+              >
+                {showClientIdConfig ? 'Hide Config' : 'Configure API Key'}
+              </button>
+            </div>
+
+            {/* Google Cloud Console Setup Drawer (if toggled or missing) */}
+            {showClientIdConfig && (
+              <form onSubmit={handleSaveGoogleClientId} className="p-4 rounded-2xl bg-[#09101a] border border-[#23354e] space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                    <KeyIcon className="w-3.5 h-3.5 text-[#38bdf8]" />
+                    <span>Google Cloud Console OAuth 2.0 Client ID</span>
+                  </span>
+                  <a
+                    href="https://console.cloud.google.com/apis/credentials"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[10px] text-[#38bdf8] flex items-center gap-1 hover:underline"
                   >
-                    <div className="w-9 h-9 rounded-full bg-blue-600/20 border border-blue-500/40 flex items-center justify-center font-bold text-xs text-blue-400 shrink-0">
-                      {u.name.slice(0, 2).toUpperCase()}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-bold text-white truncate">{u.name}</div>
-                      <div className="text-[11px] text-slate-400 truncate font-mono">{u.email}</div>
-                    </div>
-                    <span className="text-[10px] font-semibold text-[#22c55e] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
-                      Continue
-                    </span>
+                    <span>Console</span>
+                    <ExternalLink className="w-2.5 h-2.5" />
+                  </a>
+                </div>
+
+                <p className="text-[11px] text-slate-400 leading-relaxed">
+                  To authenticate via your Google Cloud project, enter your OAuth 2.0 Web Client ID:
+                </p>
+
+                <input
+                  type="text"
+                  value={clientIdInput}
+                  onChange={(e) => setClientIdInput(e.target.value)}
+                  placeholder="e.g. 123456789-abc.apps.googleusercontent.com"
+                  className="w-full px-3.5 py-2 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs font-mono focus:outline-none focus:border-[#4285F4]"
+                />
+
+                <div className="p-2.5 rounded-xl bg-[#111c2b] border border-[#1b2b40] text-[10px] text-slate-300 space-y-1 font-mono">
+                  <div className="font-bold text-[#38bdf8]">Google Cloud Console Checklist:</div>
+                  <div>1. APIs &amp; Services ? Credentials ? Create OAuth Client ID</div>
+                  <div>2. Application Type: Web application</div>
+                  <div>3. Authorized JavaScript Origins:</div>
+                  <div className="text-emerald-400 bg-black/40 p-1 rounded font-bold break-all">
+                    https://floor-guard-ai.vercel.app
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <button
+                    type="submit"
+                    className="flex-1 py-2 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs transition-all cursor-pointer"
+                  >
+                    Save &amp; Connect Google API
                   </button>
-                ))}
+                  {googleClientId && (
+                    <button
+                      type="button"
+                      onClick={() => setShowClientIdConfig(false)}
+                      className="px-3 py-2 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-slate-300 text-xs font-semibold border border-[#23334c]"
+                    >
+                      Close
+                    </button>
+                  )}
+                </div>
+              </form>
+            )}
+
+            {/* Error Message */}
+            {errorMessage && (
+              <div className="p-3 rounded-xl bg-red-950/40 border border-red-500/50 text-red-200 text-xs flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                <div className="flex-1 leading-relaxed">{errorMessage}</div>
               </div>
             )}
 
-            {/* Google Authentication Form for ALL Users */}
-            <form onSubmit={handleCustomGoogleSubmit} className="space-y-3.5 pt-1">
+            {/* Success Message */}
+            {loginMessage && (
+              <div className="p-3 rounded-xl bg-blue-950/40 border border-blue-500/40 text-blue-200 text-xs flex items-center gap-2 animate-pulse">
+                <div className="w-3.5 h-3.5 rounded-full border-2 border-blue-400 border-t-transparent animate-spin" />
+                <span>{loginMessage}</span>
+              </div>
+            )}
+
+            {/* Primary Action 1: Official Google Cloud OAuth 2.0 Popup */}
+            <div className="space-y-3">
+              <button
+                type="button"
+                onClick={handleLaunchGoogleCloudPopup}
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow-lg transition-all cursor-pointer disabled:opacity-50"
+              >
+                <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+                <span>{isSubmitting ? 'Opening Google Cloud OAuth Dialog...' : 'Sign in with Google (Cloud Console OAuth)'}</span>
+              </button>
+
+              {/* Rendered Google Identity Services Button Container */}
+              <div ref={googleBtnContainerRef} className="flex items-center justify-center min-h-[44px]" />
+            </div>
+
+            {/* Divider */}
+            <div className="relative flex items-center justify-center">
+              <div className="border-t border-[#1e2c40] w-full" />
+              <span className="bg-[#0e1624] px-3 text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+                Or Direct Google Account Login
+              </span>
+              <div className="border-t border-[#1e2c40] w-full" />
+            </div>
+
+            {/* Direct Google Login Form for ANY user */}
+            <form onSubmit={handleCustomGoogleSubmit} className="space-y-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">
                   Google Account Email <span className="text-[#22c55e]">*</span>
@@ -960,16 +1145,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                   type="email"
                   value={customGoogleEmail}
                   onChange={(e) => setCustomGoogleEmail(e.target.value)}
-                  placeholder="your.account@gmail.com"
+                  placeholder="your.google.account@gmail.com"
                   required
-                  autoFocus
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#4285F4] transition-colors"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1">
-                  Google Profile Full Name <span className="text-[#22c55e]">*</span>
+                  Full Name (as in Google Profile) <span className="text-[#22c55e]">*</span>
                 </label>
                 <input
                   type="text"
@@ -981,29 +1165,43 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 />
               </div>
 
-              {/* Status Alert */}
-              {loginMessage && (
-                <div className="p-3 rounded-xl bg-blue-950/40 border border-blue-500/40 text-blue-200 text-xs flex items-center gap-2 animate-pulse">
-                  <div className="w-3.5 h-3.5 rounded-full border-2 border-blue-400 border-t-transparent animate-spin" />
-                  <span>{loginMessage}</span>
-                </div>
-              )}
-
-              {/* Official Google Sign In Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow-lg transition-all cursor-pointer disabled:opacity-50"
+                className="w-full py-2.5 rounded-xl bg-[#141d2c] hover:bg-[#1e2b40] text-white text-xs font-semibold border border-[#23334c] hover:border-[#4285F4] transition-all cursor-pointer"
               >
-                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
-                </svg>
-                <span>{isSubmitting ? 'Verifying with Google Identity...' : 'Sign in with Google Account'}</span>
+                Authenticate Google Profile Directly
               </button>
             </form>
+
+            {/* Previously Authorized Google Accounts */}
+            {savedGoogleUsers.length > 0 && (
+              <div className="space-y-2 pt-2 border-t border-[#1b2738]">
+                <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
+                  Previously Authorized Google Accounts
+                </div>
+                {savedGoogleUsers.map((u, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => handleSelectGoogleAccount(u.name, u.email)}
+                    disabled={isSubmitting}
+                    className="w-full p-2.5 rounded-xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left disabled:opacity-50"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-blue-600/20 border border-blue-500/40 flex items-center justify-center font-bold text-xs text-blue-400 shrink-0">
+                      {u.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold text-white truncate">{u.name}</div>
+                      <div className="text-[10px] text-slate-400 truncate font-mono">{u.email}</div>
+                    </div>
+                    <span className="text-[10px] font-semibold text-[#22c55e] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
+                      Continue
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Cancel Button */}
             <button
@@ -1012,6 +1210,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               onClick={() => {
                 setIsGoogleModalOpen(false);
                 setLoginMessage(null);
+                setErrorMessage(null);
               }}
               className="w-full py-2.5 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-slate-300 text-xs font-semibold border border-[#23334c] transition-colors cursor-pointer"
             >
