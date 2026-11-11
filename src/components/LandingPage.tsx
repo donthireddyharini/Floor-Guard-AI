@@ -18,16 +18,18 @@ import {
   Layers,
   KeyRound,
   UserPlus,
-  User,
   X,
-  AlertCircle
+  AlertCircle,
+  Play,
+  Cpu,
+  Radio
 } from 'lucide-react';
 
 interface StoredUser {
   name: string;
   email: string;
   password?: string;
-  provider: 'email' | 'google';
+  provider: 'email' | 'google' | 'demo';
   createdAt: string;
 }
 
@@ -136,7 +138,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         setIsSubmitting(false);
         setIsAuthModalOpen(false);
         onLogin(existing.name, existing.email, existing.provider || 'email');
-      }, 500);
+      }, 450);
       return;
     }
 
@@ -185,8 +187,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         setIsSubmitting(false);
         setIsAuthModalOpen(false);
         onLogin(newUser.name, newUser.email, 'email');
-      }, 600);
+      }, 500);
     }
+  };
+
+  // One-click Demo Access handler (Right beside Login)
+  const handleQuickDemoAccess = () => {
+    setIsSubmitting(true);
+    setLoginMessage('Launching Floor Guard AI Live Demo Environment...');
+    setTimeout(() => {
+      setIsSubmitting(false);
+      onLogin('Safety Auditor (Demo)', 'demo.auditor@floorguard.ai', 'demo');
+    }, 350);
   };
 
   // Google OAuth Handler
@@ -215,7 +227,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       setIsGoogleModalOpen(false);
       setIsAuthModalOpen(false);
       onLogin(googleName, googleEmail, 'google');
-    }, 600);
+    }, 500);
   };
 
   const handleCustomGoogleSubmit = (e: React.FormEvent) => {
@@ -233,41 +245,57 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
 
   return (
     <div className="min-h-screen bg-[#070b12] text-slate-100 flex flex-col selection:bg-[#22c55e] selection:text-black relative">
-      {/* Standalone Landing Page Header */}
-      <header className="sticky top-0 z-40 bg-[#0c121d]/90 backdrop-blur-md border-b border-[#182335]">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Brand Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#14231b] border border-[#22c55e]/50 flex items-center justify-center text-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-              <ShieldAlert className="w-6 h-6 stroke-[2.2]" />
+      {/* Tight, Cohesive & Complete Header */}
+      <header className="sticky top-0 z-40 bg-[#0c121d]/95 backdrop-blur-md border-b border-[#182335]">
+        <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between gap-4">
+          {/* Brand Logo & Model Status */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#14231b] border border-[#22c55e]/50 flex items-center justify-center text-[#22c55e] shadow-[0_0_18px_rgba(34,197,94,0.3)]">
+              <ShieldAlert className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div>
-              <div className="text-lg font-black tracking-tight text-white flex items-center gap-1.5">
+              <div className="text-base font-black tracking-tight text-white flex items-center gap-1.5">
                 Floor Guard <span className="text-[#22c55e]">AI</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#172e21] text-[#22c55e] border border-[#22c55e]/30 font-semibold">
+                <span className="text-[10px] px-2 py-0.2 rounded-full bg-[#172e21] text-[#22c55e] border border-[#22c55e]/30 font-semibold font-mono">
                   v8.0.0
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-medium">Autonomous Floor Safety &amp; Hazard Inspection</p>
+              <p className="text-[10px] text-slate-400 font-medium">Autonomous Floor Safety Platform</p>
             </div>
           </div>
 
-          {/* Quick Nav Anchors */}
-          <nav className="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
-            <a href="#overview" className="hover:text-white transition-colors">Overview</a>
-            <a href="#categories" className="hover:text-white transition-colors">13 Hazard Classes</a>
-            <a href="#architecture" className="hover:text-white transition-colors">AI Pipeline</a>
-          </nav>
+          {/* Right Group: Navigation links and Action Buttons brought closer together */}
+          <div className="flex items-center gap-5 sm:gap-6">
+            {/* Quick Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-5 text-xs font-semibold text-slate-300">
+              <a href="#overview" className="hover:text-white transition-colors">Overview</a>
+              <a href="#preview" className="hover:text-white transition-colors">Live Inspection</a>
+              <a href="#categories" className="hover:text-white transition-colors">13 Hazard Classes</a>
+              <a href="#architecture" className="hover:text-white transition-colors">AI Pipeline</a>
+            </nav>
 
-          {/* Direct Login / Sign In CTA */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => openAuthModal('signin')}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black text-xs font-extrabold shadow-lg shadow-green-950/40 transition-all cursor-pointer"
-            >
-              <LogIn className="w-3.5 h-3.5 stroke-[2.5]" />
-              <span>Login / Sign In</span>
-            </button>
+            <div className="hidden lg:block h-4 w-[1px] bg-[#1f2d42]" />
+
+            {/* Action Buttons: Demo beside Login / Sign In */}
+            <div className="flex items-center gap-2.5">
+              <button
+                onClick={handleQuickDemoAccess}
+                disabled={isSubmitting}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#13221b] hover:bg-[#182e23] text-[#22c55e] hover:text-[#4ade80] border border-[#22c55e]/40 hover:border-[#22c55e]/70 text-xs font-bold transition-all cursor-pointer shadow-sm shadow-green-950/20"
+                title="Instant access to inspect dashboard features"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#22c55e]" />
+                <span>Explore Demo</span>
+              </button>
+
+              <button
+                onClick={() => openAuthModal('signin')}
+                className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black text-xs font-extrabold shadow-md shadow-green-950/40 transition-all cursor-pointer"
+              >
+                <LogIn className="w-3.5 h-3.5 stroke-[2.5]" />
+                <span>Login / Sign In</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -275,12 +303,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       {/* Main Landing Content */}
       <main className="flex-1">
         {/* Hero Section */}
-        <section id="overview" className="relative pt-16 pb-20 px-6 border-b border-[#141e2e] overflow-hidden">
+        <section id="overview" className="relative pt-12 pb-16 px-6 border-b border-[#141e2e] overflow-hidden">
           {/* Ambient Lighting Gradients */}
           <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#22c55e]/10 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-[#38bdf8]/10 rounded-full blur-[120px] pointer-events-none" />
 
-          <div className="max-w-5xl mx-auto text-center space-y-7 relative z-10">
+          <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#14291f] border border-[#22c55e]/40 text-[#22c55e] text-xs font-bold tracking-wide mx-auto">
               <Sparkles className="w-3.5 h-3.5 animate-pulse" />
               <span>Next-Gen Computer Vision for Facility Safety</span>
@@ -299,7 +327,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               certifying <strong>Clean Floor</strong> negative controls in <strong>14.8 milliseconds</strong>.
             </p>
 
-            {/* Hero Action CTA Buttons */}
+            {/* Hero Action CTA Buttons: Demo beside Login */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
                 onClick={() => openAuthModal('signin')}
@@ -311,11 +339,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </button>
 
               <button
-                onClick={() => openAuthModal('signup')}
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#141d2c] hover:bg-[#1c283c] border border-[#23334c] text-white text-sm font-semibold transition-all cursor-pointer"
+                onClick={handleQuickDemoAccess}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#13221b] hover:bg-[#192f25] border border-[#22c55e]/50 text-[#22c55e] hover:text-[#4ade80] text-sm font-bold shadow-lg shadow-green-950/20 transition-all cursor-pointer"
               >
-                <UserPlus className="w-4 h-4 text-[#22c55e]" />
-                <span>Create Account</span>
+                <Sparkles className="w-4 h-4 text-[#22c55e]" />
+                <span>Explore Live Demo</span>
               </button>
 
               <button
@@ -332,30 +360,137 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </button>
             </div>
 
-            {/* System Performance Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 max-w-4xl mx-auto">
-              <div className="p-4 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
+            {/* Performance Metrics Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-4xl mx-auto">
+              <div className="p-3.5 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
                 <div className="text-[10px] text-slate-400 uppercase tracking-wider">Detection Spectrum</div>
-                <div className="text-2xl font-black text-white mt-0.5">13 Classes</div>
-                <div className="text-[11px] text-[#22c55e] font-semibold">12 Hazards + 1 Safe</div>
+                <div className="text-xl font-black text-white mt-0.5">13 Classes</div>
+                <div className="text-[10px] text-[#22c55e] font-semibold">12 Hazards + 1 Safe</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
+              <div className="p-3.5 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
                 <div className="text-[10px] text-slate-400 uppercase tracking-wider">Inference Speed</div>
-                <div className="text-2xl font-black text-white mt-0.5">14.8 ms</div>
-                <div className="text-[11px] text-[#38bdf8] font-semibold">67.5 FPS Real-Time</div>
+                <div className="text-xl font-black text-white mt-0.5">14.8 ms</div>
+                <div className="text-[10px] text-[#38bdf8] font-semibold">67.5 FPS Real-Time</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
+              <div className="p-3.5 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
                 <div className="text-[10px] text-slate-400 uppercase tracking-wider">Curated Dataset</div>
-                <div className="text-2xl font-black text-white mt-0.5">141 Images</div>
-                <div className="text-[11px] text-amber-400 font-semibold">160 Verified Boxes</div>
+                <div className="text-xl font-black text-white mt-0.5">141 Images</div>
+                <div className="text-[10px] text-amber-400 font-semibold">160 Verified Boxes</div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
+              <div className="p-3.5 rounded-2xl bg-[#0d1522] border border-[#1a2638] shadow-sm">
                 <div className="text-[10px] text-slate-400 uppercase tracking-wider">Negative Control</div>
-                <div className="text-2xl font-black text-white mt-0.5">98% Conf</div>
-                <div className="text-[11px] text-[#22c55e] font-semibold">Clean Floor Certified</div>
+                <div className="text-xl font-black text-white mt-0.5">98% Conf</div>
+                <div className="text-[10px] text-[#22c55e] font-semibold">Clean Floor Certified</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Live Visual Inspection Preview Card - Makes platform feel complete & tangible */}
+        <section id="preview" className="py-12 px-6 max-w-6xl mx-auto">
+          <div className="rounded-3xl bg-[#0d1522] border border-[#1e2e44] p-6 md:p-8 shadow-2xl relative overflow-hidden">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#1b2a3e]">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e] animate-pulse" />
+                  <h3 className="text-base font-bold text-white tracking-tight">Real-Time Computer Vision Inference Feed</h3>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    Live Telemetry
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Live tensor stream processing with calibrated slip risk scores and coordinate localization
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleQuickDemoAccess}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#22c55e] hover:bg-[#16a34a] text-black font-extrabold text-xs shadow-md transition-all cursor-pointer"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Launch Detection Studio</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Visual Detection Preview Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6">
+              {/* Item 1: Water Spill */}
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                    <Droplets className="w-3.5 h-3.5 text-[#38bdf8]" />
+                    <span>Water Spill Detection</span>
+                  </span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30">
+                    High Risk • 93%
+                  </span>
+                </div>
+                <div className="h-32 rounded-xl bg-[#101928] border border-red-500/30 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-4 inset-y-6 border-2 border-red-500 bg-red-500/15 rounded-lg flex items-start p-1.5">
+                    <span className="text-[9px] font-mono font-bold bg-red-500 text-white px-1.5 py-0.2 rounded">
+                      WATER SPILL 93%
+                    </span>
+                  </div>
+                  <span className="text-xs font-mono text-slate-400 z-0">Monitored Main Walkway</span>
+                </div>
+                <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
+                  <span>Area: ~0.45 m²</span>
+                  <span className="text-[#38bdf8]">Latency: 14.8ms</span>
+                </div>
+              </div>
+
+              {/* Item 2: Broken Glass */}
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 text-red-400" />
+                    <span>Broken Glass Detection</span>
+                  </span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30">
+                    Critical • 94%
+                  </span>
+                </div>
+                <div className="h-32 rounded-xl bg-[#101928] border border-red-500/30 relative flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-x-8 inset-y-8 border-2 border-red-500 bg-red-500/15 rounded-lg flex items-start p-1.5">
+                    <span className="text-[9px] font-mono font-bold bg-red-500 text-white px-1.5 py-0.2 rounded">
+                      BROKEN GLASS 94%
+                    </span>
+                  </div>
+                  <span className="text-xs font-mono text-slate-400 z-0">Retail Corridor Surface</span>
+                </div>
+                <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
+                  <span>Puncture Hazard</span>
+                  <span className="text-[#38bdf8]">Latency: 15.1ms</span>
+                </div>
+              </div>
+
+              {/* Item 3: Clean Floor Negative Control */}
+              <div className="p-4 rounded-2xl bg-[#090f19] border border-[#1b283b] space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-white flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#22c55e]" />
+                    <span>Clean Floor Control</span>
+                  </span>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    Certified Safe • 98%
+                  </span>
+                </div>
+                <div className="h-32 rounded-xl bg-[#101928] border border-emerald-500/30 relative flex items-center justify-center overflow-hidden">
+                  <div className="text-center p-2">
+                    <CheckCircle2 className="w-6 h-6 text-[#22c55e] mx-auto mb-1" />
+                    <div className="text-xs font-bold text-white">Negative Control Verified</div>
+                    <div className="text-[10px] text-slate-400 font-mono">Zero Slip/Trip Hazard</div>
+                  </div>
+                </div>
+                <div className="text-[11px] text-slate-400 flex items-center justify-between font-mono">
+                  <span>Clear Surface</span>
+                  <span className="text-[#22c55e]">Zero False Alarm</span>
+                </div>
               </div>
             </div>
           </div>
@@ -625,17 +760,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                   <label className="block text-xs font-semibold text-slate-300 mb-1">
                     Full Name <span className="text-[#22c55e]">*</span>
                   </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required={authMode === 'signup'}
-                      autoFocus={authMode === 'signup'}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#22c55e] transition-colors"
-                      placeholder="e.g. Harini Donthireddy"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required={authMode === 'signup'}
+                    autoFocus={authMode === 'signup'}
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#22c55e] transition-colors"
+                    placeholder="e.g. Harini Donthireddy"
+                  />
                 </div>
               )}
 
