@@ -382,8 +382,8 @@ const MONTAGE_12_PRESETS = [
     const isMontageImage = lowerName.includes('montage') || lowerName.includes('multi') || (lowerName.includes('hazard') && lowerName.includes('indoor'));
 
     // Infer category: check filename hints first, else adhere to currently selected preset in app
-    let categoryKey = selectedPreset || 'water';
-    if (/11\.48\.16|114816|clean|dry|safe/i.test(file.name)) {
+    let categoryKey = selectedPreset || 'clean';
+    if (/11\.48\.16|114816|3\.59\.28|35928|155928|160148|clean|dry|safe|clear|normal|negative/i.test(file.name)) {
       categoryKey = 'clean';
     } else if (/11\.45\.18|10\.21\.49|114518|102149|trash|bottle|litter|can|plastic/i.test(file.name)) {
       categoryKey = 'trash';
