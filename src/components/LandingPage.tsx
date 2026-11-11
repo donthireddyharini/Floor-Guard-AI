@@ -47,6 +47,15 @@ const PRELOADED_ACCOUNTS: StoredUser[] = [
   }
 ];
 
+const getStoredUsers = (): StoredUser[] => {
+  try {
+    const raw = localStorage.getItem('floorguard_users');
+    return raw ? JSON.parse(raw) : PRELOADED_ACCOUNTS;
+  } catch {
+    return PRELOADED_ACCOUNTS;
+  }
+};
+
 export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
@@ -65,7 +74,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
   // Custom Google input state
   const [customGoogleEmail, setCustomGoogleEmail] = useState('');
   const savedGoogleUsers = React.useMemo(() => {
-    return getStoredUsers().filter(u => u.provider === 'google');
+    try {
+      return (getStoredUsers() || []).filter(u => u && u.provider === 'google');
+    } catch {
+      return [];
+    }
   }, [isGoogleModalOpen]);
   const [customGoogleName, setCustomGoogleName] = useState('');
   const [showCustomGoogleInput, setShowCustomGoogleInput] = useState(false);
@@ -96,14 +109,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
     { name: 'Clean Floor', color: '#22c55e', icon: CheckCircle2, risk: 'Safe', desc: 'Certified clear negative control surface without slip hazards.' }
   ];
 
-  const getStoredUsers = (): StoredUser[] => {
-    try {
-      const raw = localStorage.getItem('floorguard_users');
-      return raw ? JSON.parse(raw) : PRELOADED_ACCOUNTS;
-    } catch {
-      return PRELOADED_ACCOUNTS;
-    }
-  };
+
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
