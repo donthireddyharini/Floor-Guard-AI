@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Home,
   LayoutDashboard,
   Image as ImageIcon,
   Video,
@@ -11,9 +10,8 @@ import {
   ShieldAlert,
   Cpu,
   ArrowRight,
-  Lock,
-  Unlock,
-  LogOut
+  LogOut,
+  Home
 } from 'lucide-react';
 import { NavSection } from '../types';
 
@@ -22,7 +20,6 @@ interface SidebarProps {
   onSelectSection: (section: NavSection) => void;
   onOpenModelDetails: () => void;
   activeModel?: any;
-  isAuthenticated?: boolean;
   onSignOut?: () => void;
 }
 
@@ -31,11 +28,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSelectSection,
   onOpenModelDetails,
   activeModel,
-  isAuthenticated = false,
   onSignOut
 }) => {
   const navItems = [
-    { id: 'home' as NavSection, label: 'Home / Intro', icon: Home, isPublic: true },
     { id: 'overview' as NavSection, label: 'Overview', icon: LayoutDashboard },
     { id: 'image_detection' as NavSection, label: 'Image Detection', icon: ImageIcon },
     { id: 'video_analysis' as NavSection, label: 'Video Analysis', icon: Video },
@@ -49,19 +44,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className="w-64 bg-[#0c121d] border-r border-[#1e293b] flex flex-col justify-between shrink-0 select-none h-screen sticky top-0">
       {/* Brand Header */}
       <div>
-        <div 
-          onClick={() => onSelectSection('home')} 
-          className="p-5 flex items-center gap-3 border-b border-[#182335] cursor-pointer hover:bg-[#111a28] transition-colors"
-          title="Floor Guard AI Home"
-        >
-          <div className="w-10 h-10 rounded-xl bg-[#14231b] border border-[#22c55e]/40 flex items-center justify-center text-[#22c55e] shadow-[0_0_15px_rgba(34,197,94,0.2)]">
-            <ShieldAlert className="w-6 h-6 stroke-[2.2]" />
-          </div>
-          <div>
-            <h1 className="text-base font-bold text-white tracking-tight flex items-center gap-1.5">
-              Floor Guard <span className="text-[#22c55e]">AI</span>
-            </h1>
-            <p className="text-[11px] text-slate-400 font-medium">Floor Hazard Detection</p>
+        <div className="p-5 flex items-center justify-between border-b border-[#182335]">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#14231b] border border-[#22c55e]/40 flex items-center justify-center text-[#22c55e] shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+              <ShieldAlert className="w-6 h-6 stroke-[2.2]" />
+            </div>
+            <div>
+              <h1 className="text-base font-bold text-white tracking-tight flex items-center gap-1.5">
+                Floor Guard <span className="text-[#22c55e]">AI</span>
+              </h1>
+              <p className="text-[11px] text-slate-400 font-medium">Floor Hazard Detection</p>
+            </div>
           </div>
         </div>
 
@@ -70,63 +63,44 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
-            const isLocked = !item.isPublic && !isAuthenticated;
 
             return (
               <button
                 key={item.id}
-                onClick={() => {
-                  if (isLocked) {
-                    onSelectSection('home');
-                  } else {
-                    onSelectSection(item.id);
-                  }
-                }}
-                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 text-left ${
+                onClick={() => onSelectSection(item.id)}
+                className={`w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 text-left cursor-pointer ${
                   isActive
                     ? 'bg-[#15803d] text-white shadow-lg shadow-green-950/40 font-bold'
-                    : isLocked
-                      ? 'text-slate-500 hover:text-slate-300 hover:bg-[#121926] opacity-75'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-[#141d2c]'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-[#141d2c]'
                 }`}
-                title={isLocked ? 'Login required to access this section' : item.label}
               >
-                <div className="flex items-center gap-3.5">
-                  <Icon
-                    className={`w-4 h-4 ${
-                      isActive ? 'text-white' : isLocked ? 'text-slate-500' : 'text-slate-400 group-hover:text-slate-200'
-                    }`}
-                  />
-                  <span>{item.label}</span>
-                </div>
-                {isLocked ? (
-                  <Lock className="w-3.5 h-3.5 text-amber-500/70" />
-                ) : item.id === 'home' && (
-                  <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                    Intro
-                  </span>
-                )}
+                <Icon
+                  className={`w-4 h-4 ${
+                    isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'
+                  }`}
+                />
+                <span>{item.label}</span>
               </button>
             );
           })}
         </nav>
       </div>
 
-      {/* Bottom Area: User Session & Model Card */}
+      {/* Bottom Area: Sign Out & Model Card */}
       <div className="p-3 m-3 space-y-2.5">
-        {/* Session Status Pill */}
+        {/* Session Status & Sign Out */}
         <div className="p-2.5 rounded-xl bg-[#101724] border border-[#1c283a] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className={`w-2 h-2 rounded-full ${isAuthenticated ? 'bg-[#22c55e] shadow-[0_0_8px_#22c55e]' : 'bg-amber-400 shadow-[0_0_8px_#fbbf24]'}`} />
+            <div className="w-2 h-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e]" />
             <div className="text-[11px] font-semibold text-slate-300">
-              {isAuthenticated ? 'Operator Logged In' : 'Guest / Locked'}
+              Operator Logged In
             </div>
           </div>
-          {isAuthenticated && onSignOut && (
+          {onSignOut && (
             <button
               onClick={onSignOut}
-              className="text-[10px] text-slate-400 hover:text-red-400 flex items-center gap-1 transition-colors"
-              title="Sign Out"
+              className="text-[10px] text-slate-400 hover:text-red-400 flex items-center gap-1 transition-colors cursor-pointer"
+              title="Sign Out to Main Landing Page"
             >
               <LogOut className="w-3 h-3" />
               <span>Exit</span>
@@ -135,7 +109,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Model Card */}
-        <div className="p-3 rounded-2xl bg-[#131b29] border border-[#1e2c3f]">
+        <div className="p-3.5 rounded-2xl bg-[#131b29] border border-[#1e2c3f]">
           <div className="flex items-center gap-2.5 mb-2">
             <div className="w-8 h-8 rounded-xl bg-[#173024] border border-[#22c55e]/40 flex items-center justify-center text-[#22c55e]">
               <Cpu className="w-4 h-4" />

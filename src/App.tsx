@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
-import { HomeView } from './components/HomeView';
+import { LandingPage } from './components/LandingPage';
 import { OverviewDashboard } from './components/OverviewDashboard';
 import { ImageDetectionWorkspace } from './components/ImageDetectionWorkspace';
 import { VideoAnalysisView } from './components/VideoAnalysisView';
@@ -87,15 +87,7 @@ export default function App() {
     }
   });
 
-  const [activeSection, setActiveSection] = useState<NavSection>(() => {
-    try {
-      const authed = localStorage.getItem('floorguard_authenticated') === 'true';
-      return authed ? 'overview' : 'home';
-    } catch {
-      return 'home';
-    }
-  });
-
+  const [activeSection, setActiveSection] = useState<NavSection>('overview');
   const [selectedDateRange, setSelectedDateRange] = useState('May 20, 2026 – May 26, 2026');
   const [selectedDetection, setSelectedDetection] = useState<any | null>(null);
   const [analyticsData, setAnalyticsData] = useState<AnalyticsSummary | null>(null);
@@ -116,6 +108,8 @@ export default function App() {
 
   // Load backend summary and model status
   useEffect(() => {
+    if (!isAuthenticated) return;
+
     fetch('/api/analytics/summary')
       .then((res) => res.json())
       .then((data) => {
@@ -128,7 +122,7 @@ export default function App() {
       });
 
     fetchModelStatus();
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogin = (role?: string) => {
     const assignedRole = role || 'Senior Facility Safety Officer';
@@ -150,16 +144,6 @@ export default function App() {
       console.warn(e);
     }
     setIsAuthenticated(false);
-    setActiveSection('home');
-  };
-
-  const handleSelectSection = (sec: NavSection) => {
-    if (!isAuthenticated && sec !== 'home') {
-      // User must log in first to access the app interface
-      setActiveSection('home');
-    } else {
-      setActiveSection(sec);
-    }
   };
 
   const handleSelectModel = async (modelId: string) => {
@@ -178,15 +162,20 @@ export default function App() {
     }
   };
 
+  // 1. If not authenticated: Render the separate standalone Landing Page (Intro & Login Portal)
+  if (!isAuthenticated) {
+    return <LandingPage onLogin={handleLogin} />;
+  }
+
+  // 2. If authenticated: Render the full Floor Guard AI application interface
   return (
     <div className="min-h-screen bg-[#090e17] text-slate-100 flex font-sans antialiased selection:bg-[#22c55e] selection:text-black">
       {/* Sidebar Navigation */}
       <Sidebar
         activeSection={activeSection}
-        onSelectSection={handleSelectSection}
-        onOpenModelDetails={() => handleSelectSection('analytics')}
+        onSelectSection={(sec) => setActiveSection(sec)}
+        onOpenModelDetails={() => setActiveSection('analytics')}
         activeModel={modelStatus?.model}
-        isAuthenticated={isAuthenticated}
         onSignOut={handleSignOut}
       />
 
@@ -195,32 +184,21 @@ export default function App() {
         {/* Header Bar */}
         <Header
           activeSection={activeSection}
-          onOpenModelDetails={() => handleSelectSection('analytics')}
+          onOpenModelDetails={() => setActiveSection('analytics')}
           activeModel={modelStatus?.model}
           allModels={modelStatus?.all_models || []}
           onSelectModel={handleSelectModel}
           isAuthenticated={isAuthenticated}
           onSignOut={handleSignOut}
-          onOpenLogin={() => setActiveSection('home')}
           userRole={userRole}
         />
 
         {/* View Routing */}
         <main className="flex-1 pb-12">
           <ErrorBoundary resetKey={activeSection}>
-          {activeSection === 'home' && (
-            <HomeView
-              isAuthenticated={isAuthenticated}
-              onLogin={handleLogin}
-              onSignOut={handleSignOut}
-              onNavigate={handleSelectSection}
-              onOpenModelDetails={() => handleSelectSection('analytics')}
-            />
-          )}
-
           {activeSection === 'overview' && (
             <OverviewDashboard
-              onNavigate={handleSelectSection}
+              onNavigate={(sec) => setActiveSection(sec)}
               onSelectDetection={(item) => setSelectedDetection(item)}
               analyticsData={analyticsData}
               activeModel={modelStatus?.model}
