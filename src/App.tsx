@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
+import { HomeView } from './components/HomeView';
 import { OverviewDashboard } from './components/OverviewDashboard';
 import { ImageDetectionWorkspace } from './components/ImageDetectionWorkspace';
 import { VideoAnalysisView } from './components/VideoAnalysisView';
@@ -70,7 +71,31 @@ class ErrorBoundary extends React.Component<
 }
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<NavSection>('overview');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('floorguard_authenticated') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const [userRole, setUserRole] = useState<string>(() => {
+    try {
+      return localStorage.getItem('floorguard_role') || 'Senior Facility Safety Officer';
+    } catch {
+      return 'Senior Facility Safety Officer';
+    }
+  });
+
+  const [activeSection, setActiveSection] = useState<NavSection>(() => {
+    try {
+      const authed = localStorage.getItem('floorguard_authenticated') === 'true';
+      return authed ? 'overview' : 'home';
+    } catch {
+      return 'home';
+    }
+  });
+
   const [selectedDateRange, setSelectedDateRange] = useState('May 20, 2026 – May 26, 2026');
   const [selectedDetection, setSelectedDetection] = useState<any | null>(null);
   const [analyticsData, setAnalyticsData] = useState<AnalyticsSummary | null>(null);
@@ -105,6 +130,38 @@ export default function App() {
     fetchModelStatus();
   }, []);
 
+  const handleLogin = (role?: string) => {
+    const assignedRole = role || 'Senior Facility Safety Officer';
+    try {
+      localStorage.setItem('floorguard_authenticated', 'true');
+      localStorage.setItem('floorguard_role', assignedRole);
+    } catch (e) {
+      console.warn(e);
+    }
+    setIsAuthenticated(true);
+    setUserRole(assignedRole);
+    setActiveSection('overview');
+  };
+
+  const handleSignOut = () => {
+    try {
+      localStorage.removeItem('floorguard_authenticated');
+    } catch (e) {
+      console.warn(e);
+    }
+    setIsAuthenticated(false);
+    setActiveSection('home');
+  };
+
+  const handleSelectSection = (sec: NavSection) => {
+    if (!isAuthenticated && sec !== 'home') {
+      // User must log in first to access the app interface
+      setActiveSection('home');
+    } else {
+      setActiveSection(sec);
+    }
+  };
+
   const handleSelectModel = async (modelId: string) => {
     try {
       const res = await fetch('/api/model/select', {
@@ -126,9 +183,11 @@ export default function App() {
       {/* Sidebar Navigation */}
       <Sidebar
         activeSection={activeSection}
-        onSelectSection={(sec) => setActiveSection(sec)}
-        onOpenModelDetails={() => setActiveSection('analytics')}
+        onSelectSection={handleSelectSection}
+        onOpenModelDetails={() => handleSelectSection('analytics')}
         activeModel={modelStatus?.model}
+        isAuthenticated={isAuthenticated}
+        onSignOut={handleSignOut}
       />
 
       {/* Main Content Area */}
@@ -136,18 +195,32 @@ export default function App() {
         {/* Header Bar */}
         <Header
           activeSection={activeSection}
-          onOpenModelDetails={() => setActiveSection('analytics')}
+          onOpenModelDetails={() => handleSelectSection('analytics')}
           activeModel={modelStatus?.model}
           allModels={modelStatus?.all_models || []}
           onSelectModel={handleSelectModel}
+          isAuthenticated={isAuthenticated}
+          onSignOut={handleSignOut}
+          onOpenLogin={() => setActiveSection('home')}
+          userRole={userRole}
         />
 
         {/* View Routing */}
         <main className="flex-1 pb-12">
           <ErrorBoundary resetKey={activeSection}>
+          {activeSection === 'home' && (
+            <HomeView
+              isAuthenticated={isAuthenticated}
+              onLogin={handleLogin}
+              onSignOut={handleSignOut}
+              onNavigate={handleSelectSection}
+              onOpenModelDetails={() => handleSelectSection('analytics')}
+            />
+          )}
+
           {activeSection === 'overview' && (
             <OverviewDashboard
-              onNavigate={(sec) => setActiveSection(sec)}
+              onNavigate={handleSelectSection}
               onSelectDetection={(item) => setSelectedDetection(item)}
               analyticsData={analyticsData}
               activeModel={modelStatus?.model}

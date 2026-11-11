@@ -1,4 +1,5 @@
 export type NavSection =
+  | 'home'
   | 'overview'
   | 'image_detection'
   | 'video_analysis'
