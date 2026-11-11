@@ -262,45 +262,10 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         subtitle: samples[selectedSample].subtitle
       };
 
-  // Handle selecting category / sample
+  // Handle selecting category / sample: keep default sample presets
   const handleSelectSample = (sampleId: string) => {
     setSelectedSample(sampleId as any);
-    const s = (samples as any)[sampleId];
-    if (!s) return;
-
-    if (customDetection && customDetection.image_url) {
-      // Dynamically re-classify the active uploaded image to the clicked category
-      const isClean = sampleId === 'clean';
-      const isTrash = sampleId === 'trash';
-      const normBbox = isClean
-        ? { x: 0, y: 0, width: 0, height: 0 }
-        : (isTrash ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 });
-
-      setCustomDetection({
-        ...customDetection,
-        class_name: s.title,
-        confidence: s.confidence / 100,
-        confidence_percent: `${s.confidence}%`,
-        severity: isClean ? 'Safe' : (s.riskLevel.includes('CRITICAL') ? 'Critical' : (s.riskLevel.includes('HIGH') ? 'High' : 'Medium')),
-        area: s.area,
-        location: s.location || 'Monitored Walkway',
-        recommendation: s.alert,
-        bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 260, y: 150, width: 440, height: 360 } : { x: 120, y: 180, width: 400, height: 260 }),
-        normalized_bbox: normBbox,
-        total_detections: isClean ? 0 : 1,
-        detections: isClean ? [] : [{
-          class_name: s.title,
-          confidence: s.confidence / 100,
-          confidence_percent: `${s.confidence}%`,
-          severity: isClean ? 'Safe' : (s.riskLevel.includes('CRITICAL') ? 'Critical' : 'High'),
-          bounding_box: { x: 120, y: 180, width: 400, height: 260 },
-          normalized_bbox: normBbox,
-          recommendation: s.alert
-        }]
-      } as any);
-    } else {
-      setCustomDetection(null);
-    }
+    setCustomDetection(null);
   };
 
   // Handle image upload

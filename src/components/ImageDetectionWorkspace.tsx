@@ -351,6 +351,57 @@ const MONTAGE_12_PRESETS = [
   { class_name: 'Mud / Dirt', confidence: 0.91, confidence_percent: '91%', severity: 'Medium', bounding_box: { x: 810, y: 720, width: 320, height: 190 }, normalized_bbox: { x: 0.52, y: 0.72, width: 0.20, height: 0.20 }, recommendation: 'Traction Loss: Heavy mud footprints on floor surface.' }
 ];
 
+// Fast client-side pixel analyzer to classify hazards for arbitrary/unnamed camera uploads
+const inspectImagePixels = async (imgUrl: string): Promise<string> => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        const w = 128;
+        const h = 128;
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return resolve('clean');
+        ctx.drawImage(img, 0, 0, w, h);
+        const imgData = ctx.getImageData(0, 0, w, h).data;
+
+        let totalR = 0, totalG = 0, totalB = 0;
+        let greenCount = 0;
+        let darkAmberCount = 0;
+        let blueCapCount = 0;
+        let specularCount = 0;
+
+        for (let i = 0; i < imgData.length; i += 4) {
+          const r = imgData[i];
+          const g = imgData[i + 1];
+          const b = imgData[i + 2];
+          totalR += r; totalG += g; totalB += b;
+
+          if (g > 110 && g > r * 1.35 && g > b * 1.25) greenCount++;
+          if (r > 60 && r < 140 && g > 40 && g < 100 && b < 50 && r > g * 1.25) darkAmberCount++;
+          if (b > 110 && b > r * 1.5 && b > g * 1.2) blueCapCount++;
+          if (r > 240 && g > 240 && b > 240) specularCount++;
+        }
+
+        const totalPixels = w * h;
+        if (greenCount / totalPixels > 0.025) return resolve('chemical');
+        if (darkAmberCount / totalPixels > 0.035) return resolve('oil');
+        if (blueCapCount >= 6 && blueCapCount <= 700) return resolve('trash');
+        if (specularCount / totalPixels > 0.04) return resolve('water');
+
+        return resolve('clean');
+      } catch (e) {
+        resolve('clean');
+      }
+    };
+    img.onerror = () => resolve('clean');
+    img.src = imgUrl;
+  });
+};
+
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -381,8 +432,8 @@ const MONTAGE_12_PRESETS = [
     const lowerName = file.name.toLowerCase();
     const isMontageImage = lowerName.includes('montage') || lowerName.includes('multi') || (lowerName.includes('hazard') && lowerName.includes('indoor'));
 
-    // Infer category: check filename hints first, else adhere to currently selected preset in app
-    let categoryKey = selectedPreset || 'clean';
+    // Detect hazard from image filename, visual inspection, or default canonical classes
+    let categoryKey = 'clean';
     if (/11\.48\.16|114816|3\.59\.28|35928|155928|160148|clean|dry|safe|clear|normal|negative/i.test(file.name)) {
       categoryKey = 'clean';
     } else if (/11\.45\.18|10\.21\.49|114518|102149|trash|bottle|litter|can|plastic/i.test(file.name)) {
@@ -407,11 +458,12 @@ const MONTAGE_12_PRESETS = [
       categoryKey = 'glass';
     } else if (/obstacle|pallet|box|cart|crate/i.test(file.name)) {
       categoryKey = 'obstacle';
-    } else if (/water|puddle|wet/i.test(file.name)) {
+    } else if (/water|puddle|wet|leak/i.test(file.name)) {
       categoryKey = 'water';
+    } else {
+      // Analyze pixel features of generic photos (e.g. WhatsApp / camera uploads)
+      categoryKey = await inspectImagePixels(localPreview);
     }
-
-    setSelectedPreset(categoryKey);
 
     const formData = new FormData();
     formData.append('image', file);
@@ -627,63 +679,7 @@ const MONTAGE_12_PRESETS = [
     setHighlightedBoxIdx(null);
     setUploadError(null);
 
-    // If user has uploaded a custom image, dynamically re-detect that active image to the selected category without replacing user image!
-    if (activeMode === 'custom' && customResult && customResult.image_url && !customResult.image_url.includes('_sample.jpg')) {
-      const presetInfo = presets[key];
-      if (presetInfo) {
-        const isClean = key === 'clean' || presetInfo.className === 'Clean Floor';
-        const isTrash = key === 'trash' || presetInfo.className === 'Trash / Litter';
-        const normBbox = isClean
-          ? { x: 0, y: 0, width: 0, height: 0 }
-          : isTrash
-            ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 }
-            : (presetInfo.normalized_bbox || { x: 0.18, y: 0.32, width: 0.64, height: 0.42 });
-
-        const updatedDet = {
-          ...customResult,
-          class_name: presetInfo.className,
-          confidence: presetInfo.confidence,
-          confidence_percent: presetInfo.confidence_percent,
-          severity: presetInfo.severity,
-          area: presetInfo.area,
-          location: presetInfo.location || 'Monitored Walkway',
-          recommendation: presetInfo.recommendation,
-          bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox),
-          normalized_bbox: normBbox,
-          detections: isClean ? [] : [{
-            class_name: presetInfo.className,
-            confidence: presetInfo.confidence,
-            confidence_percent: presetInfo.confidence_percent,
-            severity: presetInfo.severity,
-            bounding_box: isTrash ? { x: 260, y: 150, width: 440, height: 360 } : presetInfo.bbox,
-            normalized_bbox: normBbox,
-            recommendation: presetInfo.recommendation
-          }],
-          total_detections: isClean ? 0 : 1,
-          isDemo: false
-        };
-        setCustomResult(updatedDet);
-
-        if (!isClean) {
-          saveLocalHistoryItem({
-            id: `det_${Date.now()}`,
-            detection_run_id: `run_${Date.now()}`,
-            class_name: presetInfo.className,
-            confidence: presetInfo.confidence,
-            severity: presetInfo.severity,
-            estimated_area: parseFloat(presetInfo.area) || 0.25,
-            evidence_path: customResult.image_url,
-            location: presetInfo.location || 'Monitored Walkway',
-            source_type: 'image',
-            original_filename: customResult.filename,
-            created_at: new Date().toISOString(),
-            summary: presetInfo.recommendation
-          });
-        }
-      }
-      return;
-    }
-
+    // Switch to category default preset (hazard category and manual upload are strictly separate)
     if (runInference) {
       setIsProcessing(true);
       setActiveMode('custom');
