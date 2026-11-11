@@ -79,6 +79,30 @@ export default function App() {
     }
   });
 
+  const [userName, setUserName] = useState<string>(() => {
+    try {
+      return localStorage.getItem('floorguard_user_name') || 'Harini Donthireddy';
+    } catch {
+      return 'Harini Donthireddy';
+    }
+  });
+
+  const [userEmail, setUserEmail] = useState<string>(() => {
+    try {
+      return localStorage.getItem('floorguard_user_email') || 'donthireddyharini@gmail.com';
+    } catch {
+      return 'donthireddyharini@gmail.com';
+    }
+  });
+
+  const [authProvider, setAuthProvider] = useState<string>(() => {
+    try {
+      return localStorage.getItem('floorguard_auth_provider') || 'email';
+    } catch {
+      return 'email';
+    }
+  });
+
   const [userRole, setUserRole] = useState<string>(() => {
     try {
       return localStorage.getItem('floorguard_role') || 'Senior Facility Safety Officer';
@@ -124,16 +148,24 @@ export default function App() {
     fetchModelStatus();
   }, [isAuthenticated]);
 
-  const handleLogin = (role?: string) => {
-    const assignedRole = role || 'Senior Facility Safety Officer';
+  const handleLogin = (name?: string, email?: string, provider?: string) => {
+    const finalName = name || 'Harini Donthireddy';
+    const finalEmail = email || 'donthireddyharini@gmail.com';
+    const finalProvider = provider || 'email';
+
     try {
       localStorage.setItem('floorguard_authenticated', 'true');
-      localStorage.setItem('floorguard_role', assignedRole);
+      localStorage.setItem('floorguard_user_name', finalName);
+      localStorage.setItem('floorguard_user_email', finalEmail);
+      localStorage.setItem('floorguard_auth_provider', finalProvider);
     } catch (e) {
       console.warn(e);
     }
+
     setIsAuthenticated(true);
-    setUserRole(assignedRole);
+    setUserName(finalName);
+    setUserEmail(finalEmail);
+    setAuthProvider(finalProvider);
     setActiveSection('overview');
   };
 
@@ -191,6 +223,9 @@ export default function App() {
           isAuthenticated={isAuthenticated}
           onSignOut={handleSignOut}
           userRole={userRole}
+          userName={userName}
+          userEmail={userEmail}
+          authProvider={authProvider}
         />
 
         {/* View Routing */}

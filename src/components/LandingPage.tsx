@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ShieldAlert,
   LogIn,
@@ -18,20 +18,69 @@ import {
   Layers,
   KeyRound,
   UserPlus,
-  X
+  User,
+  X,
+  AlertCircle
 } from 'lucide-react';
 
-interface LandingPageProps {
-  onLogin: (role?: string) => void;
+interface StoredUser {
+  name: string;
+  email: string;
+  password?: string;
+  provider: 'email' | 'google';
+  createdAt: string;
 }
+
+interface LandingPageProps {
+  onLogin: (name?: string, email?: string, provider?: string) => void;
+}
+
+const PRELOADED_ACCOUNTS: StoredUser[] = [
+  {
+    name: 'Harini Donthireddy',
+    email: 'donthireddyharini@gmail.com',
+    password: 'password123',
+    provider: 'google',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  },
+  {
+    name: 'Senior Safety Officer',
+    email: 'safety.officer@floorguard.ai',
+    password: 'password123',
+    provider: 'email',
+    createdAt: '2026-01-01T00:00:00.000Z'
+  }
+];
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [isGoogleModalOpen, setIsGoogleModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
+
+  // Form Fields
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  // Status & Validation
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loginMessage, setLoginMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Custom Google input state
+  const [customGoogleEmail, setCustomGoogleEmail] = useState('');
+  const [customGoogleName, setCustomGoogleName] = useState('');
+  const [showCustomGoogleInput, setShowCustomGoogleInput] = useState(false);
+
+  // Initialize accounts store in localStorage if empty
+  useEffect(() => {
+    try {
+      const existing = localStorage.getItem('floorguard_users');
+      if (!existing) {
+        localStorage.setItem('floorguard_users', JSON.stringify(PRELOADED_ACCOUNTS));
+      }
+    } catch {}
+  }, []);
 
   const hazardClasses = [
     { name: 'Water Spill', color: '#38bdf8', icon: Droplets, risk: 'High', desc: 'Clear/turbid puddles on tile, polished concrete, or linoleum.' },
@@ -49,37 +98,135 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
     { name: 'Clean Floor', color: '#22c55e', icon: CheckCircle2, risk: 'Safe', desc: 'Certified clear negative control surface without slip hazards.' }
   ];
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    const msg = authMode === 'signup' 
-      ? 'Creating Account & Initializing Platform...' 
-      : 'Signing In & Verifying Credentials...';
-    setLoginMessage(msg);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsAuthModalOpen(false);
-      onLogin('Facility Safety Officer');
-    }, 400);
+  const getStoredUsers = (): StoredUser[] => {
+    try {
+      const raw = localStorage.getItem('floorguard_users');
+      return raw ? JSON.parse(raw) : PRELOADED_ACCOUNTS;
+    } catch {
+      return PRELOADED_ACCOUNTS;
+    }
   };
 
-  const handleGoogleSignIn = () => {
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    setLoginMessage(null);
+
+    const users = getStoredUsers();
+    const cleanEmail = email.trim().toLowerCase();
+
+    // 1. SIGN IN FLOW - "Without creating sign in should NOT work"
+    if (authMode === 'signin') {
+      const existing = users.find(u => u.email.toLowerCase() === cleanEmail);
+
+      if (!existing) {
+        setErrorMessage(`Account not found for "${email}". Please click 'Create Account' first to register.`);
+        return;
+      }
+
+      if (existing.password && existing.password !== password) {
+        setErrorMessage('Incorrect password. Please verify your credentials and try again.');
+        return;
+      }
+
+      setIsSubmitting(true);
+      setLoginMessage(`Welcome back, ${existing.name}! Verifying credentials...`);
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsAuthModalOpen(false);
+        onLogin(existing.name, existing.email, existing.provider || 'email');
+      }, 500);
+      return;
+    }
+
+    // 2. CREATE ACCOUNT FLOW - Name is required!
+    if (authMode === 'signup') {
+      if (!name.trim()) {
+        setErrorMessage('Please enter your Full Name.');
+        return;
+      }
+
+      if (!cleanEmail) {
+        setErrorMessage('Please enter a valid email address.');
+        return;
+      }
+
+      if (password.length < 4) {
+        setErrorMessage('Password must be at least 4 characters long.');
+        return;
+      }
+
+      const alreadyExists = users.some(u => u.email.toLowerCase() === cleanEmail);
+      if (alreadyExists) {
+        setErrorMessage(`An account with "${email}" already exists. Please switch to 'Sign In'.`);
+        return;
+      }
+
+      const newUser: StoredUser = {
+        name: name.trim(),
+        email: cleanEmail,
+        password: password,
+        provider: 'email',
+        createdAt: new Date().toISOString()
+      };
+
+      const updated = [...users, newUser];
+      try {
+        localStorage.setItem('floorguard_users', JSON.stringify(updated));
+      } catch (err) {
+        console.warn('LocalStorage save failed:', err);
+      }
+
+      setIsSubmitting(true);
+      setLoginMessage(`Account successfully created for ${newUser.name}! Logging you in...`);
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsAuthModalOpen(false);
+        onLogin(newUser.name, newUser.email, 'email');
+      }, 600);
+    }
+  };
+
+  // Google OAuth Handler
+  const handleSelectGoogleAccount = (googleName: string, googleEmail: string) => {
     setIsSubmitting(true);
-    setLoginMessage('Authenticating via Google Identity Services...');
+    setLoginMessage(`Authenticating Google Account (${googleEmail})...`);
+
+    const users = getStoredUsers();
+    const existing = users.find(u => u.email.toLowerCase() === googleEmail.toLowerCase());
+
+    if (!existing) {
+      const newGoogleUser: StoredUser = {
+        name: googleName,
+        email: googleEmail.toLowerCase(),
+        provider: 'google',
+        createdAt: new Date().toISOString()
+      };
+      users.push(newGoogleUser);
+      try {
+        localStorage.setItem('floorguard_users', JSON.stringify(users));
+      } catch {}
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
+      setIsGoogleModalOpen(false);
       setIsAuthModalOpen(false);
-      try {
-        localStorage.setItem('floorguard_auth_provider', 'google');
-        localStorage.setItem('floorguard_user_name', 'Harini Donthireddy');
-      } catch {}
-      onLogin('Harini Donthireddy (Google)');
-    }, 450);
+      onLogin(googleName, googleEmail, 'google');
+    }, 600);
+  };
+
+  const handleCustomGoogleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!customGoogleName.trim() || !customGoogleEmail.trim()) return;
+    handleSelectGoogleAccount(customGoogleName.trim(), customGoogleEmail.trim());
   };
 
   const openAuthModal = (mode: 'signin' | 'signup' = 'signin') => {
     setAuthMode(mode);
+    setErrorMessage(null);
     setLoginMessage(null);
     setIsAuthModalOpen(true);
   };
@@ -171,12 +318,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 <span>Create Account</span>
               </button>
 
-              <a
-                href="#categories"
-                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0f1724] hover:bg-[#162132] border border-[#1b2638] text-slate-300 hover:text-white text-sm font-semibold transition-all"
+              <button
+                onClick={() => setIsGoogleModalOpen(true)}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl bg-[#141d2c] hover:bg-[#1c283c] border border-[#23334c] text-slate-200 text-sm font-semibold transition-all cursor-pointer"
               >
-                <span>View 13 Hazard Classes</span>
-              </a>
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+                <span>Google Sign-In</span>
+              </button>
             </div>
 
             {/* System Performance Cards */}
@@ -358,7 +511,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       </footer>
 
-      {/* Auth Modal: ONLY VISIBLE AFTER USER CLICKS "Login / Sign In" */}
+      {/* Auth Modal: Sign In / Create Account with Name, Email & Password */}
       {isAuthModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
           <div className="relative w-full max-w-md rounded-3xl p-7 md:p-8 bg-[#0c1421] border border-[#213149] shadow-2xl space-y-5">
@@ -370,9 +523,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 </div>
                 <div>
                   <h2 className="text-base font-bold text-white">
-                    {authMode === 'signin' ? 'Sign In' : 'Create Account'}
+                    {authMode === 'signin' ? 'Sign In to Floor Guard' : 'Create New Account'}
                   </h2>
-                  <p className="text-xs text-slate-400">Access Floor Guard AI Dashboard</p>
+                  <p className="text-xs text-slate-400">
+                    {authMode === 'signin' ? 'Enter your registered credentials' : 'Register your operator safety credentials'}
+                  </p>
                 </div>
               </div>
 
@@ -390,7 +545,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             {/* Google Authentication Button */}
             <button
               type="button"
-              onClick={handleGoogleSignIn}
+              onClick={() => setIsGoogleModalOpen(true)}
               disabled={isSubmitting}
               className="w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-white text-xs font-semibold border border-[#23334c] hover:border-slate-500 shadow-md transition-all cursor-pointer disabled:opacity-50"
             >
@@ -416,7 +571,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             <div className="grid grid-cols-2 p-1 rounded-xl bg-[#101724] border border-[#1e2c40]">
               <button
                 type="button"
-                onClick={() => setAuthMode('signin')}
+                onClick={() => {
+                  setAuthMode('signin');
+                  setErrorMessage(null);
+                  setLoginMessage(null);
+                }}
                 className={`py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   authMode === 'signin'
                     ? 'bg-[#22c55e] text-black shadow-sm font-bold'
@@ -427,7 +586,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </button>
               <button
                 type="button"
-                onClick={() => setAuthMode('signup')}
+                onClick={() => {
+                  setAuthMode('signup');
+                  setErrorMessage(null);
+                  setLoginMessage(null);
+                }}
                 className={`py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   authMode === 'signup'
                     ? 'bg-[#22c55e] text-black shadow-sm font-bold'
@@ -438,6 +601,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </button>
             </div>
 
+            {/* Error Message Alert */}
+            {errorMessage && (
+              <div className="p-3 rounded-xl bg-red-950/40 border border-red-500/50 text-red-200 text-xs flex items-start gap-2.5 animate-shake">
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                <div className="flex-1 leading-relaxed">{errorMessage}</div>
+              </div>
+            )}
+
+            {/* Success Message Alert */}
             {loginMessage && (
               <div className="p-3 rounded-xl bg-[#14291f] border border-[#22c55e]/40 text-[#22c55e] text-xs flex items-center gap-2 animate-pulse">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
@@ -445,19 +617,39 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </div>
             )}
 
-            {/* Form with ONLY Email and Password */}
-            <form onSubmit={handleFormSubmit} className="space-y-4">
+            {/* Authentication Form */}
+            <form onSubmit={handleFormSubmit} className="space-y-3.5">
+              {/* Full Name field - Shown when creating account */}
+              {authMode === 'signup' && (
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    Full Name <span className="text-[#22c55e]">*</span>
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required={authMode === 'signup'}
+                      autoFocus={authMode === 'signup'}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#22c55e] transition-colors"
+                      placeholder="e.g. Harini Donthireddy"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Email */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                  Email
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  Email Address <span className="text-[#22c55e]">*</span>
                 </label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  autoFocus
+                  autoFocus={authMode === 'signin'}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs focus:outline-none focus:border-[#22c55e] transition-colors"
                   placeholder="name@company.com"
                 />
@@ -465,8 +657,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
 
               {/* Password */}
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                  Password
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  Password <span className="text-[#22c55e]">*</span>
                 </label>
                 <input
                   type="password"
@@ -501,9 +693,115 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             </form>
 
             <div className="pt-2 border-t border-[#1b2738] flex items-center justify-between text-[11px] text-slate-400">
-              <span>Floor Guard AI Platform</span>
-              <span className="text-[#22c55e]">YOLOv8 Active</span>
+              <span>Secure Session Encryption</span>
+              <span className="text-[#22c55e]">YOLOv8 Powered</span>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Interactive Google OAuth Account Chooser Modal */}
+      {isGoogleModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+          <div className="relative w-full max-w-sm rounded-3xl p-6 bg-[#0e1624] border border-[#23354e] shadow-2xl space-y-5">
+            {/* Google Brand Header */}
+            <div className="text-center space-y-2">
+              <div className="w-12 h-12 rounded-2xl bg-[#152233] border border-[#233852] flex items-center justify-center mx-auto shadow-md">
+                <svg className="w-6 h-6" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                </svg>
+              </div>
+              <h3 className="text-base font-bold text-white tracking-tight">Sign in with Google</h3>
+              <p className="text-xs text-slate-400">Choose an account to continue to Floor Guard AI</p>
+            </div>
+
+            {/* Google Accounts List */}
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={() => handleSelectGoogleAccount('Harini Donthireddy', 'donthireddyharini@gmail.com')}
+                className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#1b3a2a] border border-[#22c55e]/50 flex items-center justify-center font-bold text-sm text-[#22c55e] shrink-0">
+                  HD
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white truncate">Harini Donthireddy</div>
+                  <div className="text-[11px] text-slate-400 truncate">donthireddyharini@gmail.com</div>
+                </div>
+                <span className="text-[10px] font-mono text-[#22c55e] bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 shrink-0">
+                  Select
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleSelectGoogleAccount('Floor Safety Admin', 'safety.admin@floorguard.ai')}
+                className="w-full p-3 rounded-2xl bg-[#121c2c] hover:bg-[#18263c] border border-[#203047] flex items-center gap-3 transition-all cursor-pointer text-left"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#122b3b] border border-[#38bdf8]/50 flex items-center justify-center font-bold text-sm text-[#38bdf8] shrink-0">
+                  FA
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white truncate">Floor Safety Admin</div>
+                  <div className="text-[11px] text-slate-400 truncate">safety.admin@floorguard.ai</div>
+                </div>
+                <span className="text-[10px] font-mono text-[#38bdf8] bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/30 shrink-0">
+                  Select
+                </span>
+              </button>
+
+              {/* Option to enter any custom Google account */}
+              {!showCustomGoogleInput ? (
+                <button
+                  type="button"
+                  onClick={() => setShowCustomGoogleInput(true)}
+                  className="w-full py-2.5 text-center text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  + Use another Google account
+                </button>
+              ) : (
+                <form onSubmit={handleCustomGoogleSubmit} className="pt-2 border-t border-[#1e2e44] space-y-2">
+                  <input
+                    type="text"
+                    value={customGoogleName}
+                    onChange={(e) => setCustomGoogleName(e.target.value)}
+                    placeholder="Your Google Account Name"
+                    required
+                    className="w-full px-3 py-2 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs"
+                  />
+                  <input
+                    type="email"
+                    value={customGoogleEmail}
+                    onChange={(e) => setCustomGoogleEmail(e.target.value)}
+                    placeholder="your.email@gmail.com"
+                    required
+                    className="w-full px-3 py-2 rounded-xl bg-[#101724] border border-[#1f2e44] text-white text-xs"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full py-2 rounded-xl bg-[#22c55e] text-black text-xs font-bold"
+                  >
+                    Authenticate Account
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Cancel Button */}
+            <button
+              type="button"
+              onClick={() => {
+                setIsGoogleModalOpen(false);
+                setShowCustomGoogleInput(false);
+              }}
+              className="w-full py-2 rounded-xl bg-[#141d2c] hover:bg-[#1a2638] text-slate-300 text-xs font-semibold border border-[#23334c] transition-colors cursor-pointer"
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}
