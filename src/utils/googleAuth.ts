@@ -10,8 +10,8 @@ export interface GoogleUserProfile {
   email_verified?: boolean;
 }
 
-// Default fallback client ID placeholder
-export const DEFAULT_GOOGLE_CLIENT_ID = '789123456789-floorguardai.apps.googleusercontent.com';
+// Production Google Cloud Console Client ID provided by user
+export const OFFICIAL_GOOGLE_CLIENT_ID = '1036683970798-2l4s35qal14te730n4ftarfsdj5ualc5.apps.googleusercontent.com';
 
 /**
  * Get active Google Cloud Console Client ID
@@ -27,7 +27,7 @@ export function getActiveGoogleClientId(): string {
     return envId.trim();
   }
 
-  return '';
+  return OFFICIAL_GOOGLE_CLIENT_ID;
 }
 
 /**
@@ -74,7 +74,6 @@ export function renderOfficialGoogleButton(
   onError?: (err: any) => void
 ): boolean {
   if (typeof window === 'undefined' || !(window as any).google?.accounts?.id) {
-    console.warn('Google Identity Services script (gsi/client) not yet loaded.');
     return false;
   }
 
@@ -95,17 +94,16 @@ export function renderOfficialGoogleButton(
       cancel_on_tap_outside: true,
     });
 
-    // Clear previous render if any
     container.innerHTML = '';
 
     (window as any).google.accounts.id.renderButton(container, {
       type: 'standard',
       theme: 'outline',
       size: 'large',
-      text: 'signin_with',
+      text: 'continue_with',
       shape: 'pill',
       logo_alignment: 'left',
-      width: '320',
+      width: '280',
     });
 
     return true;
@@ -141,7 +139,6 @@ export async function launchGoogleOAuthPopup(
 
         if (tokenResponse.access_token) {
           try {
-            // Fetch live verified profile from Google UserInfo endpoint
             const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
               headers: {
                 Authorization: `Bearer ${tokenResponse.access_token}`,
