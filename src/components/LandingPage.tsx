@@ -264,13 +264,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         setIsSubmitting(false);
         console.error('Google Cloud OAuth Notice:', err);
         if (err.message && err.message.includes('popup_closed')) {
-          setErrorMessage('Google Sign-In popup was closed. Please try again or use direct Google sign-in below.');
+          setErrorMessage('Google Sign-In popup was closed. Please try again or enter your account details.');
         } else {
-          // Graceful fallback to verified Google sign-in
-          setLoginMessage('Verifying Google Account...');
-          setTimeout(() => {
-            handleSelectGoogleAccount('Google Verified User', 'user.google@gmail.com');
-          }, 450);
+          setErrorMessage(err.message || 'Google authentication was not completed. Please try again or enter your account details.');
         }
       }
     );
