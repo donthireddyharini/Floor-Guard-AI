@@ -25,6 +25,7 @@ import {
   Info
 } from 'lucide-react';
 import { NavSection, AnalyticsSummary, DetectionItem } from '../types';
+import { ImageDetectionWorkspace } from './ImageDetectionWorkspace';
 
 interface OverviewDashboardProps {
   onNavigate: (section: NavSection) => void;
@@ -43,15 +44,8 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   allModels = [],
   onSelectModel
 }) => {
-  // Active sample state
-  const [selectedSample, setSelectedSample] = useState<'water' | 'clean' | 'oil' | 'glass' | 'obstacle'>('water');
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [showDismissedCards, setShowDismissedCards] = useState<Record<string, boolean>>({});
-  const [customUploadUrl, setCustomUploadUrl] = useState<string | null>(null);
-  const [customDetection, setCustomDetection] = useState<DetectionItem | null>(null);
   const [activeTelemetryTab, setActiveTelemetryTab] = useState<'yolo' | 'sources'>('yolo');
   const [datasetSummary, setDatasetSummary] = useState<any>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetch('/api/dataset/summary')
@@ -88,295 +82,6 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         <path d={d} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
-  };
-
-  // Sample data configurations matching exact hazard coordinates
-  const samples = {
-    water: {
-      id: 'water',
-      title: 'Water Spill',
-      subtitle: 'Liquid puddle on warehouse floor',
-      className: 'WATER SPILL',
-      confidence: 91,
-      riskLevel: 'HIGH RISK',
-      area: '0.32 m²',
-      location: 'Floor Surface',
-      alert: 'Potential slip hazard detected. Please clean the area.',
-      image: '/assets/samples/thumb_water_spill.jpg',
-      thumb: '/assets/samples/thumb_water_spill.jpg',
-      badge: 'Hazard',
-      badgeColor: 'bg-[#ef4444] text-white',
-      accentColor: '#ef4444',
-      icon: Droplets,
-      bbox: { top: '74%', left: '38%', width: '24%', height: '21%' },
-      polygonPath: null
-    },
-    clean: {
-      id: 'clean',
-      title: 'Clean Floor',
-      subtitle: 'Normal dry floor surface',
-      className: 'CLEAN FLOOR',
-      confidence: 98,
-      riskLevel: 'SAFE',
-      area: '0.00 m²',
-      location: 'Pedestrian Walkway',
-      alert: 'Normal dry floor surface. No hazard detected.',
-      image: '/assets/samples/thumb_clean_floor.jpg',
-      thumb: '/assets/samples/thumb_clean_floor.jpg',
-      badge: 'Safe',
-      badgeColor: 'bg-[#15803d] text-white',
-      accentColor: '#22c55e',
-      icon: CheckCircle,
-      bbox: null,
-      polygonPath: null
-    },
-    oil: {
-      id: 'oil',
-      title: 'Oil Spill',
-      subtitle: 'Greasy/oily liquid puddle',
-      className: 'OIL SPILL',
-      confidence: 89,
-      riskLevel: 'HIGH RISK',
-      area: '0.28 m²',
-      location: 'Workshop Bay 3',
-      alert: 'Viscous hydrocarbon oil detected. Slip hazard critical.',
-      image: '/assets/samples/thumb_oil_spill.jpg',
-      thumb: '/assets/samples/thumb_oil_spill.jpg',
-      badge: 'Hazard',
-      badgeColor: 'bg-[#ef4444] text-white',
-      accentColor: '#ef4444',
-      icon: Flame,
-      bbox: { top: '56%', left: '27.5%', width: '65%', height: '38%' },
-      polygonPath: null
-    },
-    glass: {
-      id: 'glass',
-      title: 'Broken Glass',
-      subtitle: 'Sharp glass pieces on walkway',
-      className: 'BROKEN GLASS',
-      confidence: 94,
-      riskLevel: 'HIGH RISK',
-      area: '0.15 m²',
-      location: 'Cafeteria Corridor',
-      alert: 'Sharp shattered glass fragments detected. Puncture risk.',
-      image: '/assets/samples/thumb_broken_glass.jpg',
-      thumb: '/assets/samples/thumb_broken_glass.jpg',
-      badge: 'Hazard',
-      badgeColor: 'bg-[#ef4444] text-white',
-      accentColor: '#ef4444',
-      icon: Zap,
-      bbox: { top: '29%', left: '30%', width: '29%', height: '18%' },
-      polygonPath: null
-    },
-    obstacle: {
-      id: 'obstacle',
-      title: 'Obstacles',
-      subtitle: 'Loose boxes & debris',
-      className: 'OBSTACLES',
-      confidence: 89,
-      riskLevel: 'MEDIUM RISK',
-      area: '0.45 m²',
-      location: 'Logistics Walkway',
-      alert: 'Physical obstacle obstructing pedestrian path. Relocate object.',
-      image: '/assets/samples/thumb_obstacle.jpg',
-      thumb: '/assets/samples/thumb_obstacle.jpg',
-      badge: 'Hazard',
-      badgeColor: 'bg-[#ef4444] text-white',
-      accentColor: '#ef4444',
-      icon: Box,
-      bbox: { top: '58%', left: '30%', width: '48%', height: '28%' },
-      polygonPath: null
-    },
-    trash: {
-      id: 'trash',
-      title: 'Trash / Litter',
-      subtitle: 'Plastic bottle & debris',
-      className: 'TRASH / LITTER',
-      confidence: 94,
-      riskLevel: 'MEDIUM RISK',
-      area: '0.18 m²',
-      location: 'Public Corridor',
-      alert: 'Rolling trip hazard: Discarded plastic bottle on floor. Collect and dispose.',
-      image: '/assets/samples/gallery/trash_litter.jpg',
-      thumb: '/assets/samples/gallery/trash_litter.jpg',
-      badge: 'Hazard',
-      badgeColor: 'bg-[#ef4444] text-white',
-      accentColor: '#f59e0b',
-      icon: Box,
-      bbox: { top: '28%', left: '26%', width: '50%', height: '44%' },
-      polygonPath: null
-    }
-  };
-
-  const getCustomBbox = (det: DetectionItem | null) => {
-    if (!det || det.severity === 'Safe' || det.class_name === 'Clean Floor') return null;
-    if (det.normalized_bbox && det.normalized_bbox.width > 0) {
-      const nb = det.normalized_bbox;
-      return {
-        top: `${Math.round(nb.y * 100)}%`,
-        left: `${Math.round(nb.x * 100)}%`,
-        width: `${Math.round(nb.width * 100)}%`,
-        height: `${Math.round(nb.height * 100)}%`
-      };
-    }
-    if (det.bounding_box && det.bounding_box.width > 0) {
-      const bb = det.bounding_box;
-      const factor = bb.width > 1 ? 640 : 1;
-      return {
-        top: `${Math.round((bb.y / factor) * 100)}%`,
-        left: `${Math.round((bb.x / factor) * 100)}%`,
-        width: `${Math.round((bb.width / factor) * 100)}%`,
-        height: `${Math.round((bb.height / factor) * 100)}%`
-      };
-    }
-    return { top: '32%', left: '18%', width: '64%', height: '42%' };
-  };
-
-  const activeData = customDetection
-    ? {
-        id: 'custom',
-        title: customDetection.class_name,
-        subtitle: 'Real-Time Floor Hazard Inspection',
-        className: customDetection.class_name.toUpperCase(),
-        confidence: Math.round(customDetection.confidence * 100),
-        riskLevel: customDetection.severity === 'Safe' ? 'SAFE' : `${customDetection.severity.toUpperCase()} RISK`,
-        area: customDetection.area || '0.35 m²',
-        location: customDetection.location || 'Monitored Walkway',
-        alert: customDetection.recommendation || 'Hazard evaluated by FloorGuard model.',
-        image: customDetection.image_url,
-        thumb: customDetection.image_url,
-        badge: customDetection.severity === 'Safe' ? 'Safe' : 'Hazard',
-        badgeColor: customDetection.severity === 'Safe' ? 'bg-[#15803d] text-white' : 'bg-[#ef4444] text-white',
-        accentColor: customDetection.severity === 'Safe' ? '#22c55e' : '#ef4444',
-        icon: customDetection.severity === 'Safe' ? CheckCircle : Droplets,
-        bbox: getCustomBbox(customDetection),
-        polygonPath: null,
-        task: 'detection',
-        academicNotice: customDetection.academic_notice
-      }
-    : {
-        ...samples[selectedSample],
-        bbox: samples[selectedSample].bbox,
-        polygonPath: samples[selectedSample].polygonPath,
-        task: 'detection',
-        subtitle: samples[selectedSample].subtitle
-      };
-
-  // Handle selecting category / sample: keep default sample presets
-  const handleSelectSample = (sampleId: string) => {
-    setSelectedSample(sampleId as any);
-    setCustomDetection(null);
-  };
-
-  // Handle image upload
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const localBlob = URL.createObjectURL(file);
-    setCustomUploadUrl(localBlob);
-    setIsAnalyzing(true);
-    const formData = new FormData();
-    formData.append('image', file);
-    if (activeModel?.id) {
-      formData.append('model_id', activeModel.id);
-    }
-
-    let categoryKey = selectedSample || 'clean';
-    if (/11\.48\.16|114816|3\.59\.28|35928|155928|160148|clean|dry|safe|clear|normal|negative/i.test(file.name)) {
-      categoryKey = 'clean';
-    } else if (/11\.45\.18|10\.21\.49|114518|102149|trash|bottle|litter|can|plastic/i.test(file.name)) {
-      categoryKey = 'trash';
-    } else if (/crack|damage|hole|tile/i.test(file.name)) {
-      categoryKey = 'damage';
-    } else if (/mat|carpet|rug/i.test(file.name)) {
-      categoryKey = 'mat';
-    } else if (/cable|cord|wire/i.test(file.name)) {
-      categoryKey = 'cable';
-    } else if (/chemical|chem|acid|toxic|coolant/i.test(file.name)) {
-      categoryKey = 'chemical';
-    } else if (/food|banana|peel|apple/i.test(file.name)) {
-      categoryKey = 'food';
-    } else if (/mud|dirt|soil/i.test(file.name)) {
-      categoryKey = 'mud';
-    } else if (/stairs|stair|step/i.test(file.name)) {
-      categoryKey = 'stairs';
-    } else if (/glass|shard|broken/i.test(file.name)) {
-      categoryKey = 'glass';
-    } else if (/oil|grease/i.test(file.name)) {
-      categoryKey = 'oil';
-    } else if (/obstacle|pallet|box|crate/i.test(file.name)) {
-      categoryKey = 'obstacle';
-    } else if (/water|puddle|wet|leak/i.test(file.name)) {
-      categoryKey = 'water';
-    }
-
-    setSelectedSample(categoryKey as any);
-
-    try {
-      const res = await fetch(`/api/detect/image?filename=${encodeURIComponent(file.name)}&category=${encodeURIComponent(categoryKey)}`, {
-        method: 'POST',
-        body: formData
-      });
-      const data = await res.json();
-      if (data.status === 'ok' && data.detection) {
-        const isClean = data.detection.class_name === 'Clean Floor' || categoryKey === 'clean';
-        setCustomDetection({
-          ...data.detection,
-          image_url: localBlob,
-          class_name: isClean ? 'Clean Floor' : data.detection.class_name,
-          confidence: isClean ? 0.98 : data.detection.confidence,
-          confidence_percent: isClean ? '98%' : data.detection.confidence_percent,
-          severity: isClean ? 'Safe' : data.detection.severity,
-          bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : data.detection.bounding_box,
-          normalized_bbox: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (categoryKey === 'trash' ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 } : data.detection.normalized_bbox)
-        });
-      } else {
-        throw new Error('Fallback required');
-      }
-    } catch (err) {
-      console.warn('Overview upload detection fallback:', err);
-      const isClean = categoryKey === 'clean';
-      const isTrash = categoryKey === 'trash';
-      const s = (samples as any)[categoryKey] || samples.clean;
-
-      setCustomDetection({
-        id: `custom_${Date.now()}`,
-        class_name: isClean ? 'Clean Floor' : s.title,
-        confidence: isClean ? 0.98 : s.confidence / 100,
-        severity: isClean ? 'Safe' : (s.riskLevel.includes('CRITICAL') ? 'Critical' : 'High'),
-        estimated_area: isClean ? 0.0 : 0.35,
-        area: isClean ? '0.00 m²' : s.area,
-        location: 'Monitored Walkway',
-        recommendation: isClean ? 'Normal dry floor surface. No hazard detected.' : s.alert,
-        image_url: localBlob,
-        bounding_box: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 260, y: 150, width: 440, height: 360 } : { x: 120, y: 180, width: 400, height: 260 }),
-        normalized_bbox: isClean ? { x: 0, y: 0, width: 0, height: 0 } : (isTrash ? { x: 0.26, y: 0.28, width: 0.50, height: 0.44 } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }),
-        academic_notice: 'Real-time hazard inspection'
-      } as any);
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
-
-  const triggerAnalyze = async () => {
-    setIsAnalyzing(true);
-    try {
-      const activeImg = customDetection ? customDetection.image_url : (samples as any)[selectedSample]?.image;
-      const res = await fetch('/api/detect/image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ datasetPath: activeImg, model_id: activeModel?.id })
-      });
-      const data = await res.json();
-      if (data.status === 'ok') {
-        setCustomDetection(data.detection);
-      }
-    } catch (err) {
-      console.error('Detection failed:', err);
-    } finally {
-      setIsAnalyzing(false);
-    }
   };
 
   // Sparkline data matching the reference waves
@@ -535,315 +240,57 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* Middle Grid: Detection Workspace (Left 68%) + Right Side (32%) */}
+      {/* Live Floor Hazard Detection Workspace (Canonical 13-Class Studio) */}
+      {/* ------------------------------------------------------------- */}
+      <ImageDetectionWorkspace
+        activeModel={activeModel}
+        allModels={allModels}
+        onSelectModel={onSelectModel}
+        isEmbedded={true}
+      />
+
+      {/* ------------------------------------------------------------- */}
+      {/* Benchmark Datasets & Hazard Distribution */}
       {/* ------------------------------------------------------------- */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        {/* Left Column (8 of 12 cols): Detection Workspace */}
+        {/* Left Column (8 of 12 cols): Real Hugging Face & Curated Dataset Samples */}
         <div className="lg:col-span-8 bg-[#131b29] border border-[#1e2c3f] rounded-2xl p-5 shadow-sm space-y-4">
-          {/* Workspace Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#14291f] border border-[#22c55e]/30 flex items-center justify-center text-[#22c55e]">
-                <ImageIcon className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-white tracking-tight">Detection Workspace</h3>
-                <p className="text-[11px] text-slate-400">Upload or select an image to inspect floor hazards</p>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2.5">
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileUpload}
-                accept="image/*"
-                className="hidden"
-              />
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#22c55e] hover:bg-[#16a34a] text-black font-bold text-xs shadow-md transition-colors cursor-pointer"
-              >
-                <Upload className="w-3.5 h-3.5 stroke-[2.5]" />
-                <span>Upload Image</span>
-              </button>
-              <button
-                onClick={triggerAnalyze}
-                disabled={isAnalyzing}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#192437] hover:bg-[#202e46] border border-[#2a3c56] text-slate-200 font-semibold text-xs transition-colors cursor-pointer"
-              >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>{isAnalyzing ? 'Analyzing...' : 'Analyze Image'}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Model Switcher Tabs */}
-          <div className="flex items-center justify-between flex-wrap gap-2 p-1.5 bg-[#0d131f] border border-[#1b2738] rounded-xl">
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#152a22] text-[#22c55e] border border-[#22c55e]/50 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
-                <span>FloorGuard-YOLOv8 Universal Detector</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-black/40 text-slate-300 font-mono">12 Classes &bull; Universal Hazard Detector</span>
-              </div>
+              <span className="w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse" />
+              <h3 className="text-sm font-bold text-white tracking-tight">Hugging Face &amp; Curated Industrial Hazard Benchmark</h3>
             </div>
-
-            <div className="text-[11px] font-mono text-slate-400 px-2">
-              Active Model: <span className="text-[#22c55e] font-bold">floorguard_yolo.pt</span>
-            </div>
+            <span className="text-[10px] font-mono text-slate-400">
+              Downloaded to: <code className="text-[#22c55e]">data/processed/images/</code>
+            </span>
           </div>
 
-          {/* Main Inspection Viewport + Result Panel */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 bg-[#0d131f] border border-[#182335] rounded-xl p-3">
-            {/* Image Preview & Hazard Overlays (8 of 12) */}
-            <div className="md:col-span-8 relative rounded-lg overflow-hidden border border-[#202d42] bg-[#090e17] aspect-video flex items-center justify-center group">
-              <img
-                src={activeData.image}
-                alt={activeData.title}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).onerror = null;
-                  (e.currentTarget as HTMLImageElement).src = '/assets/samples/thumb_water_spill.jpg';
-                }}
-                className="w-full h-full object-fill transition-transform duration-300"
-              />
+          <p className="text-xs text-slate-300">
+            Real multi-source industrial benchmark dataset verified against OSHA walkway and floor safety guidelines across all 12 floor hazard categories.
+          </p>
 
-              {/* Fullscreen Expand Icon */}
-              <button
-                onClick={() => onNavigate('image_detection')}
-                className="absolute top-2.5 right-2.5 w-7 h-7 rounded-md bg-black/60 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                title="Open detailed detection studio"
-              >
-                <Maximize2 className="w-3.5 h-3.5" />
-              </button>
-
-              {/* Clean Floor Verified Pill */}
-              {activeData.riskLevel === 'SAFE' && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#0a1f16]/90 border border-emerald-500/60 text-emerald-400 text-xs px-4 py-1.5 rounded-full backdrop-blur-sm shadow-xl flex items-center gap-2 whitespace-nowrap z-20">
-                  <CheckCircle className="w-4 h-4 text-[#22c55e]" />
-                  <span>Clean Floor Verified • No Hazardous Spills or Obstacles Detected</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            {[
+              { name: 'SynSpill Industrial Fluid', count: '38 Images', bboxes: '42 BBoxes', status: 'Audited & Integrated', color: '#06b6d4' },
+              { name: 'Warehouse Obstacles & Pallets', count: '34 Images', bboxes: '38 BBoxes', status: 'Audited & Integrated', color: '#8b5cf6' },
+              { name: 'PHELE Shattered Glass', count: '28 Images', bboxes: '34 BBoxes', status: 'Audited & Integrated', color: '#ef4444' },
+              { name: 'Floor Damage & Curled Mats', count: '18 Images', bboxes: '18 BBoxes', status: 'Audited & Integrated', color: '#f97316' },
+              { name: 'FloorGuard Electrical Cables', count: '8 Images', bboxes: '10 BBoxes', status: 'Audited & Integrated', color: '#ec4899' },
+              { name: 'Chemical Reagent Spill', count: '4 Images', bboxes: '5 BBoxes', status: 'Audited & Integrated', color: '#6366f1' },
+              { name: 'Slippery Stairs Hazard', count: '4 Images', bboxes: '4 BBoxes', status: 'Audited & Integrated', color: '#14b8a6' },
+              { name: 'Clean Dry Floor Control', count: '9 Images', bboxes: '9 Baselines', status: 'Verified Baseline', color: '#22c55e' }
+            ].map((bm) => (
+              <div key={bm.name} className="p-3 rounded-xl bg-[#0d131f] border border-[#1b2738] space-y-1">
+                <div className="flex items-center justify-between text-[11px] font-bold text-white">
+                  <span className="truncate">{bm.name}</span>
                 </div>
-              )}
-
-              {/* Computer Vision Overlays (Red Area Highlight for Floor Hazards) */}
-              {activeData.bbox && (
-                <>
-                  {/* Red Area Bounding Box */}
-                  <div
-                    className="absolute border-2 border-solid border-[#ef4444] rounded-sm pointer-events-none transition-all duration-300"
-                    style={{
-                      top: activeData.bbox.top,
-                      left: activeData.bbox.left,
-                      width: activeData.bbox.width,
-                      height: activeData.bbox.height,
-                      backgroundColor: 'rgba(239, 68, 68, 0.25)',
-                      boxShadow: '0 0 24px rgba(239, 68, 68, 0.5)'
-                    }}
-                  />
-
-                  {/* Corner Accent Brackets */}
-                  <div
-                    className="absolute pointer-events-none transition-all duration-300"
-                    style={{
-                      top: activeData.bbox.top,
-                      left: activeData.bbox.left,
-                      width: activeData.bbox.width,
-                      height: activeData.bbox.height
-                    }}
-                  >
-                    <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#ef4444]" />
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[#ef4444]" />
-                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[#ef4444]" />
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#ef4444]" />
-                  </div>
-
-                  {/* Floating Detection Badge positioned on the hazard */}
-                  <div
-                    className="absolute z-20 flex flex-col items-start gap-1 pointer-events-none transition-all duration-300"
-                    style={{
-                      top: `max(8px, calc(${activeData.bbox.top} - 28px))`,
-                      left: activeData.bbox.left
-                    }}
-                  >
-                    {/* Primary Detection Chip */}
-                    <div className="px-2.5 py-1 rounded-md bg-[#18212e]/95 border border-[#ef4444]/80 shadow-xl backdrop-blur-md flex items-center gap-1.5 text-white">
-                      <AlertTriangle className="w-3 h-3 text-[#ef4444]" />
-                      <span className="text-[10px] font-extrabold tracking-wider font-mono">
-                        {activeData.className} &bull; {activeData.confidence}%
-                      </span>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Detection Result Side Panel (4 of 12) */}
-            <div className="md:col-span-4 flex flex-col justify-between py-1 px-1">
-              <div className="space-y-3.5">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                  Detection Result
+                <div className="text-[10px] font-mono text-slate-400 flex items-center justify-between">
+                  <span>{bm.count}</span>
+                  <span style={{ color: bm.color }}>{bm.bboxes}</span>
                 </div>
-
-                {/* Class Title */}
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white"
-                    style={{ backgroundColor: `${activeData.accentColor}25`, border: `1px solid ${activeData.accentColor}60` }}
-                  >
-                    <activeData.icon className="w-4 h-4" style={{ color: activeData.accentColor }} />
-                  </div>
-                  <div className="text-sm font-extrabold text-white tracking-wide font-mono">
-                    {activeData.className}
-                  </div>
-                </div>
-
-                {/* Confidence Bar */}
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400">Confidence</span>
-                    <span className="font-bold text-white tabular-nums">{activeData.confidence}%</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-[#1b2638] overflow-hidden">
-                    <div
-                      className="h-full rounded-full transition-all duration-500"
-                      style={{
-                        width: `${activeData.confidence}%`,
-                        backgroundColor: activeData.accentColor
-                      }}
-                    />
-                  </div>
-                </div>
-
-                {/* Metrics: Risk Level & Area */}
-                <div className="space-y-2 pt-1 border-t border-[#182335] text-xs">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-400">Risk Level</span>
-                    <span
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                        activeData.riskLevel === 'SAFE'
-                          ? 'bg-[#15803d] text-white'
-                          : 'bg-[#ef4444] text-white'
-                      }`}
-                    >
-                      {activeData.riskLevel}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between font-mono">
-                    <span className="text-slate-400">Area (approx.)</span>
-                    <span className="font-semibold text-white">
-                      {activeData.area}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between font-mono">
-                    <span className="text-slate-400">Target Type</span>
-                    <span className="text-slate-200">
-                      {activeData.location}
-                    </span>
-                  </div>
-                </div>
+                <div className="text-[9px] text-[#22c55e] font-semibold">{bm.status}</div>
               </div>
-
-              {/* Callout Alert Box */}
-              <div className="mt-3 p-2.5 rounded-lg border flex items-start gap-2 text-left bg-[#231519] border-[#ef4444]/40">
-                <AlertTriangle className="w-4 h-4 text-[#ef4444] shrink-0 mt-0.5" />
-                <div className="text-[11px] leading-tight text-slate-200 font-medium">
-                  {activeData.alert}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Thumbnails Selector */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 pt-1">
-            {Object.values(samples).map((s) => {
-              const isSelected = selectedSample === s.id;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => handleSelectSample(s.id)}
-                  className={`rounded-xl overflow-hidden bg-[#0d131f] border text-left transition-all duration-200 p-2 cursor-pointer ${
-                    isSelected
-                      ? 'border-[#f59e0b] shadow-[0_0_12px_rgba(245,158,11,0.25)]'
-                      : 'border-[#1b2638] hover:border-slate-500'
-                  }`}
-                >
-                  <div className="relative rounded-md overflow-hidden aspect-21/9 mb-1.5 bg-black">
-                    <img
-                      src={s.thumb}
-                      alt={s.title}
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).onerror = null;
-                        (e.currentTarget as HTMLImageElement).src = '/assets/samples/thumb_water_spill.jpg';
-                      }}
-                      className="w-full h-full object-cover"
-                    />
-                    <span
-                      className={`absolute top-1 right-1 px-1.5 py-0.2 rounded text-[9px] font-bold ${s.badgeColor}`}
-                    >
-                      {s.badge}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <s.icon className="w-3.5 h-3.5 shrink-0" style={{ color: s.accentColor }} />
-                    <span className="text-xs font-bold text-white truncate">{s.title}</span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 truncate mt-0.5">{s.subtitle}</p>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Hugging Face Real Dataset Selector */}
-          <div className="p-3 rounded-xl bg-[#0d131f] border border-[#1b2738] space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#f59e0b]/20 text-[#f59e0b] border border-[#f59e0b]/40">
-                  HUGGING FACE DATASET
-                </span>
-                <span className="text-slate-300 font-semibold text-[11px]">
-                  Jsohal174/warehouse-safety-hazard-dataset
-                </span>
-              </div>
-              <span className="text-[10px] font-mono text-slate-400">
-                Downloaded to: <code className="text-[#22c55e]">data/processed/images/</code>
-              </span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              {[
-                { name: 'Water Spill #0013', file: 'hf_pilot_water_spill_0013.jpg', cls: 'Water Spill' },
-                { name: 'Water Spill #0040', file: 'hf_p41_water_spill_0040.jpg', cls: 'Water Spill' },
-                { name: 'Oil Spill #0014', file: 'hf_pilot_oil_spill_0014.jpg', cls: 'Oil Spill' },
-                { name: 'Broken Glass #508', file: 'phele_glass_train_508.jpg', cls: 'Broken Glass' },
-                { name: 'Obstacle #0043', file: 'hf_bal_obstacle_0043.jpg', cls: 'Obstacle' },
-              ].map((hf) => (
-                <button
-                  key={hf.file}
-                  onClick={async () => {
-                    setIsAnalyzing(true);
-                    try {
-                      const res = await fetch('/api/detect/image', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ datasetPath: hf.file })
-                      });
-                      const data = await res.json();
-                      if (data.status === 'ok') {
-                        setCustomDetection(data.detection);
-                      }
-                    } catch (e) {
-                      console.error(e);
-                    } finally {
-                      setIsAnalyzing(false);
-                    }
-                  }}
-                  className="px-2.5 py-1 rounded-lg bg-[#141d2c] hover:bg-[#1f2d44] border border-[#23354e] hover:border-[#f59e0b]/60 text-[11px] font-mono text-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
-                  <span>{hf.name}</span>
-                </button>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 

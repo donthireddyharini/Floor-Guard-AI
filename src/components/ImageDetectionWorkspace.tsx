@@ -33,12 +33,14 @@ interface ImageDetectionWorkspaceProps {
   activeModel?: any;
   allModels?: any[];
   onSelectModel?: (modelId: string) => void;
+  isEmbedded?: boolean;
 }
 
 export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = ({
   activeModel,
   allModels = [],
-  onSelectModel
+  onSelectModel,
+  isEmbedded = false
 }) => {
   const [selectedPreset, setSelectedPreset] = useState<string>('water');
   const [confidenceThreshold, setConfidenceThreshold] = useState(0.30);
@@ -863,7 +865,7 @@ const inspectImagePixels = async (imgUrl: string): Promise<{ isMontage: boolean;
   const isCleanFloor = current.className === 'Clean Floor' || current.total_detections === 0;
 
   return (
-    <div className="p-6 space-y-6 max-w-[1720px] mx-auto">
+    <div className={isEmbedded ? "space-y-6" : "p-6 space-y-6 max-w-[1720px] mx-auto"}>
       {/* Active Model Status */}
       <div className="flex items-center justify-between flex-wrap gap-2 px-4 py-2.5 bg-[#131b29] border border-[#1e2c3f] rounded-2xl">
         <div className="flex items-center gap-2">
