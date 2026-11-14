@@ -354,7 +354,7 @@ export default function handler(req: any, res: any) {
   }
 
     // 8. Detect Image (Serverless 13-Class Canonical with Bounding Boxes)
-  if (pathname === '/detect/image') {
+  if (pathname === '/detect/image' || pathname === '/detect') {
     const qFile = queryParams.get('filename') || queryParams.get('file') || queryParams.get('original_filename') || '';
     const qCategory = (queryParams.get('category') || queryParams.get('preset') || req.body?.category || req.body?.preset || '').toLowerCase();
     const rawInput = (
