@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   Image as ImageIcon,
+  Download,
+  ShieldAlert,
   AlertTriangle,
   ShieldCheck,
   Target,
