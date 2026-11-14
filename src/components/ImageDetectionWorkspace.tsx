@@ -36,28 +36,7 @@ interface ImageDetectionWorkspaceProps {
   isEmbedded?: boolean;
 }
 
-export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = ({
-  activeModel,
-  allModels = [],
-  onSelectModel,
-  isEmbedded = false
-}) => {
-  const [selectedPreset, setSelectedPreset] = useState<string>('water');
-  const [confidenceThreshold, setConfidenceThreshold] = useState(0.30);
-  const isClassification = activeModel?.task === 'classification';
-  const [showBbox, setShowBbox] = useState(true);
-  const [showMask, setShowMask] = useState(true);
-  const [showJson, setShowJson] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [customResult, setCustomResult] = useState<any | null>(null);
-  const [uploadError, setUploadError] = useState<string | null>(null);
-  const [activeMode, setActiveMode] = useState<'preset' | 'custom'>('preset');
-  const [highlightedBoxIdx, setHighlightedBoxIdx] = useState<number | null>(null);
-  const [previewModalEvidence, setPreviewModalEvidence] = useState<any | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const presets: Record<string, any> = {
+export const CANONICAL_13_PRESETS: Record<string, any> = {
     water: {
       key: 'water',
       title: 'Water Spill in Monitored Walkway',
@@ -266,79 +245,9 @@ export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = (
       polygon: '',
       isDemo: false
     }
-  };
+  };;
 
-  const isRealUpload = activeMode === 'custom' && customResult !== null;
-
-  const current = isRealUpload
-    ? {
-        title: customResult.filename,
-        className: customResult.class_name,
-        confidence: customResult.confidence,
-        confidence_percent: customResult.confidence_percent || `${Math.round(customResult.confidence * 100)}%`,
-        severity: customResult.severity,
-        area: customResult.area || '0.35 m²',
-        location: customResult.location || 'Monitored Walkway',
-        recommendation: customResult.recommendation || '',
-        image: customResult.image_url,
-        bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
-          ? { x: 0, y: 0, width: 0, height: 0 }
-          : (customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 }),
-        normalized_bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
-          ? { x: 0, y: 0, width: 0, height: 0 }
-          : ((customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
-            ? customResult.normalized_bbox
-            : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }),
-        polygon: '',
-        detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
-          ? []
-          : ((customResult.detections && customResult.detections.length > 0)
-            ? customResult.detections.map((d: any) => ({
-                ...d,
-                confidence_percent: d.confidence_percent || `${Math.round((d.confidence || 0.9) * 100)}%`,
-                normalized_bbox: d.normalized_bbox || (d.bounding_box && d.bounding_box.width > 0 ? {
-                  x: d.bounding_box.x > 1 ? d.bounding_box.x / 640 : d.bounding_box.x,
-                  y: d.bounding_box.y > 1 ? d.bounding_box.y / 640 : d.bounding_box.y,
-                  width: d.bounding_box.width > 1 ? d.bounding_box.width / 640 : d.bounding_box.width,
-                  height: d.bounding_box.height > 1 ? d.bounding_box.height / 640 : d.bounding_box.height,
-                } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 })
-              }))
-            : [{
-                class_name: customResult.class_name,
-                confidence: customResult.confidence || 0.92,
-                confidence_percent: customResult.confidence_percent || `${Math.round((customResult.confidence || 0.92) * 100)}%`,
-                severity: customResult.severity || 'High',
-                bounding_box: customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 },
-                normalized_bbox: (customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
-                  ? customResult.normalized_bbox
-                  : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
-                recommendation: customResult.recommendation
-              }]),
-        total_detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe') ? 0 : (customResult.total_detections || (customResult.detections?.length || 1)),
-        model_version: customResult.model_version || 'FloorGuard-YOLOv8 Canonical Hazard Detector',
-        academic_notice: customResult.academic_notice || '',
-        isDemo: false
-      }
-    : {
-        ...presets[selectedPreset],
-        confidence_percent: `${Math.round(presets[selectedPreset].confidence * 100)}%`,
-        detections: presets[selectedPreset].bbox.width > 0 ? [{
-          class_name: presets[selectedPreset].className,
-          confidence: presets[selectedPreset].confidence,
-          confidence_percent: `${Math.round(presets[selectedPreset].confidence * 100)}%`,
-          severity: presets[selectedPreset].severity,
-          bounding_box: presets[selectedPreset].bbox,
-          normalized_bbox: presets[selectedPreset].normalized_bbox,
-          recommendation: presets[selectedPreset].recommendation
-        }] : [],
-        total_detections: presets[selectedPreset].bbox.width > 0 ? 1 : 0,
-        model_version: 'FloorGuard-YOLOv8 Canonical Hazard Detector',
-        academic_notice: 'Reference demonstration preset. Upload an image above to run genuine pixel-level AI inference.',
-        isDemo: true
-      };
-
-
-const MONTAGE_12_PRESETS = [
+export const MONTAGE_12_PRESETS = [
   { class_name: 'Broken Glass', confidence: 0.94, confidence_percent: '94%', severity: 'Critical', bounding_box: { x: 810, y: 90, width: 310, height: 190 }, normalized_bbox: { x: 0.52, y: 0.08, width: 0.20, height: 0.20 }, recommendation: 'Laceration Hazard: Shattered glass fragments. Cordon off walkway; sweep shards.' },
   { class_name: 'Chemical Spill', confidence: 0.93, confidence_percent: '93%', severity: 'Critical', bounding_box: { x: 1190, y: 720, width: 320, height: 190 }, normalized_bbox: { x: 0.76, y: 0.72, width: 0.20, height: 0.20 }, recommendation: 'Toxic Chemical Hazard: Coolant/reagent pool. Neutralize and absorb.' },
   { class_name: 'Oil Spill', confidence: 0.92, confidence_percent: '92%', severity: 'Critical', bounding_box: { x: 55, y: 440, width: 330, height: 180 }, normalized_bbox: { x: 0.04, y: 0.44, width: 0.20, height: 0.18 }, recommendation: 'Severe Slip Hazard: Viscous hydrocarbon fluid. Deploy absorbent.' },
@@ -354,7 +263,7 @@ const MONTAGE_12_PRESETS = [
 ];
 
 // Visual inspector to detect if an image is the 12-hazard montage based on pixel content & geometry
-const isMultiHazardMontageImage = (img: HTMLImageElement): boolean => {
+export const isMultiHazardMontageImage = (img: HTMLImageElement): boolean => {
   try {
     const w = img.naturalWidth || img.width;
     const h = img.naturalHeight || img.height;
@@ -438,7 +347,7 @@ const isMultiHazardMontageImage = (img: HTMLImageElement): boolean => {
 };
 
 // Fast client-side pixel analyzer to classify hazards for arbitrary/unnamed camera uploads
-const inspectImagePixels = async (imgUrl: string): Promise<{ isMontage: boolean; category: string }> => {
+export const inspectImagePixels = async (imgUrl: string): Promise<{ isMontage: boolean; category: string }> => {
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
@@ -501,6 +410,100 @@ const inspectImagePixels = async (imgUrl: string): Promise<{ isMontage: boolean;
     img.src = imgUrl;
   });
 };
+
+export const ImageDetectionWorkspace: React.FC<ImageDetectionWorkspaceProps> = ({
+  activeModel,
+  allModels = [],
+  onSelectModel,
+  isEmbedded = false
+}) => {
+  const [selectedPreset, setSelectedPreset] = useState<string>('water');
+  const [confidenceThreshold, setConfidenceThreshold] = useState(0.30);
+  const isClassification = activeModel?.task === 'classification';
+  const [showBbox, setShowBbox] = useState(true);
+  const [showMask, setShowMask] = useState(true);
+  const [showJson, setShowJson] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [customResult, setCustomResult] = useState<any | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [activeMode, setActiveMode] = useState<'preset' | 'custom'>('preset');
+  const [highlightedBoxIdx, setHighlightedBoxIdx] = useState<number | null>(null);
+  const [previewModalEvidence, setPreviewModalEvidence] = useState<any | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const presets = CANONICAL_13_PRESETS;
+
+  const isRealUpload = activeMode === 'custom' && customResult !== null;
+
+  const current = isRealUpload
+    ? {
+        title: customResult.filename,
+        className: customResult.class_name,
+        confidence: customResult.confidence,
+        confidence_percent: customResult.confidence_percent || `${Math.round(customResult.confidence * 100)}%`,
+        severity: customResult.severity,
+        area: customResult.area || '0.35 m²',
+        location: customResult.location || 'Monitored Walkway',
+        recommendation: customResult.recommendation || '',
+        image: customResult.image_url,
+        bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : (customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 }),
+        normalized_bbox: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? { x: 0, y: 0, width: 0, height: 0 }
+          : ((customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
+            ? customResult.normalized_bbox
+            : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 }),
+        polygon: '',
+        detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe')
+          ? []
+          : ((customResult.detections && customResult.detections.length > 0)
+            ? customResult.detections.map((d: any) => ({
+                ...d,
+                confidence_percent: d.confidence_percent || `${Math.round((d.confidence || 0.9) * 100)}%`,
+                normalized_bbox: d.normalized_bbox || (d.bounding_box && d.bounding_box.width > 0 ? {
+                  x: d.bounding_box.x > 1 ? d.bounding_box.x / 640 : d.bounding_box.x,
+                  y: d.bounding_box.y > 1 ? d.bounding_box.y / 640 : d.bounding_box.y,
+                  width: d.bounding_box.width > 1 ? d.bounding_box.width / 640 : d.bounding_box.width,
+                  height: d.bounding_box.height > 1 ? d.bounding_box.height / 640 : d.bounding_box.height,
+                } : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 })
+              }))
+            : [{
+                class_name: customResult.class_name,
+                confidence: customResult.confidence || 0.92,
+                confidence_percent: customResult.confidence_percent || `${Math.round((customResult.confidence || 0.92) * 100)}%`,
+                severity: customResult.severity || 'High',
+                bounding_box: customResult.bounding_box || { x: 120, y: 180, width: 400, height: 260 },
+                normalized_bbox: (customResult.normalized_bbox && customResult.normalized_bbox.width > 0)
+                  ? customResult.normalized_bbox
+                  : { x: 0.18, y: 0.32, width: 0.64, height: 0.42 },
+                recommendation: customResult.recommendation
+              }]),
+        total_detections: (customResult.class_name === 'Clean Floor' || customResult.severity === 'Safe') ? 0 : (customResult.total_detections || (customResult.detections?.length || 1)),
+        model_version: customResult.model_version || 'FloorGuard-YOLOv8 Canonical Hazard Detector',
+        academic_notice: customResult.academic_notice || '',
+        isDemo: false
+      }
+    : {
+        ...presets[selectedPreset],
+        confidence_percent: `${Math.round(presets[selectedPreset].confidence * 100)}%`,
+        detections: presets[selectedPreset].bbox.width > 0 ? [{
+          class_name: presets[selectedPreset].className,
+          confidence: presets[selectedPreset].confidence,
+          confidence_percent: `${Math.round(presets[selectedPreset].confidence * 100)}%`,
+          severity: presets[selectedPreset].severity,
+          bounding_box: presets[selectedPreset].bbox,
+          normalized_bbox: presets[selectedPreset].normalized_bbox,
+          recommendation: presets[selectedPreset].recommendation
+        }] : [],
+        total_detections: presets[selectedPreset].bbox.width > 0 ? 1 : 0,
+        model_version: 'FloorGuard-YOLOv8 Canonical Hazard Detector',
+        academic_notice: 'Reference demonstration preset. Upload an image above to run genuine pixel-level AI inference.',
+        isDemo: true
+      };
+
+
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
