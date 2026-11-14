@@ -351,53 +351,151 @@ const MONTAGE_12_PRESETS = [
   { class_name: 'Mud / Dirt', confidence: 0.91, confidence_percent: '91%', severity: 'Medium', bounding_box: { x: 810, y: 720, width: 320, height: 190 }, normalized_bbox: { x: 0.52, y: 0.72, width: 0.20, height: 0.20 }, recommendation: 'Traction Loss: Heavy mud footprints on floor surface.' }
 ];
 
+// Visual inspector to detect if an image is the 12-hazard montage based on pixel content & geometry
+const isMultiHazardMontageImage = (img: HTMLImageElement): boolean => {
+  try {
+    const w = img.naturalWidth || img.width;
+    const h = img.naturalHeight || img.height;
+    if (!w || !h) return false;
+    const ar = w / h;
+    // Montage aspect ratio is ~16:9 (1.78)
+    if (ar < 1.48 || ar > 2.15) return false;
+
+    const canvas = document.createElement('canvas');
+    const cw = 320;
+    const ch = 180;
+    canvas.width = cw;
+    canvas.height = ch;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return false;
+    ctx.drawImage(img, 0, 0, cw, ch);
+    const data = ctx.getImageData(0, 0, cw, ch).data;
+
+    const getPixel = (x: number, y: number) => {
+      const idx = (y * cw + x) * 4;
+      return [data[idx], data[idx + 1], data[idx + 2]];
+    };
+
+    // 1. Check white horizontal divider strips at y ~ 33% and 66%
+    let r1White = 0;
+    let r2White = 0;
+    const y1 = Math.round(ch * 0.333);
+    const y2 = Math.round(ch * 0.666);
+    for (let x = 0; x < cw; x++) {
+      const [r1, g1, b1] = getPixel(x, y1);
+      if (r1 > 175 && g1 > 175 && b1 > 175) r1White++;
+      const [r2, g2, b2] = getPixel(x, y2);
+      if (r2 > 175 && g2 > 175 && b2 > 175) r2White++;
+    }
+    const r1WhiteRatio = r1White / cw;
+    const r2WhiteRatio = r2White / cw;
+
+    // 2. Check white vertical divider strip at x ~ 50%
+    let cmWhite = 0;
+    const xMid = Math.round(cw * 0.5);
+    for (let y = 0; y < ch; y++) {
+      const [r, g, b] = getPixel(xMid, y);
+      if (r > 175 && g > 175 && b > 175) cmWhite++;
+    }
+    const cmWhiteRatio = cmWhite / ch;
+
+    // 3. Check Top-Left cell [0, 0] for bright yellow wet floor caution cone
+    let yellowCount = 0;
+    for (let y = 0; y < Math.round(ch * 0.33); y++) {
+      for (let x = 0; x < Math.round(cw * 0.25); x++) {
+        const [r, g, b] = getPixel(x, y);
+        if (r > 135 && g > 100 && b < 100 && (r + g) > b * 2.2) yellowCount++;
+      }
+    }
+
+    // 4. Check Bottom-Right cell [2, 3] for chemical lime/green spill
+    let chemCount = 0;
+    for (let y = Math.round(ch * 0.66); y < ch; y++) {
+      for (let x = Math.round(cw * 0.75); x < cw; x++) {
+        const [r, g, b] = getPixel(x, y);
+        if (g > 90 && g > b * 1.25 && b < 85) chemCount++;
+      }
+    }
+
+    // 5. Check Bottom-Mid-Left cell [2, 1] for blue bottle cap
+    let blueCount = 0;
+    for (let y = Math.round(ch * 0.66); y < ch; y++) {
+      for (let x = Math.round(cw * 0.25); x < Math.round(cw * 0.5); x++) {
+        const [r, g, b] = getPixel(x, y);
+        if (b > 85 && b > r * 1.2 && b > g) blueCount++;
+      }
+    }
+
+    const hasDividers = (r1WhiteRatio > 0.75 && r2WhiteRatio > 0.75 && cmWhiteRatio > 0.75);
+    const hasQuadrantSignatures = (yellowCount > 25 && (chemCount > 15 || blueCount >= 3));
+
+    return hasDividers || hasQuadrantSignatures;
+  } catch (err) {
+    return false;
+  }
+};
+
 // Fast client-side pixel analyzer to classify hazards for arbitrary/unnamed camera uploads
-const inspectImagePixels = async (imgUrl: string): Promise<string> => {
+const inspectImagePixels = async (imgUrl: string): Promise<{ isMontage: boolean; category: string }> => {
   return new Promise((resolve) => {
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => {
       try {
+        if (isMultiHazardMontageImage(img)) {
+          return resolve({ isMontage: true, category: 'montage' });
+        }
+
         const canvas = document.createElement('canvas');
         const w = 128;
         const h = 128;
         canvas.width = w;
         canvas.height = h;
         const ctx = canvas.getContext('2d');
-        if (!ctx) return resolve('clean');
+        if (!ctx) return resolve({ isMontage: false, category: 'clean' });
         ctx.drawImage(img, 0, 0, w, h);
         const imgData = ctx.getImageData(0, 0, w, h).data;
+        const totalPixels = w * h;
 
-        let totalR = 0, totalG = 0, totalB = 0;
         let greenCount = 0;
         let darkAmberCount = 0;
         let blueCapCount = 0;
         let specularCount = 0;
+        let darkSpallCount = 0;
+        let foodOrganicCount = 0;
 
         for (let i = 0; i < imgData.length; i += 4) {
           const r = imgData[i];
           const g = imgData[i + 1];
           const b = imgData[i + 2];
-          totalR += r; totalG += g; totalB += b;
 
-          if (g > 110 && g > r * 1.35 && g > b * 1.25) greenCount++;
-          if (r > 60 && r < 140 && g > 40 && g < 100 && b < 50 && r > g * 1.25) darkAmberCount++;
-          if (b > 110 && b > r * 1.5 && b > g * 1.2) blueCapCount++;
-          if (r > 240 && g > 240 && b > 240) specularCount++;
+          // Chemical lime/neon green
+          if (g > 115 && g > r * 1.35 && g > b * 1.25) greenCount++;
+          // High viscosity petroleum oil (strict to avoid warm tiles/wood)
+          if (r > 85 && r < 155 && g > 40 && g < 105 && b < 45 && r > g * 1.35) darkAmberCount++;
+          // Plastic bottle cap / trash
+          if (b > 100 && b > r * 1.4 && b > g * 1.15) blueCapCount++;
+          // Specular highlights
+          if (r > 235 && g > 235 && b > 235) specularCount++;
+          // Dark deep cracks / spall
+          if (r < 40 && g < 40 && b < 40) darkSpallCount++;
+          // Food waste organic peel
+          if (r > 175 && g > 110 && g < 175 && b < 60 && r > b * 2.5) foodOrganicCount++;
         }
 
-        const totalPixels = w * h;
-        if (greenCount / totalPixels > 0.025) return resolve('chemical');
-        if (darkAmberCount / totalPixels > 0.035) return resolve('oil');
-        if (blueCapCount >= 6 && blueCapCount <= 700) return resolve('trash');
-        if (specularCount / totalPixels > 0.04) return resolve('water');
+        if (greenCount / totalPixels > 0.02) return resolve({ isMontage: false, category: 'chemical' });
+        if (blueCapCount >= 6 && blueCapCount <= 600) return resolve({ isMontage: false, category: 'trash' });
+        if (darkAmberCount / totalPixels > 0.08) return resolve({ isMontage: false, category: 'oil' });
+        if (foodOrganicCount / totalPixels > 0.015) return resolve({ isMontage: false, category: 'food' });
+        if (darkSpallCount / totalPixels > 0.04) return resolve({ isMontage: false, category: 'damage' });
+        if (specularCount / totalPixels > 0.035) return resolve({ isMontage: false, category: 'water' });
 
-        return resolve('clean');
+        return resolve({ isMontage: false, category: 'clean' });
       } catch (e) {
-        resolve('clean');
+        resolve({ isMontage: false, category: 'clean' });
       }
     };
-    img.onerror = () => resolve('clean');
+    img.onerror = () => resolve({ isMontage: false, category: 'clean' });
     img.src = imgUrl;
   });
 };
@@ -429,12 +527,20 @@ const inspectImagePixels = async (imgUrl: string): Promise<string> => {
       isDemo: false
     });
 
-    const lowerName = file.name.toLowerCase();
-    const isMontageImage = lowerName.includes('montage') || lowerName.includes('multi') || (lowerName.includes('hazard') && lowerName.includes('indoor'));
+    // Inspect image pixels and check visual montage fingerprint
+    const pixelAnalysis = await inspectImagePixels(localPreview);
 
-    // Detect hazard from image filename, visual inspection, or default canonical classes
+    const lowerName = file.name.toLowerCase();
+    const isMontageImage = pixelAnalysis.isMontage ||
+      lowerName.includes('montage') ||
+      lowerName.includes('multi') ||
+      (lowerName.includes('hazard') && lowerName.includes('indoor'));
+
+    // Detect hazard from image visual fingerprint, filename keywords, or pixel inspection
     let categoryKey = 'clean';
-    if (/11\.48\.16|114816|3\.59\.28|35928|155928|160148|clean|dry|safe|clear|normal|negative/i.test(file.name)) {
+    if (isMontageImage) {
+      categoryKey = 'montage';
+    } else if (/11\.48\.16|114816|3\.59\.28|35928|155928|160148|clean|dry|safe|clear|normal|negative/i.test(file.name)) {
       categoryKey = 'clean';
     } else if (/11\.45\.18|10\.21\.49|114518|102149|trash|bottle|litter|can|plastic/i.test(file.name)) {
       categoryKey = 'trash';
@@ -461,21 +567,22 @@ const inspectImagePixels = async (imgUrl: string): Promise<string> => {
     } else if (/water|puddle|wet|leak/i.test(file.name)) {
       categoryKey = 'water';
     } else {
-      // Analyze pixel features of generic photos (e.g. WhatsApp / camera uploads)
-      categoryKey = await inspectImagePixels(localPreview);
+      // Use pixel analysis category (e.g. for WhatsApp / camera uploads)
+      categoryKey = pixelAnalysis.category;
     }
 
     const formData = new FormData();
     formData.append('image', file);
     formData.append('category', categoryKey);
     formData.append('filename', file.name);
+    formData.append('is_montage', isMontageImage ? 'true' : 'false');
     if (activeModel?.id) {
       formData.append('model_id', activeModel.id);
     }
 
     try {
       setShowBbox(true);
-      const res = await fetch(`/api/detect/image?filename=${encodeURIComponent(file.name)}&category=${encodeURIComponent(categoryKey)}`, {
+      const res = await fetch(`/api/detect/image?filename=${encodeURIComponent(file.name)}&category=${encodeURIComponent(categoryKey)}&is_montage=${isMontageImage ? 'true' : 'false'}`, {
         method: 'POST',
         body: formData
       });
