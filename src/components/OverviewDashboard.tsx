@@ -44,6 +44,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   allModels = [],
   onSelectModel
 }) => {
+  const [showDismissedCards, setShowDismissedCards] = useState<Record<string, boolean>>({});
   const [activeTelemetryTab, setActiveTelemetryTab] = useState<'yolo' | 'sources'>('yolo');
   const [datasetSummary, setDatasetSummary] = useState<any>(null);
 
